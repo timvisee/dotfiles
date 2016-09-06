@@ -1,9 +1,7 @@
-:: Clear the console
 @ECHO OFF
 SETLOCAL
-CLS
 
-:: Set the console title
+:: Header
 TITLE Dotfiles compiler
 @ECHO Dotfiles compiler
 @ECHO.
@@ -19,7 +17,7 @@ CALL :CompileFile .\vim\.vimrc .ideavimrc
 @ECHO Done
 EXIT
 
-:: Compile the given file and move it to it's proper directory
+:: Compile the given file and copy it to it's proper directory
 :: %1: Source file to compile.
 :: %2: Destination file relative to user profile.
 :CompileFile
