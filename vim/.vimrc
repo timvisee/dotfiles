@@ -5,6 +5,11 @@ set nocompatible
 " We've a fast terminal
 set ttyfast
 
+" Detect file types and specific indents/settings
+filetype on
+filetype indent on
+filetype plugin on
+
 
 
 """ Appearance
