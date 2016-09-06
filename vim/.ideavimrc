@@ -1,7 +1,29 @@
-" Line numbers
-:set relativenumber
-:set number
+""" Appearance
+" Relative line numbers
+set relativenumber
+set number
 
-" Shortcut aliases
-:map <c-j> <c-y>
-:map <c-k> <c-e>
+" No text wrapping
+set nowrap
+
+
+
+""" Editing
+" Shift with 4 columns (rounded to nearest multiple)
+set shiftwidth=4
+set shiftround
+
+
+
+""" Code style
+" Tab formatting with 4 spaces
+set autoindent
+set tabstop=4
+set expandtabs
+
+
+
+""" Other utilities
+" Case insensitive searching and search highlighting
+set incsearch
+set ignorecase
