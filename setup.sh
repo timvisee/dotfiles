@@ -18,9 +18,9 @@ setup_home_file() {
 
 # Setup dotfiles
 echo "Setting up all dotfiles..."
-setup_home_file .\git\.gitconfig.local .gitconfig.local
-setup_home_file .\vim\.vimrc .vimrc
-setup_home_file .\vim\.vimrc .ideavimrc
+setup_home_file ./git/.gitconfig.local .gitconfig.local
+setup_home_file ./vim/.vimrc .vimrc
+setup_home_file ./vim/.vimrc .ideavimrc
 
 # Setup binaries
 /bin/cp -T ./bin/nyan ~/bin/nyan
