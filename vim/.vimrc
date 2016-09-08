@@ -65,7 +65,7 @@ set smarttab
 " Tab formatting with 4 spaces
 set autoindent
 set tabstop=4
-set expandtabs
+set expandtab
 
 " Shift 4 columns (rounded to nearest multiple)
 set shiftwidth=4
