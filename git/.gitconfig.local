@@ -1,3 +1,6 @@
 [user]
   name = timvisee
   email = timvisee@gmail.com
+
+[core]
+editor = vim
