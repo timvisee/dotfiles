@@ -81,3 +81,6 @@ set smartcase
 " Highlight while searching, not after
 set nohlsearch
 set incsearch
+
+" Find recursively in directories
+set path+=**
