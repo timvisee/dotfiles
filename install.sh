@@ -14,7 +14,7 @@ echo
 install_home_file() {
     # Copy
     echo "Installing $2...";
-    sudo cp -T $1 ~/$2
+    cp -T $1 ~/$2
 
     # Return
     return 0
@@ -25,6 +25,7 @@ echo "Installing all dotfiles..."
 install_home_file ./git/.gitconfig.local .gitconfig.local
 install_home_file ./vim/.vimrc .vimrc
 install_home_file ./vim/.vimrc .ideavimrc
+install_home_file ./fish/config.fish .config/fish/config.fish
 
 # Done
 echo
