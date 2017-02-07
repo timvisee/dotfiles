@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Elevate permissions
+[ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
+
 # Header
 echo "Dotfiles installer"
 echo "by Tim Visee, timvisee.com"
