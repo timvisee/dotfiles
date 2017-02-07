@@ -22,13 +22,7 @@ setup_home_file ./git/.gitconfig.local .gitconfig.local
 setup_home_file ./vim/.vimrc .vimrc
 setup_home_file ./vim/.vimrc .ideavimrc
 
-# Setup binaries
-/bin/cp -T ./bin/nyan ~/bin/nyan
-chmod +rwx ~/bin/nyan
-
 # Done
 echo
 echo "Done"
-echo
-~/bin/nyan
 exit
