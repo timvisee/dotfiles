@@ -2,8 +2,8 @@
 SETLOCAL
 
 :: Header
-TITLE Dotfiles setup
-@ECHO Dotfiles setup
+TITLE dotfiles installation
+@ECHO dotfiles installation
 @ECHO.
 
 :: Setup dotfiles

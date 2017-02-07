@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Header
-echo "Dotfiles setup"
+echo "dotfiles installation"
 echo
 
 # Set up the given file
