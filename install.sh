@@ -28,6 +28,7 @@ install_home_file ./vim/.vimrc .ideavimrc
 install_home_file ./fish/config.fish .config/fish/config.fish
 install_home_file ./bash/.bashrc .bashrc
 install_home_file ./bash/.bash_profile .bash_profile
+install_home_file ./bash/.bash_aliases .bash_aliases
 
 # Done
 echo
