@@ -84,3 +84,6 @@ set incsearch
 
 " Find recursively in directories
 set path+=**
+
+" Show a bigger 'wildmenu' for things like tab completion
+set wildmenu
