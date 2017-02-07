@@ -2,15 +2,16 @@
 SETLOCAL
 
 :: Header
-TITLE dotfiles installation
-@ECHO dotfiles installation
+TITLE Dotfiles installer
+@ECHO Dotfiles installer
+@ECHO by Tim Visee, timvisee.com
 @ECHO.
 
 :: Setup dotfiles
-@ECHO Setting up all dotfiles...
-CALL :SetupHomeFile .\git\.gitconfig.local .gitconfig.local
-CALL :SetupHomeFile .\vim\.vimrc .vimrc
-CALL :SetupHomeFile .\vim\.vimrc .ideavimrc
+@ECHO Installing all dotfiles...
+CALL :InstallHomeFile .\git\.gitconfig.local .gitconfig.local
+CALL :InstallHomeFile .\vim\.vimrc .vimrc
+CALL :InstallHomeFile .\vim\.vimrc .ideavimrc
 
 :: Done
 @ECHO.
@@ -20,7 +21,7 @@ EXIT
 :: Set up the given file
 :: %1: Source file to set up.
 :: %2: Destination file relative to user profile.
-:SetupHomeFile
-@ECHO Setting up %2
+:InstallHomeFile
+@ECHO Installing %2...
 COPY /V /Y %1 "%USERPROFILE%\%2" > NUL
 GOTO:EOF

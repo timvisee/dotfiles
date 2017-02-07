@@ -2,6 +2,7 @@
 
 # Header
 echo "Dotfiles installer"
+echo "by Tim Visee, timvisee.com"
 echo
 
 # Install the given file
@@ -9,7 +10,7 @@ echo
 # $2: Destination file relative to home directory.
 install_home_file() {
     # Copy
-    echo "Installing $2";
+    echo "Installing $2...";
     sudo cp -T $1 ~/$2
 
     # Return
@@ -24,5 +25,5 @@ install_home_file ./vim/.vimrc .ideavimrc
 
 # Done
 echo
-echo "Done."
+echo "Done"
 exit
