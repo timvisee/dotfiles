@@ -20,7 +20,7 @@ install_home_file() {
     return 0
 }
 
-# Setup dotfiles
+# Install dotfiles
 echo "Installing all dotfiles..."
 install_home_file ./git/.gitconfig.local .gitconfig.local
 install_home_file ./vim/.vimrc .vimrc

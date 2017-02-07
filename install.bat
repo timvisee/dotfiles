@@ -7,7 +7,7 @@ TITLE Dotfiles installer
 @ECHO by Tim Visee, timvisee.com
 @ECHO.
 
-:: Setup dotfiles
+:: Install dotfiles
 @ECHO Installing all dotfiles...
 CALL :InstallHomeFile .\git\.gitconfig.local .gitconfig.local
 CALL :InstallHomeFile .\vim\.vimrc .vimrc
