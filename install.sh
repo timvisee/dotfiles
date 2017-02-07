@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Elevate permissions
 [ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
 
