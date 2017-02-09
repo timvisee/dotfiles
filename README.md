@@ -8,8 +8,8 @@ On Linux, use:
 ```
 git clone https://github.com/timvisee/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-sudo chmod a+x ./install.sh
-./install.sh
+sudo chmod a+x ./install
+./install
 ```
 
 On Windows, the `install.bat` script may be used.
