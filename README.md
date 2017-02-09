@@ -7,7 +7,7 @@ An installation script is included to easily install the dotfiles on your system
 On Linux, use:
 ```
 git clone https://github.com/timvisee/dotfiles.git ~/dotfiles
-ch ~/dotfiles
+cd ~/dotfiles
 sudo chmod a+x ./install.sh
 ./install.sh
 ```
