@@ -33,6 +33,9 @@ set ruler
 set cul
 "hi CursorLine term=none cterm=none ctermbg=3 " Highlight color
 
+" Color the 81th column because we shouldn't write lines longer than it
+set colorcolumn=81
+
 " Highlight matching brackets
 set showmatch
 
