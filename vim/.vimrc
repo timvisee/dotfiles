@@ -33,8 +33,10 @@ set ruler
 set cul
 "hi CursorLine term=none cterm=none ctermbg=3 " Highlight color
 
-" Color the 81th column because we shouldn't write lines longer than it
-set colorcolumn=81
+" Color rows that have lines longer than 81 columns, lines shouldn't be that
+" long
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\v%81v', 100)
 
 " Highlight matching brackets
 set showmatch
@@ -90,3 +92,4 @@ set path+=**
 
 " Show a bigger 'wildmenu' for things like tab completion
 set wildmenu
+
