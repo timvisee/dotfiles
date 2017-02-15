@@ -4,10 +4,17 @@
 [ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
 
 # Header
-echo
-echo "Dotfiles installer"
-echo "by Tim Visee, timvisee.com"
-echo
+log_normal ""
+log_normal "Dotfiles installer"
+log_normal "by Tim Visee, timvisee.com"
+log_normal ""
+
+# Log a normal message.
+# $1: Message.
+log_normal() {
+  # Print a message in orange
+  printf "\e[0;33m    $1\e[0m"
+}
 
 # Log a success message.
 # $1: Message.
@@ -78,6 +85,16 @@ unlink_file() {
 	return 0
 }
 
+log_question "Would you like to install or uninstall dotfiles?"
+
+
+
+
+
+
+
+
+
 # Install the given file.
 # $1: Source file to install.
 # $2: Destination file relative to home directory.
@@ -100,6 +117,7 @@ install_home_file ./fish/prompt.fish .config/fish/prompt.fish
 install_home_file ./bash/.bashrc .bashrc
 install_home_file ./bash/.bash_profile .bash_profile
 install_home_file ./bash/.bash_aliases .bash_aliases
+install_home_file ./tmux/.tmux.conf .tmux.conf
 
 # Done
 echo
