@@ -3,6 +3,9 @@
 # Elevate permissions
 [ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
 
+# Get the current directory
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 # Action: install, uninstall
 ACTION=""
 CUSTOM="yes"
@@ -114,6 +117,9 @@ log_normal ""
 log_normal "Dotfiles installer"
 log_normal "by Tim Visee, timvisee.com"
 log_normal ""
+
+# Log the dotfiles directory
+log_info "dotfiles directory: $DIR"
 
 # Ask whether to install or uninstall
 log_question "Would you like to install or uninstall dotfiles?"
@@ -255,9 +261,9 @@ log_normal "Installing dotfiles..."
 # Install bash
 if [ $DO_BASH == "yes" ]; then
     log_normal "Installing bash dotfiles..."
-    do_file ./bash/.bashrc ~/.bashrc
-    do_file ./bash/.bash_profile ~/.bash_profile
-    do_file ./bash/.bash_aliases ~/.bash_aliases
+    do_file "$DIR/bash/.bashrc" "~/.bashrc"
+    do_file "$DIR/bash/.bash_profile" "~/.bash_profile"
+    do_file "$DIR/bash/.bash_aliases" "~/.bash_aliases"
     log_success "Installed bash dotfiles."
     echo
 fi
@@ -265,8 +271,8 @@ fi
 # Install fish
 if [ $DO_FISH == "yes" ]; then
     log_normal "Installing fish dotfiles..."
-    do_file ./fish/config.fish ~/.config/fish/config.fish
-    do_file ./fish/prompt.fish ~/.config/fish/prompt.fish
+    do_file "$DIR/fish/config.fish" "~/.config/fish/config.fish"
+    do_file "$DIR/fish/prompt.fish" "~/.config/fish/prompt.fish"
     log_success "Installed fish dotfiles."
     echo
 fi
@@ -274,7 +280,7 @@ fi
 # Install tmux
 if [ $DO_TMUX == "yes" ]; then
     log_normal "Installing tmux dotfiles..."
-    do_file ./tmux/.tmux.conf ~/.tmux.conf
+    do_file "$DIR/tmux/.tmux.conf" "~/.tmux.conf"
     log_success "Installed tmux dotfiles."
     echo
 fi
@@ -282,8 +288,8 @@ fi
 # Install vim
 if [ $DO_VIM == "yes" ]; then
     log_normal "Installing vim dotfiles..."
-    do_file ./vim/.vimrc ~/.vimrc
-    do_file ./vim/.vimrc ~/.ideavimrc
+    do_file "$DIR/vim/.vimrc" "~/.vimrc"
+    do_file "$DIR/vim/.vimrc" "~/.ideavimrc"
     log_success "Installed vim dotfiles."
     echo
 fi
@@ -291,7 +297,7 @@ fi
 # Install git
 if [ $DO_GIT == "yes" ]; then
     log_normal "Installing git dotfiles..."
-    do_file ./git/.gitconfig.local ~/.gitconfig.local
+    do_file "$DIR/git/.gitconfig.local" "~/.gitconfig.local"
     log_success "Installed git dotfiles."
     echo
 fi
