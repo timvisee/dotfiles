@@ -88,6 +88,11 @@ symlink_file() {
 # Unlink a previously symlinked dotfile.
 # $1: File to unlink.
 unlink_file() {
+    # Make sure the given file path is a link
+    if [[ ! -L "$1" ]]; then
+        return 0
+    fi
+
     # Unlink the current file
     log_info "Unlinking '$1'..."
     unlink $1
