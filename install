@@ -3,17 +3,19 @@
 # Elevate permissions
 [ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
 
-# Header
-log_normal ""
-log_normal "Dotfiles installer"
-log_normal "by Tim Visee, timvisee.com"
-log_normal ""
+ACTION=""
+CUSTOM="yes"
+DO_BASH="yes"
+DO_FISH="yes"
+DO_TMUX="yes"
+DO_VIM="yes"
+DO_GIT="yes"
 
 # Log a normal message.
 # $1: Message.
 log_normal() {
   # Print a message in orange
-  printf "\e[0;33m    $1\e[0m"
+  printf "\e[0;33m    $1\e[0m\n"
 }
 
 # Log a success message.
@@ -34,14 +36,14 @@ log_error() {
 # $1: Message.
 log_question() {
   # Print a message in orange with a question mark
-  printf "\e[0;33m[?] $1\e[0m"
+  printf "\e[0;33m[?] $1\e[0m\n"
 }
 
 # Log an info message.
 # $1: Message
 log_info() {
   # Print an indented message in purple
-  printf "\n\e[0;35m    $1\e[0m\n\n"
+  printf "\e[0;35m    $1\e[0m\n"
 }
 
 # Log a result message.
@@ -61,11 +63,11 @@ log_result() {
 # $2: Target dotfile.
 symlink_file() {
 	if [[ -e "$2" ]]; then
-		echo "Backing up $2 to $2.old..."
+		log_info "Backing up $2 to $2.old..."
 		mv "$2" "$2.old"
 	fi
 
-	echo "Linking '$1'..."
+	log_info "Linking '$1'..."
 	ln -s $1 $2
 
 	return 0
@@ -74,52 +76,218 @@ symlink_file() {
 # Unlink a previously symlinked dotfile.
 # $1: File to unlink.
 unlink_file() {
-	echo "Unlinking '$1'..."
+	log_info "Unlinking '$1'..."
 	rm $1
 
 	if [[ -e "$1.old" ]]; then
-        echo "Restoring $1.old to $1..."
+        log_info "Restoring $1.old to $1..."
         mv "$1.old" "$1"
 	fi
 
 	return 0
 }
 
-log_question "Would you like to install or uninstall dotfiles?"
-
-
-
-
-
-
-
-
-
-# Install the given file.
-# $1: Source file to install.
-# $2: Destination file relative to home directory.
-install_home_file() {
-    # Copy
-    echo "Installing $2...";
-    cp -T $1 ~/$2
-
-    # Return
-    return 0
+# Symlink or unlink the dotfile depending on the selected action.
+# $1: File in repository.
+# $2: Target dotfile.
+do_file() {
+    if [ $ACTION == "install" ]; then
+        symlink_file $1 $2
+    else
+        unlink_file $2
+    fi
 }
 
-# Install dotfiles
-echo "Installing all dotfiles..."
-install_home_file ./git/.gitconfig.local .gitconfig.local
-install_home_file ./vim/.vimrc .vimrc
-install_home_file ./vim/.vimrc .ideavimrc
-install_home_file ./fish/config.fish .config/fish/config.fish
-install_home_file ./fish/prompt.fish .config/fish/prompt.fish
-install_home_file ./bash/.bashrc .bashrc
-install_home_file ./bash/.bash_profile .bash_profile
-install_home_file ./bash/.bash_aliases .bash_aliases
-install_home_file ./tmux/.tmux.conf .tmux.conf
+# Header
+log_normal ""
+log_normal "Dotfiles installer"
+log_normal "by Tim Visee, timvisee.com"
+log_normal ""
+
+# Ask whether to install or uninstall
+log_question "Would you like to install or uninstall dotfiles?"
+PS3="Choose your action: "
+select ENTRY in "Install everything" "Install custom" "Uninstall everything" "Uninstall custom" "Quit"
+do
+    case $ENTRY in
+        "Install everything")
+            ACTION=install
+            CUSTOM=no
+            break
+            ;;
+        "Install custom")
+            ACTION=install
+            CUSTOM=yes
+            break
+            ;;
+        "Uninstall everything")
+            ACTION=uninstall
+            CUSTOM=no
+            break
+            ;;
+        "Uninstall custom")
+            ACTION=uninstall
+            CUSTOM=yes
+            break
+            ;;
+        "Quit")
+            log_success "Quitted by user."
+            exit
+            ;;
+    esac
+done
+echo
+
+# Ask the user what things to install and not
+if [ $CUSTOM == "yes" ]; then
+    # Ask whether to install bash files
+    log_question "Would you like to $ACTION bash dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_BASH=yes
+                break
+                ;;
+            No)
+                DO_BASH=no
+                break
+                ;;
+        esac
+        break
+    done
+    echo
+
+    # Ask whether to install fish files
+    log_question "Would you like to $ACTION fish dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_FISH=yes
+                break
+                ;;
+            No)
+                DO_FISH=no
+                break
+                ;;
+        esac
+        break
+    done
+    echo
+
+    # Ask whether to install tmux files
+    log_question "Would you like to $ACTION tmux dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_TMUX=yes
+                break
+                ;;
+            No)
+                DO_TMUX=no
+                break
+                ;;
+        esac
+        break
+    done
+    echo
+
+    # Ask whether to install Vim files
+    log_question "Would you like to $ACTION Vim dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_VIM=yes
+                break
+                ;;
+            No)
+                DO_VIM=no
+                break
+                ;;
+        esac
+        break
+    done
+    echo
+
+    # Ask whether to install Git files
+    log_question "Would you like to $ACTION Git dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_GIT=yes
+                break
+                ;;
+            No)
+                DO_GIT=no
+                break
+                ;;
+        esac
+        break
+    done
+    echo
+
+    log_success "Configuration complete."
+    echo
+fi
+
+log_normal "Installing dotfiles..."
+
+# Install bash
+if [ $DO_BASH == "yes" ]; then
+    log_normal "Installing bash dotfiles..."
+    do_file ./bash/.bashrc ~/.bashrc
+    do_file ./bash/.bash_profile ~/.bash_profile
+    do_file ./bash/.bash_aliases ~/.bash_aliases
+    log_success "Installed bash dotfiles."
+    echo
+fi
+
+# Install fish
+if [ $DO_FISH == "yes" ]; then
+    log_normal "Installing fish dotfiles..."
+    do_file ./fish/config.fish ~/.config/fish/config.fish
+    do_file ./fish/prompt.fish ~/.config/fish/prompt.fish
+    log_success "Installed fish dotfiles."
+    echo
+fi
+
+# Install tmux
+if [ $DO_TMUX == "yes" ]; then
+    log_normal "Installing tmux dotfiles..."
+    do_file ./tmux/.tmux.conf ~/.tmux.conf
+    log_success "Installed tmux dotfiles."
+    echo
+fi
+
+# Install vim
+if [ $DO_VIM == "yes" ]; then
+    log_normal "Installing vim dotfiles..."
+    do_file ./vim/.vimrc ~/.vimrc
+    do_file ./vim/.vimrc ~/.ideavimrc
+    log_success "Installed vim dotfiles."
+    echo
+fi
+
+# Install git
+if [ $DO_GIT == "yes" ]; then
+    log_normal "Installing git dotfiles..."
+    do_file ./git/.gitconfig.local ~/.gitconfig.local
+    do_file ./vim/.vimrc ~/.ideavimrc
+    log_success "Installed git dotfiles."
+    echo
+fi
 
 # Done
 echo
-echo "Done"
+log_success "Action succesful: $ACTION!"
 exit
+
