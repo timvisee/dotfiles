@@ -3,6 +3,7 @@
 # Elevate permissions
 [ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
 
+# Action: install, uninstall
 ACTION=""
 CUSTOM="yes"
 DO_BASH="yes"
@@ -62,29 +63,39 @@ log_result() {
 # $1: File in repository.
 # $2: Target dotfile.
 symlink_file() {
-	if [[ -e "$2" ]]; then
-		log_info "Backing up $2 to $2.old..."
-		mv "$2" "$2.old"
-	fi
+    # Unlink current links
+    if [[ -L "$2" ]]; then
+        log_info "Unlinking current dotfile..."
+        unlink "$2"
+    fi
 
-	log_info "Linking '$1'..."
-	ln -s $1 $2
+    # Backup original files
+    if [[ -e "$2" ]]; then
+        log_info "Backing up $2 to $2.old..."
+        mv "$2" "$2.old"
+    fi
 
-	return 0
+    # Link the file    
+    log_info "Linking '$1'..."
+    ln -s $1 $2
+    
+    return 0
 }
 
 # Unlink a previously symlinked dotfile.
 # $1: File to unlink.
 unlink_file() {
-	log_info "Unlinking '$1'..."
-	rm $1
-
-	if [[ -e "$1.old" ]]; then
+    # Unlink the current file
+    log_info "Unlinking '$1'..."
+    unlink $1
+    
+    # Revert the backup if it exists
+    if [[ -e "$1.old" ]]; then
         log_info "Restoring $1.old to $1..."
         mv "$1.old" "$1"
-	fi
-
-	return 0
+    fi
+    
+    return 0
 }
 
 # Symlink or unlink the dotfile depending on the selected action.
@@ -281,7 +292,6 @@ fi
 if [ $DO_GIT == "yes" ]; then
     log_normal "Installing git dotfiles..."
     do_file ./git/.gitconfig.local ~/.gitconfig.local
-    do_file ./vim/.vimrc ~/.ideavimrc
     log_success "Installed git dotfiles."
     echo
 fi
