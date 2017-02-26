@@ -121,7 +121,7 @@ do_file() {
 # $1: File to source
 source_file() {
     if [[ -e "$1" ]]; then
-        log_normal "Sourcing '$1'..."
+        log_info "Sourcing '$1'..."
         source "$1"
     fi
 }
