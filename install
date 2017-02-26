@@ -271,7 +271,8 @@ if [ $CUSTOM == "yes" ]; then
     echo
 fi
 
-log_normal "Updating dotfiles..."
+log_normal "Starting dotfiles update..."
+echo
 
 # Install bash
 if [ $DO_BASH == "yes" ]; then
@@ -335,7 +336,6 @@ fi
 #fi
 
 # Done
-echo
 log_success "Successfully completed!"
 exit
 
