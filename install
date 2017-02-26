@@ -326,13 +326,13 @@ if [ $DO_BASH == "yes" ]; then
     echo
 fi
 
-# Source fish
-# TODO Only source if the fish shell is used
-if [ $DO_FISH == "yes" ]; then
-    source_file ~/.config/fish/config.fish
-    log_success "Sourced new fish configurations."
-    echo
-fi
+## Source fish
+## TODO Only source if the fish shell is used
+#if [ $DO_FISH == "yes" ]; then
+#    source_file ~/.config/fish/config.fish
+#    log_success "Sourced new fish configurations."
+#    echo
+#fi
 
 # Done
 echo
