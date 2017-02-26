@@ -271,49 +271,49 @@ if [ $CUSTOM == "yes" ]; then
     echo
 fi
 
-log_normal "Installing dotfiles..."
+log_normal "Updating dotfiles..."
 
 # Install bash
 if [ $DO_BASH == "yes" ]; then
-    log_normal "Installing bash dotfiles..."
+    log_normal "Updating bash dotfiles..."
     do_file "$DIR/bash/.bashrc" ~/.bashrc
     do_file "$DIR/bash/.bash_profile" ~/.bash_profile
     do_file "$DIR/bash/.bash_aliases" ~/.bash_aliases
-    log_success "Installed bash dotfiles."
+    log_success "Updated bash dotfiles."
     echo
 fi
 
 # Install fish
 if [ $DO_FISH == "yes" ]; then
-    log_normal "Installing fish dotfiles..."
+    log_normal "Updating fish dotfiles..."
     do_file "$DIR/fish/config.fish" ~/.config/fish/config.fish
     do_file "$DIR/fish/prompt.fish" ~/.config/fish/prompt.fish
-    log_success "Installed fish dotfiles."
+    log_success "Updated fish dotfiles."
     echo
 fi
 
 # Install tmux
 if [ $DO_TMUX == "yes" ]; then
-    log_normal "Installing tmux dotfiles..."
+    log_normal "Updating tmux dotfiles..."
     do_file "$DIR/tmux/.tmux.conf" ~/.tmux.conf
-    log_success "Installed tmux dotfiles."
+    log_success "Updated tmux dotfiles."
     echo
 fi
 
 # Install vim
 if [ $DO_VIM == "yes" ]; then
-    log_normal "Installing vim dotfiles..."
+    log_normal "Updating vim dotfiles..."
     do_file "$DIR/vim/.vimrc" ~/.vimrc
     do_file "$DIR/vim/.vimrc" ~/.ideavimrc
-    log_success "Installed vim dotfiles."
+    log_success "Updated vim dotfiles."
     echo
 fi
 
 # Install git
 if [ $DO_GIT == "yes" ]; then
-    log_normal "Installing git dotfiles..."
+    log_normal "Updating git dotfiles..."
     do_file "$DIR/git/.gitconfig.local" ~/.gitconfig.local
-    log_success "Installed git dotfiles."
+    log_success "Updated git dotfiles."
     echo
 fi
 
@@ -336,6 +336,6 @@ fi
 
 # Done
 echo
-log_success "Action succesful: $ACTION!"
+log_success "Successfully completed!"
 exit
 
