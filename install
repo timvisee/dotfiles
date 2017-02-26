@@ -308,6 +308,20 @@ if [ $DO_GIT == "yes" ]; then
     echo
 fi
 
+# Source bash
+if [ $DO_BASH == "yes" ]; then
+    if [[ -e "~/.bashrc" ]]; then
+        log_normal "Sourcing '~/.bashrc'..."
+        source ~/.bashrc
+    fi
+    if [[ -e "~/.bash_profile" ]]; then
+        log_normal "Sourcing '~/.bash_profile'..."
+        source ~/.bash_profile
+    fi
+    log_success "Sourced new bash configurations."
+    echo
+fi
+
 # Done
 echo
 log_success "Action succesful: $ACTION!"
