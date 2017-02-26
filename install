@@ -14,6 +14,7 @@ DO_FISH="yes"
 DO_TMUX="yes"
 DO_VIM="yes"
 DO_GIT="yes"
+DO_CSGO="yes"
 
 # Log a normal message.
 # $1: Message.
@@ -267,6 +268,25 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install CS:GO files
+    log_question "Would you like to $ACTION CS:GO (game) dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_CSGO=yes
+                break
+                ;;
+            No)
+                DO_CSGO=no
+                break
+                ;;
+        esac
+        break
+    done
+    echo
+
     log_success "Configuration complete."
     echo
 fi
@@ -315,6 +335,18 @@ if [ $DO_GIT == "yes" ]; then
     log_normal "Updating git dotfiles..."
     do_file "$DIR/git/.gitconfig.local" ~/.gitconfig.local
     log_success "Updated git dotfiles."
+    echo
+fi
+
+# Install CS:GO
+if [ $DO_CSGO == "yes" ]; then
+    if [[ -d ~/.local/share/Steam/steamapps/common/Counter-Strike\ Global\ Offensive ]]; then
+        log_normal "Updating CS:GO dotfiles..."
+        do_file "$DIR/csgo/autoexec.cfg" ~/.local/share/Steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg
+        log_success "Updated CS:GO dotfiles."
+    else
+        log_normal "CS:GO not installed, skipping it's dotfiles."
+    fi
     echo
 fi
 
