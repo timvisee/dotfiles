@@ -117,6 +117,15 @@ do_file() {
     fi
 }
 
+# Source the given file if it exists
+# $1: File to source
+source_file() {
+    if [[ -e "$1" ]]; then
+        log_normal "Sourcing '$1'..."
+        source "$1"
+    fi
+}
+
 # Header
 echo
 log_normal "Dotfiles installer"
@@ -309,16 +318,19 @@ if [ $DO_GIT == "yes" ]; then
 fi
 
 # Source bash
+# TODO Only source if the bash shell is used
 if [ $DO_BASH == "yes" ]; then
-    if [[ -e "~/.bashrc" ]]; then
-        log_normal "Sourcing '~/.bashrc'..."
-        source ~/.bashrc
-    fi
-    if [[ -e "~/.bash_profile" ]]; then
-        log_normal "Sourcing '~/.bash_profile'..."
-        source ~/.bash_profile
-    fi
+    source_file ~/.bashrc
+    source_file ~/.bash_profile
     log_success "Sourced new bash configurations."
+    echo
+fi
+
+# Source fish
+# TODO Only source if the fish shell is used
+if [ $DO_FISH == "yes" ]; then
+    source_file ~/.config/fish/config.fish
+    log_success "Sourced new fish configurations."
     echo
 fi
 
