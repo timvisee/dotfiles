@@ -87,6 +87,9 @@ set smartcase
 set nohlsearch
 set incsearch
 
+" Store lots of history
+set history=1000
+
 " Find recursively in directories
 set path+=**
 
