@@ -33,6 +33,9 @@ set ruler
 set cul
 "hi CursorLine term=none cterm=none ctermbg=3 " Highlight color
 
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
+
 " Color rows that have lines longer than 81 columns, lines shouldn't be that
 " long
 highlight ColorColumn ctermbg=magenta
