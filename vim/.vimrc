@@ -47,9 +47,10 @@ set showmatch
 " No text wrapping
 set nowrap
 
-" Show 5 rows/columns around the cursor when scrolling
-set scrolloff=5
-set sidescrolloff=5
+" Show 8 rows, 16 columns around the cursor when scrolling, scroll by 1 column
+set scrolloff=8
+set sidescrolloff=16
+set sidescroll=1
 
 " Show commans being typed
 set showcmd
