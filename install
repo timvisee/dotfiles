@@ -316,7 +316,7 @@ fi
 # Install tmux
 if [ $DO_TMUX == "yes" ]; then
     log_normal "Updating tmux dotfiles..."
-    do_file "$DIR/tmux/.tmux.conf" $HOME/tmux.conf
+    do_file "$DIR/tmux/.tmux.conf" $HOME/.tmux.conf
     log_success "Updated tmux dotfiles."
     echo
 fi
