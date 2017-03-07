@@ -326,8 +326,8 @@ fi
 if [ $DO_TMUX == "yes" ]; then
     log_normal "Updating tmux dotfiles..."
     do_file "$DIR/tmux/.tmux.conf" $HOME/.tmux.conf
-    do_file "$DIR/tmux/tmux/lt_2.1.conf" $HOME/.tmux/lt_2.1.conf
-    do_file "$DIR/tmux/tmux/gt_2.0.conf" $HOME/.tmux/gt_2.0.conf
+    do_file "$DIR/tmux/tmux/tmux_lt_2.1.conf" $HOME/.tmux/tmux_lt_2.1.conf
+    do_file "$DIR/tmux/tmux/tmux_gt_2.0.conf" $HOME/.tmux/tmux_gt_2.0.conf
     log_success "Updated tmux dotfiles."
     echo
 fi
