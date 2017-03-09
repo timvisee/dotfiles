@@ -335,8 +335,8 @@ fi
 # Install vim
 if [ $DO_VIM == "yes" ]; then
     log_normal "Updating vim dotfiles..."
-    do_file "$DIR/vim/.vimrc" $HOME/vimrc
-    do_file "$DIR/vim/.vimrc" $HOME/ideavimrc
+    do_file "$DIR/vim/.vimrc" $HOME/.vimrc
+    do_file "$DIR/vim/.vimrc" $HOME/.ideavimrc
     log_success "Updated vim dotfiles."
     echo
 fi
