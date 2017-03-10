@@ -79,6 +79,15 @@ symlink_file() {
         mv "$2" "$2.old"
     fi
 
+    # Get the directory the link is created in
+    LINK_DIR=$(dirname "$2")
+
+    # Make sure the directory the link is created in exists
+    if [ ! -d "$LINK_DIR" ]; then
+        log_info "Creating $LINK_DIR directory for link..."
+        mkdir -p "$LINK_DIR"
+    fi
+
     # Link the file    
     log_info "Linking '$1'..."
     ln -s "$1" "$2"
@@ -317,6 +326,8 @@ fi
 if [ $DO_TMUX == "yes" ]; then
     log_normal "Updating tmux dotfiles..."
     do_file "$DIR/tmux/tmux.conf" $HOME/.tmux.conf
+    do_file "$DIR/tmux/tmux/tmux_lt_2.1.conf" $HOME/.tmux/tmux_lt_2.1.conf
+    do_file "$DIR/tmux/tmux/tmux_gt_2.0.conf" $HOME/.tmux/tmux_gt_2.0.conf
     log_success "Updated tmux dotfiles."
     echo
 fi
