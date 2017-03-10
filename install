@@ -297,9 +297,9 @@ echo
 # Install bash
 if [ $DO_BASH == "yes" ]; then
     log_normal "Updating bash dotfiles..."
-    do_file "$DIR/bash/.bashrc" $HOME/bashrc
-    do_file "$DIR/bash/.bash_profile" $HOME/bash_profile
-    do_file "$DIR/bash/.bash_aliases" $HOME/bash_aliases
+    do_file "$DIR/bash/bashrc" $HOME/.bashrc
+    do_file "$DIR/bash/bash_profile" $HOME/.bash_profile
+    do_file "$DIR/bash/bash_aliases" $HOME/.bash_aliases
     log_success "Updated bash dotfiles."
     echo
 fi
@@ -316,7 +316,7 @@ fi
 # Install tmux
 if [ $DO_TMUX == "yes" ]; then
     log_normal "Updating tmux dotfiles..."
-    do_file "$DIR/tmux/.tmux.conf" $HOME/.tmux.conf
+    do_file "$DIR/tmux/tmux.conf" $HOME/.tmux.conf
     log_success "Updated tmux dotfiles."
     echo
 fi
@@ -324,8 +324,8 @@ fi
 # Install vim
 if [ $DO_VIM == "yes" ]; then
     log_normal "Updating vim dotfiles..."
-    do_file "$DIR/vim/.vimrc" $HOME/vimrc
-    do_file "$DIR/vim/.vimrc" $HOME/ideavimrc
+    do_file "$DIR/vim/vimrc" $HOME/.vimrc
+    do_file "$DIR/vim/vimrc" $HOME/.ideavimrc
     log_success "Updated vim dotfiles."
     echo
 fi
@@ -333,7 +333,7 @@ fi
 # Install git
 if [ $DO_GIT == "yes" ]; then
     log_normal "Updating git dotfiles..."
-    do_file "$DIR/git/.gitconfig.local" $HOME/gitconfig.local
+    do_file "$DIR/git/gitconfig.local" $HOME/.gitconfig.local
     log_success "Updated git dotfiles."
     echo
 fi
@@ -353,8 +353,8 @@ fi
 # Source bash
 # TODO Only source if the bash shell is used
 if [ $DO_BASH == "yes" ]; then
-    source_file $HOME/bashrc
-    source_file $HOME/bash_profile
+    source_file $HOME/.bashrc
+    source_file $HOME/.bash_profile
     log_success "Sourced new bash configurations."
     echo
 fi
