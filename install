@@ -14,6 +14,7 @@ DO_FISH="yes"
 DO_TMUX="yes"
 DO_VIM="yes"
 DO_GIT="yes"
+DO_HTOP="yes"
 DO_CSGO="yes"
 
 # Log a normal message.
@@ -277,6 +278,25 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install htop files
+    log_question "Would you like to $ACTION htop dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_HTOP=yes
+                break
+                ;;
+            No)
+                DO_HTOP=no
+                break
+                ;;
+        esac
+        break
+    done
+    echo
+
     # Ask whether to install CS:GO files
     log_question "Would you like to $ACTION CS:GO (game) dotfiles?"
     PS3="Choose your action: "
@@ -345,6 +365,14 @@ fi
 if [ $DO_GIT == "yes" ]; then
     log_normal "Updating git dotfiles..."
     do_file "$DIR/git/gitconfig.local" $HOME/.gitconfig.local
+    log_success "Updated git dotfiles."
+    echo
+fi
+
+# Install htop
+if [ $DO_HTOP == "yes" ]; then
+    log_normal "Updating htop dotfiles..."
+    do_file "$DIR/htop/htoprc" $HOME/.config/htop/htoprc
     log_success "Updated git dotfiles."
     echo
 fi
