@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Load the version specific configuration files for tmux
+load_version_specific() {
+    # Get the tmux home directory and it's version
+    tmux_home=~/.tmux
+    tmux_version="$(tmux -V | cut -c 6-)"
+
+    # Load the version specific files
+    if [[ $(echo "$tmux_version >= 2.1" | bc) -eq 1 ]]; then
+        tmux source-file "$tmux_home/tmux_ge_2.1.conf"
+    else
+        tmux source-file "$tmux_home/tmux_lt_2.1.conf"
+    fi
+
+    exit
+}
+
+# Actually load the files
+load_version_specific
