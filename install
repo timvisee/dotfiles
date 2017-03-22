@@ -89,7 +89,7 @@ get_command_user_home_dir() {
     CMD_USER="$(get_command_user)"
 
     # Get and echo the user's home directory
-    sudo su -c "echo \"$HOME\"" "$CMD_USER"
+    sudo getent passwd "$CMD_USER" | cut -d: -f6
 }
 
 # Symlink a dotfile to a file in the dotfiles repository.
