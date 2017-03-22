@@ -98,14 +98,14 @@ get_command_user_home_dir() {
 symlink_file() {
     # Unlink current links
     if [[ -L "$2" ]]; then
-        log_info "Unlinking current dotfile..."
+        log_info "[Unlink]    unlink: '$2'..."
         unlink "$2"
     fi
 
     # Backup original files
     if [[ -e "$2" ]]; then
-        log_info "Backing up '$2'"
-        log_info "        to '$2.old'..."
+        log_info "[Backup]   dotfile: '$2'"
+        log_info "                to: '$2.old'..."
         mv "$2" "$2.old"
     fi
 
@@ -114,13 +114,13 @@ symlink_file() {
 
     # Make sure the directory the link is created in exists
     if [ ! -d "$LINK_DIR" ]; then
-        log_info "Creating $LINK_DIR directory for link..."
+        log_info "[Create] directory: '$LINK_DIR'..."
         mkdir -p "$LINK_DIR"
     fi
 
     # Link the file    
-    log_info "Linking '$1'"
-    log_info "     to '$2'..."
+    log_info "[ Link ]   dotfile: '$1'"
+    log_info "                to: '$2'..."
     ln -s "$1" "$2"
     
     return 0
@@ -135,13 +135,13 @@ unlink_file() {
     fi
 
     # Unlink the current file
-    log_info "Unlinking '$1'..."
+    log_info "[Unlink ] dotfile: '$1'..."
     unlink "$1"
     
     # Revert the backup if it exists
     if [[ -e "$1.old" ]]; then
-        log_info "Restoring '$1.old'"
-        log_info "       to '$1'..."
+        log_info "[Restore]  backup: '$1.old'"
+        log_info "               to: '$1'..."
         mv "$1.old" "$1"
     fi
     
@@ -163,7 +163,7 @@ do_file() {
 # $1: File to source
 source_file() {
     if [[ -e "$1" ]]; then
-        log_info "Sourcing '$1'..."
+        log_info "[Source]    source: '$1'..."
         source "$1"
     fi
 }
@@ -248,8 +248,7 @@ if [ $CUSTOM == "yes" ]; then
         case $ENTRY in
             Yes)
                 DO_FISH=yes
-                break
-                ;;
+                break ;;
             No)
                 DO_FISH=no
                 break
