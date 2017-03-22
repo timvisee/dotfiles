@@ -5,6 +5,10 @@ set nocompatible
 " We've a fast terminal
 set ttyfast
 
+" We're using UTF-8 as file/script encoding
+scriptencoding utf-8
+set encoding=utf-8
+
 " Detect file types and specific indents/settings
 filetype on
 filetype indent on
