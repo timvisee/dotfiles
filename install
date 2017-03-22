@@ -64,6 +64,34 @@ log_result() {
   [ "$3" == "true" ] && [ $1 -ne 0 ] && exit
 }
 
+# Get the user that executed the script.
+# If the script is run as root user with the sudo command, the user that called
+# sudo is returned if known, instead of the 'root' user.
+get_command_user() {
+    # Check whether we're running root, the user probably used sudo
+    if [ $USER == "root" ]; then
+        # Return the sudo user if known
+        if [ -n $SUDO_USER ]; then
+            echo "$SUDO_USER"
+            return
+        fi
+    fi
+
+    # Return the real current user
+    echo "$USER"
+}
+
+# Get the home directory of the user that executed the script.
+# If the script is run as root user with the sudo command, the user that called
+# sudo is returned if known, instead of the 'root' user.
+get_command_user_home_dir() {
+    # Get the command user
+    CMD_USER="$(get_command_user)"
+
+    # Get and echo the user's home directory
+    sudo su -c "echo \"$HOME\"" "$CMD_USER"
+}
+
 # Symlink a dotfile to a file in the dotfiles repository.
 # $1: File in repository.
 # $2: Target dotfile.
@@ -76,7 +104,8 @@ symlink_file() {
 
     # Backup original files
     if [[ -e "$2" ]]; then
-        log_info "Backing up $2 to $2.old..."
+        log_info "Backing up '$2'"
+        log_info "        to '$2.old'..."
         mv "$2" "$2.old"
     fi
 
@@ -90,7 +119,8 @@ symlink_file() {
     fi
 
     # Link the file    
-    log_info "Linking '$1'..."
+    log_info "Linking '$1'"
+    log_info "     to '$2'..."
     ln -s "$1" "$2"
     
     return 0
@@ -110,7 +140,8 @@ unlink_file() {
     
     # Revert the backup if it exists
     if [[ -e "$1.old" ]]; then
-        log_info "Restoring $1.old to $1..."
+        log_info "Restoring '$1.old'"
+        log_info "       to '$1'..."
         mv "$1.old" "$1"
     fi
     
@@ -145,6 +176,13 @@ echo
 
 # Log the dotfiles directory
 log_normal "Dotfiles directory: $DIR"
+echo
+
+# Get the command user and log it
+CMD_USER="$(get_command_user)"
+CMD_USER_HOME_DIR="$(get_command_user_home_dir)"
+log_normal "User: $CMD_USER"
+log_normal "User directory: $CMD_USER_HOME_DIR"
 echo
 
 # Ask whether to install or uninstall
@@ -326,9 +364,9 @@ echo
 # Install bash
 if [ $DO_BASH == "yes" ]; then
     log_normal "Updating bash dotfiles..."
-    do_file "$DIR/bash/bashrc" $HOME/.bashrc
-    do_file "$DIR/bash/bash_profile" $HOME/.bash_profile
-    do_file "$DIR/bash/bash_aliases" $HOME/.bash_aliases
+    do_file "$DIR/bash/bashrc" $CMD_USER_HOME_DIR/.bashrc
+    do_file "$DIR/bash/bash_profile" $CMD_USER_HOME_DIR/.bash_profile
+    do_file "$DIR/bash/bash_aliases" $CMD_USER_HOME_DIR/.bash_aliases
     log_success "Updated bash dotfiles."
     echo
 fi
@@ -336,8 +374,8 @@ fi
 # Install fish
 if [ $DO_FISH == "yes" ]; then
     log_normal "Updating fish dotfiles..."
-    do_file "$DIR/fish/config.fish" $HOME/.config/fish/config.fish
-    do_file "$DIR/fish/prompt.fish" $HOME/.config/fish/prompt.fish
+    do_file "$DIR/fish/config.fish" $CMD_USER_HOME_DIR/.config/fish/config.fish
+    do_file "$DIR/fish/prompt.fish" $CMD_USER_HOME_DIR/.config/fish/prompt.fish
     log_success "Updated fish dotfiles."
     echo
 fi
@@ -345,10 +383,10 @@ fi
 # Install tmux
 if [ $DO_TMUX == "yes" ]; then
     log_normal "Updating tmux dotfiles..."
-    do_file "$DIR/tmux/tmux.conf" $HOME/.tmux.conf
-    do_file "$DIR/tmux/tmux/tmux_lt_2.1.conf" $HOME/.tmux/tmux_lt_2.1.conf
-    do_file "$DIR/tmux/tmux/tmux_ge_2.1.conf" $HOME/.tmux/tmux_ge_2.1.conf
-    do_file "$DIR/tmux/tmux/load_version_specific" $HOME/.tmux/load_version_specific
+    do_file "$DIR/tmux/tmux.conf" $CMD_USER_HOME_DIR/.tmux.conf
+    do_file "$DIR/tmux/tmux/tmux_lt_2.1.conf" $CMD_USER_HOME_DIR/.tmux/tmux_lt_2.1.conf
+    do_file "$DIR/tmux/tmux/tmux_ge_2.1.conf" $CMD_USER_HOME_DIR/.tmux/tmux_ge_2.1.conf
+    do_file "$DIR/tmux/tmux/load_version_specific" $CMD_USER_HOME_DIR/.tmux/load_version_specific
     log_success "Updated tmux dotfiles."
     echo
 fi
@@ -356,8 +394,8 @@ fi
 # Install vim
 if [ $DO_VIM == "yes" ]; then
     log_normal "Updating vim dotfiles..."
-    do_file "$DIR/vim/vimrc" $HOME/.vimrc
-    do_file "$DIR/vim/vimrc" $HOME/.ideavimrc
+    do_file "$DIR/vim/vimrc" $CMD_USER_HOME_DIR/.vimrc
+    do_file "$DIR/vim/vimrc" $CMD_USER_HOME_DIR/.ideavimrc
     log_success "Updated vim dotfiles."
     echo
 fi
@@ -365,7 +403,7 @@ fi
 # Install git
 if [ $DO_GIT == "yes" ]; then
     log_normal "Updating git dotfiles..."
-    do_file "$DIR/git/gitconfig.local" $HOME/.gitconfig.local
+    do_file "$DIR/git/gitconfig.local" $CMD_USER_HOME_DIR/.gitconfig.local
     log_success "Updated git dotfiles."
     echo
 fi
@@ -373,16 +411,16 @@ fi
 # Install htop
 if [ $DO_HTOP == "yes" ]; then
     log_normal "Updating htop dotfiles..."
-    do_file "$DIR/htop/htoprc" $HOME/.config/htop/htoprc
+    do_file "$DIR/htop/htoprc" $CMD_USER_HOME_DIR/.config/htop/htoprc
     log_success "Updated git dotfiles."
     echo
 fi
 
 # Install CS:GO
 if [ $DO_CSGO == "yes" ]; then
-    if [ -d "$HOME/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive" ]; then
+    if [ -d "$CMD_USER_HOME_DIR/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive" ]; then
         log_normal "Updating CS:GO dotfiles..."
-        do_file "$DIR/csgo/autoexec.cfg" "$HOME/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/autoexec.cfg"
+        do_file "$DIR/csgo/autoexec.cfg" "$CMD_USER_HOME_DIR/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/autoexec.cfg"
         log_success "Updated CS:GO dotfiles."
     else
         log_normal "CS:GO not installed, skipping it's dotfiles."
@@ -393,8 +431,8 @@ fi
 # Source bash
 # TODO Only source if the bash shell is used
 if [ $DO_BASH == "yes" ]; then
-    source_file $HOME/.bashrc
-    source_file $HOME/.bash_profile
+    source_file $CMD_USER_HOME_DIR/.bashrc
+    source_file $CMD_USER_HOME_DIR/.bash_profile
     log_success "Sourced new bash configurations."
     echo
 fi
@@ -402,7 +440,7 @@ fi
 ## Source fish
 ## TODO Only source if the fish shell is used
 #if [ $DO_FISH == "yes" ]; then
-#    source_file $HOME/config/fish/config.fish
+#    source_file $CMD_USER_HOME_DIR/config/fish/config.fish
 #    log_success "Sourced new fish configurations."
 #    echo
 #fi
