@@ -236,7 +236,6 @@ if [ $CUSTOM == "yes" ]; then
                 break
                 ;;
         esac
-        break
     done
     echo
 
@@ -254,7 +253,6 @@ if [ $CUSTOM == "yes" ]; then
                 break
                 ;;
         esac
-        break
     done
     echo
 
@@ -273,7 +271,6 @@ if [ $CUSTOM == "yes" ]; then
                 break
                 ;;
         esac
-        break
     done
     echo
 
@@ -292,7 +289,6 @@ if [ $CUSTOM == "yes" ]; then
                 break
                 ;;
         esac
-        break
     done
     echo
 
@@ -311,7 +307,6 @@ if [ $CUSTOM == "yes" ]; then
                 break
                 ;;
         esac
-        break
     done
     echo
 
@@ -330,7 +325,6 @@ if [ $CUSTOM == "yes" ]; then
                 break
                 ;;
         esac
-        break
     done
     echo
 
@@ -349,7 +343,6 @@ if [ $CUSTOM == "yes" ]; then
                 break
                 ;;
         esac
-        break
     done
     echo
 
