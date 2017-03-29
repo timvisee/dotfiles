@@ -122,7 +122,7 @@ symlink_file() {
     log_info "[ Link ]   dotfile: '$1'"
     log_info "                to: '$2'..."
     ln -s "$1" "$2"
-    
+
     return 0
 }
 
@@ -137,14 +137,14 @@ unlink_file() {
     # Unlink the current file
     log_info "[Unlink ]  dotfile: '$1'..."
     unlink "$1"
-    
+
     # Revert the backup if it exists
     if [[ -e "$1.old" ]]; then
         log_info "[Restore]   backup: '$1.old'"
         log_info "                to: '$1'..."
         mv "$1.old" "$1"
     fi
-    
+
     return 0
 }
 
@@ -435,14 +435,6 @@ if [ $DO_BASH == "yes" ]; then
     log_success "Sourced new bash configurations."
     echo
 fi
-
-## Source fish
-## TODO Only source if the fish shell is used
-#if [ $DO_FISH == "yes" ]; then
-#    source_file $CMD_USER_HOME_DIR/config/fish/config.fish
-#    log_success "Sourced new fish configurations."
-#    echo
-#fi
 
 # Done
 log_success "Successfully completed!"
