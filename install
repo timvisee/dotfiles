@@ -98,7 +98,7 @@ get_command_user_home_dir() {
 symlink_file() {
     # Unlink current links
     if [[ -L "$2" ]]; then
-        log_info "[Unlink]    unlink: '$2'..."
+        log_info "[Unlink]   dotfile: '$2'..."
         unlink "$2"
     fi
 
