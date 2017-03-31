@@ -405,7 +405,7 @@ fi
 if [ $DO_HTOP == "yes" ]; then
     log_normal "Updating htop dotfiles..."
     do_file "$DIR/htop/htoprc" $CMD_USER_HOME_DIR/.config/htop/htoprc
-    log_success "Updated git dotfiles."
+    log_success "Updated htop dotfiles."
     echo
 fi
 
