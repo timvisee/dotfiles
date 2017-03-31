@@ -15,6 +15,7 @@ DO_TMUX="yes"
 DO_VIM="yes"
 DO_GIT="yes"
 DO_HTOP="yes"
+DO_NVM="yes"
 DO_CSGO="yes"
 
 # Log a normal message.
@@ -328,6 +329,24 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install nvm files
+    log_question "Would you like to $ACTION nvm dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_NVM=yes
+                break
+                ;;
+            No)
+                DO_NVM=no
+                break
+                ;;
+        esac
+    done
+    echo
+
     # Ask whether to install CS:GO files
     log_question "Would you like to $ACTION CS:GO (game) dotfiles?"
     PS3="Choose your action: "
@@ -405,7 +424,15 @@ fi
 if [ $DO_HTOP == "yes" ]; then
     log_normal "Updating htop dotfiles..."
     do_file "$DIR/htop/htoprc" $CMD_USER_HOME_DIR/.config/htop/htoprc
-    log_success "Updated git dotfiles."
+    log_success "Updated htop dotfiles."
+    echo
+fi
+
+# Install nvm
+if [ $DO_NVM == "yes" ]; then
+    log_normal "Updating nvm dotfiles..."
+    do_file "$DIR/nvm/nvmrc" $CMD_USER_HOME_DIR/.nvmrc
+    log_success "Updated nvm dotfiles."
     echo
 fi
 
