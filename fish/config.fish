@@ -3,11 +3,10 @@
 # Alias for TheFuck
 eval (thefuck --alias | tr '\n' ';')
 
-# Source the prompt
-source ~/.config/fish/prompt.fish
-
-# Source the NVM configuration
+# Source other configuration files
 source ~/.config/fish/nvm.fish
+source ~/.config/fish/prompt.fish
+source ~/.config/fish/transfer.fish
 
 # Add rust binaries to the path
 if test -d "$HOME/.cargo/bin"
