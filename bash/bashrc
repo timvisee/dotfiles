@@ -83,3 +83,8 @@ fi
 
 # Enable the transfer extension
 source ~/.config/bash/transfer.sh
+
+# Source Rust's cargo environment
+if [ -f ~/.cargo/env ]; then
+    source ~/.cargo/env
+fi
