@@ -391,6 +391,7 @@ if [ $DO_VIM == "yes" ]; then
     log_normal "Updating vim dotfiles..."
     do_file "$DIR/vim/vimrc" $CMD_USER_HOME_DIR/.vimrc
     do_file "$DIR/vim/vimrc" $CMD_USER_HOME_DIR/.ideavimrc
+    do_file "$DIR/vim/plugin/dragvisuals.vim" $CMD_USER_HOME_DIR/.vim/plugin/dragvisuals.vim
     log_success "Updated vim dotfiles."
     echo
 fi
