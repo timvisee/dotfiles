@@ -15,6 +15,7 @@ DO_TMUX="yes"
 DO_VIM="yes"
 DO_GIT="yes"
 DO_HTOP="yes"
+DO_IFTOP="yes"
 DO_CSGO="yes"
 
 # Log a normal message.
@@ -328,6 +329,24 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install iftop files
+    log_question "Would you like to $ACTION iftop dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_IFTOP=yes
+                break
+                ;;
+            No)
+                DO_IFTOP=no
+                break
+                ;;
+        esac
+    done
+    echo
+
     # Ask whether to install CS:GO files
     log_question "Would you like to $ACTION CS:GO (game) dotfiles?"
     PS3="Choose your action: "
@@ -409,6 +428,14 @@ if [ $DO_HTOP == "yes" ]; then
     log_normal "Updating htop dotfiles..."
     do_file "$DIR/htop/htoprc" $CMD_USER_HOME_DIR/.config/htop/htoprc
     log_success "Updated htop dotfiles."
+    echo
+fi
+
+# Install iftop
+if [ $DO_IFTOP == "yes" ]; then
+    log_normal "Updating iftop dotfiles..."
+    do_file "$DIR/iftop/iftop" $CMD_USER_HOME_DIR/.iftoprc
+    log_success "Updated iftop dotfiles."
     echo
 fi
 
