@@ -12,9 +12,5 @@ sudo chmod a+x ./install
 ./install
 ```
 
-On Windows, the `install.bat` script may be used.
-This only installs part of the dotfiles,
-as most aren't supportd on this operating system.
-
 ## License
 This project is released under the GNU GPL-3.0 license. Check out the [LICENSE](LICENSE) file for more information.
