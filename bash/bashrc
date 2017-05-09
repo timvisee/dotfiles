@@ -92,8 +92,8 @@ if [ -f ~/.cargo/env ]; then
 fi
 
 # Configure Go's environment
-if [ -d "/usr/share/go" ]; then
-    export GOROOT=/usr/share/go
+if [ -d "/usr/lib/go" ]; then
+    export GOROOT=/usr/lib/go
     export GOPATH=$HOME/.go
     export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi

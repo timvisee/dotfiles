@@ -14,8 +14,8 @@ if test -d "$HOME/.cargo/bin"
 end
 
 # Configure Go's environment
-if test -d "/usr/share/go"
-    set -x GOROOT /usr/share/go
+if test -d "/usr/lib/go"
+    set -x GOROOT /usr/lib/go
     set -x GOPATH $HOME/.go
     set -x PATH $PATH $GOROOT/bin $GOPATH/bin
 end
