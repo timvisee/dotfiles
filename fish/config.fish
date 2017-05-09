@@ -17,5 +17,5 @@ end
 if test -d "/usr/lib/go"
     set -x GOROOT /usr/lib/go
     set -x GOPATH $HOME/.go
-    set -x PATH $PATH $GOROOT/bin $GOPATH/bin
+    set -x PATH $PATH $GOROOT/bin
 end
