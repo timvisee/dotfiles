@@ -16,6 +16,7 @@ DO_VIM="yes"
 DO_GIT="yes"
 DO_HTOP="yes"
 DO_IFTOP="yes"
+DO_CAVA="yes"
 DO_CSGO="yes"
 
 # Log a normal message.
@@ -329,6 +330,24 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install cava files
+    log_question "Would you like to $ACTION cava dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_CAVA=yes
+                break
+                ;;
+            No)
+                DO_CAVA=no
+                break
+                ;;
+        esac
+    done
+    echo
+
     # Ask whether to install iftop files
     log_question "Would you like to $ACTION iftop dotfiles?"
     PS3="Choose your action: "
@@ -438,6 +457,14 @@ if [ $DO_IFTOP == "yes" ]; then
     log_normal "Updating iftop dotfiles..."
     do_file "$DIR/iftop/iftop" $CMD_USER_HOME_DIR/.iftoprc
     log_success "Updated iftop dotfiles."
+    echo
+fi
+
+# Install cava
+if [ $DO_CAVA == "yes" ]; then
+    log_normal "Updating cava dotfiles..."
+    do_file "$DIR/cava/config" $CMD_USER_HOME_DIR/.config/cava/config
+    log_success "Updated cava dotfiles."
     echo
 fi
 
