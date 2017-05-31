@@ -5,7 +5,7 @@
 
 # Smoothing mode. Can be 'normal', 'scientific' or 'waves'.
 ; mode = normal
- 
+
 # Accepts only non-negative values.
 ; framerate = 60
 
@@ -13,6 +13,8 @@
 # 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens.
 ; autosens = 1
 ; overshoot = 20
+autosens = 1
+overshoot = 45
 
 # Manual sensitivity in %. Autosens must be turned off for this to take effect.
 # 200 means double height. Accepts only non-negative values.
