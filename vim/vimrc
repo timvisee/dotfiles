@@ -9,7 +9,8 @@ set ttyfast
 scriptencoding utf-8
 set encoding=utf-8
 
-" Detect file types and specific indents/settings filetype on
+" Detect file types and specific indents/settings
+filetype on
 filetype indent on
 filetype plugin on
 
