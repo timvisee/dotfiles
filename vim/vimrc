@@ -109,6 +109,17 @@ set wildmenu
 
 
 
+""" Custom keybindings
+" Auto expanding
+inoremap (; (<CR>);<C-c>O
+inoremap (, (<CR>),<C-c>O
+inoremap {; {<CR>};<C-c>O
+inoremap {, {<CR>},<C-c>O
+inoremap [; [<CR>];<C-c>O
+inoremap [, [<CR>],<C-c>O
+
+
+
 """ Plugins
 " Dragvisuals plugin
 runtime plugin/dragvisuals.vim
