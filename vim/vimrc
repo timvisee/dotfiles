@@ -129,6 +129,9 @@ vmap <expr> <DOWN>  DVB_Drag('down')
 vmap <expr> <UP>    DVB_Drag('up')
 vmap <expr> D       DVB_Duplicate()
 
+" Abolish plugin
+runtime plugin/abolish.vim
+
 
 
 """ Word count

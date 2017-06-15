@@ -432,6 +432,7 @@ if [ $DO_VIM == "yes" ]; then
     do_file "$DIR/vim/vimrc" $CMD_USER_HOME_DIR/.nvimrc
     do_file "$DIR/vim/vimrc" $CMD_USER_HOME_DIR/.config/nvim/init.vim
     do_file "$DIR/vim/plugin/dragvisuals.vim" $CMD_USER_HOME_DIR/.vim/plugin/dragvisuals.vim
+    do_file "$DIR/vim/plugin/abolish.vim" $CMD_USER_HOME_DIR/.vim/plugin/abolish.vim
     log_success "Updated vim dotfiles."
     echo
 fi
