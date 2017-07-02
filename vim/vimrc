@@ -121,6 +121,9 @@ inoremap [, [<CR>],<C-c>O
 
 
 """ Plugins
+" Abolish plugin
+runtime plugin/abolish.vim
+
 " Dragvisuals plugin
 runtime plugin/dragvisuals.vim
 vmap <expr> <LEFT>  DVB_Drag('left')
@@ -129,8 +132,10 @@ vmap <expr> <DOWN>  DVB_Drag('down')
 vmap <expr> <UP>    DVB_Drag('up')
 vmap <expr> D       DVB_Duplicate()
 
-" Abolish plugin
-runtime plugin/abolish.vim
+" GitGutter plugin
+if has("sign")
+	runtime plugin/gitgutter.vim
+endif
 
 
 

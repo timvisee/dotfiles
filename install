@@ -431,8 +431,18 @@ if [ $DO_VIM == "yes" ]; then
     do_file "$DIR/vim/vimrc" $CMD_USER_HOME_DIR/.ideavimrc
     do_file "$DIR/vim/vimrc" $CMD_USER_HOME_DIR/.nvimrc
     do_file "$DIR/vim/vimrc" $CMD_USER_HOME_DIR/.config/nvim/init.vim
-    do_file "$DIR/vim/plugin/dragvisuals.vim" $CMD_USER_HOME_DIR/.vim/plugin/dragvisuals.vim
     do_file "$DIR/vim/plugin/abolish.vim" $CMD_USER_HOME_DIR/.vim/plugin/abolish.vim
+    do_file "$DIR/vim/plugin/dragvisuals.vim" $CMD_USER_HOME_DIR/.vim/plugin/dragvisuals.vim
+    do_file "$DIR/vim/plugin/gitgutter.vim" $CMD_USER_HOME_DIR/.vim/plugin/gitgutter.vim
+    do_file "$DIR/vim/doc/gitgutter.txt" $CMD_USER_HOME_DIR/.vim/doc/gitgutter.txt
+    do_file "$DIR/vim/autoload/gitgutter.vim" $CMD_USER_HOME_DIR/.vim/autoload/gitgutter.vim
+    do_file "$DIR/vim/autoload/gitgutter/async.vim" $CMD_USER_HOME_DIR/.vim/autoload/gitgutter/async.vim
+    do_file "$DIR/vim/autoload/gitgutter/debug.vim" $CMD_USER_HOME_DIR/.vim/autoload/gitgutter/debug.vim
+    do_file "$DIR/vim/autoload/gitgutter/diff.vim" $CMD_USER_HOME_DIR/.vim/autoload/gitgutter/diff.vim
+    do_file "$DIR/vim/autoload/gitgutter/highlight.vim" $CMD_USER_HOME_DIR/.vim/autoload/gitgutter/highlight.vim
+    do_file "$DIR/vim/autoload/gitgutter/hunk.vim" $CMD_USER_HOME_DIR/.vim/autoload/gitgutter/hunk.vim
+    do_file "$DIR/vim/autoload/gitgutter/sign.vim" $CMD_USER_HOME_DIR/.vim/autoload/gitgutter/sign.vim
+    do_file "$DIR/vim/autoload/gitgutter/utility.vim" $CMD_USER_HOME_DIR/.vim/autoload/gitgutter/utility.vim
     log_success "Updated vim dotfiles."
     echo
 fi
