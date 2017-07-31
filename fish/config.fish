@@ -1,7 +1,7 @@
 # Fish shell configuration
 
 # Source other configuration files
-source ~/.config/fish/alias.fish
+source ~/.config/fish/aliases.fish
 source ~/.config/fish/nvm.fish
 source ~/.config/fish/prompt.fish
 source ~/.config/fish/transfer.fish
