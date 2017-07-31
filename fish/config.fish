@@ -1,9 +1,7 @@
 # Fish shell configuration
 
-# Alias for TheFuck
-eval (thefuck --alias | tr '\n' ';')
-
 # Source other configuration files
+source ~/.config/fish/alias.fish
 source ~/.config/fish/nvm.fish
 source ~/.config/fish/prompt.fish
 source ~/.config/fish/transfer.fish
