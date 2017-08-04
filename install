@@ -467,7 +467,7 @@ fi
 # Install iftop
 if [ $DO_IFTOP == "yes" ]; then
     log_normal "Updating iftop dotfiles..."
-    do_file "$DIR/iftop/iftop" $CMD_USER_HOME_DIR/.iftoprc
+    do_file "$DIR/iftop/iftoprc" $CMD_USER_HOME_DIR/.iftoprc
     log_success "Updated iftop dotfiles."
     echo
 fi
