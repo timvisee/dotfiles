@@ -1,3 +1,21 @@
+""" Configure Vundle
+set nocompatible
+filetype off
+
+" Add Vundle to the runtime
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+" Plugins
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+
+
+
 """ General
 " We're using Vim, not Vi
 set nocompatible
