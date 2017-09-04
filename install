@@ -90,6 +90,12 @@ get_command_user_home_dir() {
     # Get the command user
     CMD_USER="$(get_command_user)"
 
+    # Use a different method for Mac OS X
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        eval echo "~$CMD_USER"
+        return;
+    fi
+
     # Get and echo the user's home directory
     sudo getent passwd "$CMD_USER" | cut -d: -f6
 }
