@@ -2,6 +2,7 @@
 dotfiles are used to personalize your system and applications. These are mine.
 
 ## Requirements
+* Linux or Mac OS X
 * `git`
 * `bash`
 * When using Vim, [Vundle](https://github.com/VundleVim/Vundle.vim) must be installed.
