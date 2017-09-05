@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugins
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -62,6 +63,12 @@ set list listchars=tab:\ \ ,trail:·
 " long
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\v%81v', 100)
+
+" Highlight TODO
+augroup HiglightTODO
+    autocmd!
+    autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO', -1)
+augroup END
 
 " Highlight matching brackets
 set showmatch
@@ -157,6 +164,10 @@ vmap <expr> D       DVB_Duplicate()
 if has("sign")
 	runtime plugin/gitgutter.vim
 endif
+
+" Define the tool and browser for markdown preview
+let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='FirefoxNightly'
 
 
 
