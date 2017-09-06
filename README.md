@@ -18,7 +18,7 @@ sudo chmod a+x ./install
 ./install
 ```
 
-To install all Vim plugins, first make sure [Vundle](https://github.com/VundleVim/Vundle.vim) is installed.
+To install all Vim plugins, first make sure [Vundle](https://github.com/VundleVim/Vundle.vim) is installed.  
 Then, run the `:PluginInstall` command in Vim.
 
 ## License
