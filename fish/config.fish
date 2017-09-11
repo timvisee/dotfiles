@@ -17,3 +17,8 @@ if test -d "/usr/lib/go"
     set -x GOPATH $HOME/.go
     set -x PATH $PATH $GOROOT/bin
 end
+
+# Configure composer
+if test -d "$HOME/.composer/vendor/bin"
+    set -x PATH $PATH $HOME/.composer/vendor/bin
+end
