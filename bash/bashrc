@@ -99,6 +99,6 @@ if [ -d "/usr/lib/go" ]; then
 fi
 
 # Configure composer
-if [ -d "$HOME/.composer/vendor/bin"]; then
+if [ -d "$HOME/.composer/vendor/bin" ]; then
     export PATH=$PATH:$HOME/.composer/vendor/bin
 fi
