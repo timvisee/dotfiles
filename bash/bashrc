@@ -97,3 +97,8 @@ if [ -d "/usr/lib/go" ]; then
     export GOPATH=$HOME/.go
     export PATH=$PATH:$GOROOT/bin
 fi
+
+# Configure composer
+if [ -d "$HOME/.composer/vendor/bin"]; then
+    export PATH=$PATH:$HOME/.composer/vendor/bin
+fi
