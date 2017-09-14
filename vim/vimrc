@@ -45,6 +45,10 @@ syntax enable
 " Dark interface
 set background=dark
 
+" Airline theme
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+
 " Enable 256-color mode for terminals
 set t_Co=256
 
