@@ -2,7 +2,7 @@
 
 # Source the .bashrc file if it exists
 if [ -f ~/.bashrc ]; then
-   source ~/.bashrc
+    source ~/.bashrc
 fi
 
 # NVM configuration
