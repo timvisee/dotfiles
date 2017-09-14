@@ -22,3 +22,6 @@ end
 if test -d "$HOME/.composer/vendor/bin"
     set -x PATH $PATH $HOME/.composer/vendor/bin
 end
+
+# Set the preferred editor
+set -x EDITOR vim
