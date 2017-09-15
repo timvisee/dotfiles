@@ -28,3 +28,10 @@ alias tmux='tmux -2'
 if [ -e "/usr/local/bin/composer.phar" ]; then
     alias composer="php /usr/local/bin/composer.phar"
 fi
+
+# Aliases to hide and show hidden files on macOS
+case "$(uname)" in
+    "Darwin")
+        alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+        alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+esac
