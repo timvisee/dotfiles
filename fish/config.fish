@@ -6,6 +6,9 @@ source ~/.config/fish/nvm.fish
 source ~/.config/fish/prompt.fish
 source ~/.config/fish/transfer.fish
 
+# Disable fish greeting
+set fish_greeting
+
 # Add rust binaries to the path
 if test -d "$HOME/.cargo/bin"
     set PATH $HOME/.cargo/bin $PATH
