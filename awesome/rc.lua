@@ -46,7 +46,7 @@ end
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(awful.util.get_configuration_dir() .. "themes/default/theme.lua")
 -- TODO: Include this in the custom theme?
-beautiful.wallpaper = awful.util.get_configuration_dir() .. "themes/tim/background.jpg"
+beautiful.wallpaper = awful.util.get_configuration_dir() .. "themes/default/background.jpg"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
