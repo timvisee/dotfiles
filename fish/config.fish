@@ -36,17 +36,25 @@ end
 # Clean Docker, by removing things like dangling images.
 function docker_clean
     echo "Cleaning up dangling Docker images..."
-    docker rmi (docker images -f "dangling=true" -q)
+
+    set DANGLING_IMAGES (docker images -f "dangling=true" -q)
+    if [ $DANGLING_IMAGES ]
+        docker rmi $DANGLING_IMAGES
+    else
+        echo "No dangling Docker images to remove"
+    end
+
     echo "Done"
 end
 
 # Clean up Docker, by removing all containers and images
 function docker_clean_all
-    echo "Resetting Docker..."
+    echo "Cleaning Docker..."
 
     docker_remove_containers
     docker_clean
 
+    # Remove the huge Docker.qcow2 image from Mac OS X systems
     rm -f ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
 
     echo "Done"
