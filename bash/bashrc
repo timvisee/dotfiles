@@ -113,7 +113,14 @@ function docker_remove_containers() {
 # Clean Docker, by removing things like dangling images.
 function docker_clean() {
     echo "Cleaning up dangling Docker images..."
-    docker rmi $(docker images -f "dangling=true" -q)
+
+    DANGLING_IMAGES=`docker images -f "dangling=true" -q`
+    if [ $DANGLING_IMAGES ]; then
+        docker rmi $DANGLING_IMAGES
+    else
+        echo "No dangling Docker images to remove"
+    fi
+
     echo "Done"
 }
 
