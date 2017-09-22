@@ -16,6 +16,7 @@ DO_TMUX="yes"
 DO_VIM="yes"
 DO_GIT="yes"
 DO_AWESOME="no"
+DO_COMPTON="no"
 DO_HTOP="yes"
 DO_IFTOP="no"
 DO_CAVA="no"
@@ -357,6 +358,24 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install awesomeWM files
+    log_question "Would you like to $ACTION compton dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_COMPTON=yes
+                break
+                ;;
+            No)
+                DO_COMPTON=no
+                break
+                ;;
+        esac
+    done
+    echo
+
     # Ask whether to install htop files
     log_question "Would you like to $ACTION htop dotfiles?"
     PS3="Choose your action: "
@@ -515,6 +534,14 @@ if [ $DO_AWESOME == "yes" ]; then
     do_file "$DIR/awesome/rc.lua" $CMD_USER_HOME_DIR/.config/awesome/rc.lua
     do_file "$DIR/awesome/themes/default" $CMD_USER_HOME_DIR/.config/awesome/themes/default
     log_success "Updated awesomeWM dotfiles."
+    echo
+fi
+
+# Install compton
+if [ $DO_COMPTON == "yes" ]; then
+    log_normal "Updating compton dotfiles..."
+    do_file "$DIR/compton/compton.conf" $CMD_USER_HOME_DIR/.config/compton.conf
+    log_success "Updated compton dotfiles."
     echo
 fi
 
