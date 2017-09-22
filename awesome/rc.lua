@@ -559,32 +559,32 @@ client.connect_signal("unfocus", function(c)
 
 -- Auto start applications
 do
-	-- List of programs to automatically start
-	local cmds = {}
+    -- List of programs to automatically start
+    local cmds = {}
 
-	-- Start compton if installed
-	if awful.util.file_readable("/usr/bin/compton") then
-		table.insert(cmds, "compton -b")
+    -- Start compton if installed
+    if awful.util.file_readable("/usr/bin/compton") then
+        table.insert(cmds, "compton -b")
     else
         -- Show a warning if it's not installed
         naughty.notify({ preset = naughty.config.presets.normal,
                         title = "Compton not installed",
                         text = "Not starting the compton daemon, it's not installed." })
-	end
+    end
 
-	-- Start Telegram if installed
-	if awful.util.file_readable("/opt/telegram/telegram") then
-		table.insert(cmds, "/opt/telegram/telegram -startintray")
-	end
+    -- Start Telegram if installed
+    if awful.util.file_readable("/opt/telegram/telegram") then
+        table.insert(cmds, "/opt/telegram/telegram -startintray")
+    end
 
-	-- Invoke the start commands
-	for _,i in pairs(cmds) do
+    -- Invoke the start commands
+    for _,i in pairs(cmds) do
         -- Show a notification
         naughty.notify({ preset = naughty.config.presets.normal,
                         title = "Autostarting application",
                         text = i })
 
         -- Invoke the command
-		awful.util.spawn(i)
-	end
+        awful.util.spawn(i)
+   end
 end
