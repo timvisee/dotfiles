@@ -233,7 +233,7 @@ echo
 # Ask the user what things to install and not
 if [ $CUSTOM == "yes" ]; then
     # Ask whether to install profile files
-    log_question "Would you like to $ACTION bash dotfiles?"
+    log_question "Would you like to $ACTION profile dotfiles?"
     PS3="Choose your action: "
     select ENTRY in Yes No
     do
