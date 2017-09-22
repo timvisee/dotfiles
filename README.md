@@ -7,6 +7,11 @@ dotfiles are used to personalize your system and applications. These are mine.
 * `bash`
 * When using Vim, [Vundle](https://github.com/VundleVim/Vundle.vim) must be installed.
 
+## Recommendations
+* `xcape` (Linux): to bind <kbd>Caps Lock</kbd> to <kbd>Esc</kbd>.
+* `fish`: as better shell
+* `thefuck`: for handy incorrect command fixes.
+
 ## Installation
 An installation script is included to easily install the dotfiles on your system.
 
