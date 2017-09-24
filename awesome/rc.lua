@@ -14,6 +14,9 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 
+local vicious = require("vicious")
+local cairo = require("lgi").cairo;
+
 -- Load Debian menu entries
 require("debian.menu")
 
@@ -126,6 +129,38 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
+-- Create a text widget (test)
+mytest = wibox.widget.textbox("test")
+
+-- Create a CPU usage widget
+mycpu = wibox.widget.progressbar()
+mycpu:set_width(15)
+mycpu:set_height(30)
+mycpu:set_vertical(true)
+mycpu.forced_height = 5
+mycpu.background_color = gears.color("#555555")
+mycpucontainer = wibox.container.rotate(mycpu, 'east')
+
+vicious.register(mycpu, vicious.widgets.cpu,
+    function (widget, args)
+        return args[1]
+    end, 1)
+
+-- Create a memory usage widget
+mymem = wibox.widget.progressbar()
+mymem:set_width(15)
+mymem:set_height(30)
+mymem:set_vertical(true)
+mymem.forced_height = 5
+mymem.color = gears.color("#00ff00")
+mymem.background_color = gears.color("#555555")
+mymemcontainer = wibox.container.rotate(mymem, 'east')
+
+vicious.register(mymem, vicious.widgets.mem,
+    function (widget, args)
+        return args[1]
+    end, 1)
+
 -- Create a wibox for each screen and add it
 local taglist_buttons = awful.util.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
@@ -225,6 +260,9 @@ awful.screen.connect_for_each_screen(function(s)
             mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
+            mytest,
+            mycpucontainer,
+            mymemcontainer,
             s.mylayoutbox,
         },
     }
@@ -588,3 +626,25 @@ do
         awful.util.spawn(i)
    end
 end
+
+
+-- Code testing space
+-- TODO: Remove after testing
+---- Create a surface
+--local img = cairo.ImageSurface.create(cairo.Format.ARGB32, 50, 50)
+--
+---- Create a context
+--local cr  = cairo.Context(img)
+--
+---- Set a red source
+----cr:set_source_rgb(1, 0, 0)
+---- Alternative:
+--cr:set_source(gears.color("#ff0000"))
+--
+---- Add a 10px square path to the context at x=10, y=10
+--cr:rectangle(10, 10, 10, 10)
+--
+---- Actually draw the rectangle on img
+--cr:fill()
+--
+--screen.primary.mywibox.bgimage = img
