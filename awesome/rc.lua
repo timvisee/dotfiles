@@ -624,6 +624,8 @@ do
 
     -- Start compton if installed
     if awful.util.file_readable("/usr/bin/compton") then
+        -- TODO: Don't kill compton, just don't start it again when already running
+        table.insert(cmds, "pkill compton")
         table.insert(cmds, "compton -b")
     else
         -- Show a warning if it's not installed
