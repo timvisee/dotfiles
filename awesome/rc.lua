@@ -139,12 +139,13 @@ mycpu:set_height(30)
 mycpu:set_vertical(true)
 mycpu.forced_height = 5
 mycpu.background_color = gears.color("#555555")
+mycpu.max_value = 100
 mycpucontainer = wibox.container.rotate(mycpu, 'east')
 
-vicious.register(mycpu, vicious.widgets.cpu,
-    function (widget, args)
-        return args[1]
-    end, 1)
+--vicious.register(mycpu, vicious.widgets.cpu,
+--    function (widget, args)
+--        return args[1]
+--    end, 1)
 
 -- Create a memory usage widget
 mymem = wibox.widget.progressbar()
@@ -159,6 +160,26 @@ mymemcontainer = wibox.container.rotate(mymem, 'east')
 vicious.register(mymem, vicious.widgets.mem,
     function (widget, args)
         return args[1]
+    end, 1)
+
+-- Create a CPU usage graph
+ctext = wibox.widget.textbox()
+mycpugraph = wibox.widget.graph()
+mycpugraph:set_width(50):set_height(20)
+mycpugraph.min_value = 0
+mycpugraph.max_value = 100
+mycpugraph.stack = true
+mycpugraph:set_background_color("#494B4F")
+mycpugraph:set_stack_colors({ "#FF5656", "#88A175", "#AECF96", "#FF0000" })
+
+vicious.register(ctext, vicious.widgets.cpu,
+    function (widget, args)
+        mycpugraph:add_value(args[2], 1) -- Core 1, color 1
+        mycpugraph:add_value(args[3], 2) -- Core 2, color 2
+        mycpugraph:add_value(args[4], 3) -- Core 3, color 3
+        mycpugraph:add_value(args[5], 4) -- Core 4, color 4
+
+        mycpu:set_value(args[1])
     end, 1)
 
 -- Create a wibox for each screen and add it
@@ -263,6 +284,7 @@ awful.screen.connect_for_each_screen(function(s)
             mytest,
             mycpucontainer,
             mymemcontainer,
+            mycpugraph,
             s.mylayoutbox,
         },
     }
