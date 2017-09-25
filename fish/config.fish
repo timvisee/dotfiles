@@ -28,7 +28,7 @@ end
 
 # Remove all Docker containers
 function docker_remove_containers
-    set DOCKER_CONTAINERS (docker ps -aq)
+    set DOCKER_CONTAINERS (docker ps -aq --no-trunc)
     if [ $DOCKER_CONTAINERS ]
         echo "Removing all Docker containers..."
         docker rm $DOCKER_CONTAINERS
@@ -41,7 +41,7 @@ end
 
 # Clean Docker, by removing things like dangling images.
 function docker_clean
-    set DANGLING_IMAGES (docker images -f "dangling=true" -q)
+    set DANGLING_IMAGES (docker images -f "dangling=true" -q --no-trunc)
     if [ $DANGLING_IMAGES ]
         echo "Cleaning up dangling Docker images..."
         docker rmi $DANGLING_IMAGES
