@@ -35,13 +35,20 @@ end
 
 # Clean Docker, by removing things like dangling images.
 function docker_clean
-    echo "Cleaning up dangling Docker images..."
-
     set DANGLING_IMAGES (docker images -f "dangling=true" -q)
     if [ $DANGLING_IMAGES ]
+        echo "Cleaning up dangling Docker images..."
         docker rmi $DANGLING_IMAGES
     else
         echo "No dangling Docker images to remove"
+    end
+
+    set DANGLING_VOLUMES (docker volume ls -f "dangling=true" -q)
+    if [ $DANGLING_VOLUMES ]
+        echo "Pruning all unused Docker volumes..."
+        docker volume prune -f
+    else
+        echo "No dangling Docker volumes to prune..."
     end
 
     echo "Done"
