@@ -28,8 +28,14 @@ end
 
 # Remove all Docker containers
 function docker_remove_containers
-    echo "Removing all Docker containers..."
-    docker rm (docker ps -aq)
+    set DOCKER_CONTAINERS (docker ps -aq)
+    if [ $DOCKER_CONTAINERS ]
+        echo "Removing all Docker containers..."
+        docker rm $DOCKER_CONTAINERS
+    else
+        echo "No Docker containers to remove"
+    end
+
     echo "Done"
 end
 
@@ -48,7 +54,7 @@ function docker_clean
         echo "Pruning all unused Docker volumes..."
         docker volume prune -f
     else
-        echo "No dangling Docker volumes to prune..."
+        echo "No dangling Docker volumes to prune"
     end
 
     echo "Done"
