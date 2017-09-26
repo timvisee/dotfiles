@@ -109,9 +109,16 @@ myawesomemenu = {
    { "quit", function() awesome.quit() end}
 }
 
+mymachinemenu = {
+   { "logoff", function() awesome.quit() end},
+   { "reboot", function() awful.util.spawn("sudo reboot") end},
+   { "shutdown", function() awful.util.spawn("sudo shutdown now") end}
+}
+
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "Machine", mymachinemenu },
                                     { "Debian", debian.menu.Debian_menu.Debian },
-                                    { "open terminal", terminal }
+                                    { "Open terminal", terminal }
                                   }
                         })
 
