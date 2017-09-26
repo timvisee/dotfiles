@@ -52,7 +52,7 @@ function docker_clean
     set DANGLING_VOLUMES (docker volume ls -f "dangling=true" -q)
     if [ $DANGLING_VOLUMES ]
         echo "Pruning all unused Docker volumes..."
-        docker volume prune -f
+        docker volume prune -f $DANGLING_VOLUMES
     else
         echo "No dangling Docker volumes to prune"
     end
