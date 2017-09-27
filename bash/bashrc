@@ -149,5 +149,18 @@ function docker_clean_all() {
     echo "Done"
 }
 
+# Remove the last created container.
+function docker_rm_last() {
+    LAST_CONTAINER=`docker ps -lq --no-trunc`
+    if [[ "$LAST_CONTAINER" ]]; then
+        echo "Removing the last created Docker container..."
+        docker rm $LAST_CONTAINER
+    else
+        echo "No last Docker container to remove"
+    fi
+
+    echo "Done"
+}
+
 # Set the preferred editor
 export EDITOR=vim
