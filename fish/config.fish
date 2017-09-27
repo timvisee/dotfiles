@@ -31,7 +31,7 @@ function docker_remove_containers
     set DOCKER_CONTAINERS (docker ps -aq --no-trunc)
     if test -n "$DOCKER_CONTAINERS"
         echo "Removing all Docker containers..."
-        docker rm "$DOCKER_CONTAINERS"
+        docker rm $DOCKER_CONTAINERS
     else
         echo "No Docker containers to remove"
     end
@@ -44,7 +44,7 @@ function docker_clean
     set DANGLING_IMAGES (docker images -f "dangling=true" -q --no-trunc)
     if test -n "$DANGLING_IMAGES"
         echo "Cleaning up dangling Docker images..."
-        docker rmi "$DANGLING_IMAGES"
+        docker rmi $DANGLING_IMAGES
     else
         echo "No dangling Docker images to remove"
     end
