@@ -106,7 +106,7 @@ fi
 # Remove all Docker containers
 function docker_remove_containers() {
     DOCKER_CONTAINERS=`docker ps -aq --no-trunc`
-    if [ $DOCKER_CONTAINERS ]; then
+    if [[ "$DOCKER_CONTAINERS" ]]; then
         echo "Removing all Docker containers..."
         docker rm $DOCKER_CONTAINERS
     else
@@ -119,17 +119,17 @@ function docker_remove_containers() {
 # Clean Docker, by removing things like dangling images.
 function docker_clean() {
     DANGLING_IMAGES=`docker images -f "dangling=true" -q --no-trunc`
-    if [ $DANGLING_IMAGES ]; then
+    if [[ "$DANGLING_IMAGES" ]]; then
         echo "Cleaning up dangling Docker images..."
-        docker rmi $DANGLING_IMAGES
+        docker rmi "$DANGLING_IMAGES"
     else
         echo "No dangling Docker images to remove"
     fi
 
     DANGLING_VOLUMES=`docker volume ls -f "dangling=true" -q`
-    if [ $DANGLING_VOLUMES ]; then
+    if [[ "$DANGLING_VOLUMES" ]]; then
         echo "Pruning all unused Docker volumes..."
-        docker volume prune -f $DANGLING_VOLUMES
+        docker volume prune -f
     else
         echo "No dangling Docker volumes to prune"
     fi
