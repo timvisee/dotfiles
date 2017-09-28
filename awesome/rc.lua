@@ -142,7 +142,8 @@ mycpu:set_width(15)
 mycpu:set_height(30)
 mycpu:set_vertical(true)
 mycpu.forced_height = 5
-mycpu.background_color = gears.color("#555555")
+-- mycpu.background_color = gears.color("#555555")
+mycpu.background_color = gears.color("#222222")
 mycpu.max_value = 100
 mycpucontainer = wibox.container.rotate(mycpu, 'east')
 
@@ -158,7 +159,8 @@ mymem:set_height(30)
 mymem:set_vertical(true)
 mymem.forced_height = 5
 mymem.color = gears.color("#00ff00")
-mymem.background_color = gears.color("#555555")
+-- mymem.background_color = gears.color("#555555")
+mymem.background_color = gears.color("#222222")
 mymemcontainer = wibox.container.rotate(mymem, 'east')
 
 vicious.register(mymem, vicious.widgets.mem,
@@ -173,7 +175,8 @@ mycpugraph:set_width(50):set_height(20)
 mycpugraph.min_value = 0
 mycpugraph.max_value = 100
 mycpugraph.stack = true
-mycpugraph:set_background_color("#3c3c45")
+-- mycpugraph:set_background_color("#3c3c45")
+mycpugraph:set_background_color("#222222")
 -- mycpugraph:set_stack_colors({ "#FF5656", "#88A175", "#AECF96", "#FF0000" })
 --mycpugraph:set_stack_colors({ "#1c2626", "#29302b", "#394130", "#484c32" })
 mycpugraph:set_stack_colors({ "#7e3e3e", "#ab4747", "#7e3e3e", "#ab4747" })
