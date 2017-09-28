@@ -173,8 +173,10 @@ mycpugraph:set_width(50):set_height(20)
 mycpugraph.min_value = 0
 mycpugraph.max_value = 100
 mycpugraph.stack = true
-mycpugraph:set_background_color("#494B4F")
-mycpugraph:set_stack_colors({ "#FF5656", "#88A175", "#AECF96", "#FF0000" })
+mycpugraph:set_background_color("#3c3c45")
+-- mycpugraph:set_stack_colors({ "#FF5656", "#88A175", "#AECF96", "#FF0000" })
+--mycpugraph:set_stack_colors({ "#1c2626", "#29302b", "#394130", "#484c32" })
+mycpugraph:set_stack_colors({ "#7e3e3e", "#ab4747", "#7e3e3e", "#ab4747" })
 
 mycpulabel = wibox.widget.textbox()
 mycpulabel.align = "right"
@@ -187,7 +189,7 @@ vicious.register(ctext, vicious.widgets.cpu,
         mycpugraph:add_value(args[5], 4) -- Core 4, color 4
 
         mycpu:set_value(args[1])
-        mycpulabel:set_markup_silently('<span color="#666666">' .. args[1] .. '%</span> ')
+        mycpulabel:set_markup_silently('<span color="#d09a58">' .. args[1] .. '%</span> ')
     end, 1)
 
 mycpugraphstack = wibox.layout.stack()
@@ -196,12 +198,76 @@ mycpugraphstack:add(mycpulabel)
 
 -- Create a network label
 mynet = wibox.widget.textbox()
+mynetdown = wibox.widget.textbox("?")
+mynetup = wibox.widget.textbox("?")
 
 --vicious.register(mynet, vicious.widgets.net,
 --    function (widget, args)
 --        return args["eth0 down_kb"]
 --    end, 1)
-vicious.register(mynet, vicious.widgets.net, '<span color="#CC9933">↓ ${enp3s0 down_kb} kB</span> <span color="#7F9F7F">↑ ${enp3s0 up_kb} kB</span><span color="#cccccc"></span>', 1)
+vicious.register(mynet, vicious.widgets.net,
+    function (widget, args)
+		if tonumber(args["{enp3s0 down_mb}"]) > 1 then
+        	mynetdown:set_markup_silently(' <span color="#d4c675">' .. args["{enp3s0 down_mb}"] .. ' mB</span> ')
+		elseif tonumber(args["{enp3s0 down_kb}"]) > 0.2 then
+        	mynetdown:set_markup_silently(' <span color="#d4c675">' .. args["{enp3s0 down_kb}"] .. ' kB</span> ')
+		else
+        	mynetdown:set_markup_silently(' <span color="#d4c675">' .. args["{enp3s0 down_b}"] .. ' B</span> ')
+		end
+
+		if tonumber(args["{enp3s0 up_mb}"]) > 1 then
+        	mynetup:set_markup_silently(' <span color="#d09a58">' .. args["{enp3s0 up_mb}"] .. ' mB</span> ')
+		elseif tonumber(args["{enp3s0 up_kb}"]) > 0.2 then
+        	mynetup:set_markup_silently(' <span color="#d09a58">' .. args["{enp3s0 up_kb}"] .. ' kB</span> ')
+		else
+        	mynetup:set_markup_silently(' <span color="#d09a58">' .. args["{enp3s0 up_b}"] .. ' B</span> ')
+		end
+    end, 1)
+
+mynetdownlabel = wibox.widget.textbox()
+mynetdownlabel.font = "GLYPHICONS Halflings 9"
+mynetdownlabel:set_markup_silently('<span color="#d4c675">&#xE197;</span>')
+mynetuplabel = wibox.widget.textbox()
+mynetuplabel.font = "GLYPHICONS Halflings 9"
+mynetuplabel:set_markup_silently('<span color="#d09a58">&#xE198;</span>')
+
+widgetnet = wibox.widget {
+    wibox.widget {
+        mynetdownlabel,
+        mynetdown,
+        layout = wibox.layout.align.horizontal
+    },
+    wibox.widget {
+        mynetuplabel,
+        mynetup,
+        layout = wibox.layout.align.horizontal
+    },
+    layout = wibox.layout.align.horizontal
+}
+
+-- Create an uptime widget
+myuptime = wibox.widget.textbox()
+vicious.register(myuptime, vicious.widgets.uptime,
+	function (widget, args)
+		if args[1] > 0 then
+			return ' <span color="#d4c675">' .. args[1] .. "d" .. '</span> '
+		elseif args[2] > 0 then
+			return ' <span color="#d4c675">' .. args[2] .. "m" .. '</span> '
+		else
+			return ' <span color="#d4c675">' .. args[3] .. "s" .. '</span>. '
+		end
+	end, 20)
+
+myuptimelabel = wibox.widget.textbox()
+myuptimelabel.font = "GLYPHICONS Halflings 9"
+myuptimelabel:set_markup_silently('<span color="#d4c675">&#xE278;</span>')
+
+widgetuptime = wibox.widget {
+	myuptimelabel,
+	myuptime,
+	layout = wibox.layout.align.horizontal
+}
+
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = awful.util.table.join(
@@ -301,7 +367,8 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
-            mynet,
+            widgetnet,
+            widgetuptime,
             mytextclock,
             mycpucontainer,
             mymemcontainer,
