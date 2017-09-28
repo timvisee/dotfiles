@@ -136,9 +136,6 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
--- Create a text widget (test)
-mytest = wibox.widget.textbox("test")
-
 -- Create a CPU usage widget
 mycpu = wibox.widget.progressbar()
 mycpu:set_width(15)
@@ -188,6 +185,15 @@ vicious.register(ctext, vicious.widgets.cpu,
 
         mycpu:set_value(args[1])
     end, 1)
+
+-- Create a network label
+mynet = wibox.widget.textbox()
+
+--vicious.register(mynet, vicious.widgets.net,
+--    function (widget, args)
+--        return args["eth0 down_kb"]
+--    end, 1)
+vicious.register(mynet, vicious.widgets.net, '<span color="#CC9933">↓ ${enp3s0 down_kb} kB</span> <span color="#7F9F7F">↑ ${enp3s0 up_kb} kB</span><span color="#cccccc"> | </span>', 1)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = awful.util.table.join(
@@ -287,8 +293,8 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
+            mynet,
             mytextclock,
-            mytest,
             mycpucontainer,
             mymemcontainer,
             mycpugraph,
