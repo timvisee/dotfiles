@@ -176,6 +176,9 @@ mycpugraph.stack = true
 mycpugraph:set_background_color("#494B4F")
 mycpugraph:set_stack_colors({ "#FF5656", "#88A175", "#AECF96", "#FF0000" })
 
+mycpulabel = wibox.widget.textbox()
+mycpulabel.align = "right"
+
 vicious.register(ctext, vicious.widgets.cpu,
     function (widget, args)
         mycpugraph:add_value(args[2], 1) -- Core 1, color 1
@@ -184,7 +187,12 @@ vicious.register(ctext, vicious.widgets.cpu,
         mycpugraph:add_value(args[5], 4) -- Core 4, color 4
 
         mycpu:set_value(args[1])
+        mycpulabel:set_markup_silently('<span color="#666666">' .. args[1] .. '%</span> ')
     end, 1)
+
+mycpugraphstack = wibox.layout.stack()
+mycpugraphstack:add(mycpugraph)
+mycpugraphstack:add(mycpulabel)
 
 -- Create a network label
 mynet = wibox.widget.textbox()
@@ -193,7 +201,7 @@ mynet = wibox.widget.textbox()
 --    function (widget, args)
 --        return args["eth0 down_kb"]
 --    end, 1)
-vicious.register(mynet, vicious.widgets.net, '<span color="#CC9933">↓ ${enp3s0 down_kb} kB</span> <span color="#7F9F7F">↑ ${enp3s0 up_kb} kB</span><span color="#cccccc"> | </span>', 1)
+vicious.register(mynet, vicious.widgets.net, '<span color="#CC9933">↓ ${enp3s0 down_kb} kB</span> <span color="#7F9F7F">↑ ${enp3s0 up_kb} kB</span><span color="#cccccc"></span>', 1)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = awful.util.table.join(
@@ -297,7 +305,7 @@ awful.screen.connect_for_each_screen(function(s)
             mytextclock,
             mycpucontainer,
             mymemcontainer,
-            mycpugraph,
+            mycpugraphstack,
             s.mylayoutbox,
         },
     }
