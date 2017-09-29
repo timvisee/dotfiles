@@ -204,47 +204,98 @@ mynet = wibox.widget.textbox()
 mynetdown = wibox.widget.textbox("?")
 mynetup = wibox.widget.textbox("?")
 
+mynetdowngraph = wibox.widget.graph()
+mynetdowngraph:set_width(50):set_height(20)
+mynetdowngraph.min_value = 0
+mynetdowngraph.scale = true
+mynetdowngraph:set_background_color("#222222")
+mynetdowngraph.color = gears.color("#7e3e3e")
+
+mynetupgraph = wibox.widget.graph()
+mynetupgraph:set_width(50):set_height(20)
+mynetupgraph.min_value = 0
+mynetupgraph.scale = true
+mynetupgraph:set_background_color("#222222")
+mynetupgraph.color = gears.color("#7e3e3e")
+
+function round(x)
+    return x >= 0 and math.floor(x + 0.5) or math.ceil(x - 0.5)
+end
+
 --vicious.register(mynet, vicious.widgets.net,
 --    function (widget, args)
 --        return args["eth0 down_kb"]
 --    end, 1)
 vicious.register(mynet, vicious.widgets.net,
     function (widget, args)
+        -- Get the download speed and unit
 		if tonumber(args["{enp3s0 down_mb}"]) > 1 then
-        	mynetdown:set_markup_silently(' <span color="#d4c675">' .. args["{enp3s0 down_mb}"] .. ' mB</span> ')
+        	downval = tonumber(args["{enp3s0 down_mb}"])
+            downunit = 'M'
 		elseif tonumber(args["{enp3s0 down_kb}"]) > 0.2 then
-        	mynetdown:set_markup_silently(' <span color="#d4c675">' .. args["{enp3s0 down_kb}"] .. ' kB</span> ')
+        	downval = tonumber(args["{enp3s0 down_kb}"])
+            downunit = 'K'
 		else
-        	mynetdown:set_markup_silently(' <span color="#d4c675">' .. args["{enp3s0 down_b}"] .. ' B</span> ')
+        	downval = tonumber(args["{enp3s0 down_b}"])
+            downunit = 'B'
 		end
 
+        -- Get the upload speed and unit
 		if tonumber(args["{enp3s0 up_mb}"]) > 1 then
-        	mynetup:set_markup_silently(' <span color="#d09a58">' .. args["{enp3s0 up_mb}"] .. ' mB</span> ')
+        	upval = tonumber(args["{enp3s0 up_mb}"])
+            upunit = 'M'
 		elseif tonumber(args["{enp3s0 up_kb}"]) > 0.2 then
-        	mynetup:set_markup_silently(' <span color="#d09a58">' .. args["{enp3s0 up_kb}"] .. ' kB</span> ')
+        	upval = tonumber(args["{enp3s0 up_kb}"])
+            upunit = 'K'
 		else
-        	mynetup:set_markup_silently(' <span color="#d09a58">' .. args["{enp3s0 up_b}"] .. ' B</span> ')
+        	upval = tonumber(args["{enp3s0 up_b}"])
+            upunit = 'B'
 		end
+
+        -- Only show decimals for values less than 10
+        if(downval >= 10) then
+            downval = round(downval)
+        end
+        if(upval >= 10) then
+            upval = round(upval)
+        end
+
+        -- Render the speed labels
+        mynetdown:set_markup_silently(' <span color="#d4c675">' .. downval .. downunit .. '</span> ')
+        mynetup:set_markup_silently(' <span color="#d4c675">' .. upval .. upunit .. '</span> ')
+
+        -- Update the graphs
+        mynetdowngraph:add_value(tonumber(args["{enp3s0 down_b}"]), 1)
+        mynetupgraph:add_value(tonumber(args["{enp3s0 up_b}"]), 1)
     end, 1)
 
-mynetdownlabel = wibox.widget.textbox()
-mynetdownlabel.font = "GLYPHICONS Halflings 9"
-mynetdownlabel:set_markup_silently('<span color="#d4c675">&#xE197;</span>')
-mynetuplabel = wibox.widget.textbox()
-mynetuplabel.font = "GLYPHICONS Halflings 9"
-mynetuplabel:set_markup_silently('<span color="#d09a58">&#xE198;</span>')
+-- Networking icons
+mynetdownicon = wibox.widget.textbox()
+mynetdownicon.font = "GLYPHICONS Halflings 9"
+mynetdownicon:set_markup_silently('<span color="#d4c675">&#xE197;</span>')
+mynetupicon = wibox.widget.textbox()
+mynetupicon.font = "GLYPHICONS Halflings 9"
+mynetupicon:set_markup_silently('<span color="#d09a58">&#xE198;</span>')
+
+mynetdownstack = wibox.layout.stack()
+mynetdownstack:add(mynetdowngraph)
+mynetdownstack:add(wibox.widget {
+    mynetdownicon,
+    mynetdown,
+    layout = wibox.layout.align.horizontal
+})
+
+mynetupstack = wibox.layout.stack()
+mynetupstack:add(mynetupgraph)
+mynetupstack:add(wibox.widget {
+    mynetupicon,
+    mynetup,
+    layout = wibox.layout.align.horizontal
+})
 
 widgetnet = wibox.widget {
-    wibox.widget {
-        mynetdownlabel,
-        mynetdown,
-        layout = wibox.layout.align.horizontal
-    },
-    wibox.widget {
-        mynetuplabel,
-        mynetup,
-        layout = wibox.layout.align.horizontal
-    },
+    mynetdownstack,
+    mynetupstack,
     layout = wibox.layout.align.horizontal
 }
 
