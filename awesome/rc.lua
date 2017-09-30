@@ -262,7 +262,7 @@ vicious.register(mynet, vicious.widgets.net,
 
         -- Render the speed labels
         mynetdown:set_markup_silently(' <span color="#d4c675">' .. downval .. downunit .. '</span> ')
-        mynetup:set_markup_silently(' <span color="#d4c675">' .. upval .. upunit .. '</span> ')
+        mynetup:set_markup_silently(' <span color="#d09a58">' .. upval .. upunit .. '</span> ')
 
         -- Update the graphs
         mynetdowngraph:add_value(tonumber(args["{enp3s0 down_b}"]), 1)
