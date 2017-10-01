@@ -11,7 +11,7 @@ dotfiles are used to personalize your system and applications. These are mine.
 * `awesomeWM`: tiling window manager, additional dependencies
     * `awesome`: window manager itself
     * `awesome-extra`: additional libraries used in my configuration
-    * `i3lock`: screen locking
+    * `i3lock-color-git`: [[link]](https://github.com/chrjguill/i3lock-color) fancy and customizable lock screen
     * `xautolock`: lock screen when inactive
     * `libnotify-bin`: notification handling
 * `xcape` (Linux): to bind <kbd>Caps Lock</kbd> to <kbd>Esc</kbd>.

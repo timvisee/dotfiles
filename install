@@ -535,6 +535,7 @@ if [ $DO_AWESOME == "yes" ]; then
     log_normal "Updating awesomeWM dotfiles..."
     do_file "$DIR/awesome/rc.lua" $CMD_USER_HOME_DIR/.config/awesome/rc.lua
     do_file "$DIR/awesome/locker" $CMD_USER_HOME_DIR/.config/awesome/locker
+    do_file "$DIR/awesome/lib" $CMD_USER_HOME_DIR/.config/awesome/lib
     do_file "$DIR/awesome/themes/default" $CMD_USER_HOME_DIR/.config/awesome/themes/default
     log_success "Updated awesomeWM dotfiles."
     echo
