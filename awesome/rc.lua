@@ -629,6 +629,26 @@ clientbuttons = awful.util.table.join(
     awful.button({ modkey }, 1, awful.mouse.client.move),
     awful.button({ modkey }, 3, awful.mouse.client.resize))
 
+-- Start locker script, to auto lock the screen when inactive
+awful.util.spawn_with_shell('~/.config/awesome/locker')
+
+-- Lock the screen
+function lock_screen()
+    -- Sync the disks
+    naughty.notify({ preset = naughty.config.presets.normal,
+                        title = "Locking screen...",
+                        text = "Syncing all cached data to disks, please wait..." })
+    awful.util.spawn("sync")
+
+    -- Lock the screen
+    awful.util.spawn("xautolock -locknow")
+end
+
+-- Lock the screen using Ctrl+Super+L
+globalkeys = awful.util.table.join(globalkeys,
+    awful.key({ "Mod1", "Control" }, "l", lock_screen)
+)
+
 -- Set keys
 root.keys(globalkeys)
 -- }}}

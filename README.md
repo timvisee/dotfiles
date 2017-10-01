@@ -8,6 +8,12 @@ dotfiles are used to personalize your system and applications. These are mine.
 * When using Vim, [Vundle](https://github.com/VundleVim/Vundle.vim) must be installed.
 
 ## Recommendations
+* `awesomeWM`: tiling window manager, additional dependencies
+    * `awesome`: window manager itself
+    * `awesome-extra`: additional libraries used in my configuration
+    * `i3lock`: screen locking
+    * `xautolock`: lock screen when inactive
+    * `libnotify-bin`: notification handling
 * `xcape` (Linux): to bind <kbd>Caps Lock</kbd> to <kbd>Esc</kbd>.
 * `fish`: as better shell
 * `thefuck`: for handy incorrect command fixes.
