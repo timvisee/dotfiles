@@ -572,6 +572,16 @@ do
                         text = "Not starting the compton daemon, it's not installed." })
     end
 
+    -- Start nm-applet if installed
+    if awful.util.file_readable("/usr/bin/nm-applet") then
+        table.insert(cmds, "/usr/bin/nm-applet")
+    else
+        -- Show a warning if it's not installed
+        naughty.notify({ preset = naughty.config.presets.normal,
+                        title = "nm-applet not installed",
+                        text = "Not starting the network manager, it's not installed." })
+    end
+
     -- Start Telegram if installed
     if awful.util.file_readable("/opt/telegram/telegram") then
         table.insert(cmds, "/opt/telegram/telegram -startintray")
