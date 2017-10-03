@@ -105,20 +105,33 @@ fi
 
 # Remove all Docker containers
 function docker_remove_containers() {
-    echo "Removing all Docker containers..."
-    docker rm $(docker ps -aq)
+    DOCKER_CONTAINERS=`docker ps -aq --no-trunc`
+    if [[ "$DOCKER_CONTAINERS" ]]; then
+        echo "Removing all Docker containers..."
+        docker rm $DOCKER_CONTAINERS
+    else
+        echo "No Docker containers to remove"
+    fi
+
     echo "Done"
 }
 
 # Clean Docker, by removing things like dangling images.
 function docker_clean() {
-    echo "Cleaning up dangling Docker images..."
-
-    DANGLING_IMAGES=`docker images -f "dangling=true" -q`
-    if [ $DANGLING_IMAGES ]; then
+    DANGLING_IMAGES=`docker images -f "dangling=true" -q --no-trunc`
+    if [[ "$DANGLING_IMAGES" ]]; then
+        echo "Cleaning up dangling Docker images..."
         docker rmi $DANGLING_IMAGES
     else
         echo "No dangling Docker images to remove"
+    fi
+
+    DANGLING_VOLUMES=`docker volume ls -f "dangling=true" -q`
+    if [[ "$DANGLING_VOLUMES" ]]; then
+        echo "Pruning all unused Docker volumes..."
+        docker volume prune -f
+    else
+        echo "No dangling Docker volumes to prune"
     fi
 
     echo "Done"
@@ -132,6 +145,19 @@ function docker_clean_all() {
     docker_clean
 
     rm -f ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
+
+    echo "Done"
+}
+
+# Remove the last created container.
+function docker_rm_last() {
+    LAST_CONTAINER=`docker ps -lq --no-trunc`
+    if [[ "$LAST_CONTAINER" ]]; then
+        echo "Removing the last created Docker container..."
+        docker rm $LAST_CONTAINER
+    else
+        echo "No last Docker container to remove"
+    fi
 
     echo "Done"
 }

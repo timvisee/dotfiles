@@ -492,6 +492,8 @@ if [ $DO_TMUX == "yes" ]; then
     do_file "$DIR/tmux/tmux.conf" $CMD_USER_HOME_DIR/.tmux.conf
     do_file "$DIR/tmux/tmux/tmux_lt_2.1.conf" $CMD_USER_HOME_DIR/.tmux/tmux_lt_2.1.conf
     do_file "$DIR/tmux/tmux/tmux_ge_2.1.conf" $CMD_USER_HOME_DIR/.tmux/tmux_ge_2.1.conf
+    do_file "$DIR/tmux/tmux/tmux_lt_2.4.conf" $CMD_USER_HOME_DIR/.tmux/tmux_lt_2.4.conf
+    do_file "$DIR/tmux/tmux/tmux_ge_2.4.conf" $CMD_USER_HOME_DIR/.tmux/tmux_ge_2.4.conf
     do_file "$DIR/tmux/tmux/load_version_specific" $CMD_USER_HOME_DIR/.tmux/load_version_specific
     log_success "Updated tmux dotfiles."
     echo
@@ -532,6 +534,8 @@ fi
 if [ $DO_AWESOME == "yes" ]; then
     log_normal "Updating awesomeWM dotfiles..."
     do_file "$DIR/awesome/rc.lua" $CMD_USER_HOME_DIR/.config/awesome/rc.lua
+    do_file "$DIR/awesome/locker" $CMD_USER_HOME_DIR/.config/awesome/locker
+    do_file "$DIR/awesome/lib" $CMD_USER_HOME_DIR/.config/awesome/lib
     do_file "$DIR/awesome/themes/default" $CMD_USER_HOME_DIR/.config/awesome/themes/default
     log_success "Updated awesomeWM dotfiles."
     echo

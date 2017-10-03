@@ -14,6 +14,9 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 
+local vicious = require("vicious")
+local cairo = require("lgi").cairo;
+
 -- Load Debian menu entries
 require("debian.menu")
 
@@ -106,9 +109,16 @@ myawesomemenu = {
    { "quit", function() awesome.quit() end}
 }
 
+mymachinemenu = {
+   { "logoff", function() awesome.quit() end},
+   { "reboot", function() awful.util.spawn("sudo reboot") end},
+   { "shutdown", function() awful.util.spawn("sudo shutdown now") end}
+}
+
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "Machine", mymachinemenu },
                                     { "Debian", debian.menu.Debian_menu.Debian },
-                                    { "open terminal", terminal }
+                                    { "Open terminal", terminal }
                                   }
                         })
 
@@ -125,6 +135,193 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+
+-- Create a CPU usage widget
+mycpu = wibox.widget.progressbar()
+mycpu:set_width(15)
+mycpu:set_height(30)
+mycpu:set_vertical(true)
+mycpu.forced_height = 5
+-- mycpu.background_color = gears.color("#555555")
+mycpu.background_color = gears.color("#222222")
+mycpu.max_value = 100
+mycpucontainer = wibox.container.rotate(mycpu, 'east')
+
+--vicious.register(mycpu, vicious.widgets.cpu,
+--    function (widget, args)
+--        return args[1]
+--    end, 1)
+
+-- Create a memory usage widget
+mymem = wibox.widget.progressbar()
+mymem:set_width(15)
+mymem:set_height(30)
+mymem:set_vertical(true)
+mymem.forced_height = 5
+mymem.color = gears.color("#00ff00")
+-- mymem.background_color = gears.color("#555555")
+mymem.background_color = gears.color("#222222")
+mymemcontainer = wibox.container.rotate(mymem, 'east')
+
+vicious.register(mymem, vicious.widgets.mem,
+    function (widget, args)
+        return args[1]
+    end, 1)
+
+-- Create a CPU usage graph
+ctext = wibox.widget.textbox()
+mycpugraph = wibox.widget.graph()
+mycpugraph:set_width(50):set_height(20)
+mycpugraph.min_value = 0
+mycpugraph.max_value = 100
+mycpugraph.stack = true
+-- mycpugraph:set_background_color("#3c3c45")
+mycpugraph:set_background_color("#222222")
+-- mycpugraph:set_stack_colors({ "#FF5656", "#88A175", "#AECF96", "#FF0000" })
+--mycpugraph:set_stack_colors({ "#1c2626", "#29302b", "#394130", "#484c32" })
+mycpugraph:set_stack_colors({ "#7e3e3e", "#ab4747", "#7e3e3e", "#ab4747" })
+
+mycpulabel = wibox.widget.textbox()
+mycpulabel.align = "right"
+
+vicious.register(ctext, vicious.widgets.cpu,
+    function (widget, args)
+        mycpugraph:add_value(args[2], 1) -- Core 1, color 1
+        mycpugraph:add_value(args[3], 2) -- Core 2, color 2
+        mycpugraph:add_value(args[4], 3) -- Core 3, color 3
+        mycpugraph:add_value(args[5], 4) -- Core 4, color 4
+
+        mycpu:set_value(args[1])
+        mycpulabel:set_markup_silently('<span color="#d09a58">' .. args[1] .. '%</span> ')
+    end, 1)
+
+mycpugraphstack = wibox.layout.stack()
+mycpugraphstack:add(mycpugraph)
+mycpugraphstack:add(mycpulabel)
+
+-- Create a network label
+mynet = wibox.widget.textbox()
+mynetdown = wibox.widget.textbox("?")
+mynetup = wibox.widget.textbox("?")
+
+mynetdowngraph = wibox.widget.graph()
+mynetdowngraph:set_width(50):set_height(20)
+mynetdowngraph.min_value = 0
+mynetdowngraph.scale = true
+mynetdowngraph:set_background_color("#222222")
+mynetdowngraph.color = gears.color("#7e3e3e")
+
+mynetupgraph = wibox.widget.graph()
+mynetupgraph:set_width(50):set_height(20)
+mynetupgraph.min_value = 0
+mynetupgraph.scale = true
+mynetupgraph:set_background_color("#222222")
+mynetupgraph.color = gears.color("#7e3e3e")
+
+function round(x)
+    return x >= 0 and math.floor(x + 0.5) or math.ceil(x - 0.5)
+end
+
+--vicious.register(mynet, vicious.widgets.net,
+--    function (widget, args)
+--        return args["eth0 down_kb"]
+--    end, 1)
+vicious.register(mynet, vicious.widgets.net,
+    function (widget, args)
+        -- Get the download speed and unit
+		if tonumber(args["{enp3s0 down_mb}"]) > 1 then
+        	downval = tonumber(args["{enp3s0 down_mb}"])
+            downunit = 'M'
+		elseif tonumber(args["{enp3s0 down_kb}"]) > 0.2 then
+        	downval = tonumber(args["{enp3s0 down_kb}"])
+            downunit = 'K'
+		else
+        	downval = tonumber(args["{enp3s0 down_b}"])
+            downunit = 'B'
+		end
+
+        -- Get the upload speed and unit
+		if tonumber(args["{enp3s0 up_mb}"]) > 1 then
+        	upval = tonumber(args["{enp3s0 up_mb}"])
+            upunit = 'M'
+		elseif tonumber(args["{enp3s0 up_kb}"]) > 0.2 then
+        	upval = tonumber(args["{enp3s0 up_kb}"])
+            upunit = 'K'
+		else
+        	upval = tonumber(args["{enp3s0 up_b}"])
+            upunit = 'B'
+		end
+
+        -- Only show decimals for values less than 10
+        if(downval >= 10) then
+            downval = round(downval)
+        end
+        if(upval >= 10) then
+            upval = round(upval)
+        end
+
+        -- Render the speed labels
+        mynetdown:set_markup_silently(' <span color="#d4c675">' .. downval .. downunit .. '</span> ')
+        mynetup:set_markup_silently(' <span color="#d09a58">' .. upval .. upunit .. '</span> ')
+
+        -- Update the graphs
+        mynetdowngraph:add_value(tonumber(args["{enp3s0 down_b}"]), 1)
+        mynetupgraph:add_value(tonumber(args["{enp3s0 up_b}"]), 1)
+    end, 1)
+
+-- Networking icons
+mynetdownicon = wibox.widget.textbox()
+mynetdownicon.font = "GLYPHICONS Halflings 9"
+mynetdownicon:set_markup_silently('<span color="#d4c675">&#xE197;</span>')
+mynetupicon = wibox.widget.textbox()
+mynetupicon.font = "GLYPHICONS Halflings 9"
+mynetupicon:set_markup_silently('<span color="#d09a58">&#xE198;</span>')
+
+mynetdownstack = wibox.layout.stack()
+mynetdownstack:add(mynetdowngraph)
+mynetdownstack:add(wibox.widget {
+    mynetdownicon,
+    mynetdown,
+    layout = wibox.layout.align.horizontal
+})
+
+mynetupstack = wibox.layout.stack()
+mynetupstack:add(mynetupgraph)
+mynetupstack:add(wibox.widget {
+    mynetupicon,
+    mynetup,
+    layout = wibox.layout.align.horizontal
+})
+
+widgetnet = wibox.widget {
+    mynetdownstack,
+    mynetupstack,
+    layout = wibox.layout.align.horizontal
+}
+
+-- Create an uptime widget
+myuptime = wibox.widget.textbox()
+vicious.register(myuptime, vicious.widgets.uptime,
+	function (widget, args)
+		if args[1] > 0 then
+			return ' <span color="#d4c675">' .. args[1] .. "d" .. '</span> '
+		elseif args[2] > 0 then
+			return ' <span color="#d4c675">' .. args[2] .. "m" .. '</span> '
+		else
+			return ' <span color="#d4c675">' .. args[3] .. "s" .. '</span>. '
+		end
+	end, 20)
+
+myuptimelabel = wibox.widget.textbox()
+myuptimelabel.font = "GLYPHICONS Halflings 9"
+myuptimelabel:set_markup_silently('<span color="#d4c675">&#xE278;</span>')
+
+widgetuptime = wibox.widget {
+	myuptimelabel,
+	myuptime,
+	layout = wibox.layout.align.horizontal
+}
+
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = awful.util.table.join(
@@ -224,7 +421,12 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
+            widgetnet,
+            widgetuptime,
             mytextclock,
+            mycpucontainer,
+            mymemcontainer,
+            mycpugraphstack,
             s.mylayoutbox,
         },
     }
@@ -427,6 +629,26 @@ clientbuttons = awful.util.table.join(
     awful.button({ modkey }, 1, awful.mouse.client.move),
     awful.button({ modkey }, 3, awful.mouse.client.resize))
 
+-- Start locker script, to auto lock the screen when inactive
+awful.util.spawn_with_shell('~/.config/awesome/locker')
+
+-- Lock the screen
+function lock_screen()
+    -- Sync the disks
+    naughty.notify({ preset = naughty.config.presets.normal,
+                        title = "Locking screen...",
+                        text = "Syncing all cached data to disks, please wait..." })
+    awful.util.spawn("sync")
+
+    -- Lock the screen
+    awful.util.spawn("xautolock -locknow")
+end
+
+-- Lock the screen using Ctrl+Super+L
+globalkeys = awful.util.table.join(globalkeys,
+    awful.key({ "Mod1", "Control" }, "l", lock_screen)
+)
+
 -- Set keys
 root.keys(globalkeys)
 -- }}}
@@ -564,6 +786,8 @@ do
 
     -- Start compton if installed
     if awful.util.file_readable("/usr/bin/compton") then
+        -- TODO: Don't kill compton, just don't start it again when already running
+        table.insert(cmds, "pkill compton")
         table.insert(cmds, "compton -b")
     else
         -- Show a warning if it's not installed
@@ -598,3 +822,25 @@ do
         awful.util.spawn(i)
    end
 end
+
+
+-- Code testing space
+-- TODO: Remove after testing
+---- Create a surface
+--local img = cairo.ImageSurface.create(cairo.Format.ARGB32, 50, 50)
+--
+---- Create a context
+--local cr  = cairo.Context(img)
+--
+---- Set a red source
+----cr:set_source_rgb(1, 0, 0)
+---- Alternative:
+--cr:set_source(gears.color("#ff0000"))
+--
+---- Add a 10px square path to the context at x=10, y=10
+--cr:rectangle(10, 10, 10, 10)
+--
+---- Actually draw the rectangle on img
+--cr:fill()
+--
+--screen.primary.mywibox.bgimage = img

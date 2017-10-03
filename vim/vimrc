@@ -14,6 +14,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ekalinin/Dockerfile.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -206,13 +207,3 @@ set updatetime=1000
 augroup WordCounter
     au! CursorHold,CursorHoldI * call UpdateWordCount()
 augroup END
-
-" Set statusline, shown here a piece at a time
-highlight User1 ctermbg=green guibg=green ctermfg=black guifg=black
-set statusline=%1*                       " Switch to User1 color highlight
-set statusline+=%<%F                     " file name, cut if needed at start
-set statusline+=%M                       " modified flag
-set statusline+=%y                       " file type
-set statusline+=%=                       " separator from left to right justified
-set statusline+=\ %{WordCount()}\ words,
-set statusline+=\ %l/%L\ lines,\ %P      " percentage through the file
