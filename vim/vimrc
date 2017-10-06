@@ -47,6 +47,7 @@ syntax enable
 set background=dark
 
 " Airline theme
+"let g:airline_theme='tomorrow'
 let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
 
@@ -73,7 +74,7 @@ highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\v%81v', 100)
 
 " Highlight TODO
-augroup HiglightTODO
+augroup HiglightTodo
     autocmd!
     autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO', -1)
 augroup END
@@ -121,11 +122,17 @@ set clipboard=unnamedplus,unnamed
 " Tab formatting with 4 spaces
 set autoindent
 set tabstop=4
+set softtabstop=4
 set expandtab
 
 " Shift 4 columns (rounded to nearest multiple)
 set shiftwidth=4
 set shiftround
+
+" File specific configurations
+autocmd FileType json setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 
 
