@@ -1,7 +1,9 @@
 # Fish shell configuration
 
 # Alias for TheFuck
-eval (thefuck --alias | tr '\n' ';')
+if test -e "/usr/bin/thefuck"
+    eval (thefuck --alias | tr '\n' ';')
+end
 
 # Alias to support tmux colors
 alias tmux='tmux -2'
