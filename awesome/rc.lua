@@ -306,11 +306,13 @@ vicious.register(myuptime, vicious.widgets.uptime,
 		if args[1] > 0 then
 			return ' <span color="#d4c675">' .. args[1] .. "d" .. '</span> '
 		elseif args[2] > 0 then
+			return ' <span color="#d4c675">' .. args[2] .. "h" .. '</span> '
+		elseif args[3] > 0 then
 			return ' <span color="#d4c675">' .. args[2] .. "m" .. '</span> '
 		else
-			return ' <span color="#d4c675">' .. args[3] .. "s" .. '</span>. '
+			return ' <span color="#d4c675">' .. args[4] .. "s" .. '</span>. '
 		end
-	end, 20)
+	end, 10)
 
 myuptimelabel = wibox.widget.textbox()
 myuptimelabel.font = "GLYPHICONS Halflings 9"
