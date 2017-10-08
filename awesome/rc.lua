@@ -308,7 +308,7 @@ vicious.register(myuptime, vicious.widgets.uptime,
 		elseif args[2] > 0 then
 			return ' <span color="#d4c675">' .. args[2] .. "h" .. '</span> '
 		elseif args[3] > 0 then
-			return ' <span color="#d4c675">' .. args[2] .. "m" .. '</span> '
+			return ' <span color="#d4c675">' .. args[3] .. "m" .. '</span> '
 		else
 			return ' <span color="#d4c675">' .. args[4] .. "s" .. '</span>. '
 		end
