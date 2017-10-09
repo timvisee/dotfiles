@@ -164,3 +164,6 @@ function docker_rm_last() {
 
 # Set the preferred editor
 export EDITOR=vim
+
+# GPG key
+export GPG_TTY=$(tty)

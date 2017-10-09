@@ -88,3 +88,6 @@ end
 
 # Set the preferred editor
 set -x EDITOR vim
+
+# GPG key
+set -x GPG_TTY (tty)
