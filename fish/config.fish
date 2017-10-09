@@ -27,7 +27,7 @@ if test -d "$HOME/.composer/vendor/bin"
 end
 
 # Remove all Docker containers
-function docker_remove_containers
+function docker_rm_all
     set DOCKER_CONTAINERS (docker ps -aq --no-trunc)
     if test -n "$DOCKER_CONTAINERS"
         echo "Removing all Docker containers..."
@@ -64,11 +64,13 @@ end
 function docker_clean_all
     echo "Cleaning Docker..."
 
-    docker_remove_containers
+    docker_rm_all
     docker_clean
 
-    # Remove the huge Docker.qcow2 image from Mac OS X systems
-    rm -f ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
+    # Remove the ever increasing Docker image file from macOS
+    if [[ `uname -s` == "Darwin" ]]
+        rm -f ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
+    end
 
     echo "Done"
 end
