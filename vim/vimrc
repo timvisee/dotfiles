@@ -20,6 +20,7 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " File types
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'dag/vim-fish'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rust-lang/rust.vim'
