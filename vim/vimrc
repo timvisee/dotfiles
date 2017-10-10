@@ -9,14 +9,20 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
 Plugin 'godlygeek/tabular'
-Plugin 'junegunn/goyo.vim'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'JamshedVesuna/vim-markdown-preview'
+
+" Editor layout
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'rust-lang/rust.vim'
+
+" Visualizers
+Plugin 'junegunn/goyo.vim'
+Plugin 'JamshedVesuna/vim-markdown-preview'
+
+" File types
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'rust-lang/rust.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
