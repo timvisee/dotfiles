@@ -9,6 +9,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
 Plugin 'godlygeek/tabular'
+Plugin 'jremmen/vim-ripgrep'
 
 " Editor layout
 Plugin 'vim-airline/vim-airline'
