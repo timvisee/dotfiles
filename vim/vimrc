@@ -18,6 +18,7 @@ Plugin 'vim-airline/vim-airline-themes'
 " Visualizers
 Plugin 'junegunn/goyo.vim'
 Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'xuhdev/vim-latex-live-preview'
 
 " File types
 Plugin 'chase/vim-ansible-yaml'
@@ -195,5 +196,5 @@ if has("sign")
 endif
 
 " Define the tool and browser for markdown preview
-let vim_markdown_preview_github=1
-let vim_markdown_preview_browser='FirefoxNightly'
+let vim_markdown_preview_github = 1
+let vim_markdown_preview_browser = 'FirefoxNightly'
