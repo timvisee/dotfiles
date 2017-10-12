@@ -527,20 +527,25 @@ if [ $DO_VIM == "yes" ]; then
     do_file "$DIR/vim/autoload/gitgutter/utility.vim" $CMD_USER_HOME_DIR/.vim/autoload/gitgutter/utility.vim
 
     # Install vim Plugins
-    if type vim >/dev/null 2>/dev/null; then
-        # Get the home directory of the user
-        CMD_USER_HOME_DIR="$(get_command_user_home_dir)"
+    if [ $ACTION == "install" ]; then
+        # Make sure vim is installed
+        if type vim >/dev/null 2>/dev/null; then
+            # Get the home directory of the user
+            CMD_USER_HOME_DIR="$(get_command_user_home_dir)"
 
-        # Install plugins if Vundle is found
-        if [ -e "$CMD_USER_HOME_DIR/.vim/bundle/Vundle.vim" ]; then
-            log_normal "Installing vim plugins with Vundle..."
-            vim -c 'PluginInstall' -c 'qa!'
-            log_success "Vim plugins installed."
+            # Install plugins if Vundle is found
+            if [ -e "$CMD_USER_HOME_DIR/.vim/bundle/Vundle.vim" ]; then
+                log_normal "Installing vim plugins with Vundle..."
+                vim -c 'PluginInstall' -c 'qa!'
+                log_success "Vim plugins installed."
+            else
+                log_normal "Vundle not found, unable to automatically install plugins"
+                log_normal "Please install Vundle and run the installation again."
+            fi
         else
-            log_normal "Vundle not found, unable to automatically install plugins"
+            log_normal "Vim not found, unable to automatically install plugins"
+            log_normal "Please install vim and Vundle, and run the installation again"
         fi
-    else
-        log_normal "Vim not found, unable to automatically install plugins"
     fi
 
     log_success "Updated vim dotfiles."
