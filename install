@@ -528,8 +528,19 @@ if [ $DO_VIM == "yes" ]; then
 
     # Install vim Plugins
     if type vim >/dev/null 2>/dev/null; then
-        log_info "[Plugin]            Installing vim plugins..."
-        vim -c 'PluginInstall' -c 'qa!'
+        # Get the home directory of the user
+        CMD_USER_HOME_DIR="$(get_command_user_home_dir)"
+
+        # Install plugins if Vundle is found
+        if [ -e "$CMD_USER_HOME_DIR/.vim/bundle/Vundle.vim" ]; then
+            log_normal "Installing vim plugins with Vundle..."
+            vim -c 'PluginInstall' -c 'qa!'
+            log_success "Vim plugins installed."
+        else
+            log_normal "Vundle not found, unable to automatically install plugins"
+        fi
+    else
+        log_normal "Vim not found, unable to automatically install plugins"
     fi
 
     log_success "Updated vim dotfiles."
