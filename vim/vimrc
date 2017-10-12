@@ -116,6 +116,10 @@ set laststatus=2
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=009 guifg=#ff0000
 
+" File specific configurations
+autocmd FileType markdown setlocal spell
+autocmd FileType tex setlocal spell
+
 
 
 """ Editing
