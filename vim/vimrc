@@ -119,15 +119,17 @@ hi SpellBad cterm=underline ctermfg=009 guifg=#ff0000
 
 
 """ Editing
-" Backspace like other programs
+" Make backspace behaviour consistent, like other programs
 set backspace=indent,eol,start
 
 " Smart indents
 set autoindent smartindent
 set smarttab
 
-" Integrate with system clipboard
-set clipboard=unnamedplus,unnamed
+" Integrate with system clipboard (not on macOS due to problems)
+if !has('unix') && !has('mac')
+    set clipboard=unnamedplus,unnamed
+endif
 
 
 
