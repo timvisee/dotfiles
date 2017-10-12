@@ -525,6 +525,13 @@ if [ $DO_VIM == "yes" ]; then
     do_file "$DIR/vim/autoload/gitgutter/hunk.vim" $CMD_USER_HOME_DIR/.vim/autoload/gitgutter/hunk.vim
     do_file "$DIR/vim/autoload/gitgutter/sign.vim" $CMD_USER_HOME_DIR/.vim/autoload/gitgutter/sign.vim
     do_file "$DIR/vim/autoload/gitgutter/utility.vim" $CMD_USER_HOME_DIR/.vim/autoload/gitgutter/utility.vim
+
+    # Install vim Plugins
+    if type vim >/dev/null 2>/dev/null; then
+        log_info "[Plugin]            Installing vim plugins..."
+        vim -c 'PluginInstall' -c 'qa!'
+    fi
+
     log_success "Updated vim dotfiles."
     echo
 fi
