@@ -135,11 +135,12 @@ symlink_file() {
     log_info "                to: '$2'..."
     ln -s "$1" "$2"
 
-    # Get the command user
-    CMD_USER="$(get_command_user)"
+    # Get the command user and group
+    CMD_USER=`get_command_user`
+    CMD_USER_GROUP=`id -gn $CMD_USER | cut -d" " -f2-`
 
     # Configure permissions
-    chown -R $CMD_USER:$CMD_USER "$2"
+    chown -R $CMD_USER:$CMD_USER_GROUP "$2"
 
     return 0
 }
