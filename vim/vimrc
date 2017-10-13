@@ -117,10 +117,6 @@ set laststatus=2
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=009 guifg=#ff0000
 
-" File specific configurations
-autocmd FileType markdown setlocal spell
-autocmd FileType tex setlocal spell
-
 
 
 """ Editing
@@ -154,6 +150,19 @@ autocmd FileType ansible setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType json setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+
+
+""" Language
+" English and Dutch spelling
+set spelllang=en,nl
+
+" Disable spell checking
+set nospell
+
+" Enable spell checking for some files
+autocmd FileType markdown setlocal spell
+autocmd FileType tex setlocal spell
 
 
 
