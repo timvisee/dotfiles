@@ -544,6 +544,8 @@ if [ $DO_VIM == "yes" ]; then
     do_file "$DIR/vim/autoload/gitgutter/hunk.vim" $CMD_USER_HOME_DIR/.vim/autoload/gitgutter/hunk.vim
     do_file "$DIR/vim/autoload/gitgutter/sign.vim" $CMD_USER_HOME_DIR/.vim/autoload/gitgutter/sign.vim
     do_file "$DIR/vim/autoload/gitgutter/utility.vim" $CMD_USER_HOME_DIR/.vim/autoload/gitgutter/utility.vim
+    do_file "$DIR/vim/spell/nl.utf-8.spl" $CMD_USER_HOME_DIR/.vim/spell/nl.utf-8.spl
+    do_file "$DIR/vim/spell/nl.utf-8.sug" $CMD_USER_HOME_DIR/.vim/spell/nl.utf-8.sug
 
     # Install vim Plugins
     if [ $ACTION == "install" ]; then

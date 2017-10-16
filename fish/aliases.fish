@@ -8,6 +8,12 @@ end
 # Alias to support tmux colors
 alias tmux='tmux -2'
 
+# Git aliases
+alias ga='git add'
+alias gc='git commit'
+alias gs='git status'
+alias gp='git push'
+
 # Create the composer alias if it exists
 if test -e "/usr/local/bin/composer.phar"
     alias composer="php /usr/local/bin/composer.phar"

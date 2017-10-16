@@ -12,10 +12,16 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# Useful list aliasses
+# Useful list aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+# Git aliases
+alias ga='git add'
+alias gc='git commit'
+alias gs='git status'
+alias gp='git push'
 
 # Add an "alert" alias for long running commands.
 # Usage example: $ sleep 5; alert
