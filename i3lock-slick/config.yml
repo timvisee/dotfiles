@@ -1,0 +1,16 @@
+# Optional i3lock-slick dotfile.
+#
+# This file is used by i3lock-slick when located at '~/.i3locks-slick.yml'.
+# It allows you to fully configure i3lock-slick to eliminate the need of using
+# arguments when invoking the tool.
+
+# A list of parameters that the tool should pass to i3lock.
+parameter:
+  # Show a clock
+  clock: ""
+
+# Dry run, instead of actually invoking i3lock output the command that is used
+#dry: false
+
+# Version of i3lock-slick this targeted at
+version: "0.0.1"

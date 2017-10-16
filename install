@@ -17,6 +17,7 @@ DO_VIM="yes"
 DO_GIT="yes"
 DO_AWESOME="no"
 DO_COMPTON="no"
+DO_I3LOCK_SLICK="no"
 DO_HTOP="yes"
 DO_IFTOP="no"
 DO_CAVA="no"
@@ -365,7 +366,7 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
-    # Ask whether to install awesomeWM files
+    # Ask whether to install compton files
     log_question "Would you like to $ACTION compton dotfiles?"
     PS3="Choose your action: "
     select ENTRY in Yes No
@@ -377,6 +378,24 @@ if [ $CUSTOM == "yes" ]; then
                 ;;
             No)
                 DO_COMPTON=no
+                break
+                ;;
+        esac
+    done
+    echo
+
+    # Ask whether to install i3lock-slick files
+    log_question "Would you like to $ACTION i3lock-slick dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_I3LOCK_SLICK=yes
+                break
+                ;;
+            No)
+                DO_I3LOCK_SLICK=no
                 break
                 ;;
         esac
@@ -576,6 +595,14 @@ if [ $DO_COMPTON == "yes" ]; then
     log_normal "Updating compton dotfiles..."
     do_file "$DIR/compton/compton.conf" $CMD_USER_HOME_DIR/.config/compton.conf
     log_success "Updated compton dotfiles."
+    echo
+fi
+
+# Install i3lock-slick
+if [ $DO_I3LOCK_SLICK == "yes" ]; then
+    log_normal "Updating i3lock-slick dotfiles..."
+    do_file "$DIR/i3lock-slick/config.yml" $CMD_USER_HOME_DIR/.config/i3lock-slick/config.yml
+    log_success "Updated i3lock-slick dotfiles."
     echo
 fi
 
