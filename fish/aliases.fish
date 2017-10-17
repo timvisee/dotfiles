@@ -9,10 +9,14 @@ end
 alias tmux='tmux -2'
 
 # Git aliases
-alias ga='git add'
-alias gc='git commit'
-alias gs='git status'
-alias gp='git push'
+alias ga 'git add'
+alias gc 'git commit'
+alias gs 'git status'
+alias gp 'git push'
+
+# Clipboard aliases
+alias getclip 'xclip -selection c -o'
+alias setclip 'xclip -selection c'
 
 # Create the composer alias if it exists
 if test -e "/usr/local/bin/composer.phar"
