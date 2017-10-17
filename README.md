@@ -15,8 +15,9 @@ dotfiles are used to personalize your system and applications. These are mine.
     * `xautolock`: lock screen when inactive
     * `libnotify-bin`: notification handling
 * `xcape` (Linux): to bind <kbd>Caps Lock</kbd> to <kbd>Esc</kbd>.
+* `keychain`: for SSH key management
 * `fish`: as better shell
-* `thefuck`: for handy incorrect command fixes.
+* `thefuck`: for handy incorrect command fixes
 
 ## Installation
 An installation script is included to easily install the dotfiles on your system.

@@ -126,6 +126,20 @@ function git_enable_gpg
     echo "Done"
 end
 
+# Configure keychain if installed
+if test -e /usr/bin/keychain
+    # Initialize if no agent is started
+    # or if the chain list if empty when a key is available
+    if test -z $SSH_AGENT_PID; or test -z (keychain -l); and test -e ~/.ssh/id_rsa
+        echo "Initializing keychain..."
+        keychain --agents ssh id_rsa
+    end
+
+    # Import the current keychain environment
+    set SSH_AGENT_ENV $HOME/.keychain/(hostname)-fish
+    test -f $SSH_AGENT_ENV; and source $SSH_AGENT_ENV
+end
+
 # Set the preferred editor
 set -x EDITOR vim
 
