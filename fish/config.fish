@@ -127,7 +127,7 @@ function git_enable_gpg
 end
 
 # Configure keychain if installed
-if test -e /usr/bin/keychain
+if test -n (which keychain)
     # Initialize if no agent is started
     # or if the chain list if empty when a key is available
     if test -z $SSH_AGENT_PID; or test -z (keychain -l); and test -e ~/.ssh/id_rsa
