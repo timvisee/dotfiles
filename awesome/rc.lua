@@ -150,7 +150,7 @@ mycpucontainer = wibox.container.rotate(mycpu, 'east')
 --vicious.register(mycpu, vicious.widgets.cpu,
 --    function (widget, args)
 --        return args[1]
---    end, 1)
+--    end, 2)
 
 -- Create a memory usage widget
 mymem = wibox.widget.progressbar()
@@ -166,7 +166,7 @@ mymemcontainer = wibox.container.rotate(mymem, 'east')
 vicious.register(mymem, vicious.widgets.mem,
     function (widget, args)
         return args[1]
-    end, 1)
+    end, 2)
 
 -- Create a CPU usage graph
 ctext = wibox.widget.textbox()
@@ -193,7 +193,7 @@ vicious.register(ctext, vicious.widgets.cpu,
 
         mycpu:set_value(args[1])
         mycpulabel:set_markup_silently('<span color="#d09a58">' .. args[1] .. '%</span> ')
-    end, 1)
+    end, 2)
 
 mycpugraphstack = wibox.layout.stack()
 mycpugraphstack:add(mycpugraph)
@@ -225,7 +225,7 @@ end
 --vicious.register(mynet, vicious.widgets.net,
 --    function (widget, args)
 --        return args["eth0 down_kb"]
---    end, 1)
+--    end, 2)
 vicious.register(mynet, vicious.widgets.net,
     function (widget, args)
         -- Get the download speed and unit
@@ -267,7 +267,7 @@ vicious.register(mynet, vicious.widgets.net,
         -- Update the graphs
         mynetdowngraph:add_value(tonumber(args["{enp3s0 down_b}"]), 1)
         mynetupgraph:add_value(tonumber(args["{enp3s0 up_b}"]), 1)
-    end, 1)
+    end, 2)
 
 -- Networking icons
 mynetdownicon = wibox.widget.textbox()
@@ -307,12 +307,10 @@ vicious.register(myuptime, vicious.widgets.uptime,
 			return ' <span color="#d4c675">' .. args[1] .. "d" .. '</span> '
 		elseif args[2] > 0 then
 			return ' <span color="#d4c675">' .. args[2] .. "h" .. '</span> '
-		elseif args[3] > 0 then
-			return ' <span color="#d4c675">' .. args[3] .. "m" .. '</span> '
 		else
-			return ' <span color="#d4c675">' .. args[4] .. "s" .. '</span>. '
+			return ' <span color="#d4c675">' .. args[3] .. "m" .. '</span> '
 		end
-	end, 10)
+	end, 15)
 
 myuptimelabel = wibox.widget.textbox()
 myuptimelabel.font = "GLYPHICONS Halflings 9"
