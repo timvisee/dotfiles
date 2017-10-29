@@ -12,5 +12,10 @@ parameter:
 # Dry run, instead of actually invoking i3lock output the command that is used
 #dry: false
 
+# A list of filters to apply to the image
+filter:
+  - 'blur:sigma=3'
+  - 'greyscale'
+
 # Version of i3lock-slick this targeted at
 version: "0.0.1"
