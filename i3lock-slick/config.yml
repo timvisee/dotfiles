@@ -14,8 +14,8 @@ parameter:
 
 # A list of filters to apply to the image
 filter:
-  - 'blur:sigma=3'
-  - 'greyscale'
+  - 'brighten:amount=-10'
+  - 'blur:sigma=7'
 
 # Version of i3lock-slick this targeted at
 version: "0.0.1"
