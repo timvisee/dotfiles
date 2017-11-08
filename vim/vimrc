@@ -11,7 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'tpope/vim-fugitive'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " Editor layout
 Plugin 'vim-airline/vim-airline'
