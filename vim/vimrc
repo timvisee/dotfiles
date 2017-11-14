@@ -12,6 +12,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
 
 " Editor layout
 Plugin 'vim-airline/vim-airline'
@@ -209,6 +210,14 @@ vmap <expr> <RIGHT> DVB_Drag('right')
 vmap <expr> <DOWN>  DVB_Drag('down')
 vmap <expr> <UP>    DVB_Drag('up')
 vmap <expr> D       DVB_Duplicate()
+
+" NERDtree
+" Open NERDtree when no file is given
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Open NERDtree when a directory is given
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " GitGutter plugin
 if has("sign")
