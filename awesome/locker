@@ -5,7 +5,7 @@
 # - Show lock warning notification 30 seconds before
 # - Lock with i3lock
 exec xautolock -detectsleep \
-    -time 3 \
-    -locker "~/.config/awesome/lib/i3lock-fancy/lock -f Ubuntu -- scrot -z" \
+    -time 15 \
+    -locker "i3lock-slick" \
     -notify 30 \
     -notifier "notify-send -u critical -t 10000 -- 'Locking screen in 30 seconds...'"
