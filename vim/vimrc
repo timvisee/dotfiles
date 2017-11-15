@@ -13,6 +13,8 @@ Plugin 'jremmen/vim-ripgrep'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'lervag/vimtex'
 
 " Editor layout
 Plugin 'vim-airline/vim-airline'
@@ -21,7 +23,6 @@ Plugin 'vim-airline/vim-airline-themes'
 " Visualizers
 Plugin 'junegunn/goyo.vim'
 Plugin 'JamshedVesuna/vim-markdown-preview'
-Plugin 'xuhdev/vim-latex-live-preview'
 
 " File types
 Plugin 'chase/vim-ansible-yaml'
