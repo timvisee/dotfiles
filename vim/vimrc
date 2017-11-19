@@ -13,6 +13,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'lervag/vimtex'
+Plugin 'vim-syntastic/syntastic'
 
 " Editor layout
 Plugin 'vim-airline/vim-airline'
@@ -27,10 +28,6 @@ Plugin 'dag/vim-fish'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rust-lang/rust.vim'
-
-" Load heavy plugins
-Plugin 'vim-syntastic/syntastic'
-Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
