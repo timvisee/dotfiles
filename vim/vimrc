@@ -28,26 +28,9 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rust-lang/rust.vim'
 
-" Heavy plugins, loaded when user is idle
-autocmd CursorHold * call LoadHeavyPlugins()
-let g:heavyloaded = 0
-function! LoadHeavyPlugins()
-    " Only call it once
-    if g:heavyloaded
-        return
-    endif
-
-    echo "Load heavy plugins..."
-
-    " Load heavy plugins
-    Plugin 'vim-syntastic/syntastic'
-    Plugin 'JamshedVesuna/vim-markdown-preview'
-
-    echo "Heavy plugins loaded"
-
-    " We've loaded heavy plugins, remember that
-    let g:heavyloaded=1
-endfunction
+" Load heavy plugins
+Plugin 'vim-syntastic/syntastic'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
