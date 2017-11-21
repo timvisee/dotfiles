@@ -75,9 +75,9 @@ log_result() {
 # sudo is returned if known, instead of the 'root' user.
 get_command_user() {
     # Check whether we're running root, the user probably used sudo
-    if [ $USER == "root" ]; then
+    if [[ $USER == "root" ]]; then
         # Return the sudo user if known
-        if [ -n $SUDO_USER ]; then
+        if [[ -n $SUDO_USER ]]; then
             echo "$SUDO_USER"
             return
         fi
