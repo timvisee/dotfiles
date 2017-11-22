@@ -14,6 +14,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'lervag/vimtex'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
 Plugin 'Valloric/YouCompleteMe'
 
 " Editor layout
@@ -119,6 +120,8 @@ set laststatus=2
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=009 guifg=#ff0000
 
+let python_highlight_all=1
+
 
 
 """ Editing
@@ -170,7 +173,7 @@ autocmd FileType tex setlocal spell
 py << EOF
 import os
 import sys
-if 'VIRTUAL_ENV' if os.environ:
+if 'VIRTUAL_ENV' in os.environ:
     project_base_dir = os.environ['VIRTUAL_ENV']
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
