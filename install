@@ -131,7 +131,7 @@ symlink_file() {
         mkdir -p "$LINK_DIR"
     fi
 
-    # Link the file    
+    # Link the file
     log_info "[ Link ]   dotfile: '$1'"
     log_info "                to: '$2'..."
     ln -s "$1" "$2"

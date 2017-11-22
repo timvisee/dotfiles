@@ -186,7 +186,7 @@ EOF
 
 
 
-""" Other utilities
+""" Other utilities and behaviour
 " Ignore case sensitivity, unless there's a capital character
 set ignorecase
 set smartcase
@@ -204,6 +204,10 @@ set path+=**
 " Show a bigger 'wildmenu' for things like tab completion
 set wildmenu
 
+" Split directions
+set splitbelow
+set splitright
+
 
 
 """ Custom keybindings
@@ -220,6 +224,12 @@ inoremap {; {<CR>};<C-c>O
 inoremap {, {<CR>},<C-c>O
 inoremap [; [<CR>];<C-c>O
 inoremap [, [<CR>],<C-c>O
+
+" Split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 
 
