@@ -150,6 +150,7 @@ set autoindent
 set tabstop=4
 set softtabstop=4
 set expandtab
+set fileformat=unix
 
 " Shift 4 columns (rounded to nearest multiple)
 set shiftwidth=4
