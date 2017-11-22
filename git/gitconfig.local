@@ -13,3 +13,4 @@
 
 [alias]
   d = difftool
+  commit = commit -S
