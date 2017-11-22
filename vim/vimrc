@@ -224,7 +224,7 @@ let g:pymode_syntax_builtin_types=g:pymode_syntax_all
 
 " Run options
 let g:pymode_run=1
-let g:pymode_run_bind='<F5>'
+let g:pymode_run_bind='<F10>'
 
 
 
