@@ -16,6 +16,7 @@ Plugin 'lervag/vimtex'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-commentary'
 
 " Editor layout
 Plugin 'vim-airline/vim-airline'
@@ -24,15 +25,17 @@ Plugin 'vim-airline/vim-airline-themes'
 " Visualizers
 Plugin 'junegunn/goyo.vim'
 
+" Appearance
+Plugin 'chriskempson/base16-vim'
+
+" Languages
+Plugin 'rust-lang/rust.vim'
+
 " File types
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'dag/vim-fish'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'rust-lang/rust.vim'
-
-" Appearance
-Plugin 'chriskempson/base16-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -57,6 +60,9 @@ filetype plugin on
 
 " Enable use of other .vimrc files in working directories
 set exrc
+
+" Use bash as shell (solve compatibility issues)
+set shell=/bin/bash
 
 
 
@@ -264,4 +270,5 @@ let vim_markdown_preview_github = 1
 let vim_markdown_preview_browser = 'FirefoxNightly'
 
 " YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion=1
+"let g:ycm_autoclose_preview_window_after_completion=1
+
