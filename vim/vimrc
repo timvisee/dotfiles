@@ -14,6 +14,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'lervag/vimtex'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'Valloric/YouCompleteMe'
 
 " Editor layout
 Plugin 'vim-airline/vim-airline'
@@ -188,6 +189,12 @@ set wildmenu
 
 
 """ Custom keybindings
+" Customize leader key
+let mapleader=" "
+
+" Go to definition
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 " Auto expanding
 inoremap (; (<CR>);<C-c>O
 inoremap (, (<CR>),<C-c>O
@@ -226,3 +233,6 @@ endif
 " Define the tool and browser for markdown preview
 let vim_markdown_preview_github = 1
 let vim_markdown_preview_browser = 'FirefoxNightly'
+
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion=1
