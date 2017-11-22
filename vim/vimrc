@@ -55,6 +55,9 @@ filetype on
 filetype indent on
 filetype plugin on
 
+" Enable use of other .vimrc files in working directories
+set exrc
+
 
 
 """ Appearance
@@ -81,7 +84,7 @@ set number
 set ruler
 
 " Highlight the current line
-set cul
+set cursorline
 "hi CursorLine term=none cterm=none ctermbg=3 " Highlight color
 
 " Display tabs and trailing spaces visually
@@ -247,12 +250,9 @@ vmap <expr> <UP>    DVB_Drag('up')
 vmap <expr> D       DVB_Duplicate()
 
 " NERDtree
-" Open NERDtree when no file is given
+" Open NERDtree when run with no arguments
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" Open NERDtree when a directory is given
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " GitGutter plugin
 if has("sign")
