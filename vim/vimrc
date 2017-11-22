@@ -31,6 +31,9 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rust-lang/rust.vim'
 
+" Appearance
+Plugin 'chriskempson/base16-vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -58,15 +61,17 @@ filetype plugin on
 " Syntax highlighting
 syntax enable
 
+" Enable 256-color mode for terminals
+set t_Co=256
+
+" Colorscheme
+colorscheme base16-tomorrow-night
+
 " Dark interface
 set background=dark
 
 " Airline theme
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
-
-" Enable 256-color mode for terminals
-set t_Co=256
+let g:airline_theme='base16'
 
 " Relative line numbers
 set relativenumber
