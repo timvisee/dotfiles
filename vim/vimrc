@@ -192,7 +192,9 @@ autocmd FileType tex setlocal spell
 "let g:pymode_python='python3'
 if has('python3')
     let g:syntastic_python_python_exec='python3'
+    let g:syntastic_python_python_exec='python3'
 else
+    let g:syntastic_python_python_exec='python'
     let g:syntastic_python_python_exec='python'
 endif
 let g:syntastic_python2_python_exec='python'
