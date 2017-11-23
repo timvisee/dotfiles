@@ -50,6 +50,9 @@ set nocompatible
 " We've a fast terminal
 set ttyfast
 
+" Use lazy redrawing to improve macOS performance
+set lazyredraw
+
 " We're using UTF-8 as file/script encoding
 scriptencoding utf-8
 set encoding=utf-8
