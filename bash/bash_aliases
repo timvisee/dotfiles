@@ -34,6 +34,11 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # Start tmux with color support
 alias tmux='tmux -2'
 
+# Thefuck aliases
+if [ -e "/usr/bin/thefuck" ]; then
+    eval "$(thefuck --alias)"
+fi
+
 # Create the composer alias if it exists
 if [ -e "/usr/local/bin/composer.phar" ]; then
     alias composer="php /usr/local/bin/composer.phar"
