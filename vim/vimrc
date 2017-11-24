@@ -17,6 +17,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-commentary'
+Plugin 'airblade/vim-gitgutter'
 
 " Editor layout
 Plugin 'vim-airline/vim-airline'
@@ -299,11 +300,6 @@ vmap <expr> D       DVB_Duplicate()
 " Open NERDtree when run with no arguments
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" GitGutter plugin
-if has("sign")
-    runtime plugin/gitgutter.vim
-endif
 
 " Define the tool and browser for markdown preview
 let vim_markdown_preview_github = 1
