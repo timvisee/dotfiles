@@ -11,6 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'scrooloose/nerdtree'
 Plugin 'lervag/vimtex'
 Plugin 'vim-syntastic/syntastic'
@@ -267,6 +268,11 @@ let mapleader=" "
 
 " Go to definition
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Funky ctrlp: function search
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" Funky ctrlp: function search word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 " Auto expanding
 inoremap (; (<CR>);<C-c>O
