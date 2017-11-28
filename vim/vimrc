@@ -142,8 +142,8 @@ hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=009 guifg=#ff0000
 
 " Tab colors
-hi TabLineFill cterm=none ctermfg=magenta ctermbg=green
-hi TabLine cterm=none ctermfg=magenta ctermbg=green
+hi TabLineFill cterm=none ctermfg=blue ctermbg=green
+hi TabLine cterm=none ctermfg=blue ctermbg=green
 hi TabLineSel cterm=none ctermfg=darkblue ctermbg=green
 
 " Highlight all python elements
