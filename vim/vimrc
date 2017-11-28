@@ -78,7 +78,7 @@ set shell=/bin/bash
 syntax enable
 
 " Enable 256-color mode for terminals
-"set t_Co=256
+set t_Co=256
 
 " Colorscheme
 colorscheme base16-tomorrow-night
