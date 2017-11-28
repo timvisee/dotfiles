@@ -23,6 +23,7 @@ Plugin 'airblade/vim-gitgutter'
 " Editor layout
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'drmingdrmer/vim-tabbar'
 
 " Visualizers
 Plugin 'junegunn/goyo.vim'
@@ -77,7 +78,7 @@ set shell=/bin/bash
 syntax enable
 
 " Enable 256-color mode for terminals
-set t_Co=256
+"set t_Co=256
 
 " Colorscheme
 colorscheme base16-tomorrow-night
@@ -140,6 +141,12 @@ set laststatus=2
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=009 guifg=#ff0000
 
+" Tab colors
+hi TabLineFill cterm=none ctermfg=magenta ctermbg=green
+hi TabLine cterm=none ctermfg=magenta ctermbg=green
+hi TabLineSel cterm=none ctermfg=darkblue ctermbg=green
+
+" Highlight all python elements
 let python_highlight_all=1
 
 
@@ -326,4 +333,3 @@ let g:syntastic_python_checkers=['flake8', 'pydocstyle', 'python']
 
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
-
