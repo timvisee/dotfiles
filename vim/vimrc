@@ -19,6 +19,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-commentary'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'machakann/vim-sandwich'
 
 " Editor layout
 Plugin 'vim-airline/vim-airline'
