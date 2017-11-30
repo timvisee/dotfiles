@@ -20,6 +20,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-commentary'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'machakann/vim-sandwich'
+Plugin 'tpope/vim-repeat'
 
 " Editor layout
 Plugin 'vim-airline/vim-airline'
