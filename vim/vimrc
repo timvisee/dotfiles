@@ -144,9 +144,13 @@ hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=009 guifg=#ff0000
 
 " Tab colors
-hi TabLineFill cterm=none ctermfg=blue ctermbg=green
-hi TabLine cterm=none ctermfg=blue ctermbg=green
-hi TabLineSel cterm=none ctermfg=darkblue ctermbg=green
+" hi TabLineFill cterm=none ctermfg=darkblue ctermbg=green
+" hi TabLine cterm=none ctermfg=blue ctermbg=green
+" hi TabLineSel cterm=none ctermfg=darkblue ctermbg=green
+
+hi TabLineFill cterm=none ctermfg=darkgray ctermbg=green
+hi TabLine cterm=none ctermfg=darkblue ctermbg=green
+hi TabLineSel cterm=bold ctermfg=green ctermbg=darkblue
 
 " Highlight all python elements
 let python_highlight_all=1
