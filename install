@@ -15,6 +15,7 @@ DO_FISH="yes"
 DO_TMUX="yes"
 DO_VIM="yes"
 DO_GIT="yes"
+DO_RANGER="yes"
 DO_AWESOME="no"
 DO_COMPTON="no"
 DO_I3LOCK_SLICK="no"
@@ -348,6 +349,24 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install ranger files
+    log_question "Would you like to $ACTION ranger dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_RANGER=yes
+                break
+                ;;
+            No)
+                DO_RANGER=no
+                break
+                ;;
+        esac
+    done
+    echo
+
     # Ask whether to install awesomeWM files
     log_question "Would you like to $ACTION awesomeWM dotfiles?"
     PS3="Choose your action: "
@@ -569,6 +588,14 @@ if [ $DO_GIT == "yes" ]; then
     log_normal "Updating git dotfiles..."
     do_file "$DIR/git/gitconfig.local" $CMD_USER_HOME_DIR/.gitconfig.local
     log_success "Updated git dotfiles."
+    echo
+fi
+
+# Install ranger
+if [ $DO_RANGER == "yes" ]; then
+    log_normal "Updating ranger dotfiles..."
+    do_file "$DIR/ranger/rc.conf" $CMD_USER_HOME_DIR/.config/ranger/rc.conf
+    log_success "Updated ranger dotfiles."
     echo
 fi
 
