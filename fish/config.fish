@@ -137,7 +137,8 @@ if test -n (which keychain)
 
     # Import the current keychain environment
     set SSH_AGENT_ENV $HOME/.keychain/(hostname)-fish
-    test -f $SSH_AGENT_ENV; and source $SSH_AGENT_ENV
+    test -f $SSH_AGENT_ENV
+    and source $SSH_AGENT_ENV
 end
 
 # Set the preferred editor

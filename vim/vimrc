@@ -21,6 +21,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'machakann/vim-sandwich'
 Plugin 'tpope/vim-repeat'
+Plugin 'yangmillstheory/vim-snipe'
 
 " Editor layout
 Plugin 'vim-airline/vim-airline'
@@ -296,6 +297,20 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Vim snipe
+map <leader>F <Plug>(snipe-F)
+map <leader>f <Plug>(snipe-f)
+map <leader>T <Plug>(snipe-T)
+
+map <leader>w <Plug>(snipe-w)
+map <leader>W <Plug>(snipe-W)
+map <leader>e <Plug>(snipe-e)
+map <leader>E <Plug>(snipe-E)
+map <leader>b <Plug>(snipe-b)
+map <leader>B <Plug>(snipe-B)
+map <leader>ge <Plug>(snipe-ge)
+map <leader>gE <Plug>(snipe-gE)
 
 
 
