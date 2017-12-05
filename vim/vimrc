@@ -21,6 +21,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'machakann/vim-sandwich'
 Plugin 'tpope/vim-repeat'
+Plugin 'hrj/vim-DrawIt'
 Plugin 'yangmillstheory/vim-snipe'
 
 " Editor layout

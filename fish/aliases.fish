@@ -3,6 +3,9 @@
 # Alias to support tmux colors
 alias tmux 'tmux -2'
 
+# Ranger alias
+alias r 'ranger'
+
 # Git aliases
 alias ga 'git add'
 alias gc 'git commit'
