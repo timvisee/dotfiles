@@ -23,6 +23,7 @@ Plugin 'machakann/vim-sandwich'
 Plugin 'tpope/vim-repeat'
 Plugin 'hrj/vim-DrawIt'
 Plugin 'yangmillstheory/vim-snipe'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " Editor layout
 Plugin 'vim-airline/vim-airline'
