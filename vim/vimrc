@@ -24,6 +24,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'hrj/vim-DrawIt'
 Plugin 'yangmillstheory/vim-snipe'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'reedes/vim-pencil'
 
 " Editor layout
 Plugin 'vim-airline/vim-airline'
