@@ -94,6 +94,8 @@ set background=dark
 
 " Airline theme
 let g:airline_theme='base16'
+let g:airline_section_x = '%{PencilMode()}'
+"let g:pencil#mode_indicators = {'hard': 'H', 'auto': 'A', 'soft': 'S', 'off': 'offff',}
 
 " Relative line numbers
 set relativenumber
