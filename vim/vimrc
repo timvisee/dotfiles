@@ -328,6 +328,10 @@ map <leader><leader>B <Plug>(snipe-B)
 map <leader><leader>ge <Plug>(snipe-ge)
 map <leader><leader>gE <Plug>(snipe-gE)
 
+" Limelight toggle
+nmap <leader>l :Limelight!!<CR>
+xmap <leader>l :Limelight!!<CR>
+
 
 
 """ Plugins
