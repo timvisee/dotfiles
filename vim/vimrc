@@ -184,6 +184,10 @@ set fileformat=unix
 set shiftwidth=4
 set shiftround
 
+" Lines should not be longer than 80 characters
+set textwidth=80
+let g:pencil#textwidth = 80
+
 " File specific configurations
 autocmd FileType ansible setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType json setlocal shiftwidth=2 tabstop=2 softtabstop=2
