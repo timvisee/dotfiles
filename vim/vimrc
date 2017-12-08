@@ -199,8 +199,8 @@ autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 augroup pencil
     autocmd!
-    autocmd FileType markdown call pencil#init({'wrap': 'hard', 'autoformat': 1})
-    autocmd FileType text call pencil#init({'wrap': 'hard', 'autoformat': 1})
+    autocmd FileType markdown call pencil#init({'wrap': 'hard', 'autoformat': 0})
+    autocmd FileType text call pencil#init({'wrap': 'hard', 'autoformat': 0})
 augroup END
 
 
