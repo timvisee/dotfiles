@@ -33,6 +33,7 @@ Plugin 'drmingdrmer/vim-tabbar'
 
 " Visualizers
 Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 
 " Appearance
 Plugin 'chriskempson/base16-vim'
