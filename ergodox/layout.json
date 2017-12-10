@@ -3,7 +3,7 @@
         "Variant": "standard",
         "Generator": "KIICONF 0.2",
         "Base": "Blank",
-        "Date": "2017-12-09",
+        "Date": "2017-12-10",
         "KLL": "0.3c",
         "Author": "timvisee",
         "Version": "0.1",
@@ -27,6 +27,10 @@
                 "1": {
                     "key": "F11",
                     "label": "F11"
+                },
+                "2": {
+                    "key": "LOCK1",
+                    "label": "LOCK-1"
                 }
             }
         },
@@ -133,10 +137,6 @@
                     "label": "`"
                 },
                 "2": {
-                    "key": "#:flashMode()",
-                    "label": "FLASH"
-                },
-                "7": {
                     "key": "#:flashMode()",
                     "label": "FLASH"
                 }
@@ -353,6 +353,10 @@
             "h": 4,
             "layers": {
                 "0": {
+                    "key": "END",
+                    "label": "END"
+                },
+                "1": {
                     "key": "CONS:VOLUMEUP",
                     "label": "VOL+"
                 }
@@ -367,6 +371,10 @@
             "h": 4,
             "layers": {
                 "0": {
+                    "key": "HOME",
+                    "label": "HOME"
+                },
+                "1": {
                     "key": "CONS:VOLUMEDOWN",
                     "label": "VOL-"
                 }
@@ -479,8 +487,8 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "LOCK2",
-                    "label": "LOCK-2"
+                    "key": "LATCH1",
+                    "label": "LATCH-1"
                 }
             }
         },
@@ -527,6 +535,10 @@
                 "0": {
                     "key": "SPACE",
                     "label": "[ ]"
+                },
+                "1": {
+                    "key": "INSERT",
+                    "label": "INS"
                 }
             }
         },
@@ -538,9 +550,9 @@
             "w": 4,
             "h": 4,
             "layers": {
-                "0": {
-                    "key": "#:toggleKbdProtocol()",
-                    "label": "6/N-KRO"
+                "1": {
+                    "key": "#:flashMode()",
+                    "label": "FLASH"
                 }
             }
         },
@@ -551,7 +563,16 @@
             "y": 16,
             "w": 4,
             "h": 4,
-            "layers": {}
+            "layers": {
+                "0": {
+                    "key": "\\",
+                    "label": "\\"
+                },
+                "1": {
+                    "key": "#:toggleKbdProtocol()",
+                    "label": "6/N-KRO"
+                }
+            }
         },
         {
             "board": 0,
@@ -613,6 +634,10 @@
                 "1": {
                     "key": "F12",
                     "label": "F12"
+                },
+                "2": {
+                    "key": "LOCK2",
+                    "label": "LOCK-2"
                 }
             }
         },
@@ -731,8 +756,8 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "=",
-                    "label": "="
+                    "key": "-",
+                    "label": "-"
                 },
                 "2": {
                     "key": "#:flashMode()",
@@ -853,8 +878,8 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "-",
-                    "label": "-"
+                    "key": "=",
+                    "label": "="
                 }
             }
         },
@@ -983,8 +1008,16 @@
             "h": 4,
             "layers": {
                 "0": {
+                    "key": "PAGEDOWN",
+                    "label": "PGDN"
+                },
+                "1": {
                     "key": "CONS:PAUSEPLAY",
                     "label": "PL/PS"
+                },
+                "2": {
+                    "key": "CONS:MUTE",
+                    "label": "MUTE"
                 }
             }
         },
@@ -997,6 +1030,10 @@
             "h": 4,
             "layers": {
                 "0": {
+                    "key": "PAGEUP",
+                    "label": "PGUP"
+                },
+                "1": {
                     "key": "CONS:SCANNEXTTRACK",
                     "label": "NEXT"
                 }
@@ -1027,10 +1064,6 @@
                 "0": {
                     "key": "N",
                     "label": "N"
-                },
-                "7": {
-                    "key": "#:toggleKbdProtocol()",
-                    "label": "6/N-KRO"
                 }
             }
         },
@@ -1129,8 +1162,8 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "LOCK2",
-                    "label": "LOCK-2"
+                    "key": "LATCH2",
+                    "label": "LATCH-2"
                 }
             }
         },
@@ -1178,6 +1211,10 @@
                     "key": "BACKSPACE",
                     "label": "BKSP"
                 },
+                "1": {
+                    "key": "DELETE",
+                    "label": "DEL"
+                },
                 "2": {
                     "key": "P0",
                     "label": "P0"
@@ -1192,6 +1229,10 @@
             "w": 4,
             "h": 4,
             "layers": {
+                "1": {
+                    "key": "#:flashMode()",
+                    "label": "FLASH"
+                },
                 "2": {
                     "key": "P0",
                     "label": "P0"
