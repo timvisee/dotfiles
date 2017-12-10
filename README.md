@@ -33,5 +33,11 @@ sudo chmod a+x ./install
 To install all Vim plugins, first make sure [Vundle](https://github.com/VundleVim/Vundle.vim) is installed.  
 Then, run the `:PluginInstall` command in Vim.
 
+## ErgoDox
+This repository includes my ErgoDox keyboard layout configuration,
+located in the [ergodox](./ergodox) directory.
+
+![ErgoDox layout](./ergodox/layout.png)
+
 ## License
 This project is released under the GNU GPL-3.0 license. Check out the [LICENSE](LICENSE) file for more information.
