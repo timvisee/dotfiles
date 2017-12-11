@@ -3,7 +3,7 @@
         "Variant": "standard",
         "Generator": "KIICONF 0.2",
         "Base": "Blank",
-        "Date": "2017-12-10",
+        "Date": "2017-12-11",
         "KLL": "0.3c",
         "Author": "timvisee",
         "Version": "0.1",
@@ -21,16 +21,16 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "LOCK1",
-                    "label": "LOCK-1"
+                    "key": "LATCH1",
+                    "label": "LATCH-1"
                 },
                 "1": {
                     "key": "F11",
                     "label": "F11"
                 },
                 "2": {
-                    "key": "LOCK1",
-                    "label": "LOCK-1"
+                    "key": "LATCH1",
+                    "label": "LATCH-1"
                 }
             }
         },
@@ -487,8 +487,8 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "LATCH1",
-                    "label": "LATCH-1"
+                    "key": "LOCK1",
+                    "label": "LOCK-1"
                 }
             }
         },
@@ -628,16 +628,16 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "LOCK2",
-                    "label": "LOCK-2"
+                    "key": "LATCH2",
+                    "label": "LATCH-2"
                 },
                 "1": {
                     "key": "F12",
                     "label": "F12"
                 },
                 "2": {
-                    "key": "LOCK2",
-                    "label": "LOCK-2"
+                    "key": "LATCH2",
+                    "label": "LATCH-2"
                 }
             }
         },
@@ -1162,8 +1162,8 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "LATCH2",
-                    "label": "LATCH-2"
+                    "key": "LOCK2",
+                    "label": "LOCK-2"
                 }
             }
         },
