@@ -3,7 +3,7 @@
         "Variant": "standard",
         "Generator": "KIICONF 0.2",
         "Base": "Blank",
-        "Date": "2017-12-11",
+        "Date": "2017-12-12",
         "KLL": "0.3c",
         "Author": "timvisee",
         "Version": "0.1",
@@ -550,6 +550,10 @@
             "w": 4,
             "h": 4,
             "layers": {
+                "0": {
+                    "key": "SYS:SLEEP",
+                    "label": "SLEEP"
+                },
                 "1": {
                     "key": "#:flashMode()",
                     "label": "FLASH"
@@ -565,8 +569,8 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "\\",
-                    "label": "\\"
+                    "key": "CONS:EJECT",
+                    "label": "EJECT"
                 },
                 "1": {
                     "key": "#:toggleKbdProtocol()",
@@ -1148,8 +1152,8 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "RSHIFT",
-                    "label": "R⇑"
+                    "key": "\\",
+                    "label": "\\"
                 }
             }
         },
