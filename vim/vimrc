@@ -193,7 +193,7 @@ set shiftround
 
 " Lines should not be longer than 80 characters
 set textwidth=80
-let g:pencil#textwidth = 80
+let g:pencil#textwidth = 79
 
 " File specific configurations
 autocmd FileType ansible setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -206,6 +206,10 @@ augroup pencil
     autocmd FileType markdown call pencil#init({'wrap': 'hard', 'autoformat': 0})
     autocmd FileType text call pencil#init({'wrap': 'hard', 'autoformat': 0})
 augroup END
+
+" Trailing spaces warnings from airline
+autocmd FileType * unlet! g:airline#extensions#whitespace#checks
+autocmd FileType markdown let g:airline#extensions#whitespace#checks = ['indent']
 
 
 
