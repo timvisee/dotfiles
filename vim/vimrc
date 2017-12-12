@@ -161,7 +161,7 @@ let python_highlight_all=1
 
 
 """ Editing
-" Make backspace behaviour consistent, like other programs
+k Make backspace behaviour consistent, like other programs
 set backspace=indent,eol,start
 
 " Smart indents
@@ -202,6 +202,10 @@ augroup pencil
     autocmd FileType markdown call pencil#init({'wrap': 'hard', 'autoformat': 0})
     autocmd FileType text call pencil#init({'wrap': 'hard', 'autoformat': 0})
 augroup END
+
+" Trailing spaces warnings from airline
+autocmd FileType * unlet! g:airline#extensions#whitespace#checks
+autocmd FileType markdown let g:airline#extensions#whitespace#checks = ['indent']
 
 
 
