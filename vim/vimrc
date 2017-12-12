@@ -161,7 +161,7 @@ let python_highlight_all=1
 
 
 """ Editing
-k Make backspace behaviour consistent, like other programs
+" Make backspace behaviour consistent, like other programs
 set backspace=indent,eol,start
 
 " Smart indents
