@@ -5,6 +5,9 @@
 [core]
   editor = vim
 
+[commit]
+  gpgsign = true
+
 [diff]
   tool = vimdiff
 
