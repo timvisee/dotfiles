@@ -162,6 +162,9 @@ hi TabLineSel cterm=bold ctermfg=green ctermbg=darkblue
 " Highlight all python elements
 let python_highlight_all=1
 
+" Define the default Goyo size
+let g:goyo_width = 82
+
 
 
 """ Editing
@@ -299,6 +302,7 @@ set splitright
 
 " Always split fugitive diffs vertical
 set diffopt+=vertical
+
 
 
 """ Custom keybindings
