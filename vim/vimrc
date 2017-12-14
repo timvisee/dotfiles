@@ -302,16 +302,16 @@ set diffopt+=vertical
 
 
 """ Custom keybindings
-" Customize leader key
-let mapleader=" "
+" Map space to the default leader (makes it visible with showcmd)
+map <space> <leader>
 
 " Go to definition
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Funky ctrlp: function search
-nnoremap <Leader>fu :CtrlPFunky<Cr>
+nnoremap <leader>fu :CtrlPFunky<Cr>
 " Funky ctrlp: function search word under cursor
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 " Auto expanding
 inoremap (; (<CR>);<C-c>O
