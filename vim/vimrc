@@ -162,6 +162,9 @@ hi TabLineSel cterm=bold ctermfg=green ctermbg=darkblue
 " Highlight all python elements
 let python_highlight_all=1
 
+" Define the default Goyo size
+let g:goyo_width = 82
+
 
 
 """ Editing
@@ -277,6 +280,9 @@ let g:pymode_run_bind='<F10>'
 set ignorecase
 set smartcase
 
+" Wrap searching around
+set wrapscan
+
 " Highlight while searching, not after
 set nohlsearch
 set incsearch
@@ -294,19 +300,22 @@ set wildmenu
 set splitbelow
 set splitright
 
+" Always split fugitive diffs vertical
+set diffopt+=vertical
+
 
 
 """ Custom keybindings
-" Customize leader key
-let mapleader=" "
+" Map space to the default leader (makes it visible with showcmd)
+map <space> <leader>
 
 " Go to definition
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Funky ctrlp: function search
-nnoremap <Leader>fu :CtrlPFunky<Cr>
+nnoremap <leader>fu :CtrlPFunky<Cr>
 " Funky ctrlp: function search word under cursor
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 " Auto expanding
 inoremap (; (<CR>);<C-c>O
