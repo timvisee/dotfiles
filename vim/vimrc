@@ -297,6 +297,8 @@ set wildmenu
 set splitbelow
 set splitright
 
+" Always split fugitive diffs vertical
+set diffopt+=vertical
 
 
 """ Custom keybindings
