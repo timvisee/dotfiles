@@ -277,6 +277,9 @@ let g:pymode_run_bind='<F10>'
 set ignorecase
 set smartcase
 
+" Wrap searching around
+set wrapscan
+
 " Highlight while searching, not after
 set nohlsearch
 set incsearch
