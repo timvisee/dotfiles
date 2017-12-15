@@ -10,6 +10,12 @@
 # Open URL
 map g Vomnibar.activate
 
+# Also switch to newly opened tabs with F
+map F LinkHints.activateModeToOpenInNewForegroundTab
+
+# Open link in new tab without switching
+map <c-f> LinkHints.activateModeToOpenInNewTab
+
 # Open clipboard URL in new tab
 map V openCopiedUrlInNewTab
 
