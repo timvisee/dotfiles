@@ -7,9 +7,6 @@
 
 
 
-# Open URL
-map g Vomnibar.activate
-
 # Also switch to newly opened tabs with F
 map F LinkHints.activateModeToOpenInNewForegroundTab
 
