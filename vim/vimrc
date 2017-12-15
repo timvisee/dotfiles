@@ -159,6 +159,9 @@ hi TabLineFill cterm=none ctermfg=darkgray ctermbg=green
 hi TabLine cterm=none ctermfg=darkblue ctermbg=green
 hi TabLineSel cterm=bold ctermfg=green ctermbg=darkblue
 
+" Matching bracket color
+hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
+
 " Highlight all python elements
 let python_highlight_all=1
 
