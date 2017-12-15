@@ -353,8 +353,8 @@ map <leader><leader>ge <Plug>(snipe-ge)
 map <leader><leader>gE <Plug>(snipe-gE)
 
 " Goyo toggle
-nmap <leader>m :Goyo<CR>
-xmap <leader>m :Goyo<CR>
+nmap <leader>v :Goyo<CR>
+xmap <leader>v :Goyo<CR>
 
 " Limelight toggle
 nmap <leader>l :Limelight!!<CR>
