@@ -320,6 +320,10 @@ nnoremap <leader>fu :CtrlPFunky<Cr>
 " Funky ctrlp: function search word under cursor
 nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
+" Save
+inoremap <C-s> <esc>:w<cr>
+nnoremap <C-s> :w<cr>
+
 " Auto expanding
 inoremap (; (<CR>);<C-c>O
 inoremap (, (<CR>),<C-c>O
