@@ -398,3 +398,17 @@ let g:syntastic_python_checkers=['flake8', 'pydocstyle', 'python']
 
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
+
+" Toggle Limelight with Goyo
+function! s:goyo_enter()
+    " Enable Limelight
+    Limelight
+endfunction
+
+function! s:goyo_leave()
+    " Disable Limelight
+    Limelight!
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
