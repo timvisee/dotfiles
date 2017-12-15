@@ -1,0 +1,17 @@
+# Custom mappings for the Vimium browser plugin.
+#
+# Usage:
+# - Install Vimium in Firefox.
+# - Open the Vimium options.
+# - Put the contents of this file in the custom key mappings field.
+
+
+
+# Open URL
+map g Vomnibar.activate
+
+# Open clipboard URL in new tab
+map V openCopiedUrlInNewTab
+
+# Find and copy a link
+map cc LinkHints.activateModeToCopyLinkUrl
