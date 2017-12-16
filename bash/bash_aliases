@@ -13,9 +13,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Useful list aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias la='ls -al'
 
 # Ranger alias
 alias r='ranger'
