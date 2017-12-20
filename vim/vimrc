@@ -310,7 +310,7 @@ set diffopt+=vertical
 
 """ Custom keybindings
 " Map space to the default leader (makes it visible with showcmd)
-map <space> <leader>
+let mapleader=" "
 
 " Go to definition
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
