@@ -6,6 +6,15 @@ alias tmux 'tmux -2'
 # Ranger alias
 alias r 'ranger'
 
+# Make a directory and change to it
+function mkcd
+    # Make the directory
+    mkdir $argv
+
+    # Change to the newly created directory
+    cd $argv
+end
+
 # Git aliases
 alias ga 'git add'
 alias gc 'git commit'

@@ -18,6 +18,15 @@ alias la='ls -al'
 # Ranger alias
 alias r='ranger'
 
+# Make a directory and change to it
+function mkcd {
+    # Make the directory
+    mkdir $@
+
+    # Change to the newly created directory
+    cd $@
+}
+
 # Git aliases
 alias ga='git add'
 alias gc='git commit'
