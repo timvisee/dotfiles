@@ -320,12 +320,6 @@ nnoremap <leader>fu :CtrlPFunky<Cr>
 " Funky ctrlp: function search word under cursor
 nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
-" Sane inverse for <C-o> and <C-i>
-inoremap <C-O> <C-i>
-inoremap <C-O> <C-i>
-nnoremap <C-I> <C-o>
-nnoremap <C-I> <C-o>
-
 " Save
 inoremap <C-s> <esc>:w<cr>
 nnoremap <C-s> :w<cr>
