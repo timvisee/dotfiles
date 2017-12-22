@@ -3,6 +3,9 @@
 # Alias to support tmux colors
 alias tmux 'tmux -2'
 
+# Exa alias
+alias e 'exa'
+
 # Ranger alias
 alias r 'ranger'
 

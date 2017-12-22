@@ -12,6 +12,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# Exa elias
+alias e='exa'
+
 # Useful list aliases
 alias la='ls -al'
 
