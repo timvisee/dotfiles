@@ -18,3 +18,6 @@ map V openCopiedUrlInNewTab
 
 # Find and copy a link
 map cc LinkHints.activateModeToCopyLinkUrl
+
+# Go to mark with normal single quote
+map ' Marks.activateGotoMode
