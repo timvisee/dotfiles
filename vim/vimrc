@@ -361,6 +361,10 @@ xmap <leader>v :Goyo<CR>
 nmap <leader>l :Limelight!!<CR>
 xmap <leader>l :Limelight!!<CR>
 
+" Cursor column toggle
+nmap <leader>c :set cursorcolumn!
+xmap <leader>c :set cursorcolumn!
+
 
 
 """ Plugins
