@@ -342,6 +342,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Formatting paragraph with Q
+vmap Q gq
+nmap Q gqap
+
 " Vim snipe
 map <leader><leader>F <Plug>(snipe-F)
 map <leader><leader>f <Plug>(snipe-f)
