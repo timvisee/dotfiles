@@ -310,6 +310,9 @@ set diffopt+=vertical
 
 
 """ Custom keybindings
+" Enable the mouse
+set mouse=a
+
 " Map space to the default leader (makes it visible with showcmd)
 let mapleader=" "
 
