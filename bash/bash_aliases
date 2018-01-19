@@ -14,7 +14,7 @@ fi
 
 # Exa elias
 alias e='exa'
-alias eal='exa -la'
+alias ela='exa -la'
 
 # Useful list aliases
 alias la='ls -al'
