@@ -5,6 +5,7 @@ alias tmux 'tmux -2'
 
 # Exa alias
 alias e 'exa'
+alias ela 'exa -la'
 
 # Ranger alias
 alias r 'ranger'
