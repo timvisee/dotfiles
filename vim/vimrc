@@ -316,6 +316,7 @@ set mouse=a
 
 " Map space to the default leader (makes it visible with showcmd)
 let mapleader=" "
+let maplocalleader=","
 
 " Go to definition
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
