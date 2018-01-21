@@ -314,9 +314,9 @@ set diffopt+=vertical
 " Enable the mouse
 set mouse=a
 
-" Map space to the default leader (makes it visible with showcmd)
+" Map space and \ as leader keys
 let mapleader=" "
-let maplocalleader=","
+let maplocalleader="\\"
 
 " Go to definition
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -426,3 +426,7 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" vimtex
+" Set the vimtex PDF viewer to use
+let g:vimtex_view_method="zathura"
