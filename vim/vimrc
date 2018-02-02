@@ -230,7 +230,9 @@ set nospell
 
 " Enable spell checking for some files
 autocmd FileType markdown setlocal spell
+autocmd FileType txt setlocal spell
 autocmd FileType tex setlocal spell
+autocmd FileType bib setlocal spell
 
 
 
