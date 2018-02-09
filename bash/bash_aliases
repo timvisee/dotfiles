@@ -41,6 +41,10 @@ alias gp='git push'
 alias getclip='xclip -selection c -o'
 alias setclip='xclip -selection c'
 
+# Cargo aliases
+alias cr='cargo run --release'
+alias cd='cargo run'
+
 # Add an "alert" alias for long running commands.
 # Usage example: $ sleep 5; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
