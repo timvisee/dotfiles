@@ -376,6 +376,9 @@ xmap <leader>l :Limelight!!<CR>
 nmap <leader>c :set cursorcolumn!<CR>
 xmap <leader>c :set cursorcolumn!<CR>
 
+" NERDTree toggle
+map <C-n> :NERDTreeToggle<CR>
+
 
 
 """ Plugins
@@ -394,6 +397,11 @@ vmap <expr> D       DVB_Duplicate()
 " Open NERDtree when run with no arguments
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Properly close NERDTree
+autocmd bufenter * if (winnr("$") == 1
+    \ && exists("b:NERDTree")
+    \ && b:NERDTree.isTabTree()) | q | endif
 
 " Define the tool and browser for markdown preview
 let vim_markdown_preview_github = 1
