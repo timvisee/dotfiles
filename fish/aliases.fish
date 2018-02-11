@@ -30,8 +30,7 @@ alias getclip 'xclip -selection c -o'
 alias setclip 'xclip -selection c'
 
 # Cargo aliases
-alias cr 'cargo run --release'
-alias cd 'cargo run'
+alias cr 'cargo run'
 
 # Create the composer alias if it exists
 if test -e '/usr/local/bin/composer.phar'
