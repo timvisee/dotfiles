@@ -12,6 +12,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# Shell exit alias
+alias q='exit'
+
 # Exa elias
 alias e='exa'
 alias ela='exa -la'
