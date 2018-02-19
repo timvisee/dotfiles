@@ -41,6 +41,7 @@ Plugin 'chriskempson/base16-vim'
 " Languages
 Plugin 'klen/python-mode'
 Plugin 'rust-lang/rust.vim'
+Plugin 'beloglazov/vim-online-thesaurus'
 
 " File types
 Plugin 'chase/vim-ansible-yaml'
