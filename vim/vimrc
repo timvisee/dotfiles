@@ -381,6 +381,11 @@ xmap <leader>c :set cursorcolumn!<CR>
 " NERDTree toggle
 map <C-n> :NERDTreeToggle<CR>
 
+" Common typos
+cnoreabbrev W w
+cnoreabbrev Wq wq
+cnoreabbrev WQ wq
+
 
 
 """ Plugins
