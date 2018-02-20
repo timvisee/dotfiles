@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugins
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'scrooloose/nerdtree'
