@@ -16,6 +16,7 @@ DO_TMUX="yes"
 DO_VIM="yes"
 DO_GIT="yes"
 DO_RANGER="yes"
+DO_ALACRITTY="yes"
 DO_AWESOME="no"
 DO_COMPTON="no"
 DO_I3LOCK_SLICK="no"
@@ -367,6 +368,24 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install alacritty files
+    log_question "Would you like to $ACTION alacritty dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_ALACRITTY=yes
+                break
+                ;;
+            No)
+                DO_ALACRITTY=no
+                break
+                ;;
+        esac
+    done
+    echo
+
     # Ask whether to install awesomeWM files
     log_question "Would you like to $ACTION awesomeWM dotfiles?"
     PS3="Choose your action: "
@@ -596,6 +615,14 @@ if [ $DO_RANGER == "yes" ]; then
     log_normal "Updating ranger dotfiles..."
     do_file "$DIR/ranger/rc.conf" $CMD_USER_HOME_DIR/.config/ranger/rc.conf
     log_success "Updated ranger dotfiles."
+    echo
+fi
+
+# Install alacritty
+if [ $DO_ALACRITTY == "yes" ]; then
+    log_normal "Updating alacritty dotfiles..."
+    do_file "$DIR/alacritty/alacritty.yml" $CMD_USER_HOME_DIR/.config/alacritty/alacritty.yml
+    log_success "Updated alacritty dotfiles."
     echo
 fi
 
