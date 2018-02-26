@@ -32,6 +32,9 @@ alias gp 'git push'
 alias getclip 'xclip -selection c -o'
 alias setclip 'xclip -selection c'
 
+# Tmux alias
+alias tn 'tmux new -s'
+
 # Cargo aliases
 alias cr 'cargo run'
 

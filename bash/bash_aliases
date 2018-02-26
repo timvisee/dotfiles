@@ -25,6 +25,9 @@ alias la='ls -al'
 # Ranger alias
 alias r='ranger'
 
+# Tmux alias
+alias tn='tmux new -s'
+
 # Make a directory and change to it
 function mkcd {
     # Make the directory
