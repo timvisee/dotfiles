@@ -8,6 +8,7 @@ dotfiles are used to personalize your system and applications. These are mine.
 * When using Vim, [Vundle](https://github.com/VundleVim/Vundle.vim) must be installed.
 
 ## Recommendations
+* `alacritty`: awesome terminal emulator
 * `awesomeWM`: tiling window manager, additional dependencies
     * `awesome`: window manager itself
     * `awesome-extra`: additional libraries used in my configuration
@@ -23,15 +24,30 @@ dotfiles are used to personalize your system and applications. These are mine.
 An installation script is included to easily install the dotfiles on your system.
 
 On Linux or Mac OS X, use:
-```
+```bash
+# Clone the repository
 git clone https://github.com/timvisee/dotfiles.git ~/dotfiles
 cd ~/dotfiles
+
+# Install
 sudo chmod a+x ./install
 ./install
 ```
 
 To install all Vim plugins, first make sure [Vundle](https://github.com/VundleVim/Vundle.vim) is installed.  
 Then, run the `:PluginInstall` command in Vim.
+
+### Alacritty
+This configuration recommends [`alacritty`][alacritty] as default terminal.
+First, install it as stated on it's GitHub page.
+Then configure it as default terminal using:
+```bash
+# Add alacritty to the terminal list
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which alacritty) 0
+
+# Select the default terminal
+sudo update-alternatives --config x-terminal-emulator
+```
 
 ## ErgoDox
 This repository includes my ErgoDox keyboard layout configuration,
@@ -41,3 +57,5 @@ located in the [ergodox](./ergodox) directory.
 
 ## License
 This project is released under the GNU GPL-3.0 license. Check out the [LICENSE](LICENSE) file for more information.
+
+[alacritty]: https://github.com/jwilm/alacritty
