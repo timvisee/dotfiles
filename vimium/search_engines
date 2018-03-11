@@ -7,6 +7,7 @@
 
 g: https://www.google.com/search?q=%s Google
 d: https://duckduckgo.com/?q=%s DuckDuckGo
+c: https://crates.io/search?q=%s Rust Crate
 w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia
 
 # l: https://www.google.com/search?q=%s&btnI I'm feeling lucky...
