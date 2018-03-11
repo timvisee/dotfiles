@@ -8,12 +8,5 @@
 [commit]
   gpgsign = true
 
-[diff]
-  tool = vimdiff
-
-[difftool]
-  prompt = false
-
 [alias]
-  d = difftool
   commit = commit -S
