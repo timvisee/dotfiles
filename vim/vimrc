@@ -393,6 +393,9 @@ cnoreabbrev Gc Gcommit
 cnoreabbrev Gp Gpush
 cnoreabbrev Gs Gstatus
 
+" Disable command line mode binding
+nnoremap q: :q
+
 
 
 """ Plugins
