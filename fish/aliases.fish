@@ -33,6 +33,7 @@ alias getclip 'xclip -selection c -o'
 alias setclip 'xclip -selection c'
 
 # Tmux alias
+alias ta 'tmux attach'
 alias tn 'tmux new -s'
 
 # Cargo aliases

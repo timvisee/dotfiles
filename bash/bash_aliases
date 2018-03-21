@@ -26,6 +26,7 @@ alias la='ls -al'
 alias r='ranger'
 
 # Tmux alias
+alias ta='tmux attach'
 alias tn='tmux new -s'
 
 # Make a directory and change to it
