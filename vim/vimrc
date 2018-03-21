@@ -38,7 +38,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 
 " Appearance
-Plugin 'chriskempson/base16-vim'
+Plugin 'fenetikm/falcon'
 
 " Languages
 Plugin 'klen/python-mode'
@@ -94,7 +94,7 @@ syntax enable
 set t_Co=256
 
 " Colorscheme
-colorscheme base16-tomorrow-night
+colorscheme falcon
 
 " Dark interface
 set background=dark
@@ -159,11 +159,6 @@ set laststatus=2
 " Red underline for spelling errors
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=009 guifg=#ff0000
-
-" Tab colors
-hi TabLineFill cterm=none ctermfg=darkgray ctermbg=green
-hi TabLine cterm=none ctermfg=darkblue ctermbg=green
-hi TabLineSel cterm=bold ctermfg=green ctermbg=darkblue
 
 " Matching bracket color
 hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
