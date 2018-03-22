@@ -2,6 +2,7 @@
 
 # Shell exit alias
 alias q 'exit'
+alias :q 'exit'
 
 # Alias to support tmux colors
 alias tmux 'tmux -2'

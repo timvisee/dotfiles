@@ -14,6 +14,7 @@ fi
 
 # Shell exit alias
 alias q='exit'
+alias :q='exit'
 
 # Exa elias
 alias e='exa'
