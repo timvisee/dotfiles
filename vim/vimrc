@@ -7,7 +7,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
-" Plugins
+" General
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
@@ -18,7 +18,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'lervag/vimtex'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-commentary'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'machakann/vim-sandwich'
@@ -54,6 +53,19 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'cespare/vim-toml'
 Plugin 'posva/vim-vue'
 Plugin 'StanAngeloff/php.vim'
+
+" Completion
+Plugin 'roxma/nvim-completion-manager'
+Plugin 'othree/csscomplete.vim'
+Plugin 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+Plugin 'racer-rust/vim-racer'
+Plugin 'roxma/nvim-cm-racer'
+Plugin 'Shougo/neco-vim'
+Plugin 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+Plugin 'roxma/ncm-github'
+Plugin 'fgrsnau/ncm-otherbuf'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -219,6 +231,8 @@ augroup END
 autocmd FileType * unlet! g:airline#extensions#whitespace#checks
 autocmd FileType markdown let g:airline#extensions#whitespace#checks = ['indent']
 
+" Proper CSS completion
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
 
 
 """ Language
@@ -320,8 +334,19 @@ set mouse=a
 let mapleader=" "
 let maplocalleader="\\"
 
-" Go to definition
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" Use enter to complete
+imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
+imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
+
+" Use tab to complete
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Ultisnips bindings
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
 " Funky ctrlp: function search
 nnoremap <leader>fu :CtrlPFunky<Cr>
