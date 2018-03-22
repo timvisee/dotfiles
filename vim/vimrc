@@ -55,17 +55,19 @@ Plugin 'posva/vim-vue'
 Plugin 'StanAngeloff/php.vim'
 
 " Completion
-Plugin 'roxma/nvim-completion-manager'
-Plugin 'othree/csscomplete.vim'
-Plugin 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-Plugin 'racer-rust/vim-racer'
-Plugin 'roxma/nvim-cm-racer'
-Plugin 'Shougo/neco-vim'
-Plugin 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
-Plugin 'roxma/ncm-github'
-Plugin 'fgrsnau/ncm-otherbuf'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+if has('nvim')
+    Plugin 'roxma/nvim-completion-manager'
+    Plugin 'othree/csscomplete.vim'
+    Plugin 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+    Plugin 'racer-rust/vim-racer'
+    Plugin 'roxma/nvim-cm-racer'
+    Plugin 'Shougo/neco-vim'
+    Plugin 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+    Plugin 'roxma/ncm-github'
+    Plugin 'fgrsnau/ncm-otherbuf'
+    Plugin 'SirVer/ultisnips'
+    Plugin 'honza/vim-snippets'
+endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()
