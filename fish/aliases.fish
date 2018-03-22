@@ -4,6 +4,17 @@
 alias q 'exit'
 alias :q 'exit'
 
+# Nvim and vim aliases
+if command -sq nvim
+    alias vi 'nvim'
+    alias vim 'nvim'
+    alias nvi 'nvim'
+else
+    alias vi 'vim'
+    alias nvi 'vim'
+    alias nvim 'vim'
+end
+
 # Alias to support tmux colors
 alias tmux 'tmux -2'
 
