@@ -14,6 +14,14 @@ if test -d "$HOME/.cargo/bin"
     set PATH $HOME/.cargo/bin $PATH
 end
 
+# Add the rust source path to the path
+if command -sq rustc
+    set RUST_SRC_PATH (rustc --print sysroot)/lib/rustlib/src/rust/src
+    if test -d $RUST_SRC_PATH
+        export RUST_SRC_PATH
+    end
+end
+
 # Configure Go's environment
 if test -d "/usr/lib/go"
     set -x GOROOT /usr/lib/go

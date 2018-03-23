@@ -91,6 +91,14 @@ if [ -f ~/.cargo/env ]; then
     source ~/.cargo/env
 fi
 
+# Add the rust source path to the path
+if [[ $(command -v rustc) ]]; then
+    RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
+    if [ -d $RUST_SRC_PATH ]; then
+        export RUST_SRC_PATH
+    fi
+fi
+
 # Configure Go's environment
 if [ -d "/usr/lib/go" ]; then
     export GOROOT=/usr/lib/go
