@@ -8,10 +8,10 @@
 g: https://www.google.com/search?q=%s Google
 d: https://duckduckgo.com/?q=%s DuckDuckGo
 c: https://crates.io/search?q=%s Rust Crate
+y: https://www.youtube.com/results?search_query=%s Youtube
 w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia
 
 # l: https://www.google.com/search?q=%s&btnI I'm feeling lucky...
-# y: https://www.youtube.com/results?search_query=%s Youtube
 # gm: https://www.google.com/maps?q=%s Google maps
 # b: https://www.bing.com/search?q=%s Bing
 # az: https://www.amazon.com/s/?field-keywords=%s Amazon
