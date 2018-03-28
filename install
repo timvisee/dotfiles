@@ -605,7 +605,7 @@ fi
 # Install git
 if [ $DO_GIT == "yes" ]; then
     log_normal "Updating git dotfiles..."
-    do_file "$DIR/git/gitconfig.local" $CMD_USER_HOME_DIR/.gitconfig.local
+    do_file "$DIR/git/gitconfig" $CMD_USER_HOME_DIR/.gitconfig
     log_success "Updated git dotfiles."
     echo
 fi
