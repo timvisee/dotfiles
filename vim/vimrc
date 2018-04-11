@@ -26,6 +26,7 @@ Plugin 'hrj/vim-DrawIt'
 Plugin 'yangmillstheory/vim-snipe'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'reedes/vim-pencil'
+Plugin 'haya14busa/incsearch.vim'
 
 " Editor layout
 Plugin 'vim-airline/vim-airline'
@@ -343,6 +344,11 @@ imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
 " Use tab to complete
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Incsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 " Ultisnips bindings
 let g:UltiSnipsExpandTrigger="<tab>"
