@@ -54,6 +54,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'cespare/vim-toml'
 Plugin 'posva/vim-vue'
 Plugin 'StanAngeloff/php.vim'
+Plugin 'tpope/vim-git'
 
 " Completion
 if has('nvim')
