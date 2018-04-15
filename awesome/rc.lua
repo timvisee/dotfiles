@@ -50,6 +50,7 @@ end
 beautiful.init(awful.util.get_configuration_dir() .. "themes/default/theme.lua")
 -- TODO: Include this in the custom theme?
 beautiful.wallpaper = awful.util.get_configuration_dir() .. "themes/default/background.jpg"
+beautiful.border_width = 0
 beautiful.useless_gap = 4
 
 -- This is used later as the default terminal and editor to run.
