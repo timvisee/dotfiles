@@ -50,6 +50,7 @@ end
 beautiful.init(awful.util.get_configuration_dir() .. "themes/default/theme.lua")
 -- TODO: Include this in the custom theme?
 beautiful.wallpaper = awful.util.get_configuration_dir() .. "themes/default/background.jpg"
+beautiful.useless_gap = 4
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -697,7 +698,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
