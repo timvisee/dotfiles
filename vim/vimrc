@@ -220,11 +220,12 @@ set textwidth=80
 let g:pencil#textwidth = 79
 
 " File specific configurations
-autocmd FileType ansible setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType json setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType ansible,json,markdown,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
+" File specific commenting styles
+autocmd FileType php,rust setlocal commentstring=//\ %s
+
+" Configure pencil mode
 augroup pencil
     autocmd!
     autocmd FileType markdown call pencil#init({'wrap': 'hard', 'autoformat': 0})
@@ -237,6 +238,7 @@ autocmd FileType markdown let g:airline#extensions#whitespace#checks = ['indent'
 
 " Proper CSS completion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
+
 
 
 """ Language
