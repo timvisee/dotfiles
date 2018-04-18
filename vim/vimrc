@@ -226,6 +226,10 @@ autocmd FileType ansible,json,markdown,yaml setlocal shiftwidth=2 tabstop=2 soft
 " File specific commenting styles
 autocmd FileType php,rust setlocal commentstring=//\ %s
 
+" Arg wrap styles
+autocmd FileType * unlet! argwrap_tail_comma
+autocmd FileType javascript,rust let argwrap_tail_comma=1
+
 " Configure pencil mode
 augroup pencil
     autocmd!
