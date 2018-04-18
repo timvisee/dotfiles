@@ -27,6 +27,7 @@ Plugin 'yangmillstheory/vim-snipe'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'reedes/vim-pencil'
 Plugin 'haya14busa/incsearch.vim'
+Plugin 'FooSoft/vim-argwrap'
 
 " Editor layout
 Plugin 'vim-airline/vim-airline'
@@ -348,6 +349,9 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+" Arg wrap
+nnoremap <silent> <leader>a :ArgWrap<CR>
 
 " Easy commenting
 map // :Commentary<CR>
