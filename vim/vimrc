@@ -228,8 +228,7 @@ autocmd FileType php,rust setlocal commentstring=//\ %s
 " Configure pencil mode
 augroup pencil
     autocmd!
-    autocmd FileType markdown call pencil#init({'wrap': 'hard', 'autoformat': 0})
-    autocmd FileType text call pencil#init({'wrap': 'hard', 'autoformat': 0})
+    autocmd FileType markdown,text call pencil#init({'wrap': 'hard', 'autoformat': 0})
 augroup END
 
 " Trailing spaces warnings from airline
@@ -249,10 +248,7 @@ set spelllang=en,nl
 set nospell
 
 " Enable spell checking for some files
-autocmd FileType markdown setlocal spell
-autocmd FileType txt setlocal spell
-autocmd FileType tex setlocal spell
-autocmd FileType bib setlocal spell
+autocmd FileType markdown,txt,tex,bib setlocal spell
 
 
 
