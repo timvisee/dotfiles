@@ -142,8 +142,10 @@ set list listchars=tab:\ \ ,trail:·
 
 " Color rows that have lines longer than 81 columns, lines shouldn't be that
 " long
-highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\v%81v', 100)
+"highlight ColorColumn ctermbg=magenta
+"call matchadd('ColorColumn', '\v%81v', 100)
+set colorcolumn=+1
+highlight ColorColumn ctermbg=234 guibg=#1C1C1C
 
 " Highlight TODO
 augroup HiglightTodo
