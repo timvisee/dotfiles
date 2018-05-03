@@ -224,6 +224,7 @@ let g:pencil#textwidth = 79
 
 " File specific configurations
 autocmd FileType ansible,json,markdown,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType go setlocal shiftwidth=8 tabstop=8 softtabstop=8
 
 " File specific commenting styles
 autocmd FileType php setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
