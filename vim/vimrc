@@ -133,9 +133,9 @@ set number
 " Line number on the bar
 set ruler
 
-" Highlight the current line
+" Highlight the cursor line, set the column color
 set cursorline
-"hi CursorLine term=none cterm=none ctermbg=3 " Highlight color
+highlight CursorColumn ctermbg=237 guibg=#3e3e40
 
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
