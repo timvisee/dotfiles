@@ -122,8 +122,8 @@ let g:airline_theme='base16'
 
 " Airline Pencil status
 if exists("PencilMode")
-    let g:airline_section_x = '%{PencilMode()}'
-    "let g:pencil#mode_indicators = {'hard': 'H', 'auto': 'A', 'soft': 'S', 'off': '',}
+    let g:airline_section_x='%{PencilMode()}'
+    "let g:pencil#mode_indicators={'hard': 'H', 'auto': 'A', 'soft': 'S', 'off': '',}
 endif
 
 " Relative line numbers
@@ -160,7 +160,7 @@ set showmatch
 set nowrap
 
 " Disable code folding in Markdown
-let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_disabled=1
 
 " Show 8 rows, 16 columns around the cursor when scrolling, scroll by 1 column
 set scrolloff=8
@@ -187,7 +187,7 @@ hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
 let python_highlight_all=1
 
 " Define the default Goyo size
-let g:goyo_width = 82
+let g:goyo_width=82
 
 
 
@@ -220,7 +220,7 @@ set shiftround
 
 " Lines should not be longer than 80 characters
 set textwidth=80
-let g:pencil#textwidth = 79
+let g:pencil#textwidth=79
 
 " File specific configurations
 autocmd FileType ansible,json,markdown,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -242,7 +242,7 @@ augroup END
 
 " Trailing spaces warnings from airline
 autocmd FileType * unlet! g:airline#extensions#whitespace#checks
-autocmd FileType markdown let g:airline#extensions#whitespace#checks = ['indent']
+autocmd FileType markdown let g:airline#extensions#whitespace#checks=['indent']
 
 " Proper CSS completion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
@@ -464,8 +464,8 @@ autocmd bufenter * if (winnr("$") == 1
     \ && b:NERDTree.isTabTree()) | q | endif
 
 " Define the tool and browser for markdown preview
-let vim_markdown_preview_github = 1
-let vim_markdown_preview_browser = 'FirefoxNightly'
+let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='FirefoxNightly'
 
 " Syntastic options
 let g:syntastic_always_populate_loc_list=1
@@ -503,6 +503,6 @@ let g:vimtex_view_method="zathura"
 
 " Use fd in ctrlp if installed for fast searches
 if executable('fd')
-    let g:ctrlp_user_command = 'fd -c never --hidden --follow --exclude .git "" %s'
-    let g:ctrlp_use_caching = 0
+    let g:ctrlp_user_command='fd -c never --hidden --follow --exclude .git "" %s'
+    let g:ctrlp_use_caching=0
 endif
