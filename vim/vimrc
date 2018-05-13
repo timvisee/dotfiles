@@ -412,19 +412,19 @@ map <leader><leader>ge <Plug>(snipe-ge)
 map <leader><leader>gE <Plug>(snipe-gE)
 
 " Goyo toggle
-nmap <leader>v :Goyo<CR>
-xmap <leader>v :Goyo<CR>
+nmap <silent> <leader>v :Goyo<CR>
+xmap <silent> <leader>v :Goyo<CR>
 
 " Limelight toggle
-nmap <leader>l :Limelight!!<CR>
-xmap <leader>l :Limelight!!<CR>
+nmap <silent> <leader>l :Limelight!!<CR>
+xmap <silent> <leader>l :Limelight!!<CR>
 
 " Cursor column toggle
-nmap <leader>c :set cursorcolumn!<CR>
-xmap <leader>c :set cursorcolumn!<CR>
+nmap <silent> <leader>c :set cursorcolumn!<CR>
+xmap <silent> <leader>c :set cursorcolumn!<CR>
 
 " NERDTree toggle
-map <C-n> :NERDTreeToggle<CR>
+map <silent> <C-n> :NERDTreeToggle<CR>
 
 " Common typos
 cnoreabbrev W w
