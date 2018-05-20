@@ -20,7 +20,7 @@ alias tmux 'tmux -2'
 
 # Exa alias
 alias e 'exa'
-alias ela 'exa -la'
+alias ela 'exa -la --git'
 
 # Ranger alias
 alias r 'ranger'
