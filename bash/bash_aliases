@@ -29,7 +29,7 @@ fi
 
 # Exa elias
 alias e='exa'
-alias ela='exa -la --git'
+alias ela='exa -lab --git'
 
 # Useful list aliases
 alias la='ls -al'
