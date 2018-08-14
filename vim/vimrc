@@ -466,6 +466,10 @@ autocmd bufenter * if (winnr("$") == 1
     \ && exists("b:NERDTree")
     \ && b:NERDTree.isTabTree()) | q | endif
 
+
+" Show hidden files by default
+let NERDTreeShowHidden=1
+
 " Define the tool and browser for markdown preview
 let vim_markdown_preview_github=1
 let vim_markdown_preview_browser='FirefoxNightly'
