@@ -15,9 +15,6 @@ else
     alias nvim 'vim'
 end
 
-# Alias to support tmux colors
-alias tmux 'tmux -2'
-
 # Exa alias
 alias e 'exa'
 alias ela 'exa -lab --git'
@@ -46,8 +43,9 @@ alias getclip 'xclip -selection c -o'
 alias setclip 'xclip -selection c'
 
 # Tmux alias
-alias ta 'tmux attach'
-alias tn 'tmux new -s'
+alias tmux 'tmux -u -2'
+alias ta 'tmux -u -2 attach'
+alias tn 'tmux -u -2 new -s'
 
 # Cargo aliases
 alias cr 'cargo run'

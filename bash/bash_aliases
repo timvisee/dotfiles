@@ -38,8 +38,9 @@ alias la='ls -al'
 alias r='ranger'
 
 # Tmux alias
-alias ta='tmux attach'
-alias tn='tmux new -s'
+alias tmux='tmux -u -2'
+alias ta='tmux -u -2 attach'
+alias tn='tmux -u -2 new -s'
 
 # Make a directory and change to it
 function mkcd {
@@ -67,9 +68,6 @@ alias cr='cargo run'
 # Add an "alert" alias for long running commands.
 # Usage example: $ sleep 5; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Start tmux with color support
-alias tmux='tmux -2'
 
 # Thefuck aliases
 if [ -e "/usr/bin/thefuck" ]; then
