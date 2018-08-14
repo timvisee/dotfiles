@@ -15,7 +15,8 @@ if test -d "$HOME/.cargo/bin"
 end
 
 # Add the rust source path to the path
-if command -sq rustc
+# TODO: explicitly check whether the command is invokable from the current context
+if test -x "~/.cargo/bin/rustc"
     set RUST_SRC_PATH (rustc --print sysroot)/lib/rustlib/src/rust/src
     if test -d $RUST_SRC_PATH
         export RUST_SRC_PATH

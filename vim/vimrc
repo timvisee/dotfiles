@@ -57,6 +57,9 @@ Plugin 'posva/vim-vue'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'tpope/vim-git'
 
+Plugin 'beanworks/vim-phpfmt'
+let g:phpfmt_standard = 'PSR2'
+
 " Completion
 if has('nvim')
     Plugin 'roxma/nvim-completion-manager'
@@ -462,6 +465,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1
     \ && exists("b:NERDTree")
     \ && b:NERDTree.isTabTree()) | q | endif
+
+
+" Show hidden files by default
+let NERDTreeShowHidden=1
 
 " Define the tool and browser for markdown preview
 let vim_markdown_preview_github=1

@@ -5,7 +5,8 @@ alias q 'exit'
 alias :q 'exit'
 
 # Nvim and vim aliases
-if command -sq nvim
+# TODO: explicitly check whether the command is invokable from the current context
+if test -x "/usr/bin/nvm"
     alias vi 'nvim'
     alias vim 'nvim'
     alias nvi 'nvim'
@@ -14,9 +15,6 @@ else
     alias nvi 'vim'
     alias nvim 'vim'
 end
-
-# Alias to support tmux colors
-alias tmux 'tmux -2'
 
 # Exa alias
 alias e 'exa'
@@ -39,14 +37,16 @@ alias ga 'git add'
 alias gc 'git commit'
 alias gs 'git status'
 alias gp 'git push'
+alias gb 'git branch'
 
 # Clipboard aliases
 alias getclip 'xclip -selection c -o'
 alias setclip 'xclip -selection c'
 
 # Tmux alias
-alias ta 'tmux attach'
-alias tn 'tmux new -s'
+alias tmux 'tmux -u -2'
+alias ta 'tmux -u -2 attach'
+alias tn 'tmux -u -2 new -s'
 
 # Cargo aliases
 alias cr 'cargo run'
