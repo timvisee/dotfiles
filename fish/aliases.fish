@@ -34,10 +34,10 @@ end
 
 # Git aliases
 alias ga 'git add'
-alias gc 'git commit'
-alias gs 'git status'
-alias gp 'git push'
 alias gb 'git branch'
+alias gc 'git commit'
+alias gp 'git push'
+alias gs 'git status'
 
 # Clipboard aliases
 alias getclip 'xclip -selection c -o'
@@ -46,6 +46,7 @@ alias setclip 'xclip -selection c'
 # Tmux alias
 alias tmux 'tmux -u -2'
 alias ta 'tmux -u -2 attach'
+alias tl 'tmux -u -2 ls'
 alias tn 'tmux -u -2 new -s'
 
 # Cargo aliases
