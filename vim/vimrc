@@ -57,6 +57,9 @@ Plugin 'posva/vim-vue'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'tpope/vim-git'
 
+Plugin 'beanworks/vim-phpfmt'
+let g:phpfmt_standard = 'PSR2'
+
 " Completion
 if has('nvim')
     Plugin 'roxma/nvim-completion-manager'
