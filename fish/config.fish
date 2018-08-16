@@ -9,6 +9,9 @@ source ~/.config/fish/transfer.fish
 # Disable fish greeting
 set fish_greeting
 
+# Enable VI mode
+fish_vi_key_bindings
+
 # Add rust binaries to the path
 if test -d "$HOME/.cargo/bin"
     set PATH $HOME/.cargo/bin $PATH
