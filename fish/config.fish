@@ -164,7 +164,7 @@ function fish_mode_prompt --description 'Displays the current mode'
             case insert
                 set_color --bold green
                 echo 🅸
-            case replace-one
+            case replace_one
                 set_color --bold green
                 echo 🆁
             case visual
