@@ -37,6 +37,7 @@ Plugin 'drmingdrmer/vim-tabbar'
 " Visualizers
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
+Plugin 'RRethy/vim-illuminate'
 
 " Appearance
 Plugin 'fenetikm/falcon'
