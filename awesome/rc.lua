@@ -186,16 +186,16 @@ mycpugraph:set_stack_colors({ "#7e3e3e", "#ab4747", "#7e3e3e", "#ab4747" })
 mycpulabel = wibox.widget.textbox()
 mycpulabel.align = "right"
 
-vicious.register(ctext, vicious.widgets.cpu,
-    function (widget, args)
-        mycpugraph:add_value(args[2], 1) -- Core 1, color 1
-        mycpugraph:add_value(args[3], 2) -- Core 2, color 2
-        mycpugraph:add_value(args[4], 3) -- Core 3, color 3
-        mycpugraph:add_value(args[5], 4) -- Core 4, color 4
+-- vicious.register(ctext, vicious.widgets.cpu,
+--     function (widget, args)
+--         mycpugraph:add_value(args[2], 1) -- Core 1, color 1
+--         mycpugraph:add_value(args[3], 2) -- Core 2, color 2
+--         mycpugraph:add_value(args[4], 3) -- Core 3, color 3
+--         mycpugraph:add_value(args[5], 4) -- Core 4, color 4
 
-        mycpu:set_value(args[1])
-        mycpulabel:set_markup_silently('<span color="#d09a58">' .. args[1] .. '%</span> ')
-    end, 2)
+--         mycpu:set_value(args[1])
+--         mycpulabel:set_markup_silently('<span color="#d09a58">' .. args[1] .. '%</span> ')
+--     end, 2)
 
 mycpugraphstack = wibox.layout.stack()
 mycpugraphstack:add(mycpugraph)
@@ -228,48 +228,48 @@ end
 --    function (widget, args)
 --        return args["eth0 down_kb"]
 --    end, 2)
-vicious.register(mynet, vicious.widgets.net,
-    function (widget, args)
-        -- Get the download speed and unit
-		if tonumber(args["{enp3s0 down_mb}"]) > 1 then
-        	downval = tonumber(args["{enp3s0 down_mb}"])
-            downunit = 'M'
-		elseif tonumber(args["{enp3s0 down_kb}"]) > 0.2 then
-        	downval = tonumber(args["{enp3s0 down_kb}"])
-            downunit = 'K'
-		else
-        	downval = tonumber(args["{enp3s0 down_b}"])
-            downunit = 'B'
-		end
+-- vicious.register(mynet, vicious.widgets.net,
+--     function (widget, args)
+--         -- Get the download speed and unit
+-- 		if tonumber(args["{enp3s0 down_mb}"]) > 1 then
+--         	downval = tonumber(args["{enp3s0 down_mb}"])
+--             downunit = 'M'
+-- 		elseif tonumber(args["{enp3s0 down_kb}"]) > 0.2 then
+--         	downval = tonumber(args["{enp3s0 down_kb}"])
+--             downunit = 'K'
+-- 		else
+--         	downval = tonumber(args["{enp3s0 down_b}"])
+--             downunit = 'B'
+-- 		end
 
-        -- Get the upload speed and unit
-		if tonumber(args["{enp3s0 up_mb}"]) > 1 then
-        	upval = tonumber(args["{enp3s0 up_mb}"])
-            upunit = 'M'
-		elseif tonumber(args["{enp3s0 up_kb}"]) > 0.2 then
-        	upval = tonumber(args["{enp3s0 up_kb}"])
-            upunit = 'K'
-		else
-        	upval = tonumber(args["{enp3s0 up_b}"])
-            upunit = 'B'
-		end
+--         -- Get the upload speed and unit
+-- 		if tonumber(args["{enp3s0 up_mb}"]) > 1 then
+--         	upval = tonumber(args["{enp3s0 up_mb}"])
+--             upunit = 'M'
+-- 		elseif tonumber(args["{enp3s0 up_kb}"]) > 0.2 then
+--         	upval = tonumber(args["{enp3s0 up_kb}"])
+--             upunit = 'K'
+-- 		else
+--         	upval = tonumber(args["{enp3s0 up_b}"])
+--             upunit = 'B'
+-- 		end
 
-        -- Only show decimals for values less than 10
-        if(downval >= 10) then
-            downval = round(downval)
-        end
-        if(upval >= 10) then
-            upval = round(upval)
-        end
+--         -- Only show decimals for values less than 10
+--         if(downval >= 10) then
+--             downval = round(downval)
+--         end
+--         if(upval >= 10) then
+--             upval = round(upval)
+--         end
 
-        -- Render the speed labels
-        mynetdown:set_markup_silently(' <span color="#d4c675">' .. downval .. downunit .. '</span> ')
-        mynetup:set_markup_silently(' <span color="#d09a58">' .. upval .. upunit .. '</span> ')
+--         -- Render the speed labels
+--         mynetdown:set_markup_silently(' <span color="#d4c675">' .. downval .. downunit .. '</span> ')
+--         mynetup:set_markup_silently(' <span color="#d09a58">' .. upval .. upunit .. '</span> ')
 
-        -- Update the graphs
-        mynetdowngraph:add_value(tonumber(args["{enp3s0 down_b}"]), 1)
-        mynetupgraph:add_value(tonumber(args["{enp3s0 up_b}"]), 1)
-    end, 2)
+--         -- Update the graphs
+--         mynetdowngraph:add_value(tonumber(args["{enp3s0 down_b}"]), 1)
+--         mynetupgraph:add_value(tonumber(args["{enp3s0 up_b}"]), 1)
+--     end, 2)
 
 -- Networking icons
 mynetdownicon = wibox.widget.textbox()

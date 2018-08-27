@@ -37,6 +37,7 @@ Plugin 'drmingdrmer/vim-tabbar'
 " Visualizers
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
+Plugin 'RRethy/vim-illuminate'
 
 " Appearance
 Plugin 'fenetikm/falcon'
@@ -466,9 +467,9 @@ autocmd bufenter * if (winnr("$") == 1
     \ && exists("b:NERDTree")
     \ && b:NERDTree.isTabTree()) | q | endif
 
-
-" Show hidden files by default
+" Show hidden files by default, but hide Vim swap files
 let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\..*\.sw[pom]$']
 
 " Define the tool and browser for markdown preview
 let vim_markdown_preview_github=1
