@@ -87,7 +87,7 @@ if [ -f ~/.config/bash/transfer.sh ]; then
 fi
 
 # Source Rust's cargo environment
-if [ -f ~/.cargo/env ]; then
+if [[ -f ~/.cargo/env ]]; then
     source ~/.cargo/env
 fi
 
@@ -100,7 +100,11 @@ if [[ $(command -v rustc) ]]; then
 fi
 
 # Configure Go's environment
-if [ -d "/usr/lib/go" ]; then
+if [[ -d "/usr/local/go/bin" ]]; then 
+    export GOROOT=/usr/local/go/bin
+    export GOPATH=$HOME/.go
+    export PATH=$PATH:$GOROOT/bin
+else if [[ -d "/usr/lib/go" ]]; then
     export GOROOT=/usr/lib/go
     export GOPATH=$HOME/.go
     export PATH=$PATH:$GOROOT/bin

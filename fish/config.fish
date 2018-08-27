@@ -27,7 +27,11 @@ if test -x "~/.cargo/bin/rustc"
 end
 
 # Configure Go's environment
-if test -d "/usr/lib/go"
+if test -d "/usr/local/go/bin"
+    set -x GOROOT /usr/local/go
+    set -x GOPATH $HOME/.go
+    set -x PATH $PATH $GOROOT/bin
+else if test -d "/usr/lib/go"
     set -x GOROOT /usr/lib/go
     set -x GOPATH $HOME/.go
     set -x PATH $PATH $GOROOT/bin
