@@ -81,11 +81,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Enable the transfer extension
-if [ -f ~/.config/bash/transfer.sh ]; then
-    source ~/.config/bash/transfer.sh
-fi
-
 # Source Rust's cargo environment
 if [[ -f ~/.cargo/env ]]; then
     source ~/.cargo/env
