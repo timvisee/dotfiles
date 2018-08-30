@@ -4,7 +4,6 @@
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/nvm.fish
 source ~/.config/fish/prompt.fish
-source ~/.config/fish/transfer.fish
 
 # Disable fish greeting
 set fish_greeting
