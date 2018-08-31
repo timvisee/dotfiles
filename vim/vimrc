@@ -240,6 +240,9 @@ autocmd FileType php,rust setlocal commentstring=//\ %s
 autocmd FileType * unlet! argwrap_tail_comma
 autocmd FileType javascript,rust let argwrap_tail_comma=1
 
+" JavaScript highlighting workaround for Vue files
+autocmd FileType vue syntax sync fromstart
+
 " Configure pencil mode
 augroup pencil
     autocmd!
