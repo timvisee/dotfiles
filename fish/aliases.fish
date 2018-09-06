@@ -5,8 +5,7 @@ alias q 'exit'
 alias :q 'exit'
 
 # Nvim and vim aliases
-# TODO: explicitly check whether the command is invokable from the current context
-if test -x "/usr/bin/nvm"
+if test -x "/usr/bin/nvim"
     alias vi 'nvim'
     alias vim 'nvim'
     alias nvi 'nvim'
