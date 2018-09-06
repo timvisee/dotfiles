@@ -38,6 +38,7 @@ alias gb 'git branch'
 alias gc 'git commit'
 alias gp 'git push'
 alias gs 'git status'
+alias gfp 'git fetch; and git pull'
 
 # Clipboard aliases
 alias getclip 'xclip -selection c -o'
