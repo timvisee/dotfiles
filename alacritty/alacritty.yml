@@ -88,40 +88,44 @@ render_timer: false
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: true
 
-# falcon colorscheme for alacritty
-# by fenetikm, https://github.com/fenetikm/falcon
+# Use custom cursor colors. If true, display the cursor in the cursor.foreground
+# and cursor.background colors, otherwise invert the colors of the cursor.
+custom_cursor_colors: true
+
+# Base16 Atelier Dune 256 - alacritty color config
+# Bram de Haan (http://atelierbramdehaan.nl)
 colors:
   # Default colors
   primary:
-    background: '0x0b0b1a'
-    foreground: '0xd4d4d9'
+    background: '0x20201d'
+    foreground: '0xa6a28c'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x282828'
-    cursor: '0xffefbf'
+    text: '0x20201d'
+    cursor: '0xa6a28c'
 
   # Normal colors
   normal:
-    black:   '0x0b0b1a'
-    red:     '0xff794c'
-    green:   '0x85a663'
-    yellow:  '0xffd966'
-    blue:    '0x8fa3bf'
-    magenta: '0xffac59'
-    cyan:    '0x85ccc0'
-    white:   '0xfdfdff'
+    black:   '0x20201d'
+    red:     '0xd73737'
+    green:   '0x60ac39'
+    yellow:  '0xae9513'
+    blue:    '0x6684e1'
+    magenta: '0xb854d4'
+    cyan:    '0x1fad83'
+    white:   '0xa6a28c'
 
   # Bright colors
   bright:
-    black:   '0x000002'
-    red:     '0xff4000'
-    green:   '0x598033'
-    yellow:  '0xffbf00'
-    blue:    '0x306cbf'
-    magenta: '0xff8000'
-    cyan:    '0x30bfa7'
-    white:   '0xd4d4d9'
+    black:   '0x7d7a68'
+    red:     '0xd73737'
+    green:   '0x60ac39'
+    yellow:  '0xae9513'
+    blue:    '0x6684e1'
+    magenta: '0xb854d4'
+    cyan:    '0x1fad83'
+    white:   '0xa6a28c'
 
 # Visual Bell
 #
