@@ -40,7 +40,7 @@ Plugin 'junegunn/limelight.vim'
 Plugin 'RRethy/vim-illuminate'
 
 " Appearance
-Plugin 'fenetikm/falcon'
+Plugin 'chriskempson/base16-vim'
 
 " Languages
 Plugin 'klen/python-mode'
@@ -114,13 +114,18 @@ set shell=/bin/bash
 syntax enable
 
 " Enable 256-color mode for terminals
-set t_Co=256
+if !has('gui_running')
+    set t_Co=256
+endif
 
-" Colorscheme
-colorscheme falcon
-
-" Dark interface
+" Colors
+if (match($TERM, "-256color") != -1) && (match($TERM, "screen-256color") == -1)
+  set termguicolors
+endif
 set background=dark
+let base16colorspace=256
+colorscheme base16-atelier-dune
+hi Normal ctermbg=NONE
 
 " Airline theme
 let g:airline_theme='base16'
