@@ -19,6 +19,7 @@ dotfiles are used to personalize your system and applications. These are mine.
 * `keychain`: for SSH key management
 * `fish`: as better shell
 * `thefuck`: for handy incorrect command fixes
+* `highlight`: for syntax highlighting in ranger
 
 ## Installation
 An installation script is included to easily install the dotfiles on your system.

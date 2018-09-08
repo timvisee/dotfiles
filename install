@@ -614,6 +614,7 @@ fi
 if [ $DO_RANGER == "yes" ]; then
     log_normal "Updating ranger dotfiles..."
     do_file "$DIR/ranger/rc.conf" $CMD_USER_HOME_DIR/.config/ranger/rc.conf
+    do_file "$DIR/ranger/scope.sh" $CMD_USER_HOME_DIR/.config/ranger/scope.sh
     log_success "Updated ranger dotfiles."
     echo
 fi
