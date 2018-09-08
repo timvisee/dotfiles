@@ -359,6 +359,9 @@ set mouse=a
 let mapleader=" "
 let maplocalleader="\\"
 
+" Use <space><space> to toggle to the last buffer
+nnoremap <leader><leader> <c-^>
+
 " Use enter to complete
 imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
 imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
