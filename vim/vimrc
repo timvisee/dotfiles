@@ -107,6 +107,10 @@ set exrc
 " Use bash as shell (solve compatibility issues)
 set shell=/bin/bash
 
+" Set maximum map and key delays
+set timeoutlen=500
+set ttimeoutlen=0
+
 
 
 """ Appearance
@@ -414,19 +418,19 @@ nnoremap <C-H> <C-W><C-H>
 vmap Q gq
 nmap Q gqap
 
-" Vim snipe
-map <leader><leader>F <Plug>(snipe-F)
-map <leader><leader>f <Plug>(snipe-f)
-map <leader><leader>T <Plug>(snipe-T)
+" " Vim snipe
+map <leader>F <Plug>(snipe-F)
+map <leader>f <Plug>(snipe-f)
+map <leader>T <Plug>(snipe-T)
 
-map <leader><leader>w <Plug>(snipe-w)
-map <leader><leader>W <Plug>(snipe-W)
-map <leader><leader>e <Plug>(snipe-e)
-map <leader><leader>E <Plug>(snipe-E)
-map <leader><leader>b <Plug>(snipe-b)
-map <leader><leader>B <Plug>(snipe-B)
-map <leader><leader>ge <Plug>(snipe-ge)
-map <leader><leader>gE <Plug>(snipe-gE)
+map <leader>w <Plug>(snipe-w)
+map <leader>W <Plug>(snipe-W)
+map <leader>e <Plug>(snipe-e)
+map <leader>E <Plug>(snipe-E)
+map <leader>b <Plug>(snipe-b)
+map <leader>B <Plug>(snipe-B)
+map <leader>ge <Plug>(snipe-ge)
+map <leader>gE <Plug>(snipe-gE)
 
 " Goyo toggle
 nmap <silent> <leader>v :Goyo<CR>
