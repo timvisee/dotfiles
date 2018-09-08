@@ -16,6 +16,7 @@ DO_TMUX="yes"
 DO_VIM="yes"
 DO_GIT="yes"
 DO_RANGER="yes"
+DO_HIGHLIGHT="yes"
 DO_ALACRITTY="yes"
 DO_AWESOME="no"
 DO_COMPTON="no"
@@ -368,6 +369,24 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install highlight files
+    log_question "Would you like to $ACTION highlight dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_HIGHLIGHT=yes
+                break
+                ;;
+            No)
+                DO_HIGHLIGHT=no
+                break
+                ;;
+        esac
+    done
+    echo
+
     # Ask whether to install alacritty files
     log_question "Would you like to $ACTION alacritty dotfiles?"
     PS3="Choose your action: "
@@ -616,6 +635,14 @@ if [ $DO_RANGER == "yes" ]; then
     do_file "$DIR/ranger/rc.conf" $CMD_USER_HOME_DIR/.config/ranger/rc.conf
     do_file "$DIR/ranger/scope.sh" $CMD_USER_HOME_DIR/.config/ranger/scope.sh
     log_success "Updated ranger dotfiles."
+    echo
+fi
+
+# Install highlight
+if [ $DO_HIGHLIGHT == "yes" ]; then
+    log_normal "Updating highlight dotfiles..."
+    do_file "$DIR/highlight/base16-atelier-dune.theme" /usr/share/highlight/themes/base16-atelier-dune.theme
+    log_success "Updated highlight dotfiles."
     echo
 fi
 
