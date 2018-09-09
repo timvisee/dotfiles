@@ -1,84 +1,82 @@
-""" Configure Vundle
+""" Configure vim-plug
 set nocompatible
 filetype off
 
-" Add Vundle to the runtime
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+" Begin vim-plug plugin loading
+call plug#begin('~/.local/share/nvim/plugged')
 
 " General
-Plugin 'jremmen/vim-ripgrep'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
-Plugin 'tpope/vim-db'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'scrooloose/nerdtree'
-Plugin 'lervag/vimtex'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'tpope/vim-commentary'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'machakann/vim-sandwich'
-Plugin 'tpope/vim-repeat'
-Plugin 'hrj/vim-DrawIt'
-Plugin 'yangmillstheory/vim-snipe'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'reedes/vim-pencil'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'FooSoft/vim-argwrap'
+Plug 'jremmen/vim-ripgrep'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-db'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'scrooloose/nerdtree'
+Plug 'lervag/vimtex'
+Plug 'vim-syntastic/syntastic'
+Plug 'nvie/vim-flake8'
+Plug 'tpope/vim-commentary'
+Plug 'airblade/vim-gitgutter'
+Plug 'machakann/vim-sandwich'
+Plug 'tpope/vim-repeat'
+Plug 'hrj/vim-DrawIt'
+Plug 'yangmillstheory/vim-snipe'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'reedes/vim-pencil'
+Plug 'haya14busa/incsearch.vim'
+Plug 'FooSoft/vim-argwrap'
 
 " Editor layout
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'drmingdrmer/vim-tabbar'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'drmingdrmer/vim-tabbar'
 
 " Visualizers
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'RRethy/vim-illuminate'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'RRethy/vim-illuminate'
 
 " Appearance
-Plugin 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'
 
 " Languages
-Plugin 'klen/python-mode'
-Plugin 'rust-lang/rust.vim'
-Plugin 'beloglazov/vim-online-thesaurus'
-Plugin 'OrangeT/vim-csharp'
+Plug 'klen/python-mode'
+Plug 'rust-lang/rust.vim'
+Plug 'beloglazov/vim-online-thesaurus'
+Plug 'OrangeT/vim-csharp'
 
 " File types
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'dag/vim-fish'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'cespare/vim-toml'
-Plugin 'posva/vim-vue'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'jwalton512/vim-blade'
-Plugin 'tpope/vim-git'
+Plug 'chase/vim-ansible-yaml'
+Plug 'dag/vim-fish'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'cespare/vim-toml'
+Plug 'posva/vim-vue'
+Plug 'StanAngeloff/php.vim'
+Plug 'jwalton512/vim-blade'
+Plug 'tpope/vim-git'
 
-Plugin 'beanworks/vim-phpfmt'
+Plug 'beanworks/vim-phpfmt'
 let g:phpfmt_standard = 'PSR2'
 
 " Completion
 if has('nvim')
-    Plugin 'roxma/nvim-completion-manager'
-    Plugin 'othree/csscomplete.vim'
-    Plugin 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-    Plugin 'racer-rust/vim-racer'
-    Plugin 'roxma/nvim-cm-racer'
-    Plugin 'Shougo/neco-vim'
-    Plugin 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
-    Plugin 'roxma/ncm-github'
-    Plugin 'fgrsnau/ncm-otherbuf'
-    Plugin 'SirVer/ultisnips'
-    Plugin 'honza/vim-snippets'
+    Plug 'roxma/nvim-completion-manager'
+    Plug 'othree/csscomplete.vim'
+    Plug 'roxma/nvim-cm-tern', {'do': 'npm install'}
+    Plug 'racer-rust/vim-racer'
+    Plug 'roxma/nvim-cm-racer'
+    Plug 'Shougo/neco-vim'
+    Plug 'roxma/LanguageServer-php-neovim', {'do': 'composer install && composer run-script parse-stubs'}
+    Plug 'roxma/ncm-github'
+    Plug 'fgrsnau/ncm-otherbuf'
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
 endif
 
-" All of your Plugins must be added before the following line
-call vundle#end()
+" End vim-plug plugin loading
+call plug#end()
 
 
 
