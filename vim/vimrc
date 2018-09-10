@@ -44,7 +44,6 @@ Plug 'RRethy/vim-illuminate'
 Plug 'chriskempson/base16-vim'
 
 " Languages
-Plug 'klen/python-mode'
 Plug 'rust-lang/rust.vim'
 Plug 'beloglazov/vim-online-thesaurus'
 Plug 'OrangeT/vim-csharp'
@@ -199,9 +198,6 @@ hi SpellBad cterm=underline ctermfg=009 guifg=#ff0000
 " Matching bracket color
 hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
 
-" Highlight all python elements
-let python_highlight_all=1
-
 " Define the default Goyo size
 let g:goyo_width=82
 
@@ -277,52 +273,6 @@ set nospell
 
 " Enable spell checking for some files
 autocmd FileType markdown,txt,tex,bib setlocal spell
-
-
-
-""" Language: Python
-" Python versions and executables
-"let g:pymode_python='python3'
-if has('python3')
-    let g:syntastic_python_python_exec='python3'
-    let g:syntastic_python_python_exec='python3'
-else
-    let g:syntastic_python_python_exec='python'
-    let g:syntastic_python_python_exec='python'
-endif
-let g:syntastic_python2_python_exec='python'
-let g:syntastic_python3_python_exec='python3'
-
-" Various options
-let g:pymode_doc=0
-let g:pymode_lint=1
-let g:pymode_virtualenv=1
-let g:pymode_breakpoint=1
-let g:pymode_folding=0
-let g:pymode_indent=1
-let g:pymode_options_colorcolumn=0
-
-" Highlighting options
-let g:pymode_syntax=1
-let g:pymode_syntax_slow_sync=1
-let g:pymode_syntax_all=1
-let g:pymode_syntax_print_as_function=g:pymode_syntax_all
-let g:pymode_syntax_highlight_async_await=g:pymode_syntax_all
-let g:pymode_syntax_highlight_equal_operator=g:pymode_syntax_all
-let g:pymode_syntax_highlight_exceptions=g:pymode_syntax_all
-let g:pymode_syntax_highlight_star_operator=g:pymode_syntax_all
-let g:pymode_syntax_highlight_self=g:pymode_syntax_all
-let g:pymode_syntax_space_errors=g:pymode_syntax_all
-let g:pymode_syntax_string_format=g:pymode_syntax_all
-let g:pymode_syntax_string_templates=g:pymode_syntax_all
-let g:pymode_syntax_docstrings=g:pymode_syntax_all
-let g:pymode_syntax_doctests=g:pymode_syntax_all
-let g:pymode_syntax_builtin_objs=g:pymode_syntax_all
-let g:pymode_syntax_builtin_types=g:pymode_syntax_all
-
-" Run options
-let g:pymode_run=1
-let g:pymode_run_bind='<F10>'
 
 
 
@@ -504,7 +454,6 @@ let g:syntastic_error_symbol='X'
 let g:syntastic_style_error_symbol='X'
 let g:syntastic_warning_symbol='x'
 let g:syntastic_style_warning_symbol='x'
-let g:syntastic_python_checkers=['flake8', 'pydocstyle', 'python']
 
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
