@@ -319,17 +319,18 @@ map g/ <Plug>(incsearch-stay)
 nnoremap <silent> <leader>o :Files<CR>
 nnoremap <silent> <leader>O :Buffers<CR>
 nnoremap <silent> <leader>A :Windows<CR>
+nnoremap <leader>r :Rg 
 nnoremap <silent> <leader>; :BLines<CR>
-"nnoremap <silent> <leader>o :BTags<CR>
-"nnoremap <silent> <leader>O :Tags<CR>
 nnoremap <silent> <leader>: :History:<CR>
 nnoremap <silent> <leader>? :History<CR>
 nnoremap <silent> <leader>/ :History/<CR>
-"nnoremap <silent> <leader>/ :Ag 
 nnoremap <silent> <leader>gl :Commits<CR>
 nnoremap <silent> <leader>ga :BCommits<CR>
 nnoremap <silent> <leader>ft :Filetypes<CR>
 nnoremap <silent> <leader>h :Helptags<CR>
+"nnoremap <leader>/ :Ag 
+"nnoremap <silent> <leader>o :BTags<CR>
+"nnoremap <silent> <leader>O :Tags<CR>
 
 " Use enter to complete
 imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
