@@ -635,6 +635,7 @@ if [ $DO_VIM == "yes" ]; then
     do_file "$DIR/vim/spell/nl.utf-8.sug" $CMD_USER_HOME_DIR/.vim/spell/nl.utf-8.sug
 
     # Install vim Plugins
+    # TODO: ask whether to install vim-plug, and install/update plugins
     if [ $ACTION == "install" ]; then
         # Find the vim binary to use
         log_normal "Searching vim binary..."
@@ -655,16 +656,15 @@ if [ $DO_VIM == "yes" ]; then
             CMD_USER_HOME_DIR="$(get_command_user_home_dir)"
 
             # Upgrade vim-plug
-            log_normal "Upgrading vim-plug vim plugin..."
+            log_normal "Upgrading vim plugin manager: vim-plug..."
             $BIN_VIM -c 'PlugUpgrade' -c 'qa!'
-            log_success "Vim plugin vim-plug upgraded."
+            log_success "Vim plugin manager upgraded."
 
             # Install and upgrade plugins
-            log_normal "Installing new vim plugins with vim-plug..."
-            $BIN_VIM -c 'PlugInstall' -c 'qa!'
-            log_normal "Updating existing vim plugins with vim-plug..."
+            # TODO: check vim exit code
+            log_normal "Installing and updating vim plugins..."
             $BIN_VIM -c 'PlugUpdate' -c 'qa!'
-            log_success "Vim plugins updated."
+            log_success "Vim plugins successfully updated."
         else
             log_error "Vim not found, unable to automatically install plugins"
             log_error "Please install neovim (or vim), and run the installation again"
