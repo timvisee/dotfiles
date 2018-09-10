@@ -60,7 +60,9 @@ Plug 'rust-lang/rust.vim'
 if executable('cargo')
     Plug 'racer-rust/vim-racer', {'do': 'cargo +nightly install racer -f'}
 endif
-Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
+if executable('php') && executable('composer')
+    Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
+endif
 
 " Linting/Completion
 if has('nvim')
@@ -82,8 +84,12 @@ if has('nvim')
         Plug 'ncm2/ncm2-racer'
     endif
     Plug 'ncm2/ncm2-vim'
-    Plug 'phpactor/ncm2-phpactor'
-    Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
+    if executable('php') && executable('composer')
+        Plug 'phpactor/ncm2-phpactor'
+    endif
+    if executable('npm')
+        Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
+    endif
     Plug 'Shougo/echodoc.vim'
 endif
 
