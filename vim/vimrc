@@ -41,33 +41,50 @@ Plug 'chriskempson/base16-vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'machakann/vim-highlightedyank'
 Plug 'RRethy/vim-illuminate'
 
 " File types
 Plug 'cespare/vim-toml'
+Plug 'maralla/vim-toml-enhance'
 Plug 'dag/vim-fish'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'lervag/vimtex'
 Plug 'plasticboy/vim-markdown'
 Plug 'posva/vim-vue'
-Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-git'
 Plug 'StanAngeloff/php.vim'
 
-" TODO: keep this?
-Plug 'beanworks/vim-phpfmt'
-let g:phpfmt_standard = 'PSR2'
+" Languages
+Plug 'rust-lang/rust.vim'
+if executable('cargo')
+    Plug 'racer-rust/vim-racer', {'do': 'cargo +nightly install racer -f'}
+endif
+Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
 
-" Completion
+" Linting/Completion
 if has('nvim')
-    Plug 'roxma/nvim-completion-manager'
-    Plug 'othree/csscomplete.vim'
-    Plug 'roxma/nvim-cm-tern', {'do': 'npm install'}
-    Plug 'racer-rust/vim-racer'
-    Plug 'roxma/nvim-cm-racer'
-    Plug 'Shougo/neco-vim'
-    Plug 'roxma/LanguageServer-php-neovim', {'do': 'composer install && composer run-script parse-stubs'}
-    Plug 'fgrsnau/ncm-otherbuf'
+    Plug 'w0rp/ale'
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ }
+
+    Plug 'ncm2/ncm2'
+    Plug 'roxma/nvim-yarp'
+
+    " Completion enhancements
+    Plug 'ncm2/ncm2-bufword'
+    Plug 'ncm2/ncm2-tmux'
+    Plug 'ncm2/ncm2-path'
+    Plug 'ncm2/ncm2-github'
+    if executable('cargo')
+        Plug 'ncm2/ncm2-racer'
+    endif
+    Plug 'ncm2/ncm2-vim'
+    Plug 'phpactor/ncm2-phpactor'
+    Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
+    Plug 'Shougo/echodoc.vim'
 endif
 
 " End vim-plug plugin loading
@@ -124,14 +141,11 @@ let base16colorspace=256
 colorscheme base16-atelier-dune
 hi Normal ctermbg=NONE
 
+" Concealing
+set conceallevel=2
+
 " Airline theme
 let g:airline_theme='base16'
-
-" Airline Pencil status
-if exists("PencilMode")
-    let g:airline_section_x='%{PencilMode()}'
-    "let g:pencil#mode_indicators={'hard': 'H', 'auto': 'A', 'soft': 'S', 'off': '',}
-endif
 
 " Relative line numbers
 set relativenumber
@@ -143,6 +157,9 @@ set ruler
 " Highlight the cursor line, set the column color
 set cursorline
 highlight CursorColumn ctermbg=237 guibg=#3e3e40
+
+" Highlight yanks for half a second
+let g:highlightedyank_highlight_duration = 500
 
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
@@ -225,7 +242,6 @@ set shiftround
 
 " Lines should not be longer than 80 characters
 set textwidth=80
-let g:pencil#textwidth=79
 
 " File specific configurations
 autocmd FileType ansible,json,markdown,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -242,12 +258,6 @@ autocmd FileType javascript,rust let argwrap_tail_comma=1
 " JavaScript highlighting workaround for Vue files
 autocmd FileType vue syntax sync fromstart
 
-" Configure pencil mode
-augroup pencil
-    autocmd!
-    autocmd FileType markdown,text call pencil#init({'wrap': 'hard', 'autoformat': 0})
-augroup END
-
 " Trailing spaces warnings from airline
 autocmd FileType * unlet! g:airline#extensions#whitespace#checks
 autocmd FileType markdown let g:airline#extensions#whitespace#checks=['indent']
@@ -261,10 +271,8 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
 " English and Dutch spelling
 set spelllang=en,nl
 
-" Disable spell checking
+" Disable spell checking, enable for some files
 set nospell
-
-" Enable spell checking for some files
 autocmd FileType markdown,txt,tex,bib setlocal spell
 
 
@@ -404,6 +412,7 @@ xmap <silent> <leader>c :set cursorcolumn!<CR>
 map <silent> <C-n> :NERDTreeToggle<CR>
 
 " Common typos
+nnoremap q: :q
 cnoreabbrev W w
 cnoreabbrev Wq wq
 cnoreabbrev WQ wq
@@ -413,15 +422,9 @@ cnoreabbrev Gc Gcommit
 cnoreabbrev Gp Gpush
 cnoreabbrev Gs Gstatus
 
-" Disable command line mode binding
-nnoremap q: :q
-
 
 
 """ Plugins
-" Abolish plugin
-runtime plugin/abolish.vim
-
 " fzf/skim
 let g:fzf_nvim_statusline = 0
 
@@ -433,6 +436,15 @@ vmap <expr> <DOWN>  DVB_Drag('down')
 vmap <expr> <UP>    DVB_Drag('up')
 vmap <expr> D       DVB_Duplicate()
 
+" NCM2
+if has('nvim')
+    " Enable NCM2 for all buffers
+    autocmd BufEnter * call ncm2#enable_for_buffer()
+
+    " Important tweaks for showing completion popups
+    set completeopt=noinsert,menuone,noselect
+endif
+
 " NERDtree
 " Open NERDtree when run with no arguments
 autocmd StdinReadPre * let s:std_in=1
@@ -443,28 +455,13 @@ autocmd bufenter * if (winnr("$") == 1
     \ && exists("b:NERDTree")
     \ && b:NERDTree.isTabTree()) | q | endif
 
+" Racer
+" Show additional completions
+let g:racer_experimental_completer = 1
+
 " Show hidden files by default, but hide Vim swap files
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\..*\.sw[pom]$']
-
-" Define the tool and browser for markdown preview
-let vim_markdown_preview_github=1
-let vim_markdown_preview_browser='FirefoxNightly'
-
-" Syntastic options
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_enable_signs=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_aggregate_errors=1
-let g:syntastic_loc_list_height=5
-let g:syntastic_error_symbol='X'
-let g:syntastic_style_error_symbol='X'
-let g:syntastic_warning_symbol='x'
-let g:syntastic_style_warning_symbol='x'
-
-" YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion=1
 
 " Toggle Limelight with Goyo
 function! s:goyo_enter()
