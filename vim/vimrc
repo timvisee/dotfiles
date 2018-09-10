@@ -6,6 +6,7 @@ filetype off
 call plug#begin('~/.local/share/nvim/plugged')
 
 " General
+Plug 'airblade/vim-rooter'
 Plug 'jremmen/vim-ripgrep', {'do': 'cargo install ripgrep -f' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
