@@ -18,9 +18,10 @@ DO_GIT="yes"
 DO_RANGER="yes"
 DO_HIGHLIGHT="yes"
 DO_ALACRITTY="yes"
-DO_AWESOME="no"
 DO_AURGET="no"
+DO_AWESOME="no"
 DO_COMPTON="no"
+DO_XMODMAP="no"
 DO_I3LOCK_SLICK="no"
 DO_HTOP="yes"
 DO_IFTOP="no"
@@ -406,24 +407,6 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
-    # Ask whether to install awesomeWM files
-    log_question "Would you like to $ACTION awesomeWM dotfiles?"
-    PS3="Choose your action: "
-    select ENTRY in Yes No
-    do
-        case $ENTRY in
-            Yes)
-                DO_AWESOME=yes
-                break
-                ;;
-            No)
-                DO_AWESOME=no
-                break
-                ;;
-        esac
-    done
-    echo
-
     # Ask whether to install aurget files
     log_question "Would you like to $ACTION aurget dotfiles?"
     PS3="Choose your action: "
@@ -442,6 +425,24 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install awesomeWM files
+    log_question "Would you like to $ACTION awesomeWM dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_AWESOME=yes
+                break
+                ;;
+            No)
+                DO_AWESOME=no
+                break
+                ;;
+        esac
+    done
+    echo
+
     # Ask whether to install compton files
     log_question "Would you like to $ACTION compton dotfiles?"
     PS3="Choose your action: "
@@ -454,6 +455,24 @@ if [ $CUSTOM == "yes" ]; then
                 ;;
             No)
                 DO_COMPTON=no
+                break
+                ;;
+        esac
+    done
+    echo
+
+    # Ask whether to install xmodmap files
+    log_question "Would you like to $ACTION xmodmap dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_XMODMAP=yes
+                break
+                ;;
+            No)
+                DO_XMODMAP=no
                 break
                 ;;
         esac
@@ -673,6 +692,14 @@ if [ $DO_ALACRITTY == "yes" ]; then
     echo
 fi
 
+# Install aurget
+if [ $DO_AURGET == "yes" ]; then
+    log_normal "Updating aurget dotfiles..."
+    do_file "$DIR/aurget/aurgetrc" $CMD_USER_HOME_DIR/.config/aurgetrc
+    log_success "Updated aurget dotfiles."
+    echo
+fi
+
 # Install awesomeWM
 if [ $DO_AWESOME == "yes" ]; then
     log_normal "Updating awesomeWM dotfiles..."
@@ -684,19 +711,19 @@ if [ $DO_AWESOME == "yes" ]; then
     echo
 fi
 
-# Install aurget
-if [ $DO_AURGET == "yes" ]; then
-    log_normal "Updating aurget dotfiles..."
-    do_file "$DIR/aurget/aurgetrc" $CMD_USER_HOME_DIR/.config/aurgetrc
-    log_success "Updated aurget dotfiles."
-    echo
-fi
-
 # Install compton
 if [ $DO_COMPTON == "yes" ]; then
     log_normal "Updating compton dotfiles..."
     do_file "$DIR/compton/compton.conf" $CMD_USER_HOME_DIR/.config/compton.conf
     log_success "Updated compton dotfiles."
+    echo
+fi
+
+# Install xmodmap
+if [ $DO_XMODMAP == "yes" ]; then
+    log_normal "Updating xmodmap dotfiles..."
+    do_file "$DIR/xmodmap/xmodmap" $CMD_USER_HOME_DIR/.xmodmap
+    log_success "Updated xmodmap dotfiles."
     echo
 fi
 
@@ -756,4 +783,3 @@ fi
 # Done
 log_success "Successfully completed!"
 exit
-
