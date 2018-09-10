@@ -19,6 +19,7 @@ DO_RANGER="yes"
 DO_HIGHLIGHT="yes"
 DO_ALACRITTY="yes"
 DO_AWESOME="no"
+DO_AURGET="no"
 DO_COMPTON="no"
 DO_I3LOCK_SLICK="no"
 DO_HTOP="yes"
@@ -423,6 +424,24 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install aurget files
+    log_question "Would you like to $ACTION aurget dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_AURGET=yes
+                break
+                ;;
+            No)
+                DO_AURGET=no
+                break
+                ;;
+        esac
+    done
+    echo
+
     # Ask whether to install compton files
     log_question "Would you like to $ACTION compton dotfiles?"
     PS3="Choose your action: "
@@ -662,6 +681,14 @@ if [ $DO_AWESOME == "yes" ]; then
     do_file "$DIR/awesome/lib" $CMD_USER_HOME_DIR/.config/awesome/lib
     do_file "$DIR/awesome/themes/default" $CMD_USER_HOME_DIR/.config/awesome/themes/default
     log_success "Updated awesomeWM dotfiles."
+    echo
+fi
+
+# Install aurget
+if [ $DO_AURGET == "yes" ]; then
+    log_normal "Updating aurget dotfiles..."
+    do_file "$DIR/aurget/aurgetrc" $CMD_USER_HOME_DIR/.config/aurgetrc
+    log_success "Updated aurget dotfiles."
     echo
 fi
 
