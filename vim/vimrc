@@ -7,58 +7,54 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " General
 Plug 'airblade/vim-rooter'
-Plug 'jremmen/vim-ripgrep', {'do': 'cargo install ripgrep -f' }
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-db'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'scrooloose/nerdtree'
-Plug 'lervag/vimtex'
-Plug 'vim-syntastic/syntastic'
-Plug 'nvie/vim-flake8'
-Plug 'tpope/vim-commentary'
-Plug 'airblade/vim-gitgutter'
-Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-repeat'
-Plug 'hrj/vim-DrawIt'
-Plug 'yangmillstheory/vim-snipe'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'reedes/vim-pencil'
-Plug 'haya14busa/incsearch.vim'
-Plug 'FooSoft/vim-argwrap'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'vim-syntastic/syntastic'
+if executable('git')
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
+endif
 
 " Editor layout
+Plug 'drmingdrmer/vim-tabbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'drmingdrmer/vim-tabbar'
+Plug 'scrooloose/nerdtree'
+if executable('git')
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+endif
 
-" Visualizers
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'RRethy/vim-illuminate'
+" Jumping
+" TODO: take a look at skim
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'yangmillstheory/vim-snipe'
+
+" Formatting
+Plug 'FooSoft/vim-argwrap'
+Plug 'machakann/vim-sandwich'
+Plug 'tpope/vim-commentary'
 
 " Appearance
 Plug 'chriskempson/base16-vim'
 
-" Languages
-Plug 'rust-lang/rust.vim'
-Plug 'beloglazov/vim-online-thesaurus'
-Plug 'OrangeT/vim-csharp'
+" Visual enhancers
+Plug 'haya14busa/incsearch.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'RRethy/vim-illuminate'
 
 " File types
-Plug 'chase/vim-ansible-yaml'
+Plug 'cespare/vim-toml'
 Plug 'dag/vim-fish'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'lervag/vimtex'
 Plug 'plasticboy/vim-markdown'
-Plug 'cespare/vim-toml'
 Plug 'posva/vim-vue'
-Plug 'StanAngeloff/php.vim'
-Plug 'jwalton512/vim-blade'
+Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-git'
+Plug 'StanAngeloff/php.vim'
 
+" TODO: keep this?
 Plug 'beanworks/vim-phpfmt'
 let g:phpfmt_standard = 'PSR2'
 
@@ -71,10 +67,7 @@ if has('nvim')
     Plug 'roxma/nvim-cm-racer'
     Plug 'Shougo/neco-vim'
     Plug 'roxma/LanguageServer-php-neovim', {'do': 'composer install && composer run-script parse-stubs'}
-    Plug 'roxma/ncm-github'
     Plug 'fgrsnau/ncm-otherbuf'
-    Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
 endif
 
 " End vim-plug plugin loading
@@ -317,6 +310,27 @@ let maplocalleader="\\"
 " Use <space><space> to toggle to the last buffer
 nnoremap <leader><leader> <c-^>
 
+" Incsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+" fzf/skim bindings
+nnoremap <silent> <leader>o :Files<CR>
+nnoremap <silent> <leader>O :Buffers<CR>
+nnoremap <silent> <leader>A :Windows<CR>
+nnoremap <silent> <leader>; :BLines<CR>
+"nnoremap <silent> <leader>o :BTags<CR>
+"nnoremap <silent> <leader>O :Tags<CR>
+nnoremap <silent> <leader>: :History:<CR>
+nnoremap <silent> <leader>? :History<CR>
+nnoremap <silent> <leader>/ :History/<CR>
+"nnoremap <silent> <leader>/ :Ag 
+nnoremap <silent> <leader>gl :Commits<CR>
+nnoremap <silent> <leader>ga :BCommits<CR>
+nnoremap <silent> <leader>ft :Filetypes<CR>
+nnoremap <silent> <leader>h :Helptags<CR>
+
 " Use enter to complete
 imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
 imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
@@ -324,11 +338,6 @@ imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
 " Use tab to complete
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Incsearch
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
 
 " Arg wrap
 nnoremap <silent> <leader>a :ArgWrap<CR>
@@ -341,11 +350,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
-
-" Funky ctrlp: function search
-nnoremap <leader>fu :CtrlPFunky<Cr>
-" Funky ctrlp: function search word under cursor
-nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 " Save
 inoremap <C-s> <esc>:w<cr>
@@ -417,6 +421,9 @@ nnoremap q: :q
 " Abolish plugin
 runtime plugin/abolish.vim
 
+" fzf/skim
+let g:fzf_nvim_statusline = 0
+
 " Dragvisuals plugin
 runtime plugin/dragvisuals.vim
 vmap <expr> <LEFT>  DVB_Drag('left')
@@ -475,12 +482,6 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " vimtex
 " Set the vimtex PDF viewer to use
 let g:vimtex_view_method="zathura"
-
-" Use fd in ctrlp if installed for fast searches
-if executable('fd')
-    let g:ctrlp_user_command='fd -c never --hidden --follow --exclude .git "" %s'
-    let g:ctrlp_use_caching=0
-endif
 
 " Patch comment background colors for some systems
 hi Comment cterm=bold
