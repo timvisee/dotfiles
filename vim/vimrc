@@ -340,10 +340,6 @@ nnoremap <silent> <leader>h :Helptags<CR>
 "nnoremap <silent> <leader>o :BTags<CR>
 "nnoremap <silent> <leader>O :Tags<CR>
 
-" Use enter to complete
-imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
-imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
-
 " Use tab to complete
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -353,12 +349,6 @@ nnoremap <silent> <leader>a :ArgWrap<CR>
 
 " Easy commenting
 map // :Commentary<CR>
-
-" Ultisnips bindings
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
 
 " Save
 inoremap <C-s> <esc>:w<cr>
