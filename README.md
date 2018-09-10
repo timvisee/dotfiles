@@ -5,7 +5,7 @@ dotfiles are used to personalize your system and applications. These are mine.
 * Linux or Mac OS X
 * `git`
 * `bash`
-* When using Vim, [Vundle](https://github.com/VundleVim/Vundle.vim) must be installed.
+* When using Vim, [vim-plug][vim-plug] is installed.
 
 ## Recommendations
 * `alacritty`: awesome terminal emulator
@@ -35,8 +35,8 @@ sudo chmod a+x ./install
 ./install
 ```
 
-To install all Vim plugins, first make sure [Vundle](https://github.com/VundleVim/Vundle.vim) is installed.  
-Then, run the `:PluginInstall` command in Vim.
+Vim plugins should be installed automatically, the `:PlugInstall` command may be
+used to force.
 
 ### Alacritty
 This configuration recommends [`alacritty`][alacritty] as default terminal.
@@ -60,3 +60,4 @@ located in the [ergodox](./ergodox) directory.
 This project is released under the GNU GPL-3.0 license. Check out the [LICENSE](LICENSE) file for more information.
 
 [alacritty]: https://github.com/jwilm/alacritty
+[vim-plug]: https://github.com/junegunn/vim-plug

@@ -628,30 +628,47 @@ if [ $DO_VIM == "yes" ]; then
     do_file "$DIR/vim/vimrc" $CMD_USER_HOME_DIR/.ideavimrc
     do_file "$DIR/vim/vimrc" $CMD_USER_HOME_DIR/.nvimrc
     do_file "$DIR/vim/vimrc" $CMD_USER_HOME_DIR/.config/nvim/init.vim
-    do_file "$DIR/vim/plugin/abolish.vim" $CMD_USER_HOME_DIR/.vim/plugin/abolish.vim
+    do_file "$DIR/vim/plug.vim" $CMD_USER_HOME_DIR/.vim/autoload/plug.vim
+    do_file "$DIR/vim/plug.vim" $CMD_USER_HOME_DIR/.local/share/nvim/site/autoload/plug.vim
     do_file "$DIR/vim/plugin/dragvisuals.vim" $CMD_USER_HOME_DIR/.vim/plugin/dragvisuals.vim
     do_file "$DIR/vim/spell/nl.utf-8.spl" $CMD_USER_HOME_DIR/.vim/spell/nl.utf-8.spl
     do_file "$DIR/vim/spell/nl.utf-8.sug" $CMD_USER_HOME_DIR/.vim/spell/nl.utf-8.sug
 
     # Install vim Plugins
     if [ $ACTION == "install" ]; then
+        # Find the vim binary to use
+        log_normal "Searching vim binary..."
+        BIN_VIM=""
+        if type nvim >/dev/null 2>/dev/null; then
+            log_info "Vim binary found: nvim"
+            BIN_VIM="nvim"
+        else
+            if type vim >/dev/null 2>/dev/null; then
+                log_info "Vim binary found: vim"
+                BIN_VIM="vim"
+            fi
+        fi
+
         # Make sure vim is installed
-        if type vim >/dev/null 2>/dev/null; then
+        if [ -n $BIN_VIM ]; then
             # Get the home directory of the user
             CMD_USER_HOME_DIR="$(get_command_user_home_dir)"
 
-            # Install plugins if vim-plug is found
-            if [ -f "$CMD_USER_HOME_DIR/.vim/autoload/plug.vim" ] || [ -f "$CMD_USER_HOME_DIR/.local/share/nvim/site/autoload/plug.vim" ]; then
-                log_normal "Installing vim plugins with vim-plug..."
-                vim -c 'PlugInstall' -c 'qa!'
-                log_success "Vim plugins installed."
-            else
-                log_error "vim-plug not found, unable to automatically install plugins"
-                log_error "Please install vim-plug and run the installation again."
-            fi
+            # Upgrade vim-plug
+            log_normal "Upgrading vim-plug vim plugin..."
+            $BIN_VIM -c 'PlugUpgrade' -c 'qa!'
+            log_success "Vim plugin vim-plug upgraded."
+
+            # Install and upgrade plugins
+            log_normal "Installing new vim plugins with vim-plug..."
+            $BIN_VIM -c 'PlugInstall' -c 'qa!'
+            log_normal "Updating existing vim plugins with vim-plug..."
+            $BIN_VIM -c 'PlugUpdate' -c 'qa!'
+            log_success "Vim plugins updated."
         else
             log_error "Vim not found, unable to automatically install plugins"
-            log_error "Please install vim and vim-plug, and run the installation again"
+            log_error "Please install neovim (or vim), and run the installation again"
+            exit 1
         fi
     fi
 
