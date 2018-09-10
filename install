@@ -664,6 +664,8 @@ if [ $DO_VIM == "yes" ]; then
             # TODO: check vim exit code
             log_normal "Installing and updating vim plugins..."
             $BIN_VIM -c 'PlugUpdate' -c 'qa!'
+            log_normal "Cleaning unused vim plugins..."
+            $BIN_VIM -c 'PlugClean!' -c 'qa!'
             log_success "Vim plugins successfully updated."
         else
             log_error "Vim not found, unable to automatically install plugins"
