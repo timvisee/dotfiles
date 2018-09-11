@@ -432,8 +432,8 @@ vmap <expr> <DOWN>  DVB_Drag('down')
 vmap <expr> <UP>    DVB_Drag('up')
 vmap <expr> D       DVB_Duplicate()
 
-" NCM2
-if has('nvim')
+" NCM2 if installed
+if exists('ncm2#enable_for_buffer')
     " Enable NCM2 for all buffers
     autocmd BufEnter * call ncm2#enable_for_buffer()
 
