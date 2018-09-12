@@ -145,9 +145,10 @@ end
 if test -n (which keychain)
     # Initialize if no agent is started
     # or if the chain list if empty when a key is available
-    if test -z $SSH_AGENT_PID; or test -z (keychain -l); and test -e ~/.ssh/id_rsa
+    if test -z $SSH_AGENT_INIT; or test -z $SSH_AGENT_PID; or test -z (keychain -l); and test -e ~/.ssh/id_rsa
         echo "Initializing keychain..."
         keychain --agents ssh id_rsa
+        set -Ux SSH_AGENT_INIT 1
     end
 
     # Import the current keychain environment
