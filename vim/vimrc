@@ -404,8 +404,9 @@ xmap <silent> <leader>l :Limelight!!<CR>
 nmap <silent> <leader>c :set cursorcolumn!<CR>
 xmap <silent> <leader>c :set cursorcolumn!<CR>
 
-" NERDTree toggle
+" NERDTree toggle and find
 map <silent> <C-n> :NERDTreeToggle<CR>
+map <silent> <leader><C-n> :NERDTreeFind<CR>
 
 " Common typos
 nnoremap q: :q
