@@ -11,7 +11,7 @@ c: https://crates.io/search?q=%s Rust Crate
 y: https://www.youtube.com/results?search_query=%s Youtube
 w: https://www.wikipedia.org/w/index.php?title=Special:https://doc.rust-lang.org/std/?search=Search&search=%s Wikipedia
 r: https://doc.rust-lang.org/std/?search=%s Rust docs
-rn: https://doc.rust-lang.org/nightly/std/?search=%s Rust docs (nihtly)
+rn: https://doc.rust-lang.org/nightly/std/?search=%s Rust docs (nightly)
 
 # l: https://www.google.com/search?q=%s&btnI I'm feeling lucky...
 # gm: https://www.google.com/maps?q=%s Google maps
