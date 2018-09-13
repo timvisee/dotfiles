@@ -9,7 +9,9 @@ g: https://www.google.com/search?q=%s Google
 d: https://duckduckgo.com/?q=%s DuckDuckGo
 c: https://crates.io/search?q=%s Rust Crate
 y: https://www.youtube.com/results?search_query=%s Youtube
-w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia
+w: https://www.wikipedia.org/w/index.php?title=Special:https://doc.rust-lang.org/std/?search=Search&search=%s Wikipedia
+r: https://doc.rust-lang.org/std/?search=%s Rust docs
+rn: https://doc.rust-lang.org/nightly/std/?search=%s Rust docs (nihtly)
 
 # l: https://www.google.com/search?q=%s&btnI I'm feeling lucky...
 # gm: https://www.google.com/maps?q=%s Google maps
