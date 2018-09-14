@@ -140,7 +140,7 @@ endif
 
 " Colors
 if (match($TERM, "-256color") != -1) && (match($TERM, "screen-256color") == -1)
-  set termguicolors
+  silent! set termguicolors
 endif
 set background=dark
 let base16colorspace=256
