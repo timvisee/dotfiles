@@ -24,7 +24,6 @@ if [[ $(command -v nvim) ]]; then
 else
     alias vi='vim'
     alias nvi='vim'
-    alias nvim='vim'
 fi
 
 # Exa elias
