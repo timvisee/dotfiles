@@ -477,6 +477,3 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " vimtex
 " Set the vimtex PDF viewer to use
 let g:vimtex_view_method="zathura"
-
-" Patch comment background colors for some systems
-hi Comment cterm=bold
