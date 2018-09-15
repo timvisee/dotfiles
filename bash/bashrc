@@ -99,7 +99,7 @@ if [[ -d "/usr/local/go/bin" ]]; then
     export GOROOT=/usr/local/go/bin
     export GOPATH=$HOME/.go
     export PATH=$PATH:$GOROOT/bin
-else if [[ -d "/usr/lib/go" ]]; then
+elif [[ -d "/usr/lib/go" ]]; then
     export GOROOT=/usr/lib/go
     export GOPATH=$HOME/.go
     export PATH=$PATH:$GOROOT/bin
