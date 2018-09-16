@@ -44,6 +44,9 @@ Plug 'junegunn/limelight.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'RRethy/vim-illuminate'
 
+" Tracking
+Plug 'wakatime/vim-wakatime'
+
 " File types
 Plug 'cespare/vim-toml'
 Plug 'maralla/vim-toml-enhance'
