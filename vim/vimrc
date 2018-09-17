@@ -454,10 +454,6 @@ autocmd bufenter * if (winnr("$") == 1
     \ && exists("b:NERDTree")
     \ && b:NERDTree.isTabTree()) | q | endif
 
-" Racer
-" Show additional completions
-let g:racer_experimental_completer = 1
-
 " Show hidden files by default, but hide Vim swap files
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\..*\.sw[pom]$']
