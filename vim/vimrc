@@ -281,7 +281,7 @@ set spelllang=en,nl
 
 " Disable spell checking, enable for some files
 set nospell
-autocmd FileType markdown,txt,tex,bib setlocal spell
+autocmd FileType markdown,txt,tex,bib,gitcommit setlocal spell
 
 
 
