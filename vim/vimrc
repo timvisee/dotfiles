@@ -58,6 +58,14 @@ Plug 'posva/vim-vue'
 Plug 'tpope/vim-git'
 Plug 'StanAngeloff/php.vim'
 
+" Laravel related
+" TODO: organize these plugins
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
+Plug 'noahfrederick/vim-composer'
+Plug 'noahfrederick/vim-laravel'
+Plug 'jwalton512/vim-blade'
+
 " Languages
 Plug 'rust-lang/rust.vim'
 if executable('cargo')
