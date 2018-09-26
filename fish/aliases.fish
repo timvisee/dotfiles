@@ -31,6 +31,7 @@ function mkcd
 end
 
 # Git aliases
+alias g 'git'
 alias ga 'git add'
 alias gb 'git branch'
 alias gc 'git commit'
