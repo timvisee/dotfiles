@@ -51,8 +51,9 @@ alias tn 'tmux -u -2 new -s'
 
 # Cargo aliases
 alias cr 'cargo run'
-alias cb 'cargo run'
-alias cc 'cargo run'
+alias cb 'cargo build'
+alias cc 'cargo check'
+alias ct 'cargo test'
 
 # Create the composer alias if it exists
 if test -e '/usr/local/bin/composer.phar'
