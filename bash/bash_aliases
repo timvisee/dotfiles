@@ -66,6 +66,8 @@ alias setclip='xclip -selection c'
 
 # Cargo aliases
 alias cr='cargo run'
+alias cb='cargo run'
+alias cc='cargo run'
 
 # Add an "alert" alias for long running commands.
 # Usage example: $ sleep 5; alert
