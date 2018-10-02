@@ -33,6 +33,7 @@ Plug 'yangmillstheory/vim-snipe'
 Plug 'FooSoft/vim-argwrap'
 Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-commentary'
+Plug 'editorconfig/editorconfig-vim'
 
 " Appearance
 Plug 'chriskempson/base16-vim'
