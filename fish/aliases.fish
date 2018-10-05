@@ -38,6 +38,8 @@ alias gb 'git branch'
 alias gc 'git commit'
 alias gp 'git push'
 alias gs 'git status'
+alias gd 'git diff'
+alias gl 'git log'
 alias gf 'git fetch'
 alias gfp 'git fetch; and git pull'
 
