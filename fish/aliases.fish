@@ -55,7 +55,9 @@ alias tn 'tmux -u -2 new -s'
 
 # Cargo aliases
 alias cr 'cargo run'
+alias crr 'cargo run --release'
 alias cb 'cargo build'
+alias cbr 'cargo build --release'
 alias cc 'cargo check'
 alias ct 'cargo test'
 
