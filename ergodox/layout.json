@@ -545,6 +545,10 @@
                 "0": {
                     "key": "ESC",
                     "label": "ESC"
+                },
+                "1": {
+                    "key": "LGUI",
+                    "label": "LGUI"
                 }
             }
         },
@@ -1268,8 +1272,8 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "RALT",
-                    "label": "RALT"
+                    "key": "APP",
+                    "label": "MENU"
                 }
             }
         },
@@ -1282,8 +1286,8 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "RGUI",
-                    "label": "RGUI"
+                    "key": "RALT",
+                    "label": "RALT"
                 },
                 "2": {
                     "key": "P.",
@@ -1300,8 +1304,8 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "APP",
-                    "label": "MENU"
+                    "key": "RGUI",
+                    "label": "RGUI"
                 },
                 "2": {
                     "key": "PENTER",
