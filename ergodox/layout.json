@@ -6,7 +6,7 @@
         "Date": "2017-12-12",
         "KLL": "0.3c",
         "Author": "timvisee",
-        "Version": "0.1",
+        "Version": "0.1.1",
         "Name": "MDErgo1",
         "Layout": "Default"
     },
@@ -21,16 +21,12 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "LATCH1",
-                    "label": "LATCH-1"
+                    "key": "#:ledControl( 5, 255 )",
+                    "label": "LED TOG"
                 },
                 "1": {
                     "key": "F11",
                     "label": "F11"
-                },
-                "2": {
-                    "key": "LATCH1",
-                    "label": "LATCH-1"
                 }
             }
         },
@@ -49,6 +45,10 @@
                 "1": {
                     "key": "F5",
                     "label": "F5"
+                },
+                "3": {
+                    "key": "#:ledControl( 2, 255 )",
+                    "label": "LED 100%"
                 }
             }
         },
@@ -67,6 +67,10 @@
                 "1": {
                     "key": "F4",
                     "label": "F4"
+                },
+                "3": {
+                    "key": "#:ledControl( 2, 190 )",
+                    "label": "LED 75%"
                 }
             }
         },
@@ -85,6 +89,10 @@
                 "1": {
                     "key": "F3",
                     "label": "F3"
+                },
+                "3": {
+                    "key": "#:ledControl( 2, 127 )",
+                    "label": "LED 50%"
                 }
             }
         },
@@ -103,6 +111,10 @@
                 "1": {
                     "key": "F2",
                     "label": "F2"
+                },
+                "3": {
+                    "key": "#:ledControl( 2, 63 )",
+                    "label": "LED 25%"
                 }
             }
         },
@@ -121,6 +133,10 @@
                 "1": {
                     "key": "F1",
                     "label": "F1"
+                },
+                "3": {
+                    "key": "#:ledControl( 3, 0 )",
+                    "label": "LED OFF"
                 }
             }
         },
@@ -335,8 +351,8 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "ESC",
-                    "label": "ESC"
+                    "key": "LCTRL",
+                    "label": "LCTRL"
                 },
                 "1": {
                     "key": "CAPSLOCK",
@@ -359,6 +375,10 @@
                 "1": {
                     "key": "CONS:VOLUMEUP",
                     "label": "VOL+"
+                },
+                "3": {
+                    "key": "#:ledControl( 1, 15 )",
+                    "label": "LED+"
                 }
             }
         },
@@ -377,6 +397,10 @@
                 "1": {
                     "key": "CONS:VOLUMEDOWN",
                     "label": "VOL-"
+                },
+                "3": {
+                    "key": "#:ledControl( 0, 15 )",
+                    "label": "LED-"
                 }
             }
         },
@@ -551,12 +575,8 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "SYS:SLEEP",
-                    "label": "SLEEP"
-                },
-                "1": {
-                    "key": "#:flashMode()",
-                    "label": "FLASH"
+                    "key": "LOCK3",
+                    "label": "LOCK-3"
                 }
             }
         },
@@ -569,12 +589,8 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "CONS:EJECT",
-                    "label": "EJECT"
-                },
-                "1": {
-                    "key": "#:toggleKbdProtocol()",
-                    "label": "6/N-KRO"
+                    "key": "SYS:SLEEP",
+                    "label": "SLEEP"
                 }
             }
         },
@@ -632,16 +648,12 @@
             "h": 4,
             "layers": {
                 "0": {
-                    "key": "LATCH2",
-                    "label": "LATCH-2"
+                    "key": "CONS:PAUSEPLAY",
+                    "label": "PL/PS"
                 },
                 "1": {
                     "key": "F12",
                     "label": "F12"
-                },
-                "2": {
-                    "key": "LATCH2",
-                    "label": "LATCH-2"
                 }
             }
         },
@@ -764,10 +776,6 @@
                     "label": "-"
                 },
                 "2": {
-                    "key": "#:flashMode()",
-                    "label": "FLASH"
-                },
-                "7": {
                     "key": "#:flashMode()",
                     "label": "FLASH"
                 }
@@ -1022,6 +1030,10 @@
                 "2": {
                     "key": "CONS:MUTE",
                     "label": "MUTE"
+                },
+                "3": {
+                    "key": "#:ledControl( 5, 255 )",
+                    "label": "LED TOG"
                 }
             }
         },
@@ -1040,6 +1052,10 @@
                 "1": {
                     "key": "CONS:SCANNEXTTRACK",
                     "label": "NEXT"
+                },
+                "3": {
+                    "key": "#:animation_control( 0 )",
+                    "label": "V:PL/PS"
                 }
             }
         },
@@ -1233,9 +1249,9 @@
             "w": 4,
             "h": 4,
             "layers": {
-                "1": {
-                    "key": "#:flashMode()",
-                    "label": "FLASH"
+                "0": {
+                    "key": "LOCK3",
+                    "label": "LOCK-3"
                 },
                 "2": {
                     "key": "P0",
@@ -1310,5 +1326,12 @@
     ],
     "leds": [],
     "custom": {},
-    "animations": {}
+    "animations": {
+        "all_on": {
+            "settings": "start, pfunc:interp",
+            "frames": [
+                "P[c:0%](255), P[c:100%](255)"
+            ]
+        }
+    }
 }
