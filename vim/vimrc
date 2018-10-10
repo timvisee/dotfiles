@@ -9,6 +9,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-repeat'
 Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-abolish'
 if executable('git')
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
