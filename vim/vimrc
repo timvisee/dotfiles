@@ -307,6 +307,11 @@ set wrapscan
 set nohlsearch
 set incsearch
 
+" Live substitutions
+if has('nvim')
+    set inccommand=split
+endif
+
 " Store lots of history
 set history=1000
 
