@@ -34,6 +34,7 @@ end
 alias g 'git'
 alias ga 'git add'
 alias gap 'git add --patch'
+alias gapn 'git add --intent-to-add .; and git add --patch'
 alias gb 'git branch'
 alias gc 'git commit'
 alias gp 'git push'
