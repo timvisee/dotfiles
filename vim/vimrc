@@ -35,6 +35,7 @@ Plug 'FooSoft/vim-argwrap'
 Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-commentary'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'mattn/emmet-vim'
 
 " Appearance
 Plug 'chriskempson/base16-vim'
