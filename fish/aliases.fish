@@ -1,5 +1,11 @@
 # Fish shell configuration
 
+# Grep aliases
+alias grep 'grep --color=auto'
+alias grepi 'grep -i --color=auto'
+alias fgrep 'fgrep --color=auto'
+alias egrep 'egrep --color=auto'
+
 # Shell exit alias
 alias q 'exit'
 alias :q 'exit'
