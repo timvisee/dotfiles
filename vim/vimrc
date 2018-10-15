@@ -10,6 +10,7 @@ Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-repeat'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-eunuch'
 if executable('git')
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
