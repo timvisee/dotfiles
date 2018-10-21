@@ -17,8 +17,8 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 local vicious = require("vicious")
 local cairo = require("lgi").cairo;
 
--- Load Debian menu entries
-require("debian.menu")
+-- -- Load Debian menu entries
+-- require("debian.menu")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -119,7 +119,7 @@ mymachinemenu = {
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
                                     { "Machine", mymachinemenu },
-                                    { "Debian", debian.menu.Debian_menu.Debian },
+                                    -- { "Debian", debian.menu.Debian_menu.Debian },
                                     { "Open terminal", terminal }
                                   }
                         })
