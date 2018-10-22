@@ -209,8 +209,8 @@ set nowrap
 let g:vim_markdown_folding_disabled=1
 
 " Show 8 rows, 16 columns around the cursor when scrolling, scroll by 1 column
-set scrolloff=8
-set sidescrolloff=16
+set scrolloff=6
+set sidescrolloff=12
 set sidescroll=1
 
 " Show commans being typed
