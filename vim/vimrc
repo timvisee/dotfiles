@@ -345,8 +345,8 @@ let maplocalleader="\\"
 nnoremap <leader><leader> <c-^>
 
 " Incsearch
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 " fzf/skim bindings
@@ -430,6 +430,9 @@ xmap <silent> <leader>c :set cursorcolumn!<CR>
 " NERDTree toggle and find
 map <silent> <C-n> :NERDTreeToggle<CR>
 map <silent> <leader><C-n> :NERDTreeFind<CR>
+
+" Toggle spell checking
+map <silent> <F6> :set spell!<CR>
 
 " Jump to next cursor placeholder from an expander
 inoremap <leader><Tab> <Esc>/<++><CR>"_c4l
