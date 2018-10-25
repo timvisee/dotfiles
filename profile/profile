@@ -39,3 +39,11 @@ fi
 
 # Don't use Vulkan based d3d11 translations with Steam Proton
 export PROTON_USE_WINED3D11="1"
+
+# Set the terminal properties we're using
+export TERM="xterm-256"
+# if [[ -x alacritty ]]; then
+    export TERMCMD="alacritty"
+# else
+#     export TERMCMD="x-terminal-emulator"
+# fi
