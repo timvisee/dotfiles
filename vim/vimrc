@@ -453,6 +453,14 @@ autocmd FileType html,vue inoremap ;3 <h3></h3><Space><++><Esc>"_?</.*><CR>i
 autocmd FileType html,vue inoremap ;4 <h4></h4><Space><++><Esc>"_?</.*><CR>i
 autocmd FileType html,vue inoremap ;5 <h5></h5><Space><++><Esc>"_?</.*><CR>i
 autocmd FileType html,vue inoremap ;6 <h6></h6><Space><++><Esc>"_?</.*><CR>i
+autocmd FileType markdown inoremap ;b ****<Space><++><Esc>"_?\*\*\*\*<CR>2li
+autocmd FileType markdown inoremap ;i __<Space><++><Esc>"_?__<CR>a
+autocmd FileType markdown inoremap ;1 #<CR><++><Esc>k$a<Space>
+autocmd FileType markdown inoremap ;2 ##<CR><++><Esc>k$a<Space>
+autocmd FileType markdown inoremap ;3 ###<CR><++><Esc>k$a<Space>
+autocmd FileType markdown inoremap ;4 ####<CR><++><Esc>k$a<Space>
+autocmd FileType markdown inoremap ;5 #####<CR><++><Esc>k$a<Space>
+autocmd FileType markdown inoremap ;6 ######<CR><++><Esc>k$a<Space>
 
 " Auto expanding
 inoremap (; (<CR>);<C-c>O
