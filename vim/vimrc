@@ -440,19 +440,19 @@ nnoremap <localleader><Tab> /<++><CR>"_c4l
 inoremap <localleader><Tab> <Esc>/<++><CR>"_c4l
 
 " Useful expanders
-autocmd FileType html inoremap ;p <p></p><Space><++><Esc>"_?</.*><CR>i
-autocmd FileType html inoremap ;P <p><CR><Space><Space><Space><Space><++><CR></p><CR><CR><++><Esc>3k0f+h"_C
-autocmd FileType html inoremap ;b <b></b><Space><++><Esc>"_?</.*><CR>i
-autocmd FileType html inoremap ;B <br />
-autocmd FileType html inoremap ;i <i></i><Space><++><Esc>"_?</.*><CR>i
-autocmd FileType html inoremap ;a <a href=""><++></a><Space><++><Esc>F"i
-autocmd FileType html inoremap ;d <div><CR><Space><Space><Space><Space><++><CR></div><CR><CR><++><Esc>3k0f+h"_C
-autocmd FileType html inoremap ;1 <h1></h1><Space><++><Esc>"_?</.*><CR>i
-autocmd FileType html inoremap ;2 <h2></h2><Space><++><Esc>"_?</.*><CR>i
-autocmd FileType html inoremap ;3 <h3></h3><Space><++><Esc>"_?</.*><CR>i
-autocmd FileType html inoremap ;4 <h4></h4><Space><++><Esc>"_?</.*><CR>i
-autocmd FileType html inoremap ;5 <h5></h5><Space><++><Esc>"_?</.*><CR>i
-autocmd FileType html inoremap ;6 <h6></h6><Space><++><Esc>"_?</.*><CR>i
+autocmd FileType html,vue inoremap ;p <p></p><Space><++><Esc>"_?</.*><CR>i
+autocmd FileType html,vue inoremap ;P <p><CR><Space><Space><Space><Space><++><CR></p><CR><CR><++><Esc>3k0f+h"_C
+autocmd FileType html,vue inoremap ;b <b></b><Space><++><Esc>"_?</.*><CR>i
+autocmd FileType html,vue inoremap ;B <br />
+autocmd FileType html,vue inoremap ;i <i></i><Space><++><Esc>"_?</.*><CR>i
+autocmd FileType html,vue inoremap ;a <a href=""><++></a><Space><++><Esc>F"i
+autocmd FileType html,vue inoremap ;d <div><CR><Space><Space><Space><Space><++><CR></div><CR><CR><++><Esc>3k0f+h"_C
+autocmd FileType html,vue inoremap ;1 <h1></h1><Space><++><Esc>"_?</.*><CR>i
+autocmd FileType html,vue inoremap ;2 <h2></h2><Space><++><Esc>"_?</.*><CR>i
+autocmd FileType html,vue inoremap ;3 <h3></h3><Space><++><Esc>"_?</.*><CR>i
+autocmd FileType html,vue inoremap ;4 <h4></h4><Space><++><Esc>"_?</.*><CR>i
+autocmd FileType html,vue inoremap ;5 <h5></h5><Space><++><Esc>"_?</.*><CR>i
+autocmd FileType html,vue inoremap ;6 <h6></h6><Space><++><Esc>"_?</.*><CR>i
 
 " Auto expanding
 inoremap (; (<CR>);<C-c>O
