@@ -461,6 +461,8 @@ autocmd FileType markdown inoremap ;3 ###<CR><++><Esc>k$a<Space>
 autocmd FileType markdown inoremap ;4 ####<CR><++><Esc>k$a<Space>
 autocmd FileType markdown inoremap ;5 #####<CR><++><Esc>k$a<Space>
 autocmd FileType markdown inoremap ;6 ######<CR><++><Esc>k$a<Space>
+autocmd FileType rust inoremap ;i if<Space>_<Space>{<CR><++><CR>}<Esc>2kf_s
+autocmd FileType rust inoremap ;f fn<Space>_(<++>)<++><Space>{<CR><++><CR>}<Esc>2kf_s
 
 " Auto expanding
 inoremap (; (<CR>);<C-c>O
