@@ -435,13 +435,15 @@ map <silent> <leader><C-n> :NERDTreeFind<CR>
 map <silent> <F6> :set spell!<CR>
 
 " Jump to next cursor placeholder from an expander
-inoremap <leader><Tab> <Esc>/<++><CR>"_c4l
 nnoremap <leader><Tab> /<++><CR>"_c4l
+nnoremap <localleader><Tab> /<++><CR>"_c4l
+inoremap <localleader><Tab> <Esc>/<++><CR>"_c4l
 
 " Useful expanders
 autocmd FileType html inoremap ;p <p></p><Space><++><Esc>"_?</.*><CR>i
 autocmd FileType html inoremap ;P <p><CR><Space><Space><Space><Space><++><CR></p><CR><CR><++><Esc>3k0f+h"_C
 autocmd FileType html inoremap ;b <b></b><Space><++><Esc>"_?</.*><CR>i
+autocmd FileType html inoremap ;B <br />
 autocmd FileType html inoremap ;i <i></i><Space><++><Esc>"_?</.*><CR>i
 autocmd FileType html inoremap ;a <a href=""><++></a><Space><++><Esc>F"i
 autocmd FileType html inoremap ;d <div><CR><Space><Space><Space><Space><++><CR></div><CR><CR><++><Esc>3k0f+h"_C
