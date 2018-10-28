@@ -14,7 +14,6 @@ Plug 'tpope/vim-eunuch'
 Plug 'terryma/vim-multiple-cursors'
 if executable('git')
     Plug 'tpope/vim-fugitive'
-    Plug 'airblade/vim-gitgutter'
 endif
 
 " Editor layout
@@ -22,8 +21,10 @@ Plug 'drmingdrmer/vim-tabbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
+Plug 'kshenoy/vim-signature'
 if executable('git')
     Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'airblade/vim-gitgutter'
 endif
 
 " Jumping
