@@ -266,7 +266,7 @@ set shiftround
 set textwidth=80
 
 " File specific configurations
-autocmd FileType ansible,json,markdown,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType ansible,json,markdown,tex,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType go setlocal shiftwidth=8 tabstop=8 softtabstop=8
 
 " File specific commenting styles
