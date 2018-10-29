@@ -32,9 +32,9 @@ alias r='ranger'
 
 # Tmux alias
 alias tmux='tmux -u -2'
-alias ta='tmux -u -2 attach'
+alias ta='tmux -u -2 attach || tmux -u -2'
 alias tl='tmux -u -2 ls'
-alias tn='tmux -u -2 new -s'
+alias tn='tmux -u -2 new -s || tmux -u -2'
 
 # Make a directory and change to it
 function mkcd {

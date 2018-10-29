@@ -57,9 +57,9 @@ alias setclip 'xclip -selection c'
 
 # Tmux alias
 alias tmux 'tmux -u -2'
-alias ta 'tmux -u -2 attach'
+alias ta 'tmux -u -2 attach; or tmux -u -2'
 alias tl 'tmux -u -2 ls'
-alias tn 'tmux -u -2 new -s'
+alias tn 'tmux -u -2 new -s; or tmux -u -2'
 
 # Cargo aliases
 alias cr 'cargo run'
