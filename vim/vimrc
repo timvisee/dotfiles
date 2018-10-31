@@ -465,6 +465,7 @@ autocmd FileType markdown inoremap ;5 #####<CR><++><Esc>k$a<Space>
 autocmd FileType markdown inoremap ;6 ######<CR><++><Esc>k$a<Space>
 autocmd FileType rust inoremap ;i if<Space>_<Space>{<CR><++><CR>}<Esc>2kf_"_s
 autocmd FileType rust inoremap ;f fn<Space>_(<++>)<++><Space>{<CR><++><CR>}<Esc>2kf_"_s
+autocmd FileType tex inoremap ;l \begin{itemize}<CR>\tightlist{}<CR>\item<Space>_<CR>\end{itemize}<CR><CR><++><Esc>?_<CR>"_s
 
 " Auto expanding
 inoremap (; (<CR>);<C-c>O
