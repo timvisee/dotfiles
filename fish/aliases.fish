@@ -51,6 +51,7 @@ alias gd 'git diff'
 alias gl 'git log'
 alias gf 'git fetch'
 alias gfp 'git fetch; and git pull'
+alias gt 'git tag'
 
 # Clipboard aliases
 alias getclip 'xclip -selection c -o'
