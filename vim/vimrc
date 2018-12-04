@@ -345,6 +345,10 @@ let maplocalleader="\\"
 " Use <space><space> to toggle to the last buffer
 nnoremap <leader><leader> <c-^>
 
+" Move up/down display lines (with wrap on), instead of full lines
+nnoremap j gj
+nnoremap k gk
+
 " Incsearch
 map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
