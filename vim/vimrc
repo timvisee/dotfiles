@@ -348,6 +348,8 @@ nnoremap <leader><leader> <c-^>
 " Move up/down display lines (with wrap on), instead of full lines
 nnoremap j gj
 nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
 " Incsearch
 map / <Plug>(incsearch-forward)
