@@ -389,10 +389,15 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Arg wrap
-nnoremap <silent> <leader>a :ArgWrap<CR>
+nnoremap <silent> <leader>aa :ArgWrap<CR>
 
 " Easy commenting
 map // :Commentary<CR>
+
+" Arduino Make commands
+nnoremap <silent> <leader>ab :make<CR>
+nnoremap <silent> <leader>au :make upload<CR>
+nnoremap <silent> <leader>am :make monitor<CR>
 
 " Save
 inoremap <C-s> <esc>:w<cr>
@@ -408,7 +413,7 @@ nnoremap <C-H> <C-W><C-H>
 vmap Q gq
 nmap Q gqap
 
-" " Vim snipe
+" Vim snipe
 map <leader>F <Plug>(snipe-F)
 map <leader>f <Plug>(snipe-f)
 map <leader>T <Plug>(snipe-T)
