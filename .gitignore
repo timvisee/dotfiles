@@ -4,3 +4,6 @@
 out
 gen
 .*.sw[po]
+
+# Replaced Vim plug versions
+vim/plug.vim.old
