@@ -385,6 +385,9 @@ let g:multi_cursor_quit_key            = '<Esc>'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+" Sort selection
+vmap <silent> S :sort<CR>
+
 " Arg wrap
 nnoremap <silent> <leader>aa :ArgWrap<CR>
 
