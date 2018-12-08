@@ -394,10 +394,9 @@ nnoremap <silent> <leader>aa :ArgWrap<CR>
 " Easy commenting
 map // :Commentary<CR>
 
-" Arduino Make commands
+" Arduino Makefile commands
 nnoremap <silent> <leader>ab :make<CR>
 nnoremap <silent> <leader>au :make upload<CR>
-nnoremap <silent> <leader>am :make monitor<CR>
 
 " Save
 inoremap <C-s> <esc>:w<cr>
