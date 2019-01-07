@@ -39,6 +39,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-commentary'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/emmet-vim'
+Plug 'salsifis/vim-transpose'
 
 " Appearance
 Plug 'chriskempson/base16-vim'
