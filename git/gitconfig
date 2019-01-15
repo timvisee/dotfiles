@@ -1,23 +1,23 @@
 [user]
-    name = timvisee
-    email = timvisee@gmail.com
+	name = timvisee
+	email = timvisee@gmail.com
 
 [core]
-    editor = vim
+	editor = vim
 
 [commit]
-    gpgsign = true
+	gpgsign = true
 
 [tag]
-    gpgsign = true
-    forceSignAnnotated = true
+	gpgsign = true
+	forceSignAnnotated = true
 
 [diff]
-    tool = vimdiff
+	tool = vimdiff
 
 [difftool]
-    prompt = false
+	prompt = false
 
 [alias]
-    commit = commit -S
-    d = difftool
+	commit = commit -S
+	d = difftool
