@@ -67,8 +67,13 @@ alias gfp='git fetch && git pull'
 alias gt='git tag'
 
 # Clipboard aliases
-alias getclip='xclip -selection c -o'
-alias setclip='xclip -selection c'
+if [[ `uname -s` == "Darwin" ]]; then
+    alias getclip='pbpaste'
+    alias setclip='pbcopy'
+else
+    alias getclip='xclip -selection c -o'
+    alias setclip='xclip -selection c'
+fi
 
 # Cargo aliases
 alias cr='cargo run'
@@ -93,8 +98,7 @@ if [ -e "/usr/local/bin/composer.phar" ]; then
 fi
 
 # Aliases to hide and show hidden files on macOS
-case "$(uname)" in
-    "Darwin")
-        alias showFiles='echo "Showing files..."; defaults write com.apple.finder AppleShowAllFiles YES; sleep 1; killall Finder; /System/Library/CoreServices/Finder.app; echo "Done"'
-        alias hideFiles='echo "Hiding files..."; defaults write com.apple.finder AppleShowAllFiles NO; sleep 1; killall Finder /System/Library/CoreServices/Finder.app; echo "Done"'
-esac
+if [[ `uname -s` == "Darwin" ]]; then
+    alias showFiles='echo "Showing files..."; defaults write com.apple.finder AppleShowAllFiles YES; sleep 1; killall Finder; /System/Library/CoreServices/Finder.app; echo "Done"'
+    alias hideFiles='echo "Hiding files..."; defaults write com.apple.finder AppleShowAllFiles NO; sleep 1; killall Finder /System/Library/CoreServices/Finder.app; echo "Done"'
+fi
