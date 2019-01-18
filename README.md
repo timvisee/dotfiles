@@ -56,6 +56,11 @@ located in the [ergodox](./ergodox) directory.
 
 ![ErgoDox layout](./ergodox/layout.png)
 
+## Hosts banlist
+This repository includes my personal hosts banlist.
+The up-to-date raw file can be accessed via
+[`https://gitlab.com/timvisee/dotfiles/raw/master/hosts/banlist.txt`](https://gitlab.com/timvisee/dotfiles/raw/master/hosts/banlist.txt).
+
 ## License
 This project is released under the GNU GPL-3.0 license. Check out the [LICENSE](LICENSE) file for more information.
 
