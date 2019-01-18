@@ -84,7 +84,7 @@ function docker_clean_all
     docker_clean
 
     # Remove the ever increasing Docker image file from macOS
-    if [[ `uname -s` = "Darwin" ]]
+    if [[ (uname -s) = "Darwin" ]]
         rm -f ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
     end
 
