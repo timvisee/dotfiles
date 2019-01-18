@@ -465,6 +465,7 @@ autocmd FileType html,blade,vue inoremap ;3 <h3>_</h3><Space><++><Esc>?_<CR>"_s
 autocmd FileType html,blade,vue inoremap ;4 <h4>_</h4><Space><++><Esc>?_<CR>"_s
 autocmd FileType html,blade,vue inoremap ;5 <h5>_</h5><Space><++><Esc>?_<CR>"_s
 autocmd FileType html,blade,vue inoremap ;6 <h6>_</h6><Space><++><Esc>?_<CR>"_s
+autocmd FileType javascript,vue inoremap ;c console.log(_);<CR><++><Esc>?_<CR>"_s
 autocmd FileType blade inoremap ;{ {{<Space>_<Space>}}<Space><++><Esc>?_<CR>"_s
 autocmd FileType markdown inoremap ;b **_**<Space><++><Esc>?_<CR>"_s
 autocmd FileType markdown inoremap ;i _*_<Space><++><Esc>?\*<CR>"_s
