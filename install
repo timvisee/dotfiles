@@ -590,7 +590,7 @@ if [ $DO_BASH == "yes" ]; then
     do_file "$DIR/bash/bashrc" $CMD_USER_HOME_DIR/.bashrc
     do_file "$DIR/bash/bash_profile" $CMD_USER_HOME_DIR/.bash_profile
     do_file "$DIR/bash/bash_aliases" $CMD_USER_HOME_DIR/.bash_aliases
-    do_file "$DIR/bash/bash/transfer.sh" $CMD_USER_HOME_DIR/.config/bash/transfer.sh
+    do_file "$DIR/bash/bash/gopass_completion" $CMD_USER_HOME_DIR/.config/bash/gopass_completion
     log_success "Updated bash dotfiles."
     echo
 fi
