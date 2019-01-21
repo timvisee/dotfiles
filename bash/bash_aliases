@@ -66,6 +66,10 @@ alias gf='git fetch'
 alias gfp='git fetch && git pull'
 alias gt='git tag'
 
+# Docker aliases
+alias d='docker'
+alias dc='docker-compose'
+
 # Clipboard aliases
 if [[ `uname -s` == "Darwin" ]]; then
     alias getclip='pbpaste'
