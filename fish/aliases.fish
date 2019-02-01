@@ -36,6 +36,10 @@ function mkcd
     cd $argv
 end
 
+# Pass aliases
+alias p 'gopass'
+alias pc 'gopass -c'
+
 # Git aliases
 alias g 'git'
 alias ga 'git add'
