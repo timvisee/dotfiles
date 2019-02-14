@@ -708,7 +708,7 @@ fi
 # Install alacritty
 if [ $DO_ALACRITTY == "yes" ]; then
     log_normal "Updating alacritty dotfiles..."
-    do_file "$DIR/alacritty/alacritty.yml" $CMD_USER_HOME_DIR/.config/alacritty/alacritty.yml
+    # do_file "$DIR/alacritty/alacritty.yml" $CMD_USER_HOME_DIR/.config/alacritty/alacritty.yml
     log_success "Updated alacritty dotfiles."
     echo
 fi
