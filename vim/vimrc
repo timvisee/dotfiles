@@ -204,6 +204,9 @@ set showmatch
 " No text wrapping
 set nowrap
 
+" No 2 spaces when joining lines ending with punctuation character
+set noshowmode
+
 " Disable code folding in Markdown
 let g:vim_markdown_folding_disabled=1
 
