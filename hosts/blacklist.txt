@@ -1,4 +1,4 @@
-# My personal banlist
+# My personal blacklist
 
 # Facebook
 127.0.0.1 0-act.channel.facebook.com
