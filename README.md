@@ -15,6 +15,7 @@ dotfiles are used to personalize your system and applications. These are mine.
     * `i3lock-color-git`: [[link]](https://github.com/chrjguill/i3lock-color) fancy and customizable lock screen
     * `xautolock`: lock screen when inactive
     * `libnotify-bin`: notification handling
+* `rust` nightly: for proper language completion in Vim, through `rustup`
 * `xcape` (Linux): to bind <kbd>Caps Lock</kbd> to <kbd>Esc</kbd>.
 * `keychain`: for SSH key management
 * `fish`: as better shell

@@ -87,11 +87,13 @@ if has('nvim')
     Plug 'ncm2/ncm2-path'
 
     " Languages
-    Plug 'rust-lang/rust.vim'
-    " if executable('cargo')
-    "     Plug 'racer-rust/vim-racer', {'do': 'cargo +nightly install racer -f'}
-    "     Plug 'ncm2/ncm2-racer'
-    " endif
+    if executable('cargo')
+        Plug 'rust-lang/rust.vim', {'do': 'cargo +nightly install racer -f'}
+        " Plug 'racer-rust/vim-racer', {'do': 'cargo +nightly install racer -f'}
+        " Plug 'ncm2/ncm2-racer'
+    else
+        Plug 'rust-lang/rust.vim'
+    endif
     if executable('php') && executable('composer')
         Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
         Plug 'phpactor/ncm2-phpactor'
