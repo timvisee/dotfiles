@@ -49,6 +49,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'andymass/vim-matchup'
 Plug 'RRethy/vim-illuminate'
 
 " File types
