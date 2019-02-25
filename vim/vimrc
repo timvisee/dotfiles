@@ -340,7 +340,7 @@ set diffopt+=vertical
 set mouse=a
 
 " Map space and \ as leader keys
-let mapleader=" "
+let mapleader="\<Space>"
 let maplocalleader="\\"
 
 " Use <space><space> to toggle to the last buffer
