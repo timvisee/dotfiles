@@ -71,15 +71,6 @@ Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
 Plug 'jwalton512/vim-blade'
 
-" Languages
-Plug 'rust-lang/rust.vim'
-if executable('cargo')
-    Plug 'racer-rust/vim-racer', {'do': 'cargo +nightly install racer -f'}
-endif
-if executable('php') && executable('composer')
-    Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
-endif
-
 " Linting/Completion
 if has('nvim')
     Plug 'w0rp/ale'
@@ -87,7 +78,6 @@ if has('nvim')
         \ 'branch': 'next',
         \ 'do': 'bash install.sh',
         \ }
-
     Plug 'ncm2/ncm2'
     Plug 'roxma/nvim-yarp'
 
@@ -95,17 +85,22 @@ if has('nvim')
     Plug 'ncm2/ncm2-bufword'
     Plug 'ncm2/ncm2-tmux'
     Plug 'ncm2/ncm2-path'
-    Plug 'ncm2/ncm2-github'
-    if executable('cargo')
-        Plug 'ncm2/ncm2-racer'
-    endif
-    Plug 'ncm2/ncm2-vim'
+
+    " Languages
+    Plug 'rust-lang/rust.vim'
+    " if executable('cargo')
+    "     Plug 'racer-rust/vim-racer', {'do': 'cargo +nightly install racer -f'}
+    "     Plug 'ncm2/ncm2-racer'
+    " endif
     if executable('php') && executable('composer')
+        Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
         Plug 'phpactor/ncm2-phpactor'
     endif
     if executable('npm')
         Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
     endif
+    Plug 'dag/vim-fish'
+    Plug 'ncm2/ncm2-vim'
     Plug 'Shougo/echodoc.vim'
 endif
 
@@ -516,13 +511,69 @@ vmap <expr> <DOWN>  DVB_Drag('down')
 vmap <expr> <UP>    DVB_Drag('up')
 vmap <expr> D       DVB_Duplicate()
 
-" NCM2 if installed
-if exists('ncm2#enable_for_buffer')
-    " Enable NCM2 for all buffers
+" Language server configuration
+" Configured for proper rust completion
+" Proudly stolen from: https://github.com/jonhoo/configs/blob/master/editor/.config/nvim/init.vim
+let g:LanguageClient_settingsPath = expand('~/.config/nvim/settings.json')
+" let g:LanguageClient_serverCommands = {
+"     \ 'rust': ['env', 'CARGO_TARGET_DIR=/data/jon/cargo-target/rls', 'rls'],
+"     \ }
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rls'],
+    \ }
+let g:LanguageClient_autoStart = 1
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+let g:LanguageClient_diagnosticsDisplay = {
+    \     1: {
+    \         "name": "Error",
+    \         "texthl": "ALEError",
+    \         "signText": "✖",
+    \         "signTexthl": "ErrorMsg",
+    \         "virtualTexthl": "WarningMsg",
+    \     },
+    \     2: {
+    \         "name": "Warning",
+    \         "texthl": "ALEWarning",
+    \         "signText": "⚠",
+    \         "signTexthl": "ALEWarningSign",
+    \         "virtualTexthl": "Todo",
+    \     },
+    \     3: {
+    \         "name": "Information",
+    \         "texthl": "ALEInfo",
+    \         "signText": "ℹ",
+    \         "signTexthl": "ALEInfoSign",
+    \         "virtualTexthl": "Todo",
+    \     },
+    \     4: {
+    \         "name": "Hint",
+    \         "texthl": "ALEInfo",
+    \         "signText": "➤",
+    \         "signTexthl": "ALEInfoSign",
+    \         "virtualTexthl": "Todo",
+    \     },
+\ }
+
+" NCM2 configuration
+if has('nvim')
+	" Enable NCM2 for all buffers
     autocmd BufEnter * call ncm2#enable_for_buffer()
 
     " Important tweaks for showing completion popups
     set completeopt=noinsert,menuone,noselect
+
+    " Tab to select, do not hijack enter key
+    inoremap <expr><Tab> (pumvisible()?(empty(v:completed_item)?"\<C-n>":"\<C-y>"):"\<Tab>")
+    inoremap <expr><CR> (pumvisible()?(empty(v:completed_item)?"\<CR>\<CR>":"\<C-y>"):"\<CR>")
+endif
+
+" vim-racer configuration for Rust
+if has('nvim')
+	set hidden
+	let g:racer_cmd = "~/.cargo/bin/racer"
+	let g:racer_experimental_completer = 1
 endif
 
 " NERDtree
