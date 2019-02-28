@@ -590,7 +590,7 @@ if [ $DO_BASH == "yes" ]; then
     do_file "$DIR/bash/bashrc" $CMD_USER_HOME_DIR/.bashrc
     do_file "$DIR/bash/bash_profile" $CMD_USER_HOME_DIR/.bash_profile
     do_file "$DIR/bash/bash_aliases" $CMD_USER_HOME_DIR/.bash_aliases
-    do_file "$DIR/bash/bash/transfer.sh" $CMD_USER_HOME_DIR/.config/bash/transfer.sh
+    do_file "$DIR/bash/bash/gopass_completion" $CMD_USER_HOME_DIR/.config/bash/gopass_completion
     log_success "Updated bash dotfiles."
     echo
 fi
@@ -603,6 +603,7 @@ if [ $DO_FISH == "yes" ]; then
     do_file "$DIR/fish/nvm.fish" $CMD_USER_HOME_DIR/.config/fish/nvm.fish
     do_file "$DIR/fish/prompt.fish" $CMD_USER_HOME_DIR/.config/fish/prompt.fish
     do_file "$DIR/fish/transfer.fish" $CMD_USER_HOME_DIR/.config/fish/transfer.fish
+    do_file "$DIR/fish/gopass_completion.fish" $CMD_USER_HOME_DIR/.config/fish/gopass_completion.fish
     do_file "$DIR/fish/functions/fuck.fish" $CMD_USER_HOME_DIR/.config/fish/functions/fuck.fish
     log_success "Updated fish dotfiles."
     echo
@@ -630,6 +631,7 @@ if [ $DO_VIM == "yes" ]; then
     do_file "$DIR/vim/vimrc" $CMD_USER_HOME_DIR/.config/nvim/init.vim
     do_file "$DIR/vim/plug.vim" $CMD_USER_HOME_DIR/.vim/autoload/plug.vim
     do_file "$DIR/vim/plug.vim" $CMD_USER_HOME_DIR/.local/share/nvim/site/autoload/plug.vim
+    do_file "$DIR/vim/settings.json" $CMD_USER_HOME_DIR/.config/nvim/settings.json
     do_file "$DIR/vim/plugin/dragvisuals.vim" $CMD_USER_HOME_DIR/.vim/plugin/dragvisuals.vim
     do_file "$DIR/vim/spell/nl.utf-8.spl" $CMD_USER_HOME_DIR/.vim/spell/nl.utf-8.spl
     do_file "$DIR/vim/spell/nl.utf-8.sug" $CMD_USER_HOME_DIR/.vim/spell/nl.utf-8.sug
@@ -707,7 +709,7 @@ fi
 # Install alacritty
 if [ $DO_ALACRITTY == "yes" ]; then
     log_normal "Updating alacritty dotfiles..."
-    do_file "$DIR/alacritty/alacritty.yml" $CMD_USER_HOME_DIR/.config/alacritty/alacritty.yml
+    # do_file "$DIR/alacritty/alacritty.yml" $CMD_USER_HOME_DIR/.config/alacritty/alacritty.yml
     log_success "Updated alacritty dotfiles."
     echo
 fi

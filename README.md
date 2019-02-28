@@ -15,6 +15,7 @@ dotfiles are used to personalize your system and applications. These are mine.
     * `i3lock-color-git`: [[link]](https://github.com/chrjguill/i3lock-color) fancy and customizable lock screen
     * `xautolock`: lock screen when inactive
     * `libnotify-bin`: notification handling
+* `rust` nightly: for proper language completion in Vim, through `rustup`
 * `xcape` (Linux): to bind <kbd>Caps Lock</kbd> to <kbd>Esc</kbd>.
 * `keychain`: for SSH key management
 * `fish`: as better shell
@@ -55,6 +56,11 @@ This repository includes my ErgoDox keyboard layout configuration,
 located in the [ergodox](./ergodox) directory.
 
 ![ErgoDox layout](./ergodox/layout.png)
+
+## Hosts banlist
+This repository includes my personal hosts banlist.
+The up-to-date raw file can be accessed via
+[`https://gitlab.com/timvisee/dotfiles/raw/master/hosts/banlist.txt`](https://gitlab.com/timvisee/dotfiles/raw/master/hosts/banlist.txt).
 
 ## License
 This project is released under the GNU GPL-3.0 license. Check out the [LICENSE](LICENSE) file for more information.

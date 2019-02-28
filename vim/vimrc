@@ -49,6 +49,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'andymass/vim-matchup'
 Plug 'RRethy/vim-illuminate'
 
 " File types
@@ -70,15 +71,6 @@ Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
 Plug 'jwalton512/vim-blade'
 
-" Languages
-Plug 'rust-lang/rust.vim'
-if executable('cargo')
-    Plug 'racer-rust/vim-racer', {'do': 'cargo +nightly install racer -f'}
-endif
-if executable('php') && executable('composer')
-    Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
-endif
-
 " Linting/Completion
 if has('nvim')
     Plug 'w0rp/ale'
@@ -86,7 +78,6 @@ if has('nvim')
         \ 'branch': 'next',
         \ 'do': 'bash install.sh',
         \ }
-
     Plug 'ncm2/ncm2'
     Plug 'roxma/nvim-yarp'
 
@@ -94,17 +85,24 @@ if has('nvim')
     Plug 'ncm2/ncm2-bufword'
     Plug 'ncm2/ncm2-tmux'
     Plug 'ncm2/ncm2-path'
-    Plug 'ncm2/ncm2-github'
+
+    " Languages
     if executable('cargo')
-        Plug 'ncm2/ncm2-racer'
+        Plug 'rust-lang/rust.vim', {'do': 'cargo +nightly install racer -f; rustup component add rls rust-analysis rust-src'}
+        " Plug 'racer-rust/vim-racer', {'do': 'cargo +nightly install racer -f'}
+        " Plug 'ncm2/ncm2-racer'
+    else
+        Plug 'rust-lang/rust.vim'
     endif
-    Plug 'ncm2/ncm2-vim'
     if executable('php') && executable('composer')
+        Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
         Plug 'phpactor/ncm2-phpactor'
     endif
     if executable('npm')
         Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
     endif
+    Plug 'dag/vim-fish'
+    Plug 'ncm2/ncm2-vim'
     Plug 'Shougo/echodoc.vim'
 endif
 
@@ -203,6 +201,9 @@ set showmatch
 
 " No text wrapping
 set nowrap
+
+" No 2 spaces when joining lines ending with punctuation character
+set noshowmode
 
 " Disable code folding in Markdown
 let g:vim_markdown_folding_disabled=1
@@ -337,7 +338,7 @@ set diffopt+=vertical
 set mouse=a
 
 " Map space and \ as leader keys
-let mapleader=" "
+let mapleader="\<Space>"
 let maplocalleader="\\"
 
 " Use <space><space> to toggle to the last buffer
@@ -512,14 +513,70 @@ vmap <expr> <DOWN>  DVB_Drag('down')
 vmap <expr> <UP>    DVB_Drag('up')
 vmap <expr> D       DVB_Duplicate()
 
-" NCM2 if installed
-if exists('ncm2#enable_for_buffer')
-    " Enable NCM2 for all buffers
+" Language server configuration
+" Configured for proper rust completion
+" Proudly stolen from: https://github.com/jonhoo/configs/blob/master/editor/.config/nvim/init.vim
+let g:LanguageClient_settingsPath = expand('~/.config/nvim/settings.json')
+" let g:LanguageClient_serverCommands = {
+"     \ 'rust': ['env', 'CARGO_TARGET_DIR=/data/jon/cargo-target/rls', 'rls'],
+"     \ }
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rls'],
+    \ }
+let g:LanguageClient_autoStart = 1
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+let g:LanguageClient_diagnosticsDisplay = {
+    \     1: {
+    \         "name": "Error",
+    \         "texthl": "ALEError",
+    \         "signText": "x",
+    \         "signTexthl": "ErrorMsg",
+    \         "virtualTexthl": "WarningMsg",
+    \     },
+    \     2: {
+    \         "name": "Warning",
+    \         "texthl": "ALEWarning",
+    \         "signText": "w",
+    \         "signTexthl": "ALEWarningSign",
+    \         "virtualTexthl": "Todo",
+    \     },
+    \     3: {
+    \         "name": "Information",
+    \         "texthl": "ALEInfo",
+    \         "signText": "i",
+    \         "signTexthl": "ALEInfoSign",
+    \         "virtualTexthl": "Todo",
+    \     },
+    \     4: {
+    \         "name": "Hint",
+    \         "texthl": "ALEInfo",
+    \         "signText": ">",
+    \         "signTexthl": "ALEInfoSign",
+    \         "virtualTexthl": "Todo",
+    \     },
+\ }
+
+" NCM2 configuration
+if has('nvim')
+	" Enable NCM2 for all buffers
     autocmd BufEnter * call ncm2#enable_for_buffer()
 
     " Important tweaks for showing completion popups
     set completeopt=noinsert,menuone,noselect
+
+    " Tab to select, do not hijack enter key
+    inoremap <expr><Tab> (pumvisible()?(empty(v:completed_item)?"\<C-n>":"\<C-y>"):"\<Tab>")
+    inoremap <expr><CR> (pumvisible()?(empty(v:completed_item)?"\<CR>\<CR>":"\<C-y>"):"\<CR>")
 endif
+
+" " vim-racer configuration for Rust
+" if has('nvim')
+" 	set hidden
+" 	let g:racer_cmd = "~/.cargo/bin/racer"
+" 	let g:racer_experimental_completer = 1
+" endif
 
 " NERDtree
 " Open NERDtree when run with no arguments

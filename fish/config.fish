@@ -4,6 +4,7 @@
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/nvm.fish
 source ~/.config/fish/prompt.fish
+source ~/.config/fish/gopass_completion.fish
 
 # Disable fish greeting
 set fish_greeting
@@ -142,7 +143,7 @@ function git_enable_gpg
 end
 
 # Configure keychain if installed
-if test -n (which keychain)
+if test -e keychain
     # Initialize if no SSH agent has been initialized by us
     # ; or test -z $SSH_AGENT_PID; or test -z (keychain -l); and test -e ~/.ssh/id_rsa
     if test -z $SSH_AGENT_INIT; or test -z $SSH_AGENT_PID

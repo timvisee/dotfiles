@@ -36,6 +36,10 @@ function mkcd
     cd $argv
 end
 
+# Pass aliases
+alias p 'gopass'
+alias pc 'gopass -c'
+
 # Git aliases
 alias g 'git'
 alias ga 'git add'
@@ -52,6 +56,10 @@ alias gl 'git log'
 alias gf 'git fetch'
 alias gfp 'git fetch; and git pull'
 alias gt 'git tag'
+
+# Docker
+alias d 'docker'
+alias dc 'docker-compose'
 
 # Clipboard aliases
 if [ (uname -s) = "Darwin" ]
