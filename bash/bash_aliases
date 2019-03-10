@@ -12,10 +12,12 @@ alias :q='exit'
 
 # Nvim and vim aliases
 if [[ $(command -v nvim) ]]; then
+    alias v='nvim'
     alias vi='nvim'
     alias vim='nvim'
     alias nvi='nvim'
 else
+    alias v='vim'
     alias vi='vim'
     alias nvi='vim'
 fi

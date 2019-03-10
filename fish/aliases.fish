@@ -12,10 +12,12 @@ alias :q 'exit'
 
 # Nvim and vim aliases
 if test -x "/usr/bin/nvim"; or test -x "/usr/bin/local/nvim"
+    alias v 'nvim'
     alias vi 'nvim'
     alias vim 'nvim'
     alias nvi 'nvim'
 else
+    alias v 'vim'
     alias vi 'vim'
     alias nvi 'vim'
 end
