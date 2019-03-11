@@ -89,7 +89,7 @@ alias cb 'cargo build'
 alias cbr 'cargo build --release'
 alias cc 'cargo check'
 alias ct 'cargo test'
-alias cb 'cargo update'
+alias cu 'cargo update'
 
 # Create the composer alias if it exists
 if test -e '/usr/local/bin/composer.phar'
