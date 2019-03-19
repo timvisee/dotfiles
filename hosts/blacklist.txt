@@ -158,9 +158,3 @@
 127.0.0.1 www.login.facebook.com
 127.0.0.1 zh-cn.facebook.com
 127.0.0.1 zh-tw.facebook.com
-
-# Twitter
-127.0.0.1 pbs.twimg.com
-127.0.0.1 platform.twitter.com
-127.0.0.1 syndication.twitter.com
-127.0.0.1 cdn.syndication.twimg.com
