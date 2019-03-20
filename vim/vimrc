@@ -559,6 +559,9 @@ let g:LanguageClient_diagnosticsDisplay = {
     \     },
 \ }
 
+" Automatically format Rust code on save
+let g:rustfmt_autosave = 1
+
 " NCM2 configuration
 if has('nvim')
 	" Enable NCM2 for all buffers
