@@ -173,8 +173,9 @@ set number
 " Line number on the bar
 set ruler
 
-" Highlight the cursor line
+" Highlight the cursor line and column
 set cursorline
+set cursorcolumn
 
 " Highlight yanks for half a second
 let g:highlightedyank_highlight_duration = 500
