@@ -580,6 +580,7 @@ echo
 if [ $DO_PROFILE == "yes" ]; then
     log_normal "Updating profile dotfiles..."
     do_file "$DIR/profile/profile" $CMD_USER_HOME_DIR/.profile
+    do_file "$DIR/profile/signature" $CMD_USER_HOME_DIR/.signature
     log_success "Updated profile dotfiles."
     echo
 fi
