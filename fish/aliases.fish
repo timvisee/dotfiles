@@ -22,6 +22,14 @@ else
     alias nvi 'vim'
 end
 
+# neomutt and mutt aliases
+if test -x "/usr/bin/neomutt"; or test -x "/usr/bin/local/neomutt"
+    alias m 'neomutt'
+    alias mutt 'neomutt'
+else
+    alias m 'mutt'
+end
+
 # Exa alias
 alias e 'exa'
 alias ela 'exa -lab --git'
