@@ -118,7 +118,7 @@ set nocompatible
 " We've a fast terminal
 set ttyfast
 
-" Use lazy redrawing to improve macOS performance
+" Use lazy redraw, do not redraw during macro execution
 set lazyredraw
 
 " We're using UTF-8 as file/script encoding
@@ -257,6 +257,9 @@ set tabstop=4
 set softtabstop=4
 set expandtab
 set fileformat=unix
+
+" Persistent undo, even after closing vim
+set undofile
 
 " Shift 4 columns (rounded to nearest multiple)
 set shiftwidth=4
@@ -411,9 +414,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Formatting paragraph with Q
-vmap Q gq
-nmap Q gqap
+" Run last macro with Q
+nnoremap Q @@
 
 " Vim snipe
 map <leader>F <Plug>(snipe-F)
