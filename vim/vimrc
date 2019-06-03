@@ -88,7 +88,7 @@ if has('nvim')
 
     " Languages
     if executable('cargo')
-        Plug 'rust-lang/rust.vim', {'do': 'cargo +nightly install racer -f; rustup component add rls rust-analysis rust-src'}
+        Plug 'rust-lang/rust.vim', {'do': 'cargo +nightly install racer -f; rustup component add rls rust-analysis rust-src rustfmt'}
         " Plug 'racer-rust/vim-racer', {'do': 'cargo +nightly install racer -f'}
         " Plug 'ncm2/ncm2-racer'
     else
