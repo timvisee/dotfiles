@@ -12,6 +12,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-eunuch'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'Asheq/close-buffers.vim'
 if executable('git')
     Plug 'tpope/vim-fugitive'
 endif
@@ -393,6 +394,9 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Sort selection
 vmap <silent> S :sort<CR>
+
+" Buffer close menu
+nnoremap <silent> <C-q> :CloseBuffersMenu<CR>
 
 " Arg wrap
 nnoremap <silent> <leader>aa :ArgWrap<CR>
