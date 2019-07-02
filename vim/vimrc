@@ -54,15 +54,8 @@ Plug 'andymass/vim-matchup'
 Plug 'RRethy/vim-illuminate'
 
 " File types
-Plug 'cespare/vim-toml'
+Plug 'sheerun/vim-polyglot'
 Plug 'maralla/vim-toml-enhance'
-Plug 'dag/vim-fish'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'lervag/vimtex'
-Plug 'plasticboy/vim-markdown'
-Plug 'posva/vim-vue'
-Plug 'tpope/vim-git'
-Plug 'StanAngeloff/php.vim'
 
 " Laravel related
 " TODO: organize these plugins
@@ -70,7 +63,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-projectionist'
 Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
-Plug 'jwalton512/vim-blade'
 
 " Linting/Completion
 if has('nvim')
@@ -90,10 +82,6 @@ if has('nvim')
     " Languages
     if executable('cargo')
         Plug 'rust-lang/rust.vim', {'do': 'cargo +nightly install racer -f; rustup component add rls rust-analysis rust-src rustfmt'}
-        " Plug 'racer-rust/vim-racer', {'do': 'cargo +nightly install racer -f'}
-        " Plug 'ncm2/ncm2-racer'
-    else
-        Plug 'rust-lang/rust.vim'
     endif
     if executable('php') && executable('composer')
         Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
@@ -102,7 +90,6 @@ if has('nvim')
     if executable('npm')
         Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
     endif
-    Plug 'dag/vim-fish'
     Plug 'ncm2/ncm2-vim'
     Plug 'Shougo/echodoc.vim'
 endif
@@ -616,7 +603,3 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-" vimtex
-" Set the vimtex PDF viewer to use
-let g:vimtex_view_method="zathura"
