@@ -19,6 +19,7 @@ dotfiles are used to personalize your system and applications. These are mine.
 * `xcape` (Linux): to bind <kbd>Caps Lock</kbd> to <kbd>Esc</kbd>.
 * `keychain`: for SSH key management
 * `fish`: as better shell
+* `starship`: as better shell prompt
 * `thefuck`: for handy incorrect command fixes
 * `highlight`: for syntax highlighting in ranger
 
