@@ -60,6 +60,7 @@ Plug 'maralla/vim-toml-enhance'
 " Laravel related
 " TODO: organize these plugins
 Plug 'tpope/vim-dispatch'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'tpope/vim-projectionist'
 Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
@@ -87,6 +88,7 @@ if has('nvim')
         Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
         Plug 'phpactor/ncm2-phpactor'
     endif
+    Plug 'OmniSharp/omnisharp-vim'
     if executable('npm')
         Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
     endif
@@ -114,9 +116,7 @@ scriptencoding utf-8
 set encoding=utf-8
 
 " Detect file types and specific indents/settings
-filetype on
-filetype indent on
-filetype plugin on
+filetype indent plugin on
 
 " Enable use of other .vimrc files in working directories
 set exrc
@@ -507,6 +507,16 @@ vmap <expr> <RIGHT> DVB_Drag('right')
 vmap <expr> <DOWN>  DVB_Drag('down')
 vmap <expr> <UP>    DVB_Drag('up')
 vmap <expr> D       DVB_Duplicate()
+
+" OmniSharp
+let g:OmniSharp_server_stdio = 1
+let g:OmniSharp_start_without_solution = 1
+" let g:ale_linters = {
+" \ 'cs': ['OmniSharp']
+" \}
+" let g:syntastic_cs_checkers = ['code_checker']
+" let g:OmniSharp_server_use_mono = 1
+" let g:OmniSharp_selector_ui = 'fzf'
 
 " Language server configuration
 " Configured for proper rust completion
