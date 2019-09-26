@@ -12,6 +12,7 @@ CUSTOM="yes"
 DO_PROFILE="yes"
 DO_BASH="yes"
 DO_FISH="yes"
+DO_STARSHIP="yes"
 DO_TMUX="yes"
 DO_VIM="yes"
 DO_GIT="yes"
@@ -293,6 +294,23 @@ if [ $CUSTOM == "yes" ]; then
                 break ;;
             No)
                 DO_FISH=no
+                break
+                ;;
+        esac
+    done
+    echo
+
+    # Ask whether to install starship files
+    log_question "Would you like to $ACTION starship dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_STARSHIP=yes
+                break ;;
+            No)
+                DO_STARSHIP=no
                 break
                 ;;
         esac
@@ -607,6 +625,14 @@ if [ $DO_FISH == "yes" ]; then
     do_file "$DIR/fish/gopass_completion.fish" $CMD_USER_HOME_DIR/.config/fish/gopass_completion.fish
     do_file "$DIR/fish/functions/fuck.fish" $CMD_USER_HOME_DIR/.config/fish/functions/fuck.fish
     log_success "Updated fish dotfiles."
+    echo
+fi
+
+# Install starship
+if [ $DO_STARSHIP == "yes" ]; then
+    log_normal "Updating starship dotfiles..."
+    do_file "$DIR/starship/starship.toml" $CMD_USER_HOME_DIR/.config/starship.toml
+    log_success "Updated starship dotfiles."
     echo
 fi
 
