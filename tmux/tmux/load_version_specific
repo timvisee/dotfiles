@@ -4,7 +4,7 @@
 load_version_specific() {
     # Get the tmux home directory and it's version
     tmux_home=~/.tmux
-    tmux_version="$(tmux -V | cut -c 6-)"
+    tmux_version="$(tmux -V | cut -c 6- | sed s/\[^0-9\\.\]//)"
 
     # >= 2.1 && < 2.1
     if [[ $(echo "$tmux_version >= 2.1" | bc) -eq 1 ]]; then
