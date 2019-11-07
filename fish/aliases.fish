@@ -66,6 +66,8 @@ alias gl 'git log'
 alias gf 'git fetch'
 alias gfp 'git fetch; and git pull'
 alias gr 'git remote'
+alias grr 'git reset'
+alias grrh 'git reset --hard'
 alias gt 'git tag'
 
 # Docker
