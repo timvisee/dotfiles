@@ -644,6 +644,8 @@ if [ $DO_TMUX == "yes" ]; then
     do_file "$DIR/tmux/tmux/tmux_ge_2.1.conf" $CMD_USER_HOME_DIR/.tmux/tmux_ge_2.1.conf
     do_file "$DIR/tmux/tmux/tmux_lt_2.4.conf" $CMD_USER_HOME_DIR/.tmux/tmux_lt_2.4.conf
     do_file "$DIR/tmux/tmux/tmux_ge_2.4.conf" $CMD_USER_HOME_DIR/.tmux/tmux_ge_2.4.conf
+    do_file "$DIR/tmux/tmux/tmux_lt_2.9.conf" $CMD_USER_HOME_DIR/.tmux/tmux_lt_2.9.conf
+    do_file "$DIR/tmux/tmux/tmux_ge_2.9.conf" $CMD_USER_HOME_DIR/.tmux/tmux_ge_2.9.conf
     do_file "$DIR/tmux/tmux/load_version_specific" $CMD_USER_HOME_DIR/.tmux/load_version_specific
     log_success "Updated tmux dotfiles."
     echo
