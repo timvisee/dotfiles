@@ -500,14 +500,6 @@ cnoreabbrev Gs Gstatus
 " fzf/skim
 let g:fzf_nvim_statusline = 0
 
-" Dragvisuals plugin
-runtime plugin/dragvisuals.vim
-vmap <expr> <LEFT>  DVB_Drag('left')
-vmap <expr> <RIGHT> DVB_Drag('right')
-vmap <expr> <DOWN>  DVB_Drag('down')
-vmap <expr> <UP>    DVB_Drag('up')
-vmap <expr> D       DVB_Duplicate()
-
 " OmniSharp
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_start_without_solution = 1
