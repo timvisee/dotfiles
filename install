@@ -19,7 +19,6 @@ DO_GIT="yes"
 DO_RANGER="yes"
 DO_HIGHLIGHT="yes"
 DO_ALACRITTY="yes"
-DO_AURGET="no"
 DO_AWESOME="no"
 DO_COMPTON="no"
 DO_XMODMAP="no"
@@ -425,24 +424,6 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
-    # Ask whether to install aurget files
-    log_question "Would you like to $ACTION aurget dotfiles?"
-    PS3="Choose your action: "
-    select ENTRY in Yes No
-    do
-        case $ENTRY in
-            Yes)
-                DO_AURGET=yes
-                break
-                ;;
-            No)
-                DO_AURGET=no
-                break
-                ;;
-        esac
-    done
-    echo
-
     # Ask whether to install awesomeWM files
     log_question "Would you like to $ACTION awesomeWM dotfiles?"
     PS3="Choose your action: "
@@ -739,14 +720,6 @@ if [ $DO_ALACRITTY == "yes" ]; then
     log_normal "Updating alacritty dotfiles..."
     # do_file "$DIR/alacritty/alacritty.yml" $CMD_USER_HOME_DIR/.config/alacritty/alacritty.yml
     log_success "Updated alacritty dotfiles."
-    echo
-fi
-
-# Install aurget
-if [ $DO_AURGET == "yes" ]; then
-    log_normal "Updating aurget dotfiles..."
-    do_file "$DIR/aurget/aurgetrc" $CMD_USER_HOME_DIR/.config/aurgetrc
-    log_success "Updated aurget dotfiles."
     echo
 fi
 
