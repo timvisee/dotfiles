@@ -43,3 +43,12 @@ colors:
     - { index: 19, color: '0x6e6b5e' }
     - { index: 20, color: '0x999580' }
     - { index: 21, color: '0xe8e4cf' }
+
+# Key bindings
+key_bindings:
+  - { key: Key0,     mods: Control,       action: ResetFontSize    }
+  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
+  - { key: Add,      mods: Control,       action: IncreaseFontSize }
+  - { key: Subtract, mods: Control,       action: DecreaseFontSize }
+  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
+  - { key: Return,   mods: Alt,           action: ToggleFullscreen }
