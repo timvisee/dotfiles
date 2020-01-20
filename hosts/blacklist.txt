@@ -158,3 +158,20 @@
 127.0.0.1 www.login.facebook.com
 127.0.0.1 zh-cn.facebook.com
 127.0.0.1 zh-tw.facebook.com
+
+# Sketchy domains
+127.0.0.1 360.cn
+127.0.0.1 360safe.com
+127.0.0.1 aicleaner.shouji.360cn
+127.0.0.1 care.help.360.cn
+127.0.0.1 eul.s.360.cn
+127.0.0.1 g.s.360.cn
+127.0.0.1 mclean.cloud.360safe.com
+127.0.0.1 mclean.f.360.cn
+127.0.0.1 mclean.lato.cloud.360safe.com
+127.0.0.1 mclean.uk.cloud.360safe.com
+127.0.0.1 mvconf.cloud.360safe.com
+127.0.0.1 mvconf.f.360.cn
+127.0.0.1 mvconf.lato.cloud.360safe.com
+127.0.0.1 mvconf.uk.cloud.360safe.com
+127.0.0.1 p.s.360.cn
