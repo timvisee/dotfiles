@@ -674,7 +674,6 @@ if [ $DO_VIM == "yes" ]; then
             # Install and upgrade plugins
             # TODO: check vim exit code
             log_normal "Installing and updating vim plugins..."
-            su - $CMD_USER -c "$BIN_VIM -c 'PlugInstall' -c 'qa!'"
             su - $CMD_USER -c "$BIN_VIM -c 'PlugUpdate' -c 'qa!'"
             log_normal "Cleaning unused vim plugins..."
             su - $CMD_USER -c "$BIN_VIM -c 'PlugClean!' -c 'qa!'"
