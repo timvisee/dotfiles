@@ -65,6 +65,9 @@ Plug 'tpope/vim-projectionist'
 Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
 
+" Arduino
+Plug 'stevearc/vim-arduino'
+
 " Linting/Completion
 if has('nvim')
     Plug 'w0rp/ale'
@@ -323,6 +326,9 @@ set splitright
 " Always split fugitive diffs vertical
 set diffopt+=vertical
 
+" Arduino configuration
+let g:arduino_dir = '/opt/arduino-1.8.12'
+
 
 
 """ Custom keybindings
@@ -390,10 +396,6 @@ nnoremap <silent> <leader>aa :ArgWrap<CR>
 
 " Easy commenting
 map <silent> // :Commentary<CR>
-
-" Arduino Makefile commands
-nnoremap <silent> <leader>ab :make<CR>
-nnoremap <silent> <leader>au :make upload<CR>
 
 " Save
 inoremap <C-s> <esc>:w<cr>
