@@ -186,6 +186,7 @@ augroup HiglightTodo
     autocmd!
     autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO', -1)
     autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', '@todo', -1)
+    autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'todo!', -1)
 augroup END
 
 " Highlight matching brackets
