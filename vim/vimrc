@@ -71,32 +71,7 @@ Plug 'stevearc/vim-arduino'
 " Linting/Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 if has('nvim')
-    " Plug 'w0rp/ale'
-    " Plug 'autozimu/LanguageClient-neovim', {
-    "     \ 'branch': 'next',
-    "     \ 'do': 'bash install.sh',
-    "     \ }
-    " Plug 'ncm2/ncm2'
-    " Plug 'roxma/nvim-yarp'
-
-    " " Completion enhancements
-    " Plug 'ncm2/ncm2-bufword'
-    " Plug 'ncm2/ncm2-tmux'
-    " Plug 'ncm2/ncm2-path'
-
-    " Languages
-    if executable('cargo')
-        Plug 'rust-lang/rust.vim', {'do': 'cargo +nightly install racer -f; rustup component add rls rust-analysis rust-src rustfmt'}
-    endif
-    if executable('php') && executable('composer')
-        Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
-        " Plug 'phpactor/ncm2-phpactor'
-    endif
     Plug 'OmniSharp/omnisharp-vim'
-    " if executable('npm')
-    "     Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
-    " endif
-    " Plug 'ncm2/ncm2-vim'
     Plug 'Shougo/echodoc.vim'
 endif
 
@@ -514,73 +489,8 @@ let g:OmniSharp_start_without_solution = 1
 " let g:OmniSharp_server_use_mono = 1
 " let g:OmniSharp_selector_ui = 'fzf'
 
-" Language server configuration
-" Configured for proper rust completion
-" Proudly stolen from: https://github.com/jonhoo/configs/blob/master/editor/.config/nvim/init.vim
-let g:LanguageClient_settingsPath = expand('~/.config/nvim/settings.json')
-" let g:LanguageClient_serverCommands = {
-"     \ 'rust': ['env', 'CARGO_TARGET_DIR=/data/jon/cargo-target/rls', 'rls'],
-"     \ }
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rls'],
-    \ }
-let g:LanguageClient_autoStart = 1
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-let g:LanguageClient_diagnosticsDisplay = {
-    \     1: {
-    \         "name": "Error",
-    \         "texthl": "ALEError",
-    \         "signText": "x",
-    \         "signTexthl": "ErrorMsg",
-    \         "virtualTexthl": "WarningMsg",
-    \     },
-    \     2: {
-    \         "name": "Warning",
-    \         "texthl": "ALEWarning",
-    \         "signText": "w",
-    \         "signTexthl": "ALEWarningSign",
-    \         "virtualTexthl": "Todo",
-    \     },
-    \     3: {
-    \         "name": "Information",
-    \         "texthl": "ALEInfo",
-    \         "signText": "i",
-    \         "signTexthl": "ALEInfoSign",
-    \         "virtualTexthl": "Todo",
-    \     },
-    \     4: {
-    \         "name": "Hint",
-    \         "texthl": "ALEInfo",
-    \         "signText": ">",
-    \         "signTexthl": "ALEInfoSign",
-    \         "virtualTexthl": "Todo",
-    \     },
-\ }
-
 " Automatically format Rust code on save
 let g:rustfmt_autosave = 1
-
-" " NCM2 configuration
-" if has('nvim')
-" 	" Enable NCM2 for all buffers
-"     autocmd BufEnter * call ncm2#enable_for_buffer()
-
-"     " Important tweaks for showing completion popups
-"     set completeopt=noinsert,menuone,noselect
-
-"     " Tab to select, do not hijack enter key
-"     inoremap <expr><Tab> (pumvisible()?(empty(v:completed_item)?"\<C-n>":"\<C-y>"):"\<Tab>")
-"     inoremap <expr><CR> (pumvisible()?(empty(v:completed_item)?"\<CR>\<CR>":"\<C-y>"):"\<CR>")
-" endif
-
-" " vim-racer configuration for Rust
-" if has('nvim')
-" 	set hidden
-" 	let g:racer_cmd = "~/.cargo/bin/racer"
-" 	let g:racer_experimental_completer = 1
-" endif
 
 " NERDtree
 " Open NERDtree when run with no arguments
