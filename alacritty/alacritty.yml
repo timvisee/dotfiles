@@ -1,6 +1,12 @@
 env:
   TERM: xterm-256color
 
+# Font
+font:
+  normal:
+    family: 'Source Code Pro'
+  size: 11.0
+
 # Base16 Atelier Dune 256 - alacritty color config
 # Bram de Haan (http://atelierbramdehaan.nl)
 colors:
