@@ -69,6 +69,7 @@ Plug 'noahfrederick/vim-laravel'
 Plug 'stevearc/vim-arduino'
 
 " Linting/Completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 if has('nvim')
     Plug 'w0rp/ale'
     Plug 'autozimu/LanguageClient-neovim', {
