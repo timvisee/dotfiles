@@ -65,9 +65,6 @@ Plug 'tpope/vim-projectionist'
 Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
 
-" Arduino
-Plug 'stevearc/vim-arduino'
-
 " Linting/Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/echodoc.vim'
