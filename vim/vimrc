@@ -324,6 +324,15 @@ map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
+" Coc gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Coc refactoring
+nmap <leader>rn <Plug>(coc-rename)
+
 " fzf/skim bindings
 nnoremap <silent> <leader>o :Files<CR>
 nnoremap <silent> <leader>O :Buffers<CR>
@@ -337,7 +346,7 @@ nnoremap <silent> <leader>gl :Commits<CR>
 nnoremap <silent> <leader>ga :BCommits<CR>
 nnoremap <silent> <leader>ft :Filetypes<CR>
 nnoremap <silent> <leader>h :Helptags<CR>
-"nnoremap <leader>/ :Ag 
+"nnoremap <leader>/ :Ag
 "nnoremap <silent> <leader>o :BTags<CR>
 "nnoremap <silent> <leader>O :Tags<CR>
 
