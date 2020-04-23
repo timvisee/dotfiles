@@ -71,18 +71,18 @@ Plug 'stevearc/vim-arduino'
 " Linting/Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 if has('nvim')
-    Plug 'w0rp/ale'
-    Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-        \ }
-    Plug 'ncm2/ncm2'
-    Plug 'roxma/nvim-yarp'
+    " Plug 'w0rp/ale'
+    " Plug 'autozimu/LanguageClient-neovim', {
+    "     \ 'branch': 'next',
+    "     \ 'do': 'bash install.sh',
+    "     \ }
+    " Plug 'ncm2/ncm2'
+    " Plug 'roxma/nvim-yarp'
 
-    " Completion enhancements
-    Plug 'ncm2/ncm2-bufword'
-    Plug 'ncm2/ncm2-tmux'
-    Plug 'ncm2/ncm2-path'
+    " " Completion enhancements
+    " Plug 'ncm2/ncm2-bufword'
+    " Plug 'ncm2/ncm2-tmux'
+    " Plug 'ncm2/ncm2-path'
 
     " Languages
     if executable('cargo')
@@ -90,13 +90,13 @@ if has('nvim')
     endif
     if executable('php') && executable('composer')
         Plug 'phpactor/phpactor', {'do': 'composer install', 'for': 'php'}
-        Plug 'phpactor/ncm2-phpactor'
+        " Plug 'phpactor/ncm2-phpactor'
     endif
     Plug 'OmniSharp/omnisharp-vim'
-    if executable('npm')
-        Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
-    endif
-    Plug 'ncm2/ncm2-vim'
+    " if executable('npm')
+    "     Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
+    " endif
+    " Plug 'ncm2/ncm2-vim'
     Plug 'Shougo/echodoc.vim'
 endif
 
@@ -562,18 +562,18 @@ let g:LanguageClient_diagnosticsDisplay = {
 " Automatically format Rust code on save
 let g:rustfmt_autosave = 1
 
-" NCM2 configuration
-if has('nvim')
-	" Enable NCM2 for all buffers
-    autocmd BufEnter * call ncm2#enable_for_buffer()
+" " NCM2 configuration
+" if has('nvim')
+" 	" Enable NCM2 for all buffers
+"     autocmd BufEnter * call ncm2#enable_for_buffer()
 
-    " Important tweaks for showing completion popups
-    set completeopt=noinsert,menuone,noselect
+"     " Important tweaks for showing completion popups
+"     set completeopt=noinsert,menuone,noselect
 
-    " Tab to select, do not hijack enter key
-    inoremap <expr><Tab> (pumvisible()?(empty(v:completed_item)?"\<C-n>":"\<C-y>"):"\<Tab>")
-    inoremap <expr><CR> (pumvisible()?(empty(v:completed_item)?"\<CR>\<CR>":"\<C-y>"):"\<CR>")
-endif
+"     " Tab to select, do not hijack enter key
+"     inoremap <expr><Tab> (pumvisible()?(empty(v:completed_item)?"\<C-n>":"\<C-y>"):"\<Tab>")
+"     inoremap <expr><CR> (pumvisible()?(empty(v:completed_item)?"\<CR>\<CR>":"\<C-y>"):"\<CR>")
+" endif
 
 " " vim-racer configuration for Rust
 " if has('nvim')
