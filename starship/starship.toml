@@ -1,3 +1,20 @@
 [directory]
 truncation_length = 1
 fish_style_pwd_dir_length = 1
+
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+[[battery.display]]
+threshold = 30
+style = "bold yellow"
+
+[line_break]
+disabled = true
+
+[memory_usage]
+disabled = false
+threshold = 75
+symbol = ""
+style = "bold dimmed yellow"
