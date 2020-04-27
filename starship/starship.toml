@@ -1,3 +1,8 @@
+[character]
+symbol = "❭"
+vicmd_symbol = "❬"
+use_symbol_for_status = true
+
 [directory]
 truncation_length = 1
 fish_style_pwd_dir_length = 1
