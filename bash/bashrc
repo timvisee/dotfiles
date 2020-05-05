@@ -244,3 +244,6 @@ export EDITOR=vim
 
 # GPG key
 export GPG_TTY=$(tty)
+
+# Load fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
