@@ -295,6 +295,9 @@ set wildmenu
 set splitbelow
 set splitright
 
+" Allow unsaved buffer switching
+set hidden
+
 " Always split fugitive diffs vertical
 set diffopt+=vertical
 
