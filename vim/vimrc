@@ -290,6 +290,7 @@ set path+=**
 
 " Show a bigger 'wildmenu' for things like tab completion
 set wildmenu
+set wildignore+=**/node_modules/**
 
 " Split directions
 set splitbelow
