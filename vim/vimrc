@@ -194,7 +194,7 @@ hi SpellBad cterm=underline ctermfg=009 guifg=#ff0000
 hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
 
 " Define the default Goyo size
-let g:goyo_width=82
+let g:goyo_width=83
 
 
 
