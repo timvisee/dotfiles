@@ -510,13 +510,15 @@ let NERDTreeIgnore = ['\..*\.sw[pom]$']
 
 " Toggle Limelight with Goyo
 function! s:goyo_enter()
-    " Enable Limelight
+    " Enable Limelight, disable cursorcolumn
     Limelight
+    set nocursorcolumn
 endfunction
 
 function! s:goyo_leave()
-    " Disable Limelight
+    " Disable Limelight, enable cursorcolumn
     Limelight!
+    set cursorcolumn
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
