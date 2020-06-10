@@ -194,7 +194,7 @@ hi SpellBad cterm=underline ctermfg=009 guifg=#ff0000
 hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
 
 " Define the default Goyo size
-let g:goyo_width=82
+let g:goyo_width=83
 
 
 
@@ -514,13 +514,15 @@ let NERDTreeIgnore = ['\..*\.sw[pom]$']
 
 " Toggle Limelight with Goyo
 function! s:goyo_enter()
-    " Enable Limelight
+    " Enable Limelight, disable cursorcolumn
     Limelight
+    set nocursorcolumn
 endfunction
 
 function! s:goyo_leave()
-    " Disable Limelight
+    " Disable Limelight, enable cursorcolumn
     Limelight!
+    set cursorcolumn
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
