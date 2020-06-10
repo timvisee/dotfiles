@@ -413,6 +413,10 @@ map <leader>B <Plug>(snipe-B)
 map <leader>ge <Plug>(snipe-ge)
 map <leader>gE <Plug>(snipe-gE)
 
+" Toggle dark/light theme
+nmap <silent> <leader>vd :set background=dark<CR>:colorscheme base16-atelier-dune<CR>
+nmap <silent> <leader>vl :set background=light<CR>:colorscheme base16-atelier-dune-light<CR>
+
 " Goyo toggle
 nmap <silent> <leader>v :Goyo<CR>
 xmap <silent> <leader>v :Goyo<CR>
