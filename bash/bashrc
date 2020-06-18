@@ -123,7 +123,7 @@ function docker_kill_all() {
     DOCKER_CONTAINERS=`docker ps -q --no-trunc`
     if [[ "$DOCKER_CONTAINERS" ]]; then
         echo "Killing all running Docker containers..."
-        docker rm $DOCKER_CONTAINERS
+        docker kill $DOCKER_CONTAINERS
     else
         echo "No Docker containers to kill"
     fi
