@@ -118,6 +118,19 @@ if [ -d "$HOME/.composer/vendor/bin" ]; then
     export PATH=$PATH:$HOME/.composer/vendor/bin
 fi
 
+# Kill all running Docker containers
+function docker_kill_all() {
+    DOCKER_CONTAINERS=`docker ps -q --no-trunc`
+    if [[ "$DOCKER_CONTAINERS" ]]; then
+        echo "Killing all running Docker containers..."
+        docker rm $DOCKER_CONTAINERS
+    else
+        echo "No Docker containers to kill"
+    fi
+
+    echo "Done"
+}
+
 # Remove all Docker containers
 function docker_rm_all() {
     DOCKER_CONTAINERS=`docker ps -aq --no-trunc`

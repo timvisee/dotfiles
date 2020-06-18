@@ -71,6 +71,19 @@ if test -d "$HOME/.composer/vendor/bin"
     set -x PATH $PATH $HOME/.composer/vendor/bin
 end
 
+# Kill all running Docker containers
+function docker_kill_all
+    set DOCKER_CONTAINERS (docker ps -q --no-trunc)
+    if test -n "$DOCKER_CONTAINERS"
+        echo "Killing all running Docker containers..."
+        docker rm $DOCKER_CONTAINERS
+    else
+        echo "No Docker containers to kill"
+    end
+
+    echo "Done"
+end
+
 # Remove all Docker containers
 function docker_rm_all
     set DOCKER_CONTAINERS (docker ps -aq --no-trunc)
