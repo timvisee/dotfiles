@@ -28,10 +28,17 @@ style = "bold dimmed yellow"
 format = "[$symbol$branch]($style) "
 symbol = ""
 
-[rust]
+[nodejs]
 format = "[$symbol$version]($style) "
-symbol = "R"
 
 [package]
 format = "[$symbol$version]($style) "
 symbol = "📦"
+
+[php]
+format = "[$symbol$version]($style) "
+symbol = "P"
+
+[rust]
+format = "[$symbol$version]($style) "
+symbol = "R"
