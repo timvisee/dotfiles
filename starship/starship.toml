@@ -24,6 +24,9 @@ symbol = ""
 style = "bold dimmed yellow"
 
 # Remove unnecessary text in prompt
+[cmd_duration]
+format = "[$duration]($style) "
+
 [git_branch]
 format = "[$symbol$branch]($style) "
 symbol = ""
@@ -36,6 +39,10 @@ format = "[$symbol$version]($style) "
 symbol = "📦"
 
 [php]
+format = "[$symbol$version]($style) "
+symbol = "P"
+
+[python]
 format = "[$symbol$version]($style) "
 symbol = "P"
 
