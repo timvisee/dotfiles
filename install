@@ -27,6 +27,7 @@ DO_HTOP="yes"
 DO_IFTOP="no"
 DO_CAVA="no"
 DO_CSGO="no"
+DO_GAMEMODE="no"
 
 # Log a normal message.
 # $1: Message.
@@ -568,6 +569,24 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install gamemode files
+    log_question "Would you like to $ACTION gamemode dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_GAMEMODE=yes
+                break
+                ;;
+            No)
+                DO_GAMEMODE=no
+                break
+                ;;
+        esac
+    done
+    echo
+
     log_success "Configuration complete."
     echo
 fi
@@ -790,6 +809,14 @@ if [ $DO_CSGO == "yes" ]; then
     else
         log_normal "CS:GO not installed, skipping it's dotfiles."
     fi
+    echo
+fi
+
+# Install gamemode
+if [ $DO_GAMEMODE == "yes" ]; then
+    log_normal "Updating gamemode dotfiles..."
+    do_file "$DIR/gamemode/gamemode.ini" "/usr/share/gamemode/gamemode.ini"
+    log_success "Updated gamemode dotfiles."
     echo
 fi
 
