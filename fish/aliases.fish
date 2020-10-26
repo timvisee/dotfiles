@@ -69,6 +69,7 @@ alias gr 'git remote'
 alias grr 'git reset'
 alias grrh 'git reset --hard'
 alias gt 'git tag'
+alias git_clean_repo 'git clean -dfx'
 
 # Docker
 alias d 'docker'
