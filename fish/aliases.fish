@@ -47,8 +47,8 @@ function mkcd
 end
 
 # Pass aliases
-alias p 'gopass'
-alias pc 'gopass -c'
+alias p 'prs show'
+alias pc 'prs copy'
 
 # Git aliases
 alias g 'git'
