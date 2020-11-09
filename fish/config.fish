@@ -3,7 +3,6 @@
 # Source other configuration files
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/nvm.fish
-source ~/.config/fish/gopass_completion.fish
 
 # Prompt
 if test -x (which starship)

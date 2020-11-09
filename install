@@ -609,7 +609,6 @@ if [ $DO_BASH == "yes" ]; then
     do_file "$DIR/bash/bashrc" $CMD_USER_HOME_DIR/.bashrc
     do_file "$DIR/bash/bash_profile" $CMD_USER_HOME_DIR/.bash_profile
     do_file "$DIR/bash/bash_aliases" $CMD_USER_HOME_DIR/.bash_aliases
-    do_file "$DIR/bash/bash/gopass_completion" $CMD_USER_HOME_DIR/.config/bash/gopass_completion
     log_success "Updated bash dotfiles."
     echo
 fi
@@ -622,7 +621,6 @@ if [ $DO_FISH == "yes" ]; then
     do_file "$DIR/fish/nvm.fish" $CMD_USER_HOME_DIR/.config/fish/nvm.fish
     do_file "$DIR/fish/prompt.fish" $CMD_USER_HOME_DIR/.config/fish/prompt.fish
     do_file "$DIR/fish/transfer.fish" $CMD_USER_HOME_DIR/.config/fish/transfer.fish
-    do_file "$DIR/fish/gopass_completion.fish" $CMD_USER_HOME_DIR/.config/fish/gopass_completion.fish
     do_file "$DIR/fish/functions/fuck.fish" $CMD_USER_HOME_DIR/.config/fish/functions/fuck.fish
     log_success "Updated fish dotfiles."
     echo
