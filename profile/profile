@@ -27,6 +27,8 @@ if [ -e "/usr/bin/xcape" ]; then
     xcape -e 'Caps_Lock=Escape'
 fi
 
+export PATH="$HOME/.local/bin:$PATH"
+
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export PATH="$HOME/.composer/vendor/bin:$PATH"
