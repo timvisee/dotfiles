@@ -63,6 +63,8 @@ alias gp 'git push'
 alias gs 'git status'
 alias gd 'git diff'
 alias gl 'git log'
+alias gll "git -c core.pager='less -p^commit.*$' log -p -M -w --stat --pretty=fuller --show-notes"
+alias glg 'git log --pretty="format:%Cred%h %Cblue%d %Cgreen%s %Creset%an %ar" --graph'
 alias gf 'git fetch'
 alias gfp 'git fetch; and git pull'
 alias gr 'git remote'
