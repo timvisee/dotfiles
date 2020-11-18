@@ -5,6 +5,9 @@
 [core]
 	editor = vim
 
+[init]
+    defaultBranch = master
+
 [commit]
 	gpgsign = true
 
