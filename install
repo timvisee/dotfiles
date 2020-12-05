@@ -19,6 +19,7 @@ DO_GIT="yes"
 DO_RANGER="yes"
 DO_HIGHLIGHT="yes"
 DO_ALACRITTY="yes"
+DO_SXHKD="no"
 DO_AWESOME="no"
 DO_COMPTON="no"
 DO_XMODMAP="no"
@@ -425,6 +426,24 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install sxhkd files
+    log_question "Would you like to $ACTION sxhkd dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_SXHKD=yes
+                break
+                ;;
+            No)
+                DO_SXHKD=no
+                break
+                ;;
+        esac
+    done
+    echo
+
     # Ask whether to install awesomeWM files
     log_question "Would you like to $ACTION awesomeWM dotfiles?"
     PS3="Choose your action: "
@@ -736,6 +755,14 @@ if [ $DO_ALACRITTY == "yes" ]; then
     log_normal "Updating alacritty dotfiles..."
     # do_file "$DIR/alacritty/alacritty.yml" $CMD_USER_HOME_DIR/.config/alacritty/alacritty.yml
     log_success "Updated alacritty dotfiles."
+    echo
+fi
+
+# Install sxhkd
+if [ $DO_SXHKD == "yes" ]; then
+    log_normal "Updating sxhkd dotfiles..."
+    do_file "$DIR/sxhkd/sxhkdrc" $CMD_USER_HOME_DIR/.config/sxhkd/sxhkdrc
+    log_success "Updated sxhkd dotfiles."
     echo
 fi
 
