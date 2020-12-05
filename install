@@ -19,6 +19,7 @@ DO_GIT="yes"
 DO_RANGER="yes"
 DO_HIGHLIGHT="yes"
 DO_ALACRITTY="yes"
+DO_BSPWM="no"
 DO_SXHKD="no"
 DO_AWESOME="no"
 DO_COMPTON="no"
@@ -426,6 +427,24 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install bspwm files
+    log_question "Would you like to $ACTION bspwm dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_BSPWM=yes
+                break
+                ;;
+            No)
+                DO_BSPWM=no
+                break
+                ;;
+        esac
+    done
+    echo
+
     # Ask whether to install sxhkd files
     log_question "Would you like to $ACTION sxhkd dotfiles?"
     PS3="Choose your action: "
@@ -755,6 +774,14 @@ if [ $DO_ALACRITTY == "yes" ]; then
     log_normal "Updating alacritty dotfiles..."
     # do_file "$DIR/alacritty/alacritty.yml" $CMD_USER_HOME_DIR/.config/alacritty/alacritty.yml
     log_success "Updated alacritty dotfiles."
+    echo
+fi
+
+# Install bspwm
+if [ $DO_BSPWM == "yes" ]; then
+    log_normal "Updating bspwm dotfiles..."
+    do_file "$DIR/bspwm/bspwmrc" $CMD_USER_HOME_DIR/.config/bspwm/bspwmrc
+    log_success "Updated bspwm dotfiles."
     echo
 fi
 
