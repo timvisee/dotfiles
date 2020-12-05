@@ -804,7 +804,7 @@ if [ $DO_BSPWM == "yes" ]; then
     echo
 fi
 
-# Install polybar
+# Install sxhkd
 if [ $DO_SXHKD == "yes" ]; then
     log_normal "Updating sxhkd dotfiles..."
     do_file "$DIR/sxhkd/sxhkdrc" $CMD_USER_HOME_DIR/.config/sxhkd/sxhkdrc
@@ -816,6 +816,7 @@ fi
 if [ $DO_POLYBAR == "yes" ]; then
     log_normal "Updating polybar dotfiles..."
     do_file "$DIR/polybar/config" $CMD_USER_HOME_DIR/.config/polybar/config
+    do_file "$DIR/polybar/launch.sh" $CMD_USER_HOME_DIR/.config/polybar/launch.sh
     log_success "Updated polybar dotfiles."
     echo
 fi
