@@ -800,6 +800,7 @@ fi
 if [ $DO_BSPWM == "yes" ]; then
     log_normal "Updating bspwm dotfiles..."
     do_file "$DIR/bspwm/bspwmrc" $CMD_USER_HOME_DIR/.config/bspwm/bspwmrc
+    do_file "$DIR/bspwm/wallpaper.jpg" $CMD_USER_HOME_DIR/.config/bspwm/wallpaper.jpg
     log_success "Updated bspwm dotfiles."
     echo
 fi
