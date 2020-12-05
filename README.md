@@ -9,6 +9,9 @@ dotfiles are used to personalize your system and applications. These are mine.
 
 ## Recommendations
 * `alacritty`: awesome terminal emulator
+* `bspwm`: tiling window manager, additional dependencies
+    * `sxhkd`: shortcut daemon
+    * `polybar`: desktop bar
 * `awesomeWM`: tiling window manager, additional dependencies
     * `awesome`: window manager itself
     * `awesome-extra`: additional libraries used in my configuration
