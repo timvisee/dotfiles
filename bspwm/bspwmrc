@@ -7,6 +7,9 @@ fi
 if ! pidof compton >/dev/null; then
     compton &
 fi
+if ! pidof dunst >/dev/null; then
+    dunst &
+fi
 if ! pidof nm-applet >/dev/null; then
     nm-applet &
 fi

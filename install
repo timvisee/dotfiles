@@ -22,6 +22,7 @@ DO_ALACRITTY="yes"
 DO_BSPWM="no"
 DO_SXHKD="no"
 DO_POLYBAR="no"
+DO_DUNST="no"
 DO_AWESOME="no"
 DO_COMPTON="no"
 DO_XMODMAP="no"
@@ -482,6 +483,24 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install dunst files
+    log_question "Would you like to $ACTION dunst dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_DUNST=yes
+                break
+                ;;
+            No)
+                DO_DUNST=no
+                break
+                ;;
+        esac
+    done
+    echo
+
     # Ask whether to install awesomeWM files
     log_question "Would you like to $ACTION awesomeWM dotfiles?"
     PS3="Choose your action: "
@@ -819,6 +838,14 @@ if [ $DO_POLYBAR == "yes" ]; then
     do_file "$DIR/polybar/config" $CMD_USER_HOME_DIR/.config/polybar/config
     do_file "$DIR/polybar/launch.sh" $CMD_USER_HOME_DIR/.config/polybar/launch.sh
     log_success "Updated polybar dotfiles."
+    echo
+fi
+
+# Install dunst
+if [ $DO_DUNST == "yes" ]; then
+    log_normal "Updating dunst dotfiles..."
+    do_file "$DIR/dunst/dunstrc" $CMD_USER_HOME_DIR/.config/dunst/dunstrc
+    log_success "Updated dunst dotfiles."
     echo
 fi
 
