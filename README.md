@@ -14,6 +14,7 @@ dotfiles are used to personalize your system and applications. These are mine.
     * `polybar`: desktop bar
     * `picom`: compositor
     * `dunst`: notification daemon
+    * `pasystray`: PulseAudio tray icon
 * `awesomeWM`: tiling window manager, additional dependencies
     * `awesome`: window manager itself
     * `awesome-extra`: additional libraries used in my configuration
