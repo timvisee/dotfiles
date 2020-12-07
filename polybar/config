@@ -245,7 +245,7 @@ interval = 2
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
-label-connected = %essid% %downspeed:9% %upspeed:7%
+label-connected = %essid% %downspeed:9% %upspeed:8%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -268,7 +268,7 @@ interval = 2
 format-connected-underline = #55aa55
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %downspeed:10% %upspeed:7%
+label-connected = %downspeed:9% %upspeed:8%
 
 format-disconnected = <label-disconnected>
 format-disconnected-underline = ${self.format-connected-underline}
