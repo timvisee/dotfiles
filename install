@@ -24,6 +24,7 @@ DO_SXHKD="no"
 DO_POLYBAR="no"
 DO_DUNST="no"
 DO_AWESOME="no"
+DO_PICOM="no"
 DO_COMPTON="no"
 DO_XMODMAP="no"
 DO_I3LOCK_SLICK="no"
@@ -519,6 +520,24 @@ if [ $CUSTOM == "yes" ]; then
     done
     echo
 
+    # Ask whether to install picom files
+    log_question "Would you like to $ACTION picom dotfiles?"
+    PS3="Choose your action: "
+    select ENTRY in Yes No
+    do
+        case $ENTRY in
+            Yes)
+                DO_PICOM=yes
+                break
+                ;;
+            No)
+                DO_PICOM=no
+                break
+                ;;
+        esac
+    done
+    echo
+
     # Ask whether to install compton files
     log_question "Would you like to $ACTION compton dotfiles?"
     PS3="Choose your action: "
@@ -857,6 +876,14 @@ if [ $DO_AWESOME == "yes" ]; then
     do_file "$DIR/awesome/lib" $CMD_USER_HOME_DIR/.config/awesome/lib
     do_file "$DIR/awesome/themes/default" $CMD_USER_HOME_DIR/.config/awesome/themes/default
     log_success "Updated awesomeWM dotfiles."
+    echo
+fi
+
+# Install picom
+if [ $DO_PICOM == "yes" ]; then
+    log_normal "Updating picom dotfiles..."
+    do_file "$DIR/picom/picom.conf" $CMD_USER_HOME_DIR/.config/picom/picom.conf
+    log_success "Updated picom dotfiles."
     echo
 fi
 

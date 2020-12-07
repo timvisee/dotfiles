@@ -12,6 +12,7 @@ dotfiles are used to personalize your system and applications. These are mine.
 * `bspwm`: tiling window manager, additional dependencies
     * `sxhkd`: shortcut daemon
     * `polybar`: desktop bar
+    * `picom`: compositor
     * `dunst`: notification daemon
 * `awesomeWM`: tiling window manager, additional dependencies
     * `awesome`: window manager itself
