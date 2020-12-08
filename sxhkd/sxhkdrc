@@ -118,3 +118,18 @@ super + alt + b
 
 alt + ctrl + p
     prs-gtk3-copy
+
+
+# EXTRAS
+# full screenshot to clipboard
+Print
+        maim -u | xclip -selection clipboard -t image/png
+
+# selection screenshot to clipboard
+shift + Print
+        maim -u --geometry $(slop) | xclip -selection clipboard -t image/png
+
+# window screenshot to clipboard
+ctrl + Print
+        maim -ui $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+

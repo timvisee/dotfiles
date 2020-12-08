@@ -15,6 +15,9 @@ dotfiles are used to personalize your system and applications. These are mine.
     * `picom`: compositor
     * `dunst`: notification daemon
     * `pasystray`: PulseAudio tray icon
+    * `xss-lock`: X screensaver lockscreen
+    * `slock`: X lockscreen
+    * `maim`: screenshotter
 * `awesomeWM`: tiling window manager, additional dependencies
     * `awesome`: window manager itself
     * `awesome-extra`: additional libraries used in my configuration
