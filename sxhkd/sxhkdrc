@@ -108,7 +108,7 @@ super + {Left,Down,Up,Right}
 # APPLICATIONS
 
 ctrl + alt + Return
-	dmenu_run
+	rofi -show run
 
 {ctrl + alt + t,super + Return}
 	alacritty
@@ -121,15 +121,19 @@ alt + ctrl + p
 
 
 # EXTRAS
+
 # full screenshot to clipboard
 Print
-        maim -u | xclip -selection clipboard -t image/png
+    maim -u | xclip -selection clipboard -t image/png
 
 # selection screenshot to clipboard
 shift + Print
-        maim -u --geometry $(slop) | xclip -selection clipboard -t image/png
+    maim -u --geometry $(slop) | xclip -selection clipboard -t image/png
 
 # window screenshot to clipboard
 ctrl + Print
-        maim -ui $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+    maim -ui $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
+# show all bindings
+ctrl + super + c
+    ~/.config/sxhkd/show_binds

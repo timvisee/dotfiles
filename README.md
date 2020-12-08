@@ -18,6 +18,7 @@ dotfiles are used to personalize your system and applications. These are mine.
     * `xss-lock`: X screensaver lockscreen
     * `slock`: X lockscreen
     * `maim`: screenshotter
+    * `rofi`: interactive selector
 * `awesomeWM`: tiling window manager, additional dependencies
     * `awesome`: window manager itself
     * `awesome-extra`: additional libraries used in my configuration
