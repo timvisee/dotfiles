@@ -19,6 +19,7 @@ dotfiles are used to personalize your system and applications. These are mine.
     * `slock`: X lockscreen
     * `maim`: screenshotter
     * `rofi`: interactive selector
+    * `playerctl`: MPRIS media controls
 * `awesomeWM`: tiling window manager, additional dependencies
     * `awesome`: window manager itself
     * `awesome-extra`: additional libraries used in my configuration

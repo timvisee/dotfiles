@@ -864,6 +864,7 @@ if [ $DO_POLYBAR == "yes" ]; then
     log_normal "Updating polybar dotfiles..."
     do_file "$DIR/polybar/config" $CMD_USER_HOME_DIR/.config/polybar/config
     do_file "$DIR/polybar/launch.sh" $CMD_USER_HOME_DIR/.config/polybar/launch.sh
+    do_file "$DIR/polybar/playerctl-status" $CMD_USER_HOME_DIR/.config/polybar/playerctl-status
     log_success "Updated polybar dotfiles."
     echo
 fi

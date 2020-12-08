@@ -44,7 +44,7 @@ height = 24
 offset-x = 0%
 offset-y = 0%
 ;radius = 6.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -61,13 +61,18 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+# font-0 = fixed:pixelsize=10;1
+# font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+# font-2 = siji:pixelsize=10;1
+# font-0 = "Tamsyn:pixelsize=10;0"
+# font-1 = "Roboto:size=11:weight=bold;2"
+# font-2 = "Noto Sans:size=11;1"
+font-0 = "Tamsyn:pixelsize=10;0"
+font-1 = "GLYPHICONS Basic Set:pixelsize=9;0"
 
 modules-left = bspwm i3
-modules-center = mpd
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-center = mpd playerctl playerctl-prev playerctl-play-pause playerctl-next
+modules-right = xbacklight pulseaudio filesystem xkeyboard memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -95,7 +100,7 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.secondary}
 
@@ -215,7 +220,7 @@ card = intel_backlight
 type = internal/cpu
 interval = 2
 format = <label> <ramp-coreload>
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage:2%%
@@ -233,7 +238,7 @@ ramp-coreload-7 = █
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %percentage_used%% %percentage_swap_used%%
@@ -266,7 +271,7 @@ interface = enp3s0
 interval = 2
 
 format-connected-underline = #55aa55
-format-connected-prefix = " "
+format-connected-prefix = ""
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %downspeed:9% %upspeed:8%
 
@@ -285,7 +290,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
@@ -295,10 +300,10 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+label-volume =   %percentage%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
+label-muted =  muted
 label-muted-foreground = #666
 
 bar-volume-width = 10
@@ -322,10 +327,10 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL
+label-volume = 
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = " "
+format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = sound muted
 
@@ -393,9 +398,9 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
@@ -405,9 +410,9 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = P
+label-open = 
 label-open-foreground = ${colors.secondary}
-label-close =  cancel
+label-close =  cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
@@ -439,12 +444,30 @@ screenchange-reload = true
 ; margin-top = 5
 ; margin-bottom = 5
 
-; vim:ft=dosini
+[module/playerctl]
+type = custom/script
+format-prefix = "  "
+format = <label>
+exec = ~/.config/polybar/playerctl-status
+interval = 2
 
-# [module/polywins]
-# type = custom/script
-# exec = ~/.config/polybar/polywins.sh 2>/dev/null
-# format = <label>
-# label = %output%
-# label-padding = 2
-# tail = true
+[module/playerctl-prev]
+type = custom/script
+# exec = echo "<"
+exec = echo ""
+format = <label>
+click-left = playerctl previous
+
+[module/playerctl-play-pause]
+type = custom/script
+exec = [ $(playerctl status) = "Playing" ] && echo "" || echo ""
+format = <label>
+click-left = playerctl play-pause
+interval = 2
+
+[module/playerctl-next]
+type = custom/script
+# exec = echo ">"
+exec = echo ""
+format = <label>
+click-left = playerctl next
