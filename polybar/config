@@ -70,9 +70,10 @@ module-margin-right = 2
 font-0 = "Tamsyn:pixelsize=10;0"
 font-1 = "GLYPHICONS Basic Set:pixelsize=9;0"
 
-modules-left = bspwm i3
+modules-left = bspwm i3 pulseaudio
 modules-center = mpd playerctl playerctl-prev playerctl-play-pause playerctl-next
-modules-right = xbacklight pulseaudio filesystem xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = xbacklight filesystem memory cpu wlan eth battery date powermenu
+# fun other modules: xkeyboard temperature
 
 tray-position = right
 tray-padding = 2
