@@ -113,6 +113,9 @@ ctrl + alt + Return
 {ctrl + alt + t,super + Return}
 	alacritty
 
+super + e
+    nautilus
+
 super + alt + b
     firefox-trunk || firefox
 
@@ -121,6 +124,10 @@ alt + ctrl + p
 
 
 # EXTRAS
+
+# media controls
+{XF86AudioPlay,XF86AudioNext}
+    playerctl {play-pause,next}
 
 # full screenshot to clipboard
 Print
