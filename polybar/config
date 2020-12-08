@@ -450,25 +450,27 @@ type = custom/script
 format-prefix = "  "
 format = <label>
 exec = ~/.config/polybar/playerctl-status
+exec-if = [ $(playerctl status) != "No players found" ]
 interval = 2
 
 [module/playerctl-prev]
 type = custom/script
-# exec = echo "<"
 exec = echo ""
+exec-if = [ $(playerctl status) != "No players found" ]
 format = <label>
 click-left = playerctl previous
 
 [module/playerctl-play-pause]
 type = custom/script
 exec = [ $(playerctl status) = "Playing" ] && echo "" || echo ""
+exec-if = [ $(playerctl status) != "No players found" ]
 format = <label>
 click-left = playerctl play-pause
 interval = 2
 
 [module/playerctl-next]
 type = custom/script
-# exec = echo ">"
 exec = echo ""
+exec-if = [ $(playerctl status) != "No players found" ]
 format = <label>
 click-left = playerctl next
