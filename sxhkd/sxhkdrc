@@ -125,9 +125,17 @@ alt + ctrl + p
 
 # EXTRAS
 
+# sound volume
+XF86Audio{LowerVolume,RaiseVolume}
+    pactl set-sink-volume @DEFAULT_SINK@ {-1000+1000}
+
+# sound/mic mute
+XF86Audio{Mute,MicMute}
+    pactl set-{sink,source}-mute @DEFAULT_SINK@ toggle
+
 # media controls
-{XF86AudioPlay,XF86AudioNext}
-    playerctl {play-pause,next}
+XF86Audio{Play,Pause,Stop,Prev,Next}
+    playerctl {play-pause,pause,stop,previous,next}
 
 # full screenshot to clipboard
 Print
