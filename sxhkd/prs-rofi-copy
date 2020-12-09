@@ -1,0 +1,3 @@
+#!/bin/bash
+
+prs copy $(prs list | rofi -p "secret" -dmenu -i -no-show-icons)

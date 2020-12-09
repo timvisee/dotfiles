@@ -118,6 +118,9 @@ super + alt + b
 alt + ctrl + p
     prs-gtk3-copy
 
+alt + ctrl + shift + p
+    ~/.config/sxhkd/prs-rofi-copy
+
 
 # EXTRAS
 

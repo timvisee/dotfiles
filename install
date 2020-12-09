@@ -855,6 +855,7 @@ if [ $DO_SXHKD == "yes" ]; then
     log_normal "Updating sxhkd dotfiles..."
     do_file "$DIR/sxhkd/sxhkdrc" $CMD_USER_HOME_DIR/.config/sxhkd/sxhkdrc
     do_file "$DIR/sxhkd/show-binds" $CMD_USER_HOME_DIR/.config/sxhkd/show-binds
+    do_file "$DIR/sxhkd/prs-rofi-copy" $CMD_USER_HOME_DIR/.config/sxhkd/prs-rofi-copy
     log_success "Updated sxhkd dotfiles."
     echo
 fi
