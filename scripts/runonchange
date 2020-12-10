@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Run given command when given file is changed
+#
+# Example:
+# ```
+# ./runonchange test.txt echo File has changed!
+# ```
+
+watch=$1
+cmd="${@:2}"
+
+while true; do
+    echo "\n# Running $cmd..."
+
+    $cmd
+
+    sleep 0.5
+    inotifywait -q -r -e attrib $watch > /dev/null
+    sleep 0.5
+done
