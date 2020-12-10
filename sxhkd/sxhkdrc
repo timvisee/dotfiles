@@ -7,12 +7,8 @@ super + Escape
 # BSPWM HOTKEYS
 
 # quit/restart bspwm
-super + shift + {q,r}
-    bspc {quit,wm -r}
-
-# close and kill
-super + {_,shift + }c
-    bspc node -{c,k}
+super + {_,shift +} q
+    bspc {wm -r,quit}
 
 # alternate between the tiled and monocle layout
 super + m
@@ -86,7 +82,11 @@ super + ctrl + shift + space
     bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 
-# MOVE/RESIZE
+# MOVE/RESIZE/ROTATE
+
+# rotate split of parent node or root 90/-90 degrees
+{ctrl +,_} super + {_,shift +} r
+    bspc node @{/,parent} -R {90,-90}
 
 # expand a window by moving one of its side outward
 ctrl + alt + {h,j,k,l}
