@@ -10,6 +10,10 @@ super + Escape
 super + {_,shift +} q
     bspc {wm -r,quit}
 
+# close and kill
+super + {_,shift + }c
+    bspc node -{c,k}
+
 # alternate between the tiled and monocle layout
 super + m
     bspc desktop -l next
