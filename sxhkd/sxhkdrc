@@ -119,6 +119,9 @@ super + e
 super + alt + b
     firefox-trunk || firefox
 
+super + alt + t
+    telegram-desktop || telegram
+
 alt + ctrl + p
     prs-gtk3-copy
 
