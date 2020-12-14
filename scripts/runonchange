@@ -11,11 +11,12 @@ watch=$1
 cmd="${@:2}"
 
 while true; do
-    echo "\n# Running $cmd..."
+    echo
+    echo "# Running $cmd..."
 
     $cmd
 
     sleep 0.5
-    inotifywait -q -r -e attrib $watch > /dev/null
+    inotifywait -qre attrib $watch > /dev/null
     sleep 0.5
 done
