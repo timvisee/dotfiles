@@ -4,8 +4,8 @@ if ! pidof sxhkd >/dev/null; then
     set -U SXHKD_SHELL sh
     sxhkd &
 fi
-if ! pidof compton >/dev/null; then
-    compton &
+if ! pidof picom >/dev/null; then
+    picom &
 fi
 if ! pidof dunst >/dev/null; then
     dunst &
