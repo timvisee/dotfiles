@@ -72,8 +72,8 @@ font-4 = unifont:fontformat=truetype:size=8:antialias=false;0
 
 modules-left = bspwm i3 pulseaudio
 modules-center = mpd playerctl playerctl-prev playerctl-play-pause playerctl-next
-modules-right = xbacklight filesystem memory cpu wlan eth battery date powermenu
-# fun other modules: xkeyboard temperature
+modules-right = xbacklight filesystem memory cpu wlan eth battery date xkeyboard powermenu
+# fun other modules: temperature
 
 tray-position = right
 tray-padding = 2
