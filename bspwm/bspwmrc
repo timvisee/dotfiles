@@ -23,7 +23,9 @@ fi
 ~/.config/polybar/launch.sh &
 
 # MONITORS
-bspc monitor -d home code edit im music game sys bullshit
+for m in $(xrandr | grep ' connected' | awk '{ print $1 }'); do
+    bspc monitor $m -d home code edit im music game sys bullshit
+done
 
 #### BSPWM configuration ####
 window_gap=4
