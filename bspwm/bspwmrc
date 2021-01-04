@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if ! pidof sxhkd >/dev/null; then
-    set -U SXHKD_SHELL sh
+    export SXHKD_SNELL=sh
     sxhkd &
 fi
 if ! pidof picom >/dev/null; then
