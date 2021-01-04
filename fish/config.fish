@@ -27,7 +27,7 @@ set fish_greeting
 fish_vi_key_bindings
 
 # Set-up keychain
-test -e keychain && eval (keychain --eval --quiet --agents ssh,gpg id_rsa)
+test -e (which keychain) && eval (keychain --eval --quiet --agents ssh,gpg id_rsa)
 
 # Set-up Rust environment
 test -f ~/.cargo/env && . ~/.cargo/env
