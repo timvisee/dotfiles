@@ -1,7 +1,7 @@
 # ~/.bash_profile: executed by bash for profiled shells.
 
 # Clear keychain passwords on login
-[[ -n `which keychain` ]] && keychain --clear
+[[ -n `which keychain` ]] && keychain --clear --noask
 
 # Add PATHs
 export PATH="$HOME/.cargo/bin:$PATH"

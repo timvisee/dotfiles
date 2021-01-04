@@ -9,10 +9,7 @@
 #umask 022
 
 # Clear keychain passwords on login
-[[ -n `which keychain` ]] && keychain --clear
-
-# Source .bashrc when running bash
-[ -n "$BASH_VERSION" ] && [ -f ~/.bashrc ] && . ~/.bashrc
+[[ -n `which keychain` ]] && keychain --clear --noask --quiet
 
 # Add some PATHs
 export PATH="$HOME/bin:$PATH"
@@ -21,17 +18,19 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # Set the terminal properties we're using
 export TERM="xterm-256"
-[[ -n `which alacritty` ]] && TERMCMD="alacritty" || export TERMCMD="x-terminal-emulator"
+[[ -n `which alacritty` ]] && export TERMCMD="alacritty" || export TERMCMD="x-terminal-emulator"
 
 # Bind the caps lock key to escape when xcape is installed
-if [ -e "/usr/bin/xcape" ]; then
+if [[ -e "/usr/bin/xcape" ]]; then
     setxkbmap -option 'caps:ctrl_modifier'
     xcape -e 'Caps_Lock=Escape'
 fi
 
 # Set-up nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[[ -s "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh"
 
 # Load custom xmodmap keymap
-[ -f "~/.xmodmap" ] && xmodmap ~/.xmodmap
+[[ -f "~/.xmodmap" ]] && xmodmap ~/.xmodmap
+
+true
