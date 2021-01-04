@@ -14,11 +14,7 @@ source ~/.config/fish/aliases.fish
 source ~/.config/fish/nvm.fish
 
 # Prompt
-if test -x (which starship)
-    eval (starship init fish)
-else
-    source ~/.config/fish/prompt.fish
-end
+test -x (which starship) && eval (starship init fish) || . ~/.config/fish/prompt.fish
 
 # Disable fish greeting
 set fish_greeting
@@ -27,7 +23,7 @@ set fish_greeting
 fish_vi_key_bindings
 
 # Set-up keychain
-test -e (which keychain) && eval (keychain --eval --quiet --agents ssh,gpg id_rsa)
+test -x (which keychain) && eval (keychain --eval --quiet --agents ssh,gpg id_rsa)
 
 # Set-up Rust environment
 test -f ~/.cargo/env && . ~/.cargo/env
