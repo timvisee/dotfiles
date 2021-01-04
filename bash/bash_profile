@@ -1,5 +1,8 @@
 # ~/.bash_profile: executed by bash for profiled shells.
 
+# Clear keychain passwords on login
+[[ -n `which keychain` ]] && keychain --clear
+
 # Source the .bashrc file if it exists
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc

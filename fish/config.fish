@@ -48,18 +48,7 @@ end
 
 # Configure keychain if installed
 if test -e keychain
-    # Initialize if no SSH agent has been initialized by us
-    # ; or test -z $SSH_AGENT_PID; or test -z (keychain -l); and test -e ~/.ssh/id_rsa
-    if test -z $SSH_AGENT_INIT; or test -z $SSH_AGENT_PID
-        echo "Initializing keychain..."
-        keychain --agents ssh id_rsa
-        set -Ux SSH_AGENT_INIT 1
-    end
-
-    # Import the current keychain environment
-    set SSH_AGENT_ENV $HOME/.keychain/(hostname)-fish
-    test -f $SSH_AGENT_ENV
-    and source $SSH_AGENT_ENV
+    eval (keychain --eval --quiet --agents ssh,gpg id_rsa)
 end
 
 # Set the preferred editor

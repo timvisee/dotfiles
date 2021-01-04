@@ -86,6 +86,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Configure keychain if installed
+if [[ -n `which keychain` ]]; then
+    eval $(keychain --eval --quiet --agents ssh,gpg id_rsa)
+fi
+
 # Source Rust's cargo environment
 if [[ -f ~/.cargo/env ]]; then
     source ~/.cargo/env
