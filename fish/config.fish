@@ -7,6 +7,7 @@ set -x GPG_TTY (tty)
 # Add PATHs
 set PATH $HOME/bin $PATH
 set PATH $HOME/.local/bin $PATH
+set PATH $HOME/.cargo/bin $PATH
 set PATH $HOME/.composer/vendor/bin:$PATH
 
 # Source other configuration files
@@ -14,7 +15,7 @@ source ~/.config/fish/aliases.fish
 source ~/.config/fish/nvm.fish
 
 # Prompt
-test -x (which starship) && eval (starship init fish) || . ~/.config/fish/prompt.fish
+type -q starship && eval (starship init fish) || . ~/.config/fish/prompt.fish
 
 # Disable fish greeting
 set fish_greeting
@@ -23,7 +24,7 @@ set fish_greeting
 fish_vi_key_bindings
 
 # Set-up keychain
-test -x (which keychain) && eval (keychain --eval --quiet --agents ssh,gpg id_rsa)
+type -q keychain && eval (keychain --eval --quiet --agents ssh,gpg id_rsa)
 
 # Set-up Rust environment
 test -f ~/.cargo/env && . ~/.cargo/env

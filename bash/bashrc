@@ -38,7 +38,6 @@ fi
 
 # Set some variables
 export EDITOR=vim
-export SHELL=bash
 export GPG_TTY=$(tty)
 
 # Add PATHs
@@ -62,7 +61,7 @@ fi
 [ -n "$(which starship)" ] && eval "$(starship init bash)"
 
 # Set-up keychain
-[[ -n `which keychain` ]] && eval $(keychain --eval --quiet --agents ssh,gpg id_rsa)
+[[ -n `which keychain` ]] && eval $(SHELL=bash keychain --eval --quiet --agents ssh,gpg id_rsa)
 
 # Set-up Rust environment
 [[ -f ~/.cargo/env ]] && . ~/.cargo/env
