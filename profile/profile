@@ -8,18 +8,20 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
+# Clear keychain passwords on login
+[[ -n `which keychain` ]] && keychain --clear
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+# Source .bashrc when running bash
+[ -n "$BASH_VERSION" ] && [ -f ~/.bashrc ] && . ~/.bashrc
+
+# Add some PATHs
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+# Set the terminal properties we're using
+export TERM="xterm-256"
+[[ -n `which alacritty` ]] && TERMCMD="alacritty" || export TERMCMD="x-terminal-emulator"
 
 # Bind the caps lock key to escape when xcape is installed
 if [ -e "/usr/bin/xcape" ]; then
@@ -27,29 +29,9 @@ if [ -e "/usr/bin/xcape" ]; then
     xcape -e 'Caps_Lock=Escape'
 fi
 
-export PATH="$HOME/.local/bin:$PATH"
-
-export PATH="$HOME/.cargo/bin:$PATH"
-
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-
+# Set-up nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # Load custom xmodmap keymap
-if [ -f "~/.xmodmap" ]; then
-    xmodmap ~/.xmodmap
-fi
-
-# Set the terminal properties we're using
-export TERM="xterm-256"
-# if [[ -x alacritty ]]; then
-    export TERMCMD="alacritty"
-# else
-#     export TERMCMD="x-terminal-emulator"
-# fi
-
-# Clear keychain passwords on login if installed
-if [[ -n `which keychain` ]]; then
-    keychain --clear
-fi
+[ -f "~/.xmodmap" ] && xmodmap ~/.xmodmap

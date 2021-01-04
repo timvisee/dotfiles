@@ -32,50 +32,22 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# Set a fancy prompt
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
 
-# Colored prompt, if the terminal has the capability
-force_color_prompt=yes
+################################################################################
 
-# Attempt to use starship for prompt, fallback to custom prompt
-if [ -n "$(which starship)" ]; then
-    eval "$(starship init bash)"
-else
-    if [ -n "$force_color_prompt" ]; then
-        if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-        # We have color support; assume it's compliant with Ecma-48
-        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-        # a case would tend to support setf rather than setaf.)
-        color_prompt=yes
-        else
-        color_prompt=
-        fi
-    fi
 
-    if [ "$color_prompt" = yes ]; then
-        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    else
-        PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    fi
+# Set some variables
+export EDITOR=vim
+export SHELL=bash
+export GPG_TTY=$(tty)
 
-    # If this is an xterm set the title to user@host:dir
-    case "$TERM" in
-    xterm*|rxvt*)
-        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-        ;;
-    *)
-        ;;
-    esac
-fi
-unset color_prompt force_color_prompt
+# Add PATHs
+export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.composer/vendor/bin:$PATH
 
-# Include aliasses if the file exists
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+# Source aliasses
+[ -f ~/.bash_aliases ] && . ~/.bash_aliases
 
 # Enable programmable completion features
 if ! shopt -oq posix; then
@@ -86,179 +58,22 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Configure keychain if installed
-if [[ -n `which keychain` ]]; then
-    eval $(keychain --eval --quiet --agents ssh,gpg id_rsa)
-fi
+# Set-up starship prompt
+[ -n "$(which starship)" ] && eval "$(starship init bash)"
 
-# Source Rust's cargo environment
-if [[ -f ~/.cargo/env ]]; then
-    source ~/.cargo/env
-fi
+# Set-up keychain
+[[ -n `which keychain` ]] && eval $(keychain --eval --quiet --agents ssh,gpg id_rsa)
 
-# Add the rust source path to the path
-if [[ $(command -v rustc) ]]; then
-    RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
-    if [ -d $RUST_SRC_PATH ]; then
-        export RUST_SRC_PATH
-    fi
-fi
+# Set-up Rust environment
+[[ -f ~/.cargo/env ]] && . ~/.cargo/env
 
-# Configure Go's environment
-if [[ -d "/usr/local/go/bin" ]]; then 
-    export GOROOT=/usr/local/go/bin
-    export GOPATH=$HOME/.go
-    export PATH=$PATH:$GOROOT/bin
-elif [[ -d "/usr/lib/go" ]]; then
-    export GOROOT=/usr/lib/go
-    export GOPATH=$HOME/.go
-    export PATH=$PATH:$GOROOT/bin
-fi
-
-# Configure composer
-if [ -d "$HOME/.composer/vendor/bin" ]; then
-    export PATH=$PATH:$HOME/.composer/vendor/bin
-fi
-
-# Kill all running Docker containers
-function docker_kill_all() {
-    DOCKER_CONTAINERS=`docker ps -q --no-trunc`
-    if [[ "$DOCKER_CONTAINERS" ]]; then
-        echo "Killing all running Docker containers..."
-        docker kill $DOCKER_CONTAINERS
-    else
-        echo "No Docker containers to kill"
-    fi
-
-    echo "Done"
-}
-
-# Remove all Docker containers
-function docker_rm_all() {
-    DOCKER_CONTAINERS=`docker ps -aq --no-trunc`
-    if [[ "$DOCKER_CONTAINERS" ]]; then
-        echo "Removing all Docker containers..."
-        docker rm $DOCKER_CONTAINERS
-    else
-        echo "No Docker containers to remove"
-    fi
-
-    echo "Done"
-}
-
-# Clean Docker, by removing things like dangling images.
-function docker_clean() {
-    DANGLING_IMAGES=`docker images -f "dangling=true" -q --no-trunc`
-    if [[ "$DANGLING_IMAGES" ]]; then
-        echo "Cleaning up dangling Docker images..."
-        docker rmi $DANGLING_IMAGES
-    else
-        echo "No dangling Docker images to remove"
-    fi
-
-    DANGLING_VOLUMES=`docker volume ls -f "dangling=true" -q`
-    if [[ "$DANGLING_VOLUMES" ]]; then
-        echo "Pruning all unused Docker volumes..."
-        docker volume prune -f
-    else
-        echo "No dangling Docker volumes to prune"
-    fi
-
-    echo "Done"
-}
-
-# Clean up Docker, by removing all containers and images
-function docker_clean_all() {
-    echo "Resetting Docker..."
-
-    # Remove containers and clean
-    docker_rm_all
-    docker_clean
-
-    # Remove the ever increasing Docker image file from macOS
-    if [[ `uname -s` == "Darwin" ]]; then
-        rm -f ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
-    fi
-
-    echo "Done"
-}
-
-# Remove the last created container.
-function docker_rm_last() {
-    LAST_CONTAINER=`docker ps -lq --no-trunc`
-    if [[ "$LAST_CONTAINER" ]]; then
-        echo "Removing the last created Docker container..."
-        docker rm $LAST_CONTAINER
-    else
-        echo "No last Docker container to remove"
-    fi
-
-    echo "Done"
-}
-
-# Enable GPG signing for a repository
-#
-# First, this function sets the GPG key to use for signing commits,
-# based on the given signature.
-#
-# Then, this function enables automatic signing for commits,
-# so the flag -S doesn't have to be supplied when committing.
-#
-# $1: ID of the GPG key to use
-function git_enable_gpg() {
-    # Make sure a key is entered
-    if [[ ! "$1" ]]; then
-        echo "Please provide a GPG key ID!"
-        echo "  git_enable_gpg [GPG_ID]"
-        return 1
-    fi
-
-    # List the key by it's ID
-    echo "Checking the GPG key ID..."
-    gpg --list-keys $1
-
-    # Report, return if the key is invalid
-    if [[ ! $? -eq 0 ]]; then
-        echo "Invalid GPG key ID!"
-        return 1
-    fi
-
-    echo "Enabling GPG signing..."
-
-    # Set the signing key
-    git config user.signingKey $1
-
-    # Enable signing by default
-    git config commit.gpgsign true
-
-    echo "Done"
-}
-
-# Configure keychain if installed
-if [[ -n `which keychain` ]]; then
-    # Initialize if no agent is started
-    # or if the chain list if empty when a key is available
-    # [[ -z "$(keychain -l)" ]] && [[ -e ~/.ssh/id_rsa ]]; then
-    if [[ -z $SSH_AGENT_INIT ]] || [[ -z $SSH_AGENT_PID ]]; then
-        echo "Initializing keychain..."
-        keychain --agents ssh id_rsa
-    fi
-
-    # Import the current keychain environment
-    SSH_AGENT_ENV="$HOME/.keychain/$(hostname)-sh"
-    [[ -f $SSH_AGENT_ENV ]] && source $SSH_AGENT_ENV
-fi
-
-# NVM
+# Set-up nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Set the preferred editor
-export EDITOR=vim
+# Set-up fzf
+[ -f ~/.fzf.bash ] && . ~/.fzf.bash
 
-# GPG key
-export GPG_TTY=$(tty)
-
-# Load fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# Source functions
+source ~/.bash_functions

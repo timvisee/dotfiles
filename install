@@ -704,6 +704,7 @@ if [ $DO_BASH == "yes" ]; then
     do_file "$DIR/bash/bashrc" $CMD_USER_HOME_DIR/.bashrc
     do_file "$DIR/bash/bash_profile" $CMD_USER_HOME_DIR/.bash_profile
     do_file "$DIR/bash/bash_aliases" $CMD_USER_HOME_DIR/.bash_aliases
+    do_file "$DIR/bash/bash_functions" $CMD_USER_HOME_DIR/.bash_functions
     log_success "Updated bash dotfiles."
     echo
 fi

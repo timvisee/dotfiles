@@ -1,0 +1,115 @@
+#!/bin/bash
+
+# Kill all running Docker containers
+function docker_kill_all() {
+    DOCKER_CONTAINERS=`docker ps -q --no-trunc`
+    if [[ "$DOCKER_CONTAINERS" ]]; then
+        echo "Killing all running Docker containers..."
+        docker kill $DOCKER_CONTAINERS
+    else
+        echo "No Docker containers to kill"
+    fi
+
+    echo "Done"
+}
+
+# Remove all Docker containers
+function docker_rm_all() {
+    DOCKER_CONTAINERS=`docker ps -aq --no-trunc`
+    if [[ "$DOCKER_CONTAINERS" ]]; then
+        echo "Removing all Docker containers..."
+        docker rm $DOCKER_CONTAINERS
+    else
+        echo "No Docker containers to remove"
+    fi
+
+    echo "Done"
+}
+
+# Clean Docker, by removing things like dangling images.
+function docker_clean() {
+    DANGLING_IMAGES=`docker images -f "dangling=true" -q --no-trunc`
+    if [[ "$DANGLING_IMAGES" ]]; then
+        echo "Cleaning up dangling Docker images..."
+        docker rmi $DANGLING_IMAGES
+    else
+        echo "No dangling Docker images to remove"
+    fi
+
+    DANGLING_VOLUMES=`docker volume ls -f "dangling=true" -q`
+    if [[ "$DANGLING_VOLUMES" ]]; then
+        echo "Pruning all unused Docker volumes..."
+        docker volume prune -f
+    else
+        echo "No dangling Docker volumes to prune"
+    fi
+
+    echo "Done"
+}
+
+# Clean up Docker, by removing all containers and images
+function docker_clean_all() {
+    echo "Resetting Docker..."
+
+    # Remove containers and clean
+    docker_rm_all
+    docker_clean
+
+    # Remove the ever increasing Docker image file from macOS
+    if [[ `uname -s` == "Darwin" ]]; then
+        rm -f ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
+    fi
+
+    echo "Done"
+}
+
+# Remove the last created container.
+function docker_rm_last() {
+    LAST_CONTAINER=`docker ps -lq --no-trunc`
+    if [[ "$LAST_CONTAINER" ]]; then
+        echo "Removing the last created Docker container..."
+        docker rm $LAST_CONTAINER
+    else
+        echo "No last Docker container to remove"
+    fi
+
+    echo "Done"
+}
+
+# Enable GPG signing for a repository
+#
+# First, this function sets the GPG key to use for signing commits,
+# based on the given signature.
+#
+# Then, this function enables automatic signing for commits,
+# so the flag -S doesn't have to be supplied when committing.
+#
+# $1: ID of the GPG key to use
+function git_enable_gpg() {
+    # Make sure a key is entered
+    if [[ ! "$1" ]]; then
+        echo "Please provide a GPG key ID!"
+        echo "  git_enable_gpg [GPG_ID]"
+        return 1
+    fi
+
+    # List the key by it's ID
+    echo "Checking the GPG key ID..."
+    gpg --list-keys $1
+
+    # Report, return if the key is invalid
+    if [[ ! $? -eq 0 ]]; then
+        echo "Invalid GPG key ID!"
+        return 1
+    fi
+
+    echo "Enabling GPG signing..."
+
+    # Set the signing key
+    git config user.signingKey $1
+
+    # Enable signing by default
+    git config commit.gpgsign true
+
+    echo "Done"
+}
