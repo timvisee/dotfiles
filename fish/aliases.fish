@@ -47,7 +47,7 @@ function mkcd
 end
 
 # Pass aliases
-alias p 'prs show'
+alias p 'prs show --verbose --timeout 20'
 alias pc 'prs copy'
 
 # Git aliases
