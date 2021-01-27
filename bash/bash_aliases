@@ -79,7 +79,7 @@ alias gl='git log'
 alias gll="git -c core.pager='less -p^commit.*$' log -p -M -w --stat --pretty=fuller --show-notes"
 alias glg='git log --pretty="format:%Cred%h %Cblue%d %Cgreen%s %Creset%an %ar" --graph'
 alias gf='git fetch'
-alias gfp='git fetch && git pull'
+alias gfm='git pull'
 alias gr='git remote'
 alias grr='git reset'
 alias grrh='git reset --hard'
