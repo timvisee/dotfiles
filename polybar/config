@@ -72,7 +72,7 @@ font-4 = unifont:fontformat=truetype:size=8:antialias=false;0
 
 modules-left = bspwm i3 pulseaudio
 modules-center = mpd playerctl playerctl-prev playerctl-play-pause playerctl-next
-modules-right = xbacklight filesystem memory cpu wlan eth battery date xkeyboard powermenu
+modules-right = xbacklight filesystem btc memory cpu wlan eth battery date xkeyboard powermenu
 # fun other modules: temperature
 
 tray-position = right
@@ -474,3 +474,13 @@ exec = echo ""
 exec-if = [ $(playerctl status) != "No players found" ]
 format = <label>
 click-left = playerctl next
+
+[module/btc]
+type = custom/script
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-underline = #f7931a
+format-underline = #f7931a
+format = <label>
+exec = curl -s 'https://blockchain.info/ticker' | jq .USD.last
+interval = 60
