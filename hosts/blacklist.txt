@@ -149,6 +149,7 @@
 127.0.0.1 vthumb.ak.fbcdn.net
 127.0.0.1 vupload.facebook.com
 127.0.0.1 vupload2.vvv.facebook.com
+127.0.0.1 web.facebook.com
 127.0.0.1 www.connect.facebook.net
 127.0.0.1 www.facebook.com
 127.0.0.1 www.facebook.de
