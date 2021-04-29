@@ -105,6 +105,9 @@ alias cc 'cargo check'
 alias ct 'cargo test'
 alias cu 'cargo update'
 
+# Free memory cache and swap
+alias drop_cache 'sudo sh -c "echo 3 > /proc/sys/vm/drop_caches && swapoff -a && swapon -a"'
+
 # Create the composer alias if it exists
 if test -e '/usr/local/bin/composer.phar'
     alias composer 'php /usr/local/bin/composer.phar'
