@@ -948,9 +948,9 @@ fi
 
 # Install CS:GO
 if [ $DO_CSGO == "yes" ]; then
-    if [ -d "$CMD_USER_HOME_DIR/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive" ]; then
+    if [ -d "$CMD_USER_HOME_DIR/.steam/steam/steamapps/common/Counter-Strike Global Offensive" ]; then
         log_normal "Updating CS:GO dotfiles..."
-        do_file "$DIR/csgo/autoexec.cfg" "$CMD_USER_HOME_DIR/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/autoexec.cfg"
+        do_file "$DIR/csgo/autoexec.cfg" "$CMD_USER_HOME_DIR/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/autoexec.cfg"
         log_success "Updated CS:GO dotfiles."
     else
         log_normal "CS:GO not installed, skipping it's dotfiles."
