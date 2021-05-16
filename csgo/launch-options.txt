@@ -1,1 +1,1 @@
-gamemoderun %command% -novid -tickrate 128 -nojoy -threads 3
+gamemoderun %command% -novid -tickrate 128 -nojoy
