@@ -71,9 +71,9 @@ font-4 = unifont:fontformat=truetype:size=8:antialias=false;0
 # font-7 = "Noto Sans:size=11;1"
 
 modules-left = bspwm i3 pulseaudio
-modules-center = mpd playerctl playerctl-prev playerctl-play-pause playerctl-next
+modules-center = playerctl playerctl-prev playerctl-play-pause playerctl-next
 modules-right = xbacklight filesystem btc memory cpu wlan eth battery date xkeyboard powermenu
-# fun other modules: temperature
+# fun other modules: mpd temperature
 
 tray-position = right
 tray-padding = 2
