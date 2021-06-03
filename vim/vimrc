@@ -2,7 +2,7 @@
 set nocompatible
 filetype off
 
-# Disable slow polyglot languages
+" Disable slow polyglot languages
 let g:polyglot_disabled = ['vue']
 
 " Begin vim-plug plugin loading
