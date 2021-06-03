@@ -70,7 +70,7 @@ font-4 = unifont:fontformat=truetype:size=8:antialias=false;0
 # font-6 = "Roboto:size=11:weight=bold;2"
 # font-7 = "Noto Sans:size=11;1"
 
-modules-left = bspwm i3 pulseaudio
+modules-left = bspwm i3 pulseaudio peperone peperone-start-stop
 modules-center = playerctl playerctl-prev playerctl-play-pause playerctl-next
 modules-right = xbacklight filesystem btc memory cpu wlan eth battery date xkeyboard powermenu
 # fun other modules: mpd temperature
@@ -474,6 +474,21 @@ exec = echo ""
 exec-if = [ $(playerctl status) != "No players found" ]
 format = <label>
 click-left = playerctl next
+
+[module/peperone]
+type = custom/script
+format-prefix = "  "
+format = <label>
+exec = peperone show polybar --quiet
+exec-if = [ $(playerctl status) != "No players found" ]
+interval = 2
+
+[module/peperone-start-stop]
+type = custom/script
+exec = peperone show polybar --quiet > /dev/null && echo "" || echo ""
+format = <label>
+click-left = peperone rm polybar || peperone new polybar
+interval = 2
 
 [module/btc]
 type = custom/script
