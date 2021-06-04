@@ -479,10 +479,11 @@ click-left = playerctl next
 type = custom/script
 format-prefix = "  "
 format = <label>
-exec = peperone watch polybar --quiet || echo 0:00
+exec = peperone tail polybar --keep-going --quiet || echo 0:00
 tail = true
-interval = 3
-click-left = peperone rm polybar || peperone new polybar
+interval = 60
+click-left = peperone toggle polybar || peperone new polybar
+click-right = peperone rm polybar || peperone new polybar
 
 [module/btc]
 type = custom/script
