@@ -1,5 +1,25 @@
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 
+/* Hide main tabs */
 #TabsToolbar {
     display: none;
+    visibility: collapse;
+}
+
+/* No sidebar size limits */
+#sidebar {
+    max-width: none !important;
+    min-width: 1px !important;
+}
+
+/* With TST: 1px sidebar splitter */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] + #sidebar-splitter {
+    border: 0 !important;
+    width: 1px !important;
+    background: #0c0c0d !important;
+}
+
+/* With TST: hide sidebar header */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+    visibility: collapse;
 }
