@@ -66,11 +66,12 @@ bspc config urgent_border_color 	        "#dd2727"
 #### BSPWM rules ####
 bspc rule -a Firefox desktop='^1'
 bspc rule -a Gimp desktop='^3' follow=on
-bspc rule -a Mumble desktop='^4' follow=on
-bspc rule -a MellowPlayer desktop='^5' follow=on
-bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
+bspc rule -a MellowPlayer desktop='^5' follow=on
+bspc rule -a Mumble desktop='^4' follow=on
 bspc rule -a Screenkey manage=off
+bspc rule -a Steam desktop='^6' follow=false
+bspc rule -a mplayer2 state=floating
 
 #### OTHER STUFF ####
 
