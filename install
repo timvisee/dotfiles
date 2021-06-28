@@ -717,13 +717,9 @@ if [ $DO_FISH == "yes" ]; then
     do_file "$DIR/fish/nvm.fish" $CMD_USER_HOME_DIR/.config/fish/nvm.fish
     do_file "$DIR/fish/prompt.fish" $CMD_USER_HOME_DIR/.config/fish/prompt.fish
     do_file "$DIR/fish/g2prompt.fish" $CMD_USER_HOME_DIR/.config/fish/g2prompt.fish
-    do_file "$DIR/fish/functions/docker_clean_all.fish" $CMD_USER_HOME_DIR/.config/fish/functions/docker_clean_all.fish
-    do_file "$DIR/fish/functions/docker_clean.fish" $CMD_USER_HOME_DIR/.config/fish/functions/docker_clean.fish
-    do_file "$DIR/fish/functions/docker_kill_all.fish" $CMD_USER_HOME_DIR/.config/fish/functions/docker_kill_all.fish
-    do_file "$DIR/fish/functions/docker_rm_all.fish" $CMD_USER_HOME_DIR/.config/fish/functions/docker_rm_all.fish
-    do_file "$DIR/fish/functions/docker_rm_last.fish" $CMD_USER_HOME_DIR/.config/fish/functions/docker_rm_last.fish
-    do_file "$DIR/fish/functions/fuck.fish" $CMD_USER_HOME_DIR/.config/fish/functions/fuck.fish
-    do_file "$DIR/fish/functions/git_enable_gpg.fish" $CMD_USER_HOME_DIR/.config/fish/functions/git_enable_gpg.fish
+    for file in $(cd "$DIR/fish/functions/" && ls *.fish); do
+        do_file "$DIR/fish/functions/$file" $CMD_USER_HOME_DIR/.config/fish/functions/$file
+    done
     log_success "Updated fish dotfiles."
     echo
 fi
