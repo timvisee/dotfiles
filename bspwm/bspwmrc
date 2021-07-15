@@ -4,7 +4,7 @@ if ! pidof sxhkd >/dev/null; then
     SXHKD_SHELL=sh sxhkd &
 fi
 if ! pidof picom >/dev/null; then
-    picom &
+    picom --experimental-backends &
 fi
 if ! pidof dunst >/dev/null; then
     dunst &
