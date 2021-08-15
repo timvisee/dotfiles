@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-if ! pidof sxhkd >/dev/null; then
-    SXHKD_SHELL=sh sxhkd &
-fi
+pkill sxhkd || true
+SXHKD_SHELL=sh sxhkd &
+
 if ! pidof picom >/dev/null; then
     picom --experimental-backends &
 fi
