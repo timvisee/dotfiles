@@ -3,20 +3,23 @@
 pkill sxhkd || true
 SXHKD_SHELL=sh sxhkd &
 
-if ! pidof picom >/dev/null; then
+if ! pidof picom > /dev/null; then
     picom --experimental-backends &
 fi
-if ! pidof dunst >/dev/null; then
+if ! pidof dunst > /dev/null; then
     dunst &
 fi
-if ! pidof xss-lock >/dev/null; then
+if ! pidof xss-lock > /dev/null; then
     xss-lock ~/.config/bspwm/lockscreen &
 fi
-if ! pidof pasystray >/dev/null; then
+if ! pidof pasystray > /dev/null; then
     pasystray &
 fi
-if ! pidof nm-applet >/dev/null; then
+if ! pidof nm-applet > /dev/null; then
     nm-applet &
+fi
+if ! pidof blueman-applet > /dev/null; then
+    blueman-applet &
 fi
 
 ~/.config/polybar/launch.sh &
