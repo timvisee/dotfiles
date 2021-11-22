@@ -5,5 +5,5 @@ player_status=$(playerctl status)
 if [ "$player_status" = "Stopped" ]; then
     echo "No music is playing"
 elif [ "$player_status" = "Playing" ] || [ "$player_status" = "Paused" ]; then
-    playerctl metadata --format "{{ title }} - {{ artist }}" | head -c50
+    playerctl metadata --format "{{ title }} - {{ artist }}" | cut -c-50
 fi
