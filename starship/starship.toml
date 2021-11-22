@@ -49,3 +49,6 @@ symbol = "P"
 [rust]
 format = "[$symbol$version]($style) "
 symbol = "R"
+
+[java]
+disabled = true
