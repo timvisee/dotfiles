@@ -268,7 +268,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp3s0
+interface = enp42s0
 interval = 2
 
 format-connected-underline = #55aa55
