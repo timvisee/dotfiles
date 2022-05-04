@@ -60,7 +60,11 @@ export PATH=$HOME/.composer/vendor/bin:$PATH
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
 
 # Set-up starship prompt
-[ -n "$(which starship)" ] && eval "$(starship init bash)"
+if [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
+    [ -n "$(which starship)" ] && eval "$(starship init bash)"
+elif [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
+    [ -n "$(which starship)" ] && eval "$(starship init zsh)"
+fi
 
 # Set-up keychain
 [[ -n `which keychain` ]] && eval $(SHELL=bash keychain --eval --quiet --agents ssh,gpg id_rsa)
@@ -73,11 +77,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Set-up fzf
 if [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
-    # Set-up fzf for bash
     [ -f ~/.fzf.bash ] && . ~/.fzf.bash
 elif [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
-    # Set-up fzf for zsh
     [ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
 fi
 
