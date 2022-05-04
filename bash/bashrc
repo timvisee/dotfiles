@@ -67,7 +67,7 @@ elif [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
 fi
 
 # Set-up keychain
-[[ -n `which keychain` ]] && eval $(SHELL=bash keychain --eval --quiet --agents ssh,gpg id_rsa)
+which keychain > /dev/null && eval $(SHELL=bash keychain --eval --quiet --agents ssh,gpg id_rsa)
 
 # Set-up Rust environment
 [[ -f ~/.cargo/env ]] && . ~/.cargo/env
