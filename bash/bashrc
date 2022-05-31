@@ -55,6 +55,7 @@ export GPG_TTY=$(tty)
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.composer/vendor/bin:$PATH
+export PATH=$HOME/.bitfactory/bin:$PATH
 
 # Source aliasses
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
