@@ -70,7 +70,6 @@ bspc config urgent_border_color 	        "#dd2727"
 bspc rule -a Firefox desktop='^1'
 bspc rule -a Nightly desktop='^1'
 bspc rule -a Thunderbird desktop='^4'
-bspc rule -a Gimp desktop='^3' follow=on
 bspc rule -a Kupfer.py focus=on
 bspc rule -a MellowPlayer desktop='^5' follow=on
 bspc rule -a Mumble desktop='^4' follow=on
