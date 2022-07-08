@@ -12,12 +12,12 @@
     min-width: 1px !important;
 }
 
-/* With TST: 1px sidebar splitter */
-#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] + #sidebar-splitter {
-    border: 0 !important;
-    width: 1px !important;
-    background: #0c0c0d !important;
-}
+/* /1* With TST: 1px sidebar splitter *1/ */
+/* #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] + #sidebar-splitter { */
+/*     border: 0 !important; */
+/*     width: 1px !important; */
+/*     background: #0c0c0d !important; */
+/* } */
 
 /* With TST: hide sidebar header */
 #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {

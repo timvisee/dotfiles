@@ -11,7 +11,7 @@ alias q 'exit'
 alias :q 'exit'
 
 # Nvim and vim aliases
-if test -x "/usr/bin/nvim"; or test -x "/usr/bin/local/nvim"
+if command -qv nvim
     alias v 'nvim'
     alias vi 'nvim'
     alias vim 'nvim'
@@ -23,7 +23,7 @@ else
 end
 
 # neomutt and mutt aliases
-if test -x "/usr/bin/neomutt"; or test -x "/usr/bin/local/neomutt"
+if command -qv neomutt
     alias m 'neomutt'
     alias mutt 'neomutt'
 else

@@ -9,16 +9,27 @@ esac
 # Don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 
-# Append to the history file, don't overwrite it
-shopt -s histappend
+if [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
+    # Append to the history file, don't overwrite it
+    shopt -s histappend
+
+    # Check the window size after each command and, if necessary,
+    # update the values of LINES and COLUMNS.
+    shopt -s checkwinsize
+
+    # Enable programmable completion features
+    if ! shopt -oq posix; then
+        if [ -f /usr/share/bash-completion/bash_completion ]; then
+            . /usr/share/bash-completion/bash_completion
+        elif [ -f /etc/bash_completion ]; then
+            . /etc/bash_completion
+        fi
+    fi
+fi
 
 # Set the history length
 HISTSIZE=1000
 HISTFILESIZE=2000
-
-# Check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -44,24 +55,20 @@ export GPG_TTY=$(tty)
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.composer/vendor/bin:$PATH
+export PATH=$HOME/.bitfactory/bin:$PATH
 
 # Source aliasses
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
 
-# Enable programmable completion features
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+# Set-up starship prompt
+if [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
+    [ -n "$(which starship)" ] && eval "$(starship init bash)"
+elif [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
+    [ -n "$(which starship)" ] && eval "$(starship init zsh)"
 fi
 
-# Set-up starship prompt
-[ -n "$(which starship)" ] && eval "$(starship init bash)"
-
 # Set-up keychain
-[[ -n `which keychain` ]] && eval $(SHELL=bash keychain --eval --quiet --agents ssh,gpg id_rsa)
+which keychain > /dev/null && eval $(SHELL=bash keychain --eval --quiet --agents ssh,gpg id_rsa)
 
 # Set-up Rust environment
 [[ -f ~/.cargo/env ]] && . ~/.cargo/env
@@ -72,7 +79,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Set-up fzf
-[ -f ~/.fzf.bash ] && . ~/.fzf.bash
+if [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
+    [ -f ~/.fzf.bash ] && . ~/.fzf.bash
+elif [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
+    [ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
+fi
 
 # Source functions
 source ~/.bash_functions
