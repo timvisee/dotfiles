@@ -113,3 +113,12 @@ function git_enable_gpg() {
 
     echo "Done"
 }
+
+# Rerun command when directory contents change
+function rerun () {
+    while true; do
+        reset;
+        "$@";
+        inotifywait -e MODIFY --recursive .
+    done
+}
