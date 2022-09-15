@@ -22,14 +22,6 @@ else
     alias nvi 'vim'
 end
 
-# neomutt and mutt aliases
-if command -qv neomutt
-    alias m 'neomutt'
-    alias mutt 'neomutt'
-else
-    alias m 'mutt'
-end
-
 # Exa alias
 alias e 'exa'
 alias ela 'exa -lab --git'
@@ -67,6 +59,9 @@ alias git_clean_repo 'git clean -dfx'
 # Docker
 alias d 'docker'
 alias dc 'docker-compose'
+
+# Make alias
+alias m 'make'
 
 # Clipboard aliases
 if [ (uname -s) = "Darwin" ]

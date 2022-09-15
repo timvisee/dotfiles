@@ -22,14 +22,6 @@ else
     alias nvi='vim'
 fi
 
-# neomutt and mutt aliases
-if [[ $(command -v neomutt) ]]; then
-    alias m='neomutt'
-    alias mutt='neomutt'
-else
-    alias m='mutt'
-fi
-
 # Exa elias
 alias e='exa'
 alias ela='exa -lab --git'
@@ -89,6 +81,9 @@ alias git_clean_repo='git clean -dfx'
 # Docker aliases
 alias d='docker'
 alias dc='docker-compose'
+
+# Make alias
+alias m='make'
 
 # Clipboard aliases
 if [[ `uname -s` == "Darwin" ]]; then
