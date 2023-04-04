@@ -506,11 +506,6 @@ cnoreabbrev W w
 cnoreabbrev Wq wq
 cnoreabbrev WQ wq
 
-" Fugitive shortcuts
-cnoreabbrev Gc Gcommit
-cnoreabbrev Gp Gpush
-cnoreabbrev Gs Gstatus
-
 
 
 """ Plugins
