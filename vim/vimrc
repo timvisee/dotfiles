@@ -127,6 +127,12 @@ hi Normal ctermbg=NONE
 " Concealing
 set conceallevel=2
 
+" Enable indent folding (zc, zo)
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
 " Airline theme
 let g:airline_theme='base16'
 
