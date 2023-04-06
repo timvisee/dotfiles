@@ -350,6 +350,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+nnoremap <silent> <leader>k <Plug>(coc-codeaction-selected)w
 nnoremap <silent> <leader>ac <Plug>(coc-codeaction-cursor)
 nnoremap <silent> <leader>rf <Plug>(coc-codeaction-refactor)
 nnoremap <silent> <leader>re <Plug>(coc-codeaction-refactor-selected)
