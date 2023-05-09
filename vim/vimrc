@@ -379,9 +379,6 @@ nnoremap <silent> <leader>gl :Commits<CR>
 nnoremap <silent> <leader>ga :BCommits<CR>
 nnoremap <silent> <leader>ft :Filetypes<CR>
 nnoremap <silent> <leader>h :Helptags<CR>
-"nnoremap <leader>/ :Ag
-"nnoremap <silent> <leader>o :BTags<CR>
-"nnoremap <silent> <leader>O :Tags<CR>
 
 " Vim multiple cursors
 let g:multi_cursor_use_default_mapping=0
