@@ -349,6 +349,16 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Coc docs
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
 nnoremap <silent> <leader>k <Plug>(coc-codeaction-selected)w
 nnoremap <silent> <leader>ac <Plug>(coc-codeaction-cursor)
 nnoremap <silent> <leader>rf <Plug>(coc-codeaction-refactor)
