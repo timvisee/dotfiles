@@ -69,7 +69,6 @@ Plug 'noahfrederick/vim-laravel'
 
 " Linting/Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Shougo/echodoc.vim'
 
 " End vim-plug plugin loading
 call plug#end()
