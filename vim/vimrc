@@ -518,6 +518,23 @@ cnoreabbrev W w
 cnoreabbrev Wq wq
 cnoreabbrev WQ wq
 
+" Insert random digit at cursor
+inoremap <leader>x <esc>:exe ":normal a" . rand() % 10<CR>a
+nnoremap <leader>x <esc>:exe ":normal r" . rand() % 10<CR>
+
+" Insert random vector with `dim` dimensions
+" Use: :call RandVec(4)
+function! RandVec(dim)
+    normal di[h
+
+    let n = a:dim
+    while n > 0
+        exe "normal a" . rand() % 10 . ".0, "
+        let n -= 1
+    endwhile
+    normal hxx
+endfunction
+
 
 
 """ Plugins
