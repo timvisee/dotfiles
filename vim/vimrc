@@ -431,8 +431,9 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap Q @@
 
 " Vim snipe
-map <leader>F <Plug>(snipe-F)
 map <leader>f <Plug>(snipe-f)
+map <leader>F <Plug>(snipe-F)
+map <leader>t <Plug>(snipe-t)
 map <leader>T <Plug>(snipe-T)
 
 map <leader>w <Plug>(snipe-w)
