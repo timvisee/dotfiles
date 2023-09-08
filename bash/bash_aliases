@@ -22,9 +22,14 @@ else
     alias nvi='vim'
 fi
 
-# Exa elias
-alias e='exa'
-alias ela='exa -lab --git'
+# Eza/exa elias
+if [[ $(command -v nvim) ]]; then
+    alias e='eza'
+    alias ela='eza -lab --git'
+else
+    alias e='exa'
+    alias ela='exa -lab --git'
+fi
 
 # Useful list aliases
 alias la='ls -al'

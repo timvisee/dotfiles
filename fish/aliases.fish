@@ -22,9 +22,14 @@ else
     alias nvi 'vim'
 end
 
-# Exa alias
-alias e 'exa'
-alias ela 'exa -lab --git'
+# Eza/exa alias
+if command -qv eza
+    alias e 'eza'
+    alias ela 'eza -lab --git'
+else
+    alias e 'exa'
+    alias ela 'exa -lab --git'
+end
 
 # Ranger alias
 alias r 'ranger'
