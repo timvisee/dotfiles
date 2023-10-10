@@ -26,3 +26,8 @@ fish_vi_key_bindings
 
 # Set-up keychain
 type -q keychain && eval (keychain --eval --quiet --agents ssh,gpg id_rsa)
+
+# Set-up Rust environment
+test -f ~/.cargo/env && . ~/.cargo/env
+
+abbr -a y " youtube-dl --force-ipv4 --no-check-certificate -f2"
