@@ -378,6 +378,7 @@ nmap <leader>rn <Plug>(coc-rename)
 " fzf/skim bindings
 nnoremap <silent> <leader>o :Files<CR>
 nnoremap <silent> <leader>O :Buffers<CR>
+nnoremap <silent> <leader><C-o> :GFiles?<CR>
 nnoremap <silent> <leader>A :Windows<CR>
 nnoremap <leader>r :Rg 
 nnoremap <silent> <leader>; :BLines<CR>
