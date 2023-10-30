@@ -81,12 +81,19 @@ BRANCHES=(
 )
 
 if [[ $INTERACTIVE = '1' ]]; then
-  PS3="Choose a branch: "
 
-  select d in "${BRANCHES[@]}"; do
-    test -n "$d" && break;
-    echo ">>> Invalid Selection";
-  done
+  if [[ $(command -v fzf) ]]; then
+    # Interactive selection with fzf
+    d=$(printf "%s\n"  "${BRANCHES[@]}" | fzf --prompt "Choose branch:")
+    test -z "$d" && exit 1
+  else
+    # Selection with bash
+    PS3="Choose a branch: "
+    select d in "${BRANCHES[@]}"; do
+        test -n "$d" && break;
+        echo ">>> Invalid Selection";
+    done
+  fi
 
   git checkout "$d"
 else
