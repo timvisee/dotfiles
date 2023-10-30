@@ -84,7 +84,7 @@ if [[ $INTERACTIVE = '1' ]]; then
 
   if [[ $(command -v fzf) ]]; then
     # Interactive selection with fzf
-    d=$(printf "%s\n"  "${BRANCHES[@]}" | fzf --prompt "Choose branch:")
+    d=$(printf "%s\n"  "${BRANCHES[@]}" | fzf --prompt "Choose branch: ")
     test -z "$d" && exit 1
   else
     # Selection with bash
