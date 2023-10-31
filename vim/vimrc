@@ -545,6 +545,7 @@ endfunction
 """ Plugins
 " fzf/skim
 let g:fzf_nvim_statusline = 0
+let $FZF_DEFAULT_COMMAND="rg --files"
 
 " Automatically format Rust code on save
 let g:rustfmt_autosave = 1
