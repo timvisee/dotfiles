@@ -551,9 +551,9 @@ let $FZF_DEFAULT_COMMAND="rg --files"
 let g:rustfmt_autosave = 1
 
 " NERDtree
-" Open NERDtree when run with no arguments
+" If running with no arguments, open NERDtree and put cursor back in other window.
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | wincmd p | endif
 
 " Properly close NERDTree
 autocmd bufenter * if (winnr("$") == 1
