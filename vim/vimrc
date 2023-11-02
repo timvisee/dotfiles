@@ -514,9 +514,6 @@ inoremap {, {<CR>},<C-c>O
 inoremap [; [<CR>];<C-c>O
 inoremap [, [<CR>],<C-c>O
 
-" Negate expressions
-inoremap )! )!<Esc>T<Space>i!<Esc>f!s
-
 " Common typos
 nnoremap q: :q
 cnoreabbrev W w
