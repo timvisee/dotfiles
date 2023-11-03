@@ -348,8 +348,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> <leader>n :call CocAction('diagnosticNext')<CR>
-nmap <silent> <leader>N :call CocAction('diagnosticPrevious')<CR>
 
 " Coc docs
 nnoremap <silent> K :call ShowDocumentation()<CR>
