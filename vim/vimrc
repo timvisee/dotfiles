@@ -504,13 +504,13 @@ map <silent> <F6> :set spell!<CR>
 " autocmd FileType rust inoremap ;nyi panic!("not yet implemented")
 " autocmd FileType tex inoremap ;l \begin{itemize}<CR>\tightlist{}<CR>\item<Space>_<CR>\end{itemize}<CR><CR><++><Esc>?_<CR>"_s
 
-" Auto expanding
-inoremap (; (<CR>);<C-c>O
-inoremap (, (<CR>),<C-c>O
-inoremap {; {<CR>};<C-c>O
-inoremap {, {<CR>},<C-c>O
-inoremap [; [<CR>];<C-c>O
-inoremap [, [<CR>],<C-c>O
+" " Auto expanding
+" inoremap (; (<CR>);<C-c>O
+" inoremap (, (<CR>),<C-c>O
+" inoremap {; {<CR>};<C-c>O
+" inoremap {, {<CR>},<C-c>O
+" inoremap [; [<CR>];<C-c>O
+" inoremap [, [<CR>],<C-c>O
 
 " Common typos
 nnoremap q: :q
