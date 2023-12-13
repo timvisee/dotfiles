@@ -470,39 +470,39 @@ map <silent> <leader><C-n> :NERDTreeFind<CR>
 " Toggle spell checking
 map <silent> <F6> :set spell!<CR>
 
-" Jump to next cursor placeholder from an expander
-nnoremap <leader><Tab> /<++><CR>"_c4l
-nnoremap <localleader><Tab> /<++><CR>"_c4l
-inoremap <localleader><Tab> <Esc>/<++><CR>"_c4l
+" " Jump to next cursor placeholder from an expander
+" nnoremap <leader><Tab> /<++><CR>"_c4l
+" nnoremap <localleader><Tab> /<++><CR>"_c4l
+" inoremap <localleader><Tab> <Esc>/<++><CR>"_c4l
 
-" Useful expanders
-autocmd FileType html,blade,vue inoremap ;p <p>_</p><Space><++><Esc>?_<CR>"_s
-autocmd FileType html,blade,vue inoremap ;P <p><CR><Space><Space><Space><Space>_<CR></p><CR><CR><++><Esc>?_<CR>"_s
-autocmd FileType html,blade,vue inoremap ;b <b>_</b><Space><++><Esc>?_<CR>"_s
-autocmd FileType html,blade,vue inoremap ;B <br />
-autocmd FileType html,blade,vue inoremap ;i <i>_</i><Space><++><Esc>?_<CR>"_s
-autocmd FileType html,blade,vue inoremap ;a <a href="_"><++></a><Space><++><Esc>?_<CR>"_s
-autocmd FileType html,blade,vue inoremap ;d <div><CR><Space><Space><Space><Space>_<CR></div><CR><CR><++><Esc>?_<CR>"_s
-autocmd FileType html,blade,vue inoremap ;1 <h1>_</h1><Space><++><Esc>?_<CR>"_s
-autocmd FileType html,blade,vue inoremap ;2 <h2>_</h2><Space><++><Esc>?_<CR>"_s
-autocmd FileType html,blade,vue inoremap ;3 <h3>_</h3><Space><++><Esc>?_<CR>"_s
-autocmd FileType html,blade,vue inoremap ;4 <h4>_</h4><Space><++><Esc>?_<CR>"_s
-autocmd FileType html,blade,vue inoremap ;5 <h5>_</h5><Space><++><Esc>?_<CR>"_s
-autocmd FileType html,blade,vue inoremap ;6 <h6>_</h6><Space><++><Esc>?_<CR>"_s
-autocmd FileType javascript,vue inoremap ;c console.log(_);<CR><++><Esc>?_<CR>"_s
-autocmd FileType blade inoremap ;{ {{<Space>_<Space>}}<Space><++><Esc>?_<CR>"_s
-autocmd FileType markdown inoremap ;b **_**<Space><++><Esc>?_<CR>"_s
-autocmd FileType markdown inoremap ;i _*_<Space><++><Esc>?\*<CR>"_s
-autocmd FileType markdown inoremap ;1 #<CR><++><Esc>k$a<Space>
-autocmd FileType markdown inoremap ;2 ##<CR><++><Esc>k$a<Space>
-autocmd FileType markdown inoremap ;3 ###<CR><++><Esc>k$a<Space>
-autocmd FileType markdown inoremap ;4 ####<CR><++><Esc>k$a<Space>
-autocmd FileType markdown inoremap ;5 #####<CR><++><Esc>k$a<Space>
-autocmd FileType markdown inoremap ;6 ######<CR><++><Esc>k$a<Space>
-autocmd FileType rust inoremap ;i if<Space>_<Space>{<CR><++><CR>}<Esc>2kf_"_s
-autocmd FileType rust inoremap ;f fn<Space>_(<++>)<++><Space>{<CR><++><CR>}<Esc>2kf_"_s
-autocmd FileType rust inoremap ;nyi panic!("not yet implemented")
-autocmd FileType tex inoremap ;l \begin{itemize}<CR>\tightlist{}<CR>\item<Space>_<CR>\end{itemize}<CR><CR><++><Esc>?_<CR>"_s
+" " Useful expanders
+" autocmd FileType html,blade,vue inoremap ;p <p>_</p><Space><++><Esc>?_<CR>"_s
+" autocmd FileType html,blade,vue inoremap ;P <p><CR><Space><Space><Space><Space>_<CR></p><CR><CR><++><Esc>?_<CR>"_s
+" autocmd FileType html,blade,vue inoremap ;b <b>_</b><Space><++><Esc>?_<CR>"_s
+" autocmd FileType html,blade,vue inoremap ;B <br />
+" autocmd FileType html,blade,vue inoremap ;i <i>_</i><Space><++><Esc>?_<CR>"_s
+" autocmd FileType html,blade,vue inoremap ;a <a href="_"><++></a><Space><++><Esc>?_<CR>"_s
+" autocmd FileType html,blade,vue inoremap ;d <div><CR><Space><Space><Space><Space>_<CR></div><CR><CR><++><Esc>?_<CR>"_s
+" autocmd FileType html,blade,vue inoremap ;1 <h1>_</h1><Space><++><Esc>?_<CR>"_s
+" autocmd FileType html,blade,vue inoremap ;2 <h2>_</h2><Space><++><Esc>?_<CR>"_s
+" autocmd FileType html,blade,vue inoremap ;3 <h3>_</h3><Space><++><Esc>?_<CR>"_s
+" autocmd FileType html,blade,vue inoremap ;4 <h4>_</h4><Space><++><Esc>?_<CR>"_s
+" autocmd FileType html,blade,vue inoremap ;5 <h5>_</h5><Space><++><Esc>?_<CR>"_s
+" autocmd FileType html,blade,vue inoremap ;6 <h6>_</h6><Space><++><Esc>?_<CR>"_s
+" autocmd FileType javascript,vue inoremap ;c console.log(_);<CR><++><Esc>?_<CR>"_s
+" autocmd FileType blade inoremap ;{ {{<Space>_<Space>}}<Space><++><Esc>?_<CR>"_s
+" autocmd FileType markdown inoremap ;b **_**<Space><++><Esc>?_<CR>"_s
+" autocmd FileType markdown inoremap ;i _*_<Space><++><Esc>?\*<CR>"_s
+" autocmd FileType markdown inoremap ;1 #<CR><++><Esc>k$a<Space>
+" autocmd FileType markdown inoremap ;2 ##<CR><++><Esc>k$a<Space>
+" autocmd FileType markdown inoremap ;3 ###<CR><++><Esc>k$a<Space>
+" autocmd FileType markdown inoremap ;4 ####<CR><++><Esc>k$a<Space>
+" autocmd FileType markdown inoremap ;5 #####<CR><++><Esc>k$a<Space>
+" autocmd FileType markdown inoremap ;6 ######<CR><++><Esc>k$a<Space>
+" autocmd FileType rust inoremap ;i if<Space>_<Space>{<CR><++><CR>}<Esc>2kf_"_s
+" autocmd FileType rust inoremap ;f fn<Space>_(<++>)<++><Space>{<CR><++><CR>}<Esc>2kf_"_s
+" autocmd FileType rust inoremap ;nyi panic!("not yet implemented")
+" autocmd FileType tex inoremap ;l \begin{itemize}<CR>\tightlist{}<CR>\item<Space>_<CR>\end{itemize}<CR><CR><++><Esc>?_<CR>"_s
 
 " Auto expanding
 inoremap (; (<CR>);<C-c>O
