@@ -529,7 +529,7 @@ function! RandVec(dim)
 
     let n = a:dim
     while n > 0
-        exe "normal a" . rand() % 10 . ".0, "
+        exe "normal a0." . rand() % 10 . ", "
         let n -= 1
     endwhile
     normal hxx
