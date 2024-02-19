@@ -29,3 +29,7 @@
 # Enable ReReRe: <https://git-scm.com/book/en/v2/Git-Tools-Rerere>
 [rerere]
 	enabled = true
+
+# Suggest command fixes: <https://git-scm.com/docs/git-config#Documentation/git-config.txt-helpautoCorrect>
+[help]
+	autocorrect = prompt
