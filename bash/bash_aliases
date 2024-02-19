@@ -78,6 +78,7 @@ alias glg='git log --pretty="format:%Cred%h %Cblue%d %Cgreen%s %Creset%an %ar" -
 alias gf='git fetch'
 alias gfm='git pull'
 alias gr='git rebase'
+alias grc='git rebase --continue'
 alias grr='git reset'
 alias grrh='git reset --hard'
 alias gt='git tag'
