@@ -59,6 +59,7 @@ Plug 'RRethy/vim-illuminate'
 Plug 'sheerun/vim-polyglot'
 Plug 'maralla/vim-toml-enhance'
 Plug 'github/copilot.vim'
+Plug 'habamax/vim-godot'
 
 " Laravel related
 " TODO: organize these plugins
