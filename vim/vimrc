@@ -194,6 +194,9 @@ set cmdheight=2
 " Always show the status line
 set laststatus=2
 
+" Redraw status line if CoC status changes
+autocmd User CocStatusChange redrawstatus
+
 " Red underline for spelling errors
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=009 guifg=#ff0000
