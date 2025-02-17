@@ -6,7 +6,7 @@
 	editor = vim
 
 [init]
-    defaultBranch = master
+	defaultBranch = master
 
 [commit]
 	gpgsign = true
@@ -25,6 +25,7 @@
 [alias]
 	commit = commit -S
 	d = difftool
+	cp = cherry-pick
 
 # Enable ReReRe: <https://git-scm.com/book/en/v2/Git-Tools-Rerere>
 [rerere]
