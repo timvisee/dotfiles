@@ -67,9 +67,6 @@ abbr git_clean_repo 'git clean -dfx'
 abbr d 'docker'
 abbr dc 'docker-compose'
 
-# Make alias
-alias m 'make'
-
 # Clipboard aliases
 if [ (uname -s) = "Darwin" ]
     alias getclip 'pbpaste'
