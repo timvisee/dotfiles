@@ -12,60 +12,60 @@ alias :q 'exit'
 
 # Nvim and vim aliases
 if command -qv nvim
-    alias v 'nvim'
-    alias vi 'nvim'
-    alias vim 'nvim'
-    alias nvi 'nvim'
+    abbr v 'nvim'
+    abbr vi 'nvim'
+    abbr vim 'nvim'
+    abbr nvi 'nvim'
 else
-    alias v 'vim'
-    alias vi 'vim'
-    alias nvi 'vim'
+    abbr v 'vim'
+    abbr vi 'vim'
+    abbr nvi 'vim'
 end
 
 # Eza/exa alias
 if command -qv eza
-    alias e 'eza'
-    alias ela 'eza -lab --git'
+    abbr e 'eza'
+    abbr ela 'eza -lab --git'
 else
-    alias e 'exa'
-    alias ela 'exa -lab --git'
+    abbr e 'exa'
+    abbr ela 'exa -lab --git'
 end
 
 # Ranger alias
-alias r 'ranger'
+abbr r 'ranger'
 
 # Pass aliases
-alias p 'prs show --verbose --timeout 20'
-alias pc 'prs copy'
+abbr p 'prs show --verbose --timeout 20'
+abbr pc 'prs copy'
 
 # Git aliases
-alias g 'git'
-alias ga 'git add'
-alias ga. 'git add .'
-alias gap 'git add --patch'
-alias gapn 'git add --intent-to-add .; and git add --patch'
-alias gb 'git branch'
-alias gc 'git commit'
-alias gca 'git commit --amend'
-alias gp 'git push'
-alias gpf 'git push --force-with-lease'
-alias gs 'git status'
-alias gd 'git diff'
-alias gl 'git log'
-alias gll "git -c core.pager='less -p^commit.*\$' log -p -M -w --stat --pretty=fuller --show-notes"
-alias glg 'git log --pretty="format:%Cred%h %Cblue%d %Cgreen%s %Creset%an %ar" --graph'
-alias gf 'git fetch'
-alias gfm 'git pull'
-alias gr 'git rebase'
-alias grc 'git rebase --continue'
-alias grr 'git reset'
-alias grrh 'git reset --hard'
-alias gt 'git tag'
-alias git_clean_repo 'git clean -dfx'
+abbr g 'git'
+abbr ga 'git add'
+abbr ga. 'git add .'
+abbr gap 'git add --patch'
+abbr gapn 'git add --intent-to-add .; and git add --patch'
+abbr gb 'git branch'
+abbr gc 'git commit'
+abbr gca 'git commit --amend'
+abbr gp 'git push'
+abbr gpf 'git push --force-with-lease'
+abbr gs 'git status'
+abbr gd 'git diff'
+abbr gl 'git log'
+abbr gll "git -c core.pager='less -p^commit.*\$' log -p -M -w --stat --pretty=fuller --show-notes"
+abbr glg 'git log --pretty="format:%Cred%h %Cblue%d %Cgreen%s %Creset%an %ar" --graph'
+abbr gf 'git fetch'
+abbr gfm 'git pull'
+abbr gr 'git rebase'
+abbr grc 'git rebase --continue'
+abbr grr 'git reset'
+abbr grrh 'git reset --hard'
+abbr gt 'git tag'
+abbr git_clean_repo 'git clean -dfx'
 
 # Docker
-alias d 'docker'
-alias dc 'docker-compose'
+abbr d 'docker'
+abbr dc 'docker-compose'
 
 # Make alias
 alias m 'make'
@@ -90,13 +90,13 @@ function tn
 end
 
 # Cargo aliases
-alias cr 'cargo run'
-alias crr 'cargo run --release'
-alias cb 'cargo build'
-alias cbr 'cargo build --release'
-alias cc 'cargo check'
-alias ct 'cargo test'
-alias cu 'cargo update'
+abbr cr 'cargo run'
+abbr crr 'cargo run --release'
+abbr cb 'cargo build'
+abbr cbr 'cargo build --release'
+abbr cc 'cargo check'
+abbr ct 'cargo test'
+abbr cu 'cargo update'
 
 # Free memory cache and swap
 alias drop_cache 'sudo sh -c "echo 3 > /proc/sys/vm/drop_caches && swapoff -a && swapon -a"'
