@@ -35,6 +35,7 @@ endif
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'yangmillstheory/vim-snipe'
+Plug 'knsh14/vim-github-link'
 
 " Formatting
 Plug 'FooSoft/vim-argwrap'
