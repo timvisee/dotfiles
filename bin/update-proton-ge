@@ -20,9 +20,15 @@ download_url=https://github.com/GloriousEggroll/proton-ge-custom/releases/downlo
 install_dir=$PROTON_DIR/$version
 download_file=/tmp/$version.tar.gz
 
+print_installed() {
+    echo Installed versions:
+    ls $PROTON_DIR | grep -e "^GE-Proton" | sed "s/^/- /"
+}
+
 # Exit if already installed
 if [ -d $install_dir ]; then
-    echo Already installed at: $install_dir
+    echo Already installed at $install_dir
+    print_installed
     exit
 fi
 
@@ -36,4 +42,5 @@ tar -xzf $download_file --directory $PROTON_DIR
 echo Cleanup...
 rm $download_file
 
-echo Installation complete, at: $install_dir
+echo Installation complete, at $install_dir
+print_installed
