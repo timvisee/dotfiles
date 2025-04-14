@@ -67,6 +67,10 @@ abbr git_clean_repo 'git clean -dfx'
 abbr d 'docker'
 abbr dc 'docker-compose'
 
+# Python shenanigans
+alias venvactivate "source venv/bin/activate.fish"
+alias mkvenv3.10 "pyenv local 3.10 && python3 -m venv venv && venvactivate && pip3 install -U pip"
+
 # Clipboard aliases
 if [ (uname -s) = "Darwin" ]
     alias getclip 'pbpaste'

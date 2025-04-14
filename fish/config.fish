@@ -31,3 +31,8 @@ type -q keychain && eval (keychain --eval --quiet --agents ssh,gpg id_rsa)
 test -f ~/.cargo/env && . ~/.cargo/env
 
 abbr -a y " youtube-dl --force-ipv4 --no-check-certificate -f2"
+
+# Python venv
+set -Ux PYENV_ROOT $HOME/.pyenv
+fish_add_path $PYENV_ROOT/bin
+pyenv init - fish | source
