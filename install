@@ -784,7 +784,6 @@ if [ $DO_VIM == "yes" ]; then
     do_file "$DIR/vim/vimrc" $CMD_USER_HOME_DIR/.config/nvim/init.vim
     do_file "$DIR/vim/plug.vim" $CMD_USER_HOME_DIR/.vim/autoload/plug.vim
     do_file "$DIR/vim/plug.vim" $CMD_USER_HOME_DIR/.local/share/nvim/site/autoload/plug.vim
-    do_file "$DIR/vim/settings.json" $CMD_USER_HOME_DIR/.config/nvim/settings.json
     do_file "$DIR/vim/spell/nl.utf-8.spl" $CMD_USER_HOME_DIR/.vim/spell/nl.utf-8.spl
     do_file "$DIR/vim/spell/nl.utf-8.sug" $CMD_USER_HOME_DIR/.vim/spell/nl.utf-8.sug
     do_file "$DIR/nvim/coc-settings.json" $CMD_USER_HOME_DIR/.config/nvim/coc-settings.json
