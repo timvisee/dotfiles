@@ -1,4 +1,12 @@
 #!/usr/bin/fish
 
 # Use fish math built-in
-math $argv
+
+if count $argv > /dev/null
+    # Math from arguments
+    math $argv
+else
+    # Math from stdin
+    read expression
+    math $expression
+end
