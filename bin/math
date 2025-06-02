@@ -1,0 +1,4 @@
+#!/usr/bin/fish
+
+# Use fish math built-in
+math $argv
