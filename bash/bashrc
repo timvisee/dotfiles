@@ -55,7 +55,7 @@ export GPG_TTY=$(tty)
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.composer/vendor/bin:$PATH
-export PATH=$HOME/.bitfactory/bin:$PATH
+export PATH=$HOME/.krew/bin:$PATH
 
 # Source aliasses
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
@@ -87,6 +87,7 @@ fi
 
 # Source functions
 source ~/.bash_functions
+[[ -f ~/.bash_functions_private ]] && . ~/.bash_functions_private
 
 # Python venv
 export PYENV_ROOT="$HOME/.pyenv"

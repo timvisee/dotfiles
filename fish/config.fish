@@ -9,7 +9,7 @@ set PATH $HOME/bin $PATH
 set PATH $HOME/.local/bin $PATH
 set PATH $HOME/.cargo/bin $PATH
 set PATH $HOME/.composer/vendor/bin:$PATH
-set PATH $HOME/.bitfactory/bin:$PATH
+set PATH $HOME/.krew/bin $PATH
 
 # Source other configuration files
 source ~/.config/fish/aliases.fish
