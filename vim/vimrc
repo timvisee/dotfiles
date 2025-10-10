@@ -31,6 +31,8 @@ if executable('git')
 endif
 
 " Jumping
+" TODO: take a look at skim
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'yangmillstheory/vim-snipe'
 Plug 'knsh14/vim-github-link'
