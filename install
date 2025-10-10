@@ -732,7 +732,6 @@ if [ $DO_FISH == "yes" ]; then
     log_normal "Updating fish dotfiles..."
     do_file "$DIR/fish/config.fish" $CMD_USER_HOME_DIR/.config/fish/config.fish
     do_file "$DIR/fish/aliases.fish" $CMD_USER_HOME_DIR/.config/fish/aliases.fish
-    do_file "$DIR/fish/nvm.fish" $CMD_USER_HOME_DIR/.config/fish/nvm.fish
     do_file "$DIR/fish/prompt.fish" $CMD_USER_HOME_DIR/.config/fish/prompt.fish
     for file in $(cd "$DIR/fish/functions/" && ls *.fish); do
         do_file "$DIR/fish/functions/$file" $CMD_USER_HOME_DIR/.config/fish/functions/$file
