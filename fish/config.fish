@@ -13,7 +13,6 @@ set PATH $HOME/.krew/bin $PATH
 
 # Source other configuration files
 source ~/.config/fish/aliases.fish
-source ~/.config/fish/nvm.fish
 
 # Prompt
 type -q starship && eval (starship init fish) || . ~/.config/fish/prompt.fish
