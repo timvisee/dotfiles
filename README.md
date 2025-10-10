@@ -33,6 +33,7 @@ dotfiles are used to personalize your system and applications. These are mine.
 * `starship`: as better shell prompt
 * `thefuck`: for handy incorrect command fixes
 * `highlight`: for syntax highlighting in ranger
+* `fzf`: fuzzy finder
 
 ## Installation
 An installation script is included to easily install the dotfiles on your system.
