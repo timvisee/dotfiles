@@ -67,9 +67,6 @@ elif [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
     [ -n "$(which starship)" ] && eval "$(starship init zsh)"
 fi
 
-# Set-up keychain
-which keychain > /dev/null && eval $(SHELL=bash keychain --eval --quiet --agents ssh,gpg id_rsa)
-
 # Set-up Rust environment
 [[ -f ~/.cargo/env ]] && . ~/.cargo/env
 

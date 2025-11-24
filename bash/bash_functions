@@ -122,3 +122,9 @@ function rerun () {
         inotifywait -e MODIFY --recursive .
     done
 }
+
+# Authenticate agents
+function auth () {
+    # Set-up keychain
+    which keychain > /dev/null && eval $(SHELL=bash keychain --eval --quiet --agents ssh,gpg id_rsa)
+}
