@@ -10,9 +10,6 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 # Fix Java AWT WM GUI issues
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# Enable native Wayland in Firefox
-export MOZ_ENABLE_WAYLAND=1
-
 # Set the terminal properties we're using
 export TERM="xterm-256"
 [[ -n `which alacritty` ]] && export TERMCMD="alacritty" || export TERMCMD="x-terminal-emulator"
