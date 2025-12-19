@@ -28,7 +28,7 @@ test -f ~/.cargo/env && . ~/.cargo/env
 
 abbr -a y " youtube-dl --force-ipv4 --no-check-certificate -f2"
 
-# Python venv
-set -Ux PYENV_ROOT $HOME/.pyenv
-fish_add_path $PYENV_ROOT/bin
-pyenv init - fish | source
+# # Python venv
+# set -Ux PYENV_ROOT $HOME/.pyenv
+# fish_add_path $PYENV_ROOT/bin
+# pyenv init - fish | source
